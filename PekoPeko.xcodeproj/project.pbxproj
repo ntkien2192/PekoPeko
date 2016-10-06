@@ -1,0 +1,815 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		199A77BC69B5C0C937C1E640 /* Pods_PekoPekoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 537C2913E9A24E68F1DC2759 /* Pods_PekoPekoTests.framework */; };
+		477CD66EE57DAFD75CBAD0D1 /* Pods_PekoPeko.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20117C82CC4D78FE06782A7E /* Pods_PekoPeko.framework */; };
+		985DA124BA7E166EB9C6A336 /* Pods_PekoPekoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C363AA1CB4D071EA36B2783A /* Pods_PekoPekoUITests.framework */; };
+		E494049F1DA6AD1B00918C75 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E494049E1DA6AD1B00918C75 /* AppDelegate.swift */; };
+		E49404A11DA6AD1B00918C75 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49404A01DA6AD1B00918C75 /* ViewController.swift */; };
+		E49404A41DA6AD1B00918C75 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E49404A21DA6AD1B00918C75 /* Main.storyboard */; };
+		E49404A61DA6AD1B00918C75 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E49404A51DA6AD1B00918C75 /* Assets.xcassets */; };
+		E49404A91DA6AD1B00918C75 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E49404A71DA6AD1B00918C75 /* LaunchScreen.storyboard */; };
+		E49404B41DA6AD1B00918C75 /* PekoPekoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49404B31DA6AD1B00918C75 /* PekoPekoTests.swift */; };
+		E49404BF1DA6AD1B00918C75 /* PekoPekoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49404BE1DA6AD1B00918C75 /* PekoPekoUITests.swift */; };
+		E49404D81DA6B60800918C75 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E49404D71DA6B60800918C75 /* Home.storyboard */; };
+		E49404DA1DA6BB2100918C75 /* logoBar.png in Resources */ = {isa = PBXBuildFile; fileRef = E49404D91DA6BB2100918C75 /* logoBar.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E49404B01DA6AD1B00918C75 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E49404931DA6AD1B00918C75 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E494049A1DA6AD1B00918C75;
+			remoteInfo = PekoPeko;
+		};
+		E49404BB1DA6AD1B00918C75 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E49404931DA6AD1B00918C75 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E494049A1DA6AD1B00918C75;
+			remoteInfo = PekoPeko;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		20117C82CC4D78FE06782A7E /* Pods_PekoPeko.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PekoPeko.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		26A5EE95D13496F0238D7B0A /* Pods-PekoPekoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PekoPekoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PekoPekoTests/Pods-PekoPekoTests.release.xcconfig"; sourceTree = "<group>"; };
+		27CB8F7BCDB6ADAF0E274670 /* Pods-PekoPekoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PekoPekoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PekoPekoTests/Pods-PekoPekoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		49A09ACE95789116528BADBB /* Pods-PekoPeko.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PekoPeko.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PekoPeko/Pods-PekoPeko.debug.xcconfig"; sourceTree = "<group>"; };
+		537C2913E9A24E68F1DC2759 /* Pods_PekoPekoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PekoPekoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		664ABDCCBB7DBC8360AE57DF /* Pods-PekoPekoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PekoPekoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PekoPekoUITests/Pods-PekoPekoUITests.release.xcconfig"; sourceTree = "<group>"; };
+		9B6C8800FC4273E653CCF31C /* Pods-PekoPekoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PekoPekoUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PekoPekoUITests/Pods-PekoPekoUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		9FB9D6F7769D536D4C6DA375 /* Pods-PekoPeko.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PekoPeko.release.xcconfig"; path = "Pods/Target Support Files/Pods-PekoPeko/Pods-PekoPeko.release.xcconfig"; sourceTree = "<group>"; };
+		C363AA1CB4D071EA36B2783A /* Pods_PekoPekoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PekoPekoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E494049B1DA6AD1B00918C75 /* PekoPeko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PekoPeko.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E494049E1DA6AD1B00918C75 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E49404A01DA6AD1B00918C75 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E49404A31DA6AD1B00918C75 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E49404A51DA6AD1B00918C75 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E49404A81DA6AD1B00918C75 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E49404AA1DA6AD1B00918C75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E49404AF1DA6AD1B00918C75 /* PekoPekoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PekoPekoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E49404B31DA6AD1B00918C75 /* PekoPekoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PekoPekoTests.swift; sourceTree = "<group>"; };
+		E49404B51DA6AD1B00918C75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E49404BA1DA6AD1B00918C75 /* PekoPekoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PekoPekoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E49404BE1DA6AD1B00918C75 /* PekoPekoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PekoPekoUITests.swift; sourceTree = "<group>"; };
+		E49404C01DA6AD1B00918C75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E49404D71DA6B60800918C75 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		E49404D91DA6BB2100918C75 /* logoBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoBar.png; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E49404981DA6AD1B00918C75 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				477CD66EE57DAFD75CBAD0D1 /* Pods_PekoPeko.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E49404AC1DA6AD1B00918C75 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				199A77BC69B5C0C937C1E640 /* Pods_PekoPekoTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E49404B71DA6AD1B00918C75 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				985DA124BA7E166EB9C6A336 /* Pods_PekoPekoUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4E5FCE8B7815E8C090DCB6C1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				20117C82CC4D78FE06782A7E /* Pods_PekoPeko.framework */,
+				537C2913E9A24E68F1DC2759 /* Pods_PekoPekoTests.framework */,
+				C363AA1CB4D071EA36B2783A /* Pods_PekoPekoUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DD7219C3032C72CBA7EA61B3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				49A09ACE95789116528BADBB /* Pods-PekoPeko.debug.xcconfig */,
+				9FB9D6F7769D536D4C6DA375 /* Pods-PekoPeko.release.xcconfig */,
+				27CB8F7BCDB6ADAF0E274670 /* Pods-PekoPekoTests.debug.xcconfig */,
+				26A5EE95D13496F0238D7B0A /* Pods-PekoPekoTests.release.xcconfig */,
+				9B6C8800FC4273E653CCF31C /* Pods-PekoPekoUITests.debug.xcconfig */,
+				664ABDCCBB7DBC8360AE57DF /* Pods-PekoPekoUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E49404921DA6AD1B00918C75 = {
+			isa = PBXGroup;
+			children = (
+				E494049D1DA6AD1B00918C75 /* PekoPeko */,
+				E49404B21DA6AD1B00918C75 /* PekoPekoTests */,
+				E49404BD1DA6AD1B00918C75 /* PekoPekoUITests */,
+				E494049C1DA6AD1B00918C75 /* Products */,
+				DD7219C3032C72CBA7EA61B3 /* Pods */,
+				4E5FCE8B7815E8C090DCB6C1 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		E494049C1DA6AD1B00918C75 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E494049B1DA6AD1B00918C75 /* PekoPeko.app */,
+				E49404AF1DA6AD1B00918C75 /* PekoPekoTests.xctest */,
+				E49404BA1DA6AD1B00918C75 /* PekoPekoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E494049D1DA6AD1B00918C75 /* PekoPeko */ = {
+			isa = PBXGroup;
+			children = (
+				E49404CC1DA6AE5F00918C75 /* Model */,
+				E49404CD1DA6AE6600918C75 /* View */,
+				E49404CE1DA6AE6B00918C75 /* Controller */,
+				E49404CF1DA6AE7900918C75 /* Store */,
+				E49404D01DA6AE8100918C75 /* Extention */,
+				E49404D11DA6AE8F00918C75 /* Helper */,
+				E49404D21DA6AEA100918C75 /* Resources */,
+				E49404D31DA6AEB000918C75 /* AppDelegate */,
+				E49404D41DA6AEC100918C75 /* Config */,
+			);
+			path = PekoPeko;
+			sourceTree = "<group>";
+		};
+		E49404B21DA6AD1B00918C75 /* PekoPekoTests */ = {
+			isa = PBXGroup;
+			children = (
+				E49404B31DA6AD1B00918C75 /* PekoPekoTests.swift */,
+				E49404B51DA6AD1B00918C75 /* Info.plist */,
+			);
+			path = PekoPekoTests;
+			sourceTree = "<group>";
+		};
+		E49404BD1DA6AD1B00918C75 /* PekoPekoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E49404BE1DA6AD1B00918C75 /* PekoPekoUITests.swift */,
+				E49404C01DA6AD1B00918C75 /* Info.plist */,
+			);
+			path = PekoPekoUITests;
+			sourceTree = "<group>";
+		};
+		E49404CC1DA6AE5F00918C75 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		E49404CD1DA6AE6600918C75 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E49404D61DA6AEEA00918C75 /* Component */,
+				E49404D51DA6AEDF00918C75 /* Storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		E49404CE1DA6AE6B00918C75 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E49404A01DA6AD1B00918C75 /* ViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		E49404CF1DA6AE7900918C75 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Store;
+			sourceTree = "<group>";
+		};
+		E49404D01DA6AE8100918C75 /* Extention */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Extention;
+			sourceTree = "<group>";
+		};
+		E49404D11DA6AE8F00918C75 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Helper;
+			sourceTree = "<group>";
+		};
+		E49404D21DA6AEA100918C75 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E49404D91DA6BB2100918C75 /* logoBar.png */,
+				E49404A51DA6AD1B00918C75 /* Assets.xcassets */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		E49404D31DA6AEB000918C75 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				E494049E1DA6AD1B00918C75 /* AppDelegate.swift */,
+			);
+			name = AppDelegate;
+			sourceTree = "<group>";
+		};
+		E49404D41DA6AEC100918C75 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				E49404AA1DA6AD1B00918C75 /* Info.plist */,
+			);
+			name = Config;
+			sourceTree = "<group>";
+		};
+		E49404D51DA6AEDF00918C75 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				E49404A21DA6AD1B00918C75 /* Main.storyboard */,
+				E49404A71DA6AD1B00918C75 /* LaunchScreen.storyboard */,
+				E49404D71DA6B60800918C75 /* Home.storyboard */,
+			);
+			name = Storyboard;
+			sourceTree = "<group>";
+		};
+		E49404D61DA6AEEA00918C75 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Component;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E494049A1DA6AD1B00918C75 /* PekoPeko */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E49404C31DA6AD1B00918C75 /* Build configuration list for PBXNativeTarget "PekoPeko" */;
+			buildPhases = (
+				602DCF1D0AF8A0DCF7BF4946 /* [CP] Check Pods Manifest.lock */,
+				E49404971DA6AD1B00918C75 /* Sources */,
+				E49404981DA6AD1B00918C75 /* Frameworks */,
+				E49404991DA6AD1B00918C75 /* Resources */,
+				FCE861F5B20E608DB43F141A /* [CP] Embed Pods Frameworks */,
+				8CB502277EACEE68E704F329 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PekoPeko;
+			productName = PekoPeko;
+			productReference = E494049B1DA6AD1B00918C75 /* PekoPeko.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E49404AE1DA6AD1B00918C75 /* PekoPekoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E49404C61DA6AD1B00918C75 /* Build configuration list for PBXNativeTarget "PekoPekoTests" */;
+			buildPhases = (
+				71331BEAE060074EB05DDF2A /* [CP] Check Pods Manifest.lock */,
+				E49404AB1DA6AD1B00918C75 /* Sources */,
+				E49404AC1DA6AD1B00918C75 /* Frameworks */,
+				E49404AD1DA6AD1B00918C75 /* Resources */,
+				79788253086B7406162AD551 /* [CP] Embed Pods Frameworks */,
+				231DC109566894E4F775DB85 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E49404B11DA6AD1B00918C75 /* PBXTargetDependency */,
+			);
+			name = PekoPekoTests;
+			productName = PekoPekoTests;
+			productReference = E49404AF1DA6AD1B00918C75 /* PekoPekoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E49404B91DA6AD1B00918C75 /* PekoPekoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E49404C91DA6AD1B00918C75 /* Build configuration list for PBXNativeTarget "PekoPekoUITests" */;
+			buildPhases = (
+				92E3AD402F3CEB5CF470B7D7 /* [CP] Check Pods Manifest.lock */,
+				E49404B61DA6AD1B00918C75 /* Sources */,
+				E49404B71DA6AD1B00918C75 /* Frameworks */,
+				E49404B81DA6AD1B00918C75 /* Resources */,
+				58A5D685D43F87FD904751F3 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E49404BC1DA6AD1B00918C75 /* PBXTargetDependency */,
+			);
+			name = PekoPekoUITests;
+			productName = PekoPekoUITests;
+			productReference = E49404BA1DA6AD1B00918C75 /* PekoPekoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E49404931DA6AD1B00918C75 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = hungrybear;
+				TargetAttributes = {
+					E494049A1DA6AD1B00918C75 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = QMPAK7CSJF;
+						ProvisioningStyle = Automatic;
+					};
+					E49404AE1DA6AD1B00918C75 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = QMPAK7CSJF;
+						ProvisioningStyle = Automatic;
+						TestTargetID = E494049A1DA6AD1B00918C75;
+					};
+					E49404B91DA6AD1B00918C75 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = QMPAK7CSJF;
+						ProvisioningStyle = Automatic;
+						TestTargetID = E494049A1DA6AD1B00918C75;
+					};
+				};
+			};
+			buildConfigurationList = E49404961DA6AD1B00918C75 /* Build configuration list for PBXProject "PekoPeko" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E49404921DA6AD1B00918C75;
+			productRefGroup = E494049C1DA6AD1B00918C75 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E494049A1DA6AD1B00918C75 /* PekoPeko */,
+				E49404AE1DA6AD1B00918C75 /* PekoPekoTests */,
+				E49404B91DA6AD1B00918C75 /* PekoPekoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E49404991DA6AD1B00918C75 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E49404A91DA6AD1B00918C75 /* LaunchScreen.storyboard in Resources */,
+				E49404A61DA6AD1B00918C75 /* Assets.xcassets in Resources */,
+				E49404A41DA6AD1B00918C75 /* Main.storyboard in Resources */,
+				E49404D81DA6B60800918C75 /* Home.storyboard in Resources */,
+				E49404DA1DA6BB2100918C75 /* logoBar.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E49404AD1DA6AD1B00918C75 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E49404B81DA6AD1B00918C75 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		231DC109566894E4F775DB85 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PekoPekoTests/Pods-PekoPekoTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		58A5D685D43F87FD904751F3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PekoPekoUITests/Pods-PekoPekoUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		602DCF1D0AF8A0DCF7BF4946 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		71331BEAE060074EB05DDF2A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		79788253086B7406162AD551 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PekoPekoTests/Pods-PekoPekoTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8CB502277EACEE68E704F329 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PekoPeko/Pods-PekoPeko-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		92E3AD402F3CEB5CF470B7D7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FCE861F5B20E608DB43F141A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PekoPeko/Pods-PekoPeko-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E49404971DA6AD1B00918C75 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E49404A11DA6AD1B00918C75 /* ViewController.swift in Sources */,
+				E494049F1DA6AD1B00918C75 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E49404AB1DA6AD1B00918C75 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E49404B41DA6AD1B00918C75 /* PekoPekoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E49404B61DA6AD1B00918C75 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E49404BF1DA6AD1B00918C75 /* PekoPekoUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E49404B11DA6AD1B00918C75 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E494049A1DA6AD1B00918C75 /* PekoPeko */;
+			targetProxy = E49404B01DA6AD1B00918C75 /* PBXContainerItemProxy */;
+		};
+		E49404BC1DA6AD1B00918C75 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E494049A1DA6AD1B00918C75 /* PekoPeko */;
+			targetProxy = E49404BB1DA6AD1B00918C75 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E49404A21DA6AD1B00918C75 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E49404A31DA6AD1B00918C75 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E49404A71DA6AD1B00918C75 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E49404A81DA6AD1B00918C75 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E49404C11DA6AD1B00918C75 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E49404C21DA6AD1B00918C75 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E49404C41DA6AD1B00918C75 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 49A09ACE95789116528BADBB /* Pods-PekoPeko.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = QMPAK7CSJF;
+				INFOPLIST_FILE = PekoPeko/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = hungrybear.co.pekopeko.vn;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		E49404C51DA6AD1B00918C75 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9FB9D6F7769D536D4C6DA375 /* Pods-PekoPeko.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = QMPAK7CSJF;
+				INFOPLIST_FILE = PekoPeko/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = hungrybear.co.pekopeko.vn;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		E49404C71DA6AD1B00918C75 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 27CB8F7BCDB6ADAF0E274670 /* Pods-PekoPekoTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = QMPAK7CSJF;
+				INFOPLIST_FILE = PekoPekoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = hungrybear.PekoPekoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PekoPeko.app/PekoPeko";
+			};
+			name = Debug;
+		};
+		E49404C81DA6AD1B00918C75 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26A5EE95D13496F0238D7B0A /* Pods-PekoPekoTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = QMPAK7CSJF;
+				INFOPLIST_FILE = PekoPekoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = hungrybear.PekoPekoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PekoPeko.app/PekoPeko";
+			};
+			name = Release;
+		};
+		E49404CA1DA6AD1B00918C75 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9B6C8800FC4273E653CCF31C /* Pods-PekoPekoUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = QMPAK7CSJF;
+				INFOPLIST_FILE = PekoPekoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = hungrybear.PekoPekoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = PekoPeko;
+			};
+			name = Debug;
+		};
+		E49404CB1DA6AD1B00918C75 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 664ABDCCBB7DBC8360AE57DF /* Pods-PekoPekoUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = QMPAK7CSJF;
+				INFOPLIST_FILE = PekoPekoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = hungrybear.PekoPekoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = PekoPeko;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E49404961DA6AD1B00918C75 /* Build configuration list for PBXProject "PekoPeko" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E49404C11DA6AD1B00918C75 /* Debug */,
+				E49404C21DA6AD1B00918C75 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E49404C31DA6AD1B00918C75 /* Build configuration list for PBXNativeTarget "PekoPeko" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E49404C41DA6AD1B00918C75 /* Debug */,
+				E49404C51DA6AD1B00918C75 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E49404C61DA6AD1B00918C75 /* Build configuration list for PBXNativeTarget "PekoPekoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E49404C71DA6AD1B00918C75 /* Debug */,
+				E49404C81DA6AD1B00918C75 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E49404C91DA6AD1B00918C75 /* Build configuration list for PBXNativeTarget "PekoPekoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E49404CA1DA6AD1B00918C75 /* Debug */,
+				E49404CB1DA6AD1B00918C75 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E49404931DA6AD1B00918C75 /* Project object */;
+}
