@@ -32,14 +32,36 @@ class LoginViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        viewAnimation()
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        UIApplication.shared.statusBarStyle = .default
+        
+        viewConfig()
     }
     
+    func viewAnimation() {
+        buttonFacebook.isHidden = false
+        buttonFacebook.animation = "fadeInUp"
+        buttonFacebook.duration = 0.5
+        buttonFacebook.animate()
+        
+        buttonPhone.isHidden = false
+        buttonPhone.animation = "fadeInUp"
+        buttonPhone.duration = 0.5
+        buttonPhone.animate()
+    }
     
+    func viewConfig() {
+        
+        UIApplication.shared.statusBarStyle = .default
+        
+        buttonFacebook.isHidden = true
+        buttonPhone.isHidden = true
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

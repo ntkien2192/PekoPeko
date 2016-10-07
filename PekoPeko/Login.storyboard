@@ -34,13 +34,6 @@
                                 <state key="normal" title="Bắt đầu với số điện thoại" backgroundImage="ButtonLoginPhone">
                                     <color key="titleColor" red="0.10689641497461932" green="0.090892618893269092" blue="0.00034475334940410114" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="fadeInUp"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="force">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
-                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="GJQ-AZ-Fif" kind="show" id="Ppp-YF-UuN"/>
                                 </connections>
@@ -51,13 +44,6 @@
                                 <state key="normal" title="Bắt đầu với Facebook" backgroundImage="ButtonLoginFacebook">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="fadeInUp"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="force">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
-                                </userDefinedRuntimeAttributes>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.15527839467005078" green="0.13203118133058617" blue="0.00050079085126757844" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -97,11 +83,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackgroundLoginPhone" translatesAutoresizingMaskIntoConstraints="NO" id="sTY-dR-LES">
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="sTY-dR-LES" secondAttribute="height" multiplier="1080:1920" id="kpH-uW-c98"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconLogoAppSplash" translatesAutoresizingMaskIntoConstraints="NO" id="JTj-Jx-kp4" customClass="SpringImageView" customModule="Spring">
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="JTj-Jx-kp4" secondAttribute="height" multiplier="567:604" id="GMA-Pm-s6q"/>
                                     <constraint firstAttribute="width" constant="120" id="fQ8-Gb-XuY"/>
@@ -148,12 +136,36 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vui lòng nhập số điện thoại &amp; password" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sng-8n-r5J" customClass="SpringLabel" customModule="Spring">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="dpS-Z4-QBH"/>
+                                    <constraint firstAttribute="width" constant="297" id="l7m-Vb-7NF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="fadeInLeft"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="force">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="delay">
+                                        <real key="value" value="0.29999999999999999"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lkl-BK-aNo">
+                                <connections>
+                                    <action selector="buttonHideKeyboardTapped:" destination="GJQ-AZ-Fif" eventType="touchUpInside" id="nly-yJ-1Oc"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qz0-cV-j8u">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="QbT-ZP-pr1"/>
                                     <constraint firstAttribute="height" constant="50" id="eNV-Ba-L7q"/>
                                 </constraints>
-                                <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                <inset key="imageEdgeInsets" minX="12" minY="12" maxX="12" maxY="12"/>
                                 <state key="normal" image="IconLeft"/>
                                 <connections>
                                     <action selector="buttonBackTapped:" destination="GJQ-AZ-Fif" eventType="touchUpInside" id="FIL-20-zxB"/>
@@ -177,14 +189,13 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vui lòng nhập số điện thoại &amp; password" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sng-8n-r5J" customClass="SpringLabel" customModule="Spring">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1234" textAlignment="natural" minimumFontSize="17" background="TextFieldLoginPhoneInput" translatesAutoresizingMaskIntoConstraints="NO" id="DO4-TS-x2l" customClass="SpringTextField" customModule="Spring">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="dpS-Z4-QBH"/>
-                                    <constraint firstAttribute="width" constant="297" id="l7m-Vb-7NF"/>
+                                    <constraint firstAttribute="width" secondItem="DO4-TS-x2l" secondAttribute="height" multiplier="324:50" id="ibe-ZD-CIM"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="animation" value="fadeInLeft"/>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
@@ -195,24 +206,31 @@
                                         <real key="value" value="0.29999999999999999"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
-                            </label>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Nb7-q0-6w7" firstAttribute="top" secondItem="JTj-Jx-kp4" secondAttribute="bottom" constant="4" id="5Q1-gm-KeI"/>
+                            <constraint firstItem="JTj-Jx-kp4" firstAttribute="top" secondItem="09H-zS-S2Z" secondAttribute="bottom" constant="50" id="7Ck-RX-Pzb"/>
                             <constraint firstItem="Blk-Yi-f4Y" firstAttribute="width" secondItem="nex-tL-c1R" secondAttribute="width" multiplier="9:10" id="7bg-p6-bla"/>
                             <constraint firstItem="JvJ-h2-dnl" firstAttribute="top" secondItem="Nb7-q0-6w7" secondAttribute="bottom" constant="4" id="8HK-fJ-OjT"/>
+                            <constraint firstItem="DO4-TS-x2l" firstAttribute="width" secondItem="Blk-Yi-f4Y" secondAttribute="width" id="Dcc-BC-biY"/>
                             <constraint firstItem="sng-8n-r5J" firstAttribute="top" secondItem="JvJ-h2-dnl" secondAttribute="bottom" constant="15" id="G4s-xZ-Kxd"/>
+                            <constraint firstItem="QoG-lf-ch6" firstAttribute="top" secondItem="lkl-BK-aNo" secondAttribute="bottom" id="Jti-9r-C9p"/>
                             <constraint firstItem="sTY-dR-LES" firstAttribute="centerY" secondItem="nex-tL-c1R" secondAttribute="centerY" id="SIC-Mj-eMu"/>
+                            <constraint firstItem="lkl-BK-aNo" firstAttribute="leading" secondItem="nex-tL-c1R" secondAttribute="leading" id="Ux7-vX-eR8"/>
                             <constraint firstItem="sng-8n-r5J" firstAttribute="centerX" secondItem="sTY-dR-LES" secondAttribute="centerX" id="VQR-aw-yvu"/>
                             <constraint firstItem="Blk-Yi-f4Y" firstAttribute="centerX" secondItem="sTY-dR-LES" secondAttribute="centerX" id="Vxs-WO-BSQ"/>
                             <constraint firstItem="sTY-dR-LES" firstAttribute="width" secondItem="nex-tL-c1R" secondAttribute="width" id="Zq1-i5-wmO"/>
                             <constraint firstItem="Blk-Yi-f4Y" firstAttribute="top" secondItem="sng-8n-r5J" secondAttribute="bottom" constant="8" id="ZuV-vT-OzZ"/>
-                            <constraint firstItem="JTj-Jx-kp4" firstAttribute="centerY" secondItem="nex-tL-c1R" secondAttribute="centerY" multiplier="0.4" id="co4-EX-OfN"/>
+                            <constraint firstItem="lkl-BK-aNo" firstAttribute="top" secondItem="nex-tL-c1R" secondAttribute="top" id="f7P-Jk-dO3"/>
                             <constraint firstItem="Qz0-cV-j8u" firstAttribute="leading" secondItem="nex-tL-c1R" secondAttribute="leading" id="ioI-5R-cr8"/>
                             <constraint firstItem="sTY-dR-LES" firstAttribute="centerX" secondItem="nex-tL-c1R" secondAttribute="centerX" id="itR-nL-nsq"/>
                             <constraint firstItem="Nb7-q0-6w7" firstAttribute="centerX" secondItem="sTY-dR-LES" secondAttribute="centerX" id="jKj-Fc-Rx1"/>
                             <constraint firstItem="JvJ-h2-dnl" firstAttribute="centerX" secondItem="sTY-dR-LES" secondAttribute="centerX" id="mLK-b9-97I"/>
+                            <constraint firstItem="DO4-TS-x2l" firstAttribute="centerX" secondItem="nex-tL-c1R" secondAttribute="centerX" id="mnE-8q-K6x"/>
+                            <constraint firstAttribute="trailing" secondItem="lkl-BK-aNo" secondAttribute="trailing" id="nlt-S2-qEh"/>
+                            <constraint firstItem="DO4-TS-x2l" firstAttribute="top" secondItem="Blk-Yi-f4Y" secondAttribute="bottom" constant="8" id="qXG-ah-X1S"/>
                             <constraint firstItem="JTj-Jx-kp4" firstAttribute="centerX" secondItem="nex-tL-c1R" secondAttribute="centerX" id="tC0-Sa-Kqh"/>
                             <constraint firstItem="Qz0-cV-j8u" firstAttribute="top" secondItem="09H-zS-S2Z" secondAttribute="bottom" id="tdd-2F-UQH"/>
                         </constraints>
@@ -221,7 +239,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xb6-tA-5st" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1895" y="72"/>
+            <point key="canvasLocation" x="1893.5999999999999" y="71.514242878560722"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fit-ll-QQh">
