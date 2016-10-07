@@ -10,6 +10,14 @@
 		199A77BC69B5C0C937C1E640 /* Pods_PekoPekoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 537C2913E9A24E68F1DC2759 /* Pods_PekoPekoTests.framework */; };
 		477CD66EE57DAFD75CBAD0D1 /* Pods_PekoPeko.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20117C82CC4D78FE06782A7E /* Pods_PekoPeko.framework */; };
 		985DA124BA7E166EB9C6A336 /* Pods_PekoPekoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C363AA1CB4D071EA36B2783A /* Pods_PekoPekoUITests.framework */; };
+		E43D2C7C1DA7F5570019B2DD /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E43D2C7B1DA7F5570019B2DD /* Login.storyboard */; };
+		E43D2C7F1DA7F6840019B2DD /* HomeTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43D2C7E1DA7F6840019B2DD /* HomeTabbarController.swift */; };
+		E43D2C821DA7F6C40019B2DD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43D2C811DA7F6C40019B2DD /* LoginViewController.swift */; };
+		E43D2C841DA80DAE0019B2DD /* LoginPhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43D2C831DA80DAE0019B2DD /* LoginPhoneViewController.swift */; };
+		E451FFEF1DA8120B00B5A756 /* Textfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = E451FFEE1DA8120B00B5A756 /* Textfield.swift */; };
+		E451FFF11DA813B700B5A756 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = E451FFF01DA813B700B5A756 /* View.swift */; };
+		E451FFF31DA813C800B5A756 /* ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E451FFF21DA813C800B5A756 /* ScrollView.swift */; };
+		E451FFF51DA813DA00B5A756 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = E451FFF41DA813DA00B5A756 /* Button.swift */; };
 		E494049F1DA6AD1B00918C75 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E494049E1DA6AD1B00918C75 /* AppDelegate.swift */; };
 		E49404A11DA6AD1B00918C75 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49404A01DA6AD1B00918C75 /* ViewController.swift */; };
 		E49404A41DA6AD1B00918C75 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E49404A21DA6AD1B00918C75 /* Main.storyboard */; };
@@ -48,6 +56,14 @@
 		9B6C8800FC4273E653CCF31C /* Pods-PekoPekoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PekoPekoUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PekoPekoUITests/Pods-PekoPekoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9FB9D6F7769D536D4C6DA375 /* Pods-PekoPeko.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PekoPeko.release.xcconfig"; path = "Pods/Target Support Files/Pods-PekoPeko/Pods-PekoPeko.release.xcconfig"; sourceTree = "<group>"; };
 		C363AA1CB4D071EA36B2783A /* Pods_PekoPekoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PekoPekoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E43D2C7B1DA7F5570019B2DD /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		E43D2C7E1DA7F6840019B2DD /* HomeTabbarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTabbarController.swift; sourceTree = "<group>"; };
+		E43D2C811DA7F6C40019B2DD /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		E43D2C831DA80DAE0019B2DD /* LoginPhoneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPhoneViewController.swift; sourceTree = "<group>"; };
+		E451FFEE1DA8120B00B5A756 /* Textfield.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Textfield.swift; sourceTree = "<group>"; };
+		E451FFF01DA813B700B5A756 /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		E451FFF21DA813C800B5A756 /* ScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollView.swift; sourceTree = "<group>"; };
+		E451FFF41DA813DA00B5A756 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		E494049B1DA6AD1B00918C75 /* PekoPeko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PekoPeko.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E494049E1DA6AD1B00918C75 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E49404A01DA6AD1B00918C75 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +130,23 @@
 				664ABDCCBB7DBC8360AE57DF /* Pods-PekoPekoUITests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		E43D2C7D1DA7F6490019B2DD /* HomeTabbarController */ = {
+			isa = PBXGroup;
+			children = (
+				E43D2C7E1DA7F6840019B2DD /* HomeTabbarController.swift */,
+			);
+			name = HomeTabbarController;
+			sourceTree = "<group>";
+		};
+		E43D2C801DA7F6A90019B2DD /* LoginViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E43D2C811DA7F6C40019B2DD /* LoginViewController.swift */,
+				E43D2C831DA80DAE0019B2DD /* LoginPhoneViewController.swift */,
+			);
+			name = LoginViewController;
 			sourceTree = "<group>";
 		};
 		E49404921DA6AD1B00918C75 = {
@@ -191,6 +224,8 @@
 		E49404CE1DA6AE6B00918C75 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				E43D2C801DA7F6A90019B2DD /* LoginViewController */,
+				E43D2C7D1DA7F6490019B2DD /* HomeTabbarController */,
 				E49404A01DA6AD1B00918C75 /* ViewController.swift */,
 			);
 			name = Controller;
@@ -248,6 +283,7 @@
 				E49404A21DA6AD1B00918C75 /* Main.storyboard */,
 				E49404A71DA6AD1B00918C75 /* LaunchScreen.storyboard */,
 				E49404D71DA6B60800918C75 /* Home.storyboard */,
+				E43D2C7B1DA7F5570019B2DD /* Login.storyboard */,
 			);
 			name = Storyboard;
 			sourceTree = "<group>";
@@ -255,6 +291,10 @@
 		E49404D61DA6AEEA00918C75 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				E451FFEE1DA8120B00B5A756 /* Textfield.swift */,
+				E451FFF01DA813B700B5A756 /* View.swift */,
+				E451FFF21DA813C800B5A756 /* ScrollView.swift */,
+				E451FFF41DA813DA00B5A756 /* Button.swift */,
 			);
 			name = Component;
 			sourceTree = "<group>";
@@ -379,6 +419,7 @@
 			files = (
 				E49404A91DA6AD1B00918C75 /* LaunchScreen.storyboard in Resources */,
 				E49404A61DA6AD1B00918C75 /* Assets.xcassets in Resources */,
+				E43D2C7C1DA7F5570019B2DD /* Login.storyboard in Resources */,
 				E49404A41DA6AD1B00918C75 /* Main.storyboard in Resources */,
 				E49404D81DA6B60800918C75 /* Home.storyboard in Resources */,
 				E49404DA1DA6BB2100918C75 /* logoBar.png in Resources */,
@@ -529,8 +570,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E43D2C821DA7F6C40019B2DD /* LoginViewController.swift in Sources */,
+				E451FFEF1DA8120B00B5A756 /* Textfield.swift in Sources */,
 				E49404A11DA6AD1B00918C75 /* ViewController.swift in Sources */,
+				E43D2C841DA80DAE0019B2DD /* LoginPhoneViewController.swift in Sources */,
 				E494049F1DA6AD1B00918C75 /* AppDelegate.swift in Sources */,
+				E451FFF31DA813C800B5A756 /* ScrollView.swift in Sources */,
+				E451FFF11DA813B700B5A756 /* View.swift in Sources */,
+				E451FFF51DA813DA00B5A756 /* Button.swift in Sources */,
+				E43D2C7F1DA7F6840019B2DD /* HomeTabbarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -603,6 +651,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -653,6 +702,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -682,6 +732,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 49A09ACE95789116528BADBB /* Pods-PekoPeko.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = QMPAK7CSJF;
 				INFOPLIST_FILE = PekoPeko/Info.plist;
@@ -697,6 +748,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9FB9D6F7769D536D4C6DA375 /* Pods-PekoPeko.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = QMPAK7CSJF;
 				INFOPLIST_FILE = PekoPeko/Info.plist;

@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        UIApplication.shared.statusBarStyle = .lightContent
         
         // Override point for customization after application launch.
+        
         return true
     }
 
