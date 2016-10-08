@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 
 enum Router: URLRequestConvertible {
-    static let baseURLString = "https://coremabu.appspot.com/api/v1"
+    static let baseURLString = "http://demo7551665.mockable.io/"
     
     // Router
     case tokenExchange([String: String])
@@ -32,7 +32,7 @@ enum Router: URLRequestConvertible {
             return "/auth/token_exchange/"
             
         case .login:
-            return "/auth/token"
+            return "login"
         }
     }
     
@@ -48,7 +48,6 @@ enum Router: URLRequestConvertible {
             let plainAuthData = "\(token):".data(using: String.Encoding.utf8)
             // Use base64 auth string due to send bearer string not working
             let base64AuthString = (plainAuthData?.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0)))! as String
-            
             urlRequest.setValue("Basic \(base64AuthString)", forHTTPHeaderField: "Authorization")
         }
         

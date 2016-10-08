@@ -21,11 +21,12 @@ class HomeTabbarController: UITabBarController {
         super.viewDidAppear(animated)
         
         
-        let loginController = UIStoryboard(name: LoginViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: LoginViewController.identify)
-        
-        
-        if let navigationController = navigationController {
-            navigationController.present(loginController, animated: false, completion: nil)
+        if !AuthenticationStore().isLogin {
+            let loginController = UIStoryboard(name: LoginViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: LoginViewController.identify)
+            
+            if let navigationController = navigationController {
+                navigationController.present(loginController, animated: false, completion: nil)
+            }
         }
     }
     

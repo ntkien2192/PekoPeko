@@ -44,10 +44,10 @@
             </objects>
             <point key="canvasLocation" x="1169" y="1033"/>
         </scene>
-        <!--View Controller-->
+        <!--Card View Controller-->
         <scene sceneID="lDE-vQ-R4t">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="pd0-z8-O7W" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="pd0-z8-O7W" customClass="CardViewController" customModule="PekoPeko" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QmT-If-t8h"/>
                         <viewControllerLayoutGuide type="bottom" id="UeU-V6-nJZ"/>
@@ -79,6 +79,11 @@
                                 <constraint firstAttribute="trailing" secondItem="MhQ-xJ-feB" secondAttribute="trailing" id="Wvz-uy-wIw"/>
                             </constraints>
                         </view>
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="ESU-89-Qs4">
+                            <connections>
+                                <action selector="buttonLogoutTapped:" destination="pd0-z8-O7W" id="fD1-Is-SNN"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ywA-et-dgM" userLabel="First Responder" sceneMemberID="firstResponder"/>

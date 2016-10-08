@@ -18,10 +18,24 @@ class AuthenticationStore {
     fileprivate let authRestaurantIDKey = "gomabu.restaurantid"
     fileprivate let authAdminIDKey = "gomabu.adminid"
     
+    fileprivate let isLoginKey = "pekopeko.isLoginKey"
+    
     fileprivate var defaults: UserDefaults = {
         
         return UserDefaults.standard
     }()
+    
+    //MARK: LOGIN
+    
+    
+    var isLogin: Bool {
+        return defaults.value(forKey: isLoginKey) as? Bool ?? false
+    }
+    
+    func saveLoginValue(_ isLogin: Bool) {
+        defaults.set(isLogin, forKey: isLoginKey)
+        defaults.synchronize()
+    }
     
     // Access token
     
@@ -143,7 +157,6 @@ class AuthenticationStore {
     /// Get access token by username and password combine
     class func login(_ authParameters: AuthParameters, completionHandler: @escaping (Bool, Error?) -> Void) {
         let parameters = authParameters.toJSON()
-        
         _ = Alamofire.request(Router.login(parameters as [String : AnyObject]))
             .responseGMBAccessToken { response in
                 if let error = response.result.error {
@@ -157,12 +170,13 @@ class AuthenticationStore {
                 }
                 // TODO: Create Auth struct
                 if responseData.2 { // User is verified
+                    
                     AuthenticationStore().saveAcessToken(responseData.0)
                     AuthenticationStore().saveAuthAdminID(responseData.1)
                     
                     completionHandler(true, nil)
                 } else {
-                    let errorData = ["gomabu_id": responseData.1]
+                    let errorData = ["pekopeko_id": responseData.1]
                     let error = ServerResponseError(data: errorData as [String : AnyObject], kind: .unverifiedAccount)
                     completionHandler(false, error)
                 }

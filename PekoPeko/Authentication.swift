@@ -10,19 +10,24 @@ import Foundation
 import ObjectMapper
 
 
+enum AuthParametersFields: String {
+    case PhoneNumber = "phoneNumber"
+    case Password = "password"
+}
+
 struct AuthParameters: Mappable {
-    var username: String?
+    var phoneNumber: String?
     var password: String?
-    
-    init(username: String, password: String) {
-        self.username = username
+
+    init(phoneNumber: String, password: String) {
+        self.phoneNumber = phoneNumber
         self.password = password
     }
     
     init?(map: Map) {}
     
     mutating func mapping(map: Map) {
-        username    <- map["username"]
-        password    <- map["password"]
+        phoneNumber    <- map[AuthParametersFields.PhoneNumber.rawValue]
+        password    <- map[AuthParametersFields.Password.rawValue]
     }
 }

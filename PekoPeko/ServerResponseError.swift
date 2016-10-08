@@ -9,6 +9,9 @@
 import Foundation
 
 struct ServerResponseError: Error {
+    
+    static let ServerResponseErrorID = "pekopeko_id"
+    
     enum ErrorKind {
         case unverifiedAccount
         case dataSerializationFailed
@@ -19,7 +22,6 @@ struct ServerResponseError: Error {
 
 extension ServerResponseError: CustomStringConvertible {
     var description: String {
-        
         
         if let failureReason = data?[NSLocalizedFailureReasonErrorKey] as? String {
             return failureReason

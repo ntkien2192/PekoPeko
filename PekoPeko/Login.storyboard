@@ -121,9 +121,25 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WWW.PEKOPEKO.VN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JvJ-h2-dnl" customClass="SpringLabel" customModule="Spring">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N2s-rt-lFs" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="cta-yY-nHE"/>
+                                    <constraint firstAttribute="width" constant="50" id="vSs-bE-rDG"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="typeName" value="BallTrianglePath"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="padding">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WWW.PEKOPEKO.VN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JvJ-h2-dnl" customClass="Label" customModule="PekoPeko" customModuleProvider="target">
                                 <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="12"/>
-                                <color key="textColor" red="0.35549420118331909" green="0.23547500371932983" blue="0.18363526463508606" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.25490196079999999" green="0.1137254902" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="animation" value="fadeInLeft"/>
@@ -136,10 +152,9 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vui lòng nhập số điện thoại &amp; password" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kys-81-Ew7" customClass="SpringLabel" customModule="Spring">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vui lòng nhập số điện thoại &amp; mật khẩu" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kys-81-Ew7" customClass="Label" customModule="PekoPeko" customModuleProvider="target">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="297" id="Mqn-Kx-vGb"/>
-                                    <constraint firstAttribute="height" constant="21" id="XTB-Mb-3Gw"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="24" id="XTB-Mb-3Gw"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
                                 <color key="textColor" red="0.25490196079999999" green="0.1137254902" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -152,6 +167,9 @@
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="delay">
                                         <real key="value" value="0.20000000000000001"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="4"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
@@ -231,7 +249,7 @@
                                             <constraint firstAttribute="width" constant="0.5" id="JyI-LF-JRB"/>
                                         </constraints>
                                     </view>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nhập mật khẩu" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FIN-Rc-IF2" customClass="Textfield" customModule="PekoPeko" customModuleProvider="target">
+                                    <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="center" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nhập mật khẩu" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FIN-Rc-IF2" customClass="Textfield" customModule="PekoPeko" customModuleProvider="target">
                                         <color key="tintColor" red="0.96078431369999995" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="textColor" red="0.25490196079999999" green="0.1137254902" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
@@ -331,6 +349,7 @@
                             <constraint firstItem="Nb7-q0-6w7" firstAttribute="top" secondItem="JTj-Jx-kp4" secondAttribute="bottom" constant="4" id="5Q1-gm-KeI"/>
                             <constraint firstItem="JTj-Jx-kp4" firstAttribute="top" secondItem="09H-zS-S2Z" secondAttribute="bottom" constant="50" id="7Ck-RX-Pzb"/>
                             <constraint firstItem="JvJ-h2-dnl" firstAttribute="top" secondItem="Nb7-q0-6w7" secondAttribute="bottom" constant="4" id="8HK-fJ-OjT"/>
+                            <constraint firstItem="N2s-rt-lFs" firstAttribute="centerX" secondItem="kkq-pW-heF" secondAttribute="centerX" id="COm-fD-VdX"/>
                             <constraint firstItem="QoG-lf-ch6" firstAttribute="top" secondItem="lkl-BK-aNo" secondAttribute="bottom" id="Jti-9r-C9p"/>
                             <constraint firstItem="3Od-xJ-jbS" firstAttribute="height" secondItem="kkq-pW-heF" secondAttribute="height" id="KoF-Q7-2Kb"/>
                             <constraint firstItem="Kys-81-Ew7" firstAttribute="centerX" secondItem="nex-tL-c1R" secondAttribute="centerX" id="NI1-8t-EwH"/>
@@ -340,6 +359,7 @@
                             <constraint firstItem="pO3-A7-U6a" firstAttribute="width" secondItem="nex-tL-c1R" secondAttribute="width" multiplier="9:10" id="Ys3-qX-VOP"/>
                             <constraint firstItem="sTY-dR-LES" firstAttribute="width" secondItem="nex-tL-c1R" secondAttribute="width" id="Zq1-i5-wmO"/>
                             <constraint firstItem="kkq-pW-heF" firstAttribute="width" secondItem="pO3-A7-U6a" secondAttribute="width" id="a7b-HQ-WPf"/>
+                            <constraint firstItem="N2s-rt-lFs" firstAttribute="centerY" secondItem="kkq-pW-heF" secondAttribute="centerY" id="dmI-cR-KUp"/>
                             <constraint firstItem="lkl-BK-aNo" firstAttribute="top" secondItem="nex-tL-c1R" secondAttribute="top" id="f7P-Jk-dO3"/>
                             <constraint firstItem="pO3-A7-U6a" firstAttribute="centerX" secondItem="nex-tL-c1R" secondAttribute="centerX" id="fXd-e0-PnG"/>
                             <constraint firstItem="kkq-pW-heF" firstAttribute="width" secondItem="kkq-pW-heF" secondAttribute="height" multiplier="332:50" id="hgY-bf-c4K"/>
@@ -353,15 +373,21 @@
                             <constraint firstItem="JTj-Jx-kp4" firstAttribute="centerX" secondItem="nex-tL-c1R" secondAttribute="centerX" id="tC0-Sa-Kqh"/>
                             <constraint firstItem="Qz0-cV-j8u" firstAttribute="top" secondItem="09H-zS-S2Z" secondAttribute="bottom" id="tdd-2F-UQH"/>
                             <constraint firstItem="pO3-A7-U6a" firstAttribute="top" secondItem="Kys-81-Ew7" secondAttribute="bottom" constant="8" id="wcx-WL-KCn"/>
+                            <constraint firstItem="Kys-81-Ew7" firstAttribute="width" secondItem="pO3-A7-U6a" secondAttribute="width" id="x7x-cR-vlR"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="DLa-uE-HCd"/>
                     <connections>
                         <outlet property="buttonShowHidePassword" destination="FNp-tl-YWe" id="RBN-Kq-YHD"/>
+                        <outlet property="buttonSubmit" destination="3Od-xJ-jbS" id="2Ex-GV-KDl"/>
                         <outlet property="constraintTop" destination="7Ck-RX-Pzb" id="Nga-rF-GCw"/>
                         <outlet property="imageViewLogo" destination="JTj-Jx-kp4" id="PLb-NM-9MT"/>
+                        <outlet property="labelIntro" destination="Kys-81-Ew7" id="sI0-lc-HRx"/>
+                        <outlet property="loginActivity" destination="N2s-rt-lFs" id="OFh-uc-OSG"/>
                         <outlet property="textfieldPassword" destination="FIN-Rc-IF2" id="hwf-IK-QwF"/>
                         <outlet property="textfieldPhoneNumber" destination="kiN-d1-pjX" id="Wso-yO-gXC"/>
+                        <outlet property="viewPassword" destination="kkq-pW-heF" id="6rF-RD-BzM"/>
+                        <outlet property="viewPhoneNumber" destination="pO3-A7-U6a" id="QqZ-aA-3i3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xb6-tA-5st" userLabel="First Responder" sceneMemberID="firstResponder"/>

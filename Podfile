@@ -11,6 +11,8 @@ target 'PekoPeko' do
   pod 'ObjectMapper', '~> 2.0'
   pod 'SwiftHEXColors', :git => 'https://github.com/thii/SwiftHEXColors.git', :branch => 'swift-3.0'
   pod 'MBProgressHUD', '~> 1.0.0'
+  pod 'UIResponder+KeyboardCache', '~> 0.1'
+  pod 'NVActivityIndicatorView'
   
   # Pods for PekoPeko
 

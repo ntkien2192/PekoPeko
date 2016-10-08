@@ -13,12 +13,14 @@ extension UIColor {
     
     @nonobjc static let colorOrange = UIColor(hex: "#F55722")
     @nonobjc static let colorGray = UIColor(hex: "#B3B3B3")
+    @nonobjc static let colorBrown = UIColor(hex: "#411D11")
+    @nonobjc static let colorRed = UIColor(hex: "#E01C23")
     
     class func RGB(_ red: CGFloat, green: CGFloat, blue: CGFloat) -> UIColor {
-        return RGBA(red, green: green, blue: blue, alpha: 255)
+        return RGBA(red, green: green, blue: blue, alpha: 255.0)
     }
     
     class func RGBA(_ red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) -> UIColor {
-        return UIColor(red: red/255, green: green/255, blue: blue/255, alpha: alpha/255)
+        return UIColor(red: red/255.0, green: green/255.0, blue: blue/255.0, alpha: (alpha * 255.0)/255.0)
     }
 }
