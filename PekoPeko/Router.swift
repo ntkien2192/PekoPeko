@@ -47,7 +47,7 @@ enum Router: URLRequestConvertible {
         if let token = AuthenticationStore().accessToken {
             let plainAuthData = "\(token):".data(using: String.Encoding.utf8)
             // Use base64 auth string due to send bearer string not working
-            let base64AuthString = (plainAuthData?.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0)))! as String
+            let base64AuthString = (plainAuthData?.base64EncodedString(options: Data.Base64EncodingOptions(rawValue: 0)))! as String
             urlRequest.setValue("Basic \(base64AuthString)", forHTTPHeaderField: "Authorization")
         }
         

@@ -56,8 +56,8 @@ class SegmentControl: UIView {
             segmentedControl.selectedTitleTextColor = UIColor.white
             segmentedControl.cornerRadius = 0.0
             segmentedControl.borderWidth = 0.0
-            segmentedControl.titleFont = UIFont.getFont(size: 16)
-            segmentedControl.selectedTitleFont = UIFont.getFont(size: 16)
+            segmentedControl.titleFont = UIFont.getFont(16)
+            segmentedControl.selectedTitleFont = UIFont.getFont(16)
             segmentedControl.borderColor = UIColor.clear
             segmentedControl.segmentIndicatorBorderWidth = 0.0
             segmentedControl.addTarget(self, action: #selector(SegmentControl.segmentSelected), for: .valueChanged)

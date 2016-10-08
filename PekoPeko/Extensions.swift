@@ -15,6 +15,7 @@ extension UIColor {
     @nonobjc static let colorGray = UIColor(hex: "#B3B3B3")
     @nonobjc static let colorBrown = UIColor(hex: "#411D11")
     @nonobjc static let colorRed = UIColor(hex: "#E01C23")
+    @nonobjc static let colorYellow = UIColor(hex: "#FDD700")
     
     class func RGB(_ red: CGFloat, green: CGFloat, blue: CGFloat) -> UIColor {
         return RGBA(red, green: green, blue: blue, alpha: 255.0)
@@ -26,15 +27,15 @@ extension UIColor {
 }
 
 extension UIFont {
-    class func getFont(size: CGFloat) -> UIFont {
+    class func getFont(_ size: CGFloat) -> UIFont {
         return UIFont(name: "AvenirNext-Regular", size: size)!
     }
     
-    class func getBoldFont(size: CGFloat) -> UIFont {
+    class func getBoldFont(_ size: CGFloat) -> UIFont {
         return UIFont(name: "AvenirNext-Medium", size: size)!
     }
     
-    class func getBlackFont(size: CGFloat) -> UIFont {
+    class func getBlackFont(_ size: CGFloat) -> UIFont {
         return UIFont(name: "AvenirNext-Bold", size: size)!
     }
 }

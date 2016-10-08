@@ -14,6 +14,7 @@ target 'PekoPeko' do
   pod 'UIResponder+KeyboardCache', '~> 0.1'
   pod 'NVActivityIndicatorView'
   pod 'NYSegmentedControl'
+  pod "MTBBarcodeScanner"
   
   # Pods for PekoPeko
 

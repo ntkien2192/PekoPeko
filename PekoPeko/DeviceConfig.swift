@@ -10,9 +10,9 @@ import UIKit
 
 enum UIUserInterfaceIdiom : Int
 {
-    case Unspecified
-    case Phone
-    case Pad
+    case unspecified
+    case phone
+    case pad
 }
 
 struct ScreenSize
@@ -35,7 +35,7 @@ struct DeviceType
 
 class DeviceConfig: NSObject {
     
-    class func getConstraintValue(d35: CGFloat, d40: CGFloat, d50: CGFloat, d55: CGFloat) -> CGFloat? {
+    class func getConstraintValue( d35: CGFloat, d40: CGFloat, d50: CGFloat, d55: CGFloat) -> CGFloat? {
         
         if DeviceType.IS_IPHONE_4_OR_LESS {
             return d35

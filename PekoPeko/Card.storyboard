@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Store List View Controller-->
+        <scene sceneID="j3I-fU-FG9">
+            <objects>
+                <viewController storyboardIdentifier="StoreListViewController" id="clN-Iq-JzU" customClass="StoreListViewController" customModule="PekoPeko" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ci5-uB-71N"/>
+                        <viewControllerLayoutGuide type="bottom" id="LwV-dn-WTq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xkL-z9-mKg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lN8-h3-h8D">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="clN-Iq-JzU" id="bT4-rt-CAy"/>
+                                    <outlet property="delegate" destination="clN-Iq-JzU" id="igV-tp-0kK"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="LwV-dn-WTq" firstAttribute="top" secondItem="lN8-h3-h8D" secondAttribute="bottom" id="HtI-wy-vVo"/>
+                            <constraint firstItem="lN8-h3-h8D" firstAttribute="leading" secondItem="xkL-z9-mKg" secondAttribute="leading" id="UJj-bo-gTQ"/>
+                            <constraint firstAttribute="trailing" secondItem="lN8-h3-h8D" secondAttribute="trailing" id="ava-lC-t6D"/>
+                            <constraint firstItem="lN8-h3-h8D" firstAttribute="top" secondItem="xkL-z9-mKg" secondAttribute="top" id="hBU-uL-gfr"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="lN8-h3-h8D" id="3zd-Ps-GoT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P57-jt-nnW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-372" y="142.57871064467767"/>
+        </scene>
+        <!--My Card View Controller-->
+        <scene sceneID="ynf-CG-Ssh">
+            <objects>
+                <viewController storyboardIdentifier="MyCardViewController" id="mIG-zo-oeA" customClass="MyCardViewController" customModule="PekoPeko" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Pyn-dO-Ltt"/>
+                        <viewControllerLayoutGuide type="bottom" id="YF0-Oa-wid"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wP9-oV-DWF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AZq-7Q-zCd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="327" y="143"/>
+        </scene>
+    </scenes>
+</document>

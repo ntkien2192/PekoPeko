@@ -90,7 +90,7 @@ class LoginPhoneViewController: UIViewController {
     }
     
     func submit() {
-        slideDownView()
+        
         
         
 //        let loadingView = MBProgressHUD.showAdded(to: view, animated: true)
@@ -128,8 +128,9 @@ class LoginPhoneViewController: UIViewController {
 
         
         if error != "" {
-            showError(message: error, animation: true)
+            showError(error, animation: true)
         } else {
+            slideDownView()
             
             hideLoginField()
             
@@ -137,7 +138,7 @@ class LoginPhoneViewController: UIViewController {
                 if phoneNumber == "1" && password == "1" {
                     self.login()
                 } else {
-                    self.showError(message: "Tài khoản này không tồn tại, vui lòng đăng nhập lại", animation: false)
+                    self.showError("Tài khoản này không tồn tại, vui lòng đăng nhập lại", animation: false)
                     self.showLoginField()
                 }
             }
@@ -159,7 +160,7 @@ class LoginPhoneViewController: UIViewController {
         labelIntro.textColor = UIColor.colorBrown
     }
     
-    func showError(message: String, animation: Bool) {
+    func showError(_ message: String, animation: Bool) {
         labelIntro.text = message
         labelIntro.backgroundColor = UIColor.colorBrown
         labelIntro.textColor = UIColor.white

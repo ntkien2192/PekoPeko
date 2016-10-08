@@ -9,11 +9,25 @@
 import UIKit
 
 class CardViewController: UIViewController {
-
+    var pageMenu: CAPSPageMenu?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        viewConfig()
+    }
+    
+    func viewConfig() {
+        let storyList = UIStoryboard(name: StoreListViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: StoreListViewController.identify) as! StoreListViewController
+        storyList.title = "Cửa hàng"
+        
+        let myCardList = UIStoryboard(name: MyCardViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: MyCardViewController.identify) as! MyCardViewController
+        myCardList.title = "Thẻ của tôi"
+        
+        pageMenu = CAPSPageMenu(viewControllers: [storyList, myCardList], frame: view.bounds, pageMenuOptions: CAPSPageMenu.setting())
+        if let pageMenu = pageMenu {
+            view.addSubview(pageMenu.view)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,17 +44,4 @@ class CardViewController: UIViewController {
             navigationController.present(loginController, animated: false, completion: nil)
         }
     }
-    
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
