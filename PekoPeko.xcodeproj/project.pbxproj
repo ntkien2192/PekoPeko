@@ -26,6 +26,7 @@
 		E451FFF51DA813DA00B5A756 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = E451FFF41DA813DA00B5A756 /* Button.swift */; };
 		E476B0171DA8FB74007B1D62 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = E476B0161DA8FB74007B1D62 /* Label.swift */; };
 		E476B0191DA908FD007B1D62 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E476B0181DA908FD007B1D62 /* CardViewController.swift */; };
+		E476B01B1DA91709007B1D62 /* SegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E476B01A1DA91709007B1D62 /* SegmentControl.swift */; };
 		E494049F1DA6AD1B00918C75 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E494049E1DA6AD1B00918C75 /* AppDelegate.swift */; };
 		E49404A11DA6AD1B00918C75 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49404A01DA6AD1B00918C75 /* ViewController.swift */; };
 		E49404A41DA6AD1B00918C75 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E49404A21DA6AD1B00918C75 /* Main.storyboard */; };
@@ -80,6 +81,7 @@
 		E451FFF41DA813DA00B5A756 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		E476B0161DA8FB74007B1D62 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		E476B0181DA908FD007B1D62 /* CardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
+		E476B01A1DA91709007B1D62 /* SegmentControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentControl.swift; sourceTree = "<group>"; };
 		E494049B1DA6AD1B00918C75 /* PekoPeko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PekoPeko.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E494049E1DA6AD1B00918C75 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E49404A01DA6AD1B00918C75 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -314,6 +316,7 @@
 		E49404D61DA6AEEA00918C75 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				E476B01A1DA91709007B1D62 /* SegmentControl.swift */,
 				E451FFEE1DA8120B00B5A756 /* Textfield.swift */,
 				E451FFF01DA813B700B5A756 /* View.swift */,
 				E451FFF21DA813C800B5A756 /* ScrollView.swift */,
@@ -611,6 +614,7 @@
 				E451FFF51DA813DA00B5A756 /* Button.swift in Sources */,
 				E43D2C7F1DA7F6840019B2DD /* HomeTabbarController.swift in Sources */,
 				E42422921DA8A47900F7D6FC /* Authentication.swift in Sources */,
+				E476B01B1DA91709007B1D62 /* SegmentControl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

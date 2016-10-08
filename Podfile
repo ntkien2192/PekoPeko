@@ -13,6 +13,7 @@ target 'PekoPeko' do
   pod 'MBProgressHUD', '~> 1.0.0'
   pod 'UIResponder+KeyboardCache', '~> 0.1'
   pod 'NVActivityIndicatorView'
+  pod 'NYSegmentedControl'
   
   # Pods for PekoPeko
 

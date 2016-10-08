@@ -55,7 +55,20 @@
                     <view key="view" contentMode="scaleToFill" id="VBK-dF-xE5">
                         <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2B1-lL-YeZ">
+                                <color key="backgroundColor" red="0.99265462159999995" green="0.84121900800000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="6V4-oH-bqc"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2B1-lL-YeZ" firstAttribute="leading" secondItem="VBK-dF-xE5" secondAttribute="leading" id="43i-Vh-kM8"/>
+                            <constraint firstAttribute="trailing" secondItem="2B1-lL-YeZ" secondAttribute="trailing" id="XfD-GA-uCG"/>
+                            <constraint firstItem="2B1-lL-YeZ" firstAttribute="top" secondItem="QmT-If-t8h" secondAttribute="bottom" id="cVT-N0-4hC"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Kwg-sU-Q83">
                         <nil key="title"/>

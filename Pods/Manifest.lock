@@ -2,6 +2,7 @@ PODS:
   - Alamofire (4.0.1)
   - MBProgressHUD (1.0.0)
   - NVActivityIndicatorView (3.0)
+  - NYSegmentedControl (1.0.7)
   - ObjectMapper (2.0.0)
   - Spring (1.0.3)
   - SwiftHEXColors (1.0.4)
@@ -12,6 +13,7 @@ DEPENDENCIES:
   - Alamofire (from `https://github.com/Homely/Alamofire.git`, branch `ios8`)
   - MBProgressHUD (~> 1.0.0)
   - NVActivityIndicatorView
+  - NYSegmentedControl
   - ObjectMapper (~> 2.0)
   - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift3`)
   - SwiftHEXColors (from `https://github.com/thii/SwiftHEXColors.git`, branch `swift-3.0`)
@@ -44,12 +46,13 @@ SPEC CHECKSUMS:
   Alamofire: d8ab1487ca8accacde5d0c65ae8144bdf9a264b8
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   NVActivityIndicatorView: 81953b5e65093ba79edf4fe7268e002039ca5268
+  NYSegmentedControl: 55b4f9eb652767cae9799623ec3e49e50029ef47
   ObjectMapper: aed2570edabbd3c9b26c939e1cabdb6558f933e0
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
   SwiftHEXColors: b0ecc7bd83a1aa2e1956f9ba51f55ebb2bcf86ef
   SwiftyJSON: 29b9f2a64f118c07e691667c2ba1efe536acfe0b
   UIResponder+KeyboardCache: dc1b7ff925c25ddb58b289bc71a3724c269767ef
 
-PODFILE CHECKSUM: 06f28f5d8d1edd83308058291d00e79267a7f2f7
+PODFILE CHECKSUM: 946c62c7ba25c5d10ffa311b2832f781801c4599
 
 COCOAPODS: 1.0.1

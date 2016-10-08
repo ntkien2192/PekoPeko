@@ -24,3 +24,17 @@ extension UIColor {
         return UIColor(red: red/255.0, green: green/255.0, blue: blue/255.0, alpha: (alpha * 255.0)/255.0)
     }
 }
+
+extension UIFont {
+    class func getFont(size: CGFloat) -> UIFont {
+        return UIFont(name: "AvenirNext-Regular", size: size)!
+    }
+    
+    class func getBoldFont(size: CGFloat) -> UIFont {
+        return UIFont(name: "AvenirNext-Medium", size: size)!
+    }
+    
+    class func getBlackFont(size: CGFloat) -> UIFont {
+        return UIFont(name: "AvenirNext-Bold", size: size)!
+    }
+}
