@@ -1,31 +1,49 @@
 PODS:
   - Alamofire (4.0.1)
+  - MBProgressHUD (1.0.0)
   - ObjectMapper (2.0.0)
   - Spring (1.0.3)
+  - SwiftHEXColors (1.0.4)
   - SwiftyJSON (3.1.0)
 
 DEPENDENCIES:
-  - Alamofire
+  - Alamofire (from `https://github.com/Homely/Alamofire.git`, branch `ios8`)
+  - MBProgressHUD (~> 1.0.0)
   - ObjectMapper (~> 2.0)
   - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift3`)
+  - SwiftHEXColors (from `https://github.com/thii/SwiftHEXColors.git`, branch `swift-3.0`)
   - SwiftyJSON
 
 EXTERNAL SOURCES:
+  Alamofire:
+    :branch: ios8
+    :git: https://github.com/Homely/Alamofire.git
   Spring:
     :branch: swift3
     :git: https://github.com/MengTo/Spring.git
+  SwiftHEXColors:
+    :branch: swift-3.0
+    :git: https://github.com/thii/SwiftHEXColors.git
 
 CHECKOUT OPTIONS:
+  Alamofire:
+    :commit: 276386cf230cb7e91964ca0021e7ddfa58d2439c
+    :git: https://github.com/Homely/Alamofire.git
   Spring:
     :commit: e5c127b7aa6ce31e5f4d01100a8991423a1eb498
     :git: https://github.com/MengTo/Spring.git
+  SwiftHEXColors:
+    :commit: f4b98e298528fd9d88b10ab55e806d29ce497daa
+    :git: https://github.com/thii/SwiftHEXColors.git
 
 SPEC CHECKSUMS:
-  Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
+  Alamofire: d8ab1487ca8accacde5d0c65ae8144bdf9a264b8
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   ObjectMapper: aed2570edabbd3c9b26c939e1cabdb6558f933e0
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
+  SwiftHEXColors: b0ecc7bd83a1aa2e1956f9ba51f55ebb2bcf86ef
   SwiftyJSON: 29b9f2a64f118c07e691667c2ba1efe536acfe0b
 
-PODFILE CHECKSUM: 2cd71830b0f5016c215b28619333a575e35c5666
+PODFILE CHECKSUM: e5926a9d4052d9330d0b987aa3926acd97e1bce7
 
 COCOAPODS: 1.0.1

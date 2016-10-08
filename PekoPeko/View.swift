@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import Spring
 
 @IBDesignable
 
-class View: UIView {
+class View: SpringView {
     /// BorderView corner radius
     @IBInspectable var cornerRadius: CGFloat = 0.0 {
         didSet {

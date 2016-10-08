@@ -5,10 +5,12 @@ target 'PekoPeko' do
   # Comment this line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
   
-  pod 'Alamofire'
+  pod 'Alamofire', :git => 'https://github.com/Homely/Alamofire.git', :branch => 'ios8'
   pod 'SwiftyJSON'
   pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift3'
   pod 'ObjectMapper', '~> 2.0'
+  pod 'SwiftHEXColors', :git => 'https://github.com/thii/SwiftHEXColors.git', :branch => 'swift-3.0'
+  pod 'MBProgressHUD', '~> 1.0.0'
   
   # Pods for PekoPeko
 

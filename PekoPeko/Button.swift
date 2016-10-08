@@ -11,7 +11,7 @@ import Spring
 
 @IBDesignable
 
-class Button: UIButton {
+class Button: SpringButton {
     
     /// Button corner radius
     @IBInspectable var cornerRadius: CGFloat = 0.0 {

@@ -101,7 +101,7 @@
                                         <real key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="delay">
-                                        <real key="value" value="0.10000000000000001"/>
+                                        <real key="value" value="0.0"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
@@ -117,7 +117,7 @@
                                         <real key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="delay">
-                                        <real key="value" value="0.20000000000000001"/>
+                                        <real key="value" value="0.10000000000000001"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
@@ -132,17 +132,17 @@
                                         <real key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="delay">
-                                        <real key="value" value="0.20000000000000001"/>
+                                        <real key="value" value="0.10000000000000001"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vui lòng nhập số điện thoại &amp; password" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sng-8n-r5J" customClass="SpringLabel" customModule="Spring">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vui lòng nhập số điện thoại &amp; password" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kys-81-Ew7" customClass="SpringLabel" customModule="Spring">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="dpS-Z4-QBH"/>
-                                    <constraint firstAttribute="width" constant="297" id="l7m-Vb-7NF"/>
+                                    <constraint firstAttribute="width" constant="297" id="Mqn-Kx-vGb"/>
+                                    <constraint firstAttribute="height" constant="21" id="XTB-Mb-3Gw"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
+                                <color key="textColor" red="0.25490196079999999" green="0.1137254902" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="animation" value="fadeInLeft"/>
@@ -151,13 +151,165 @@
                                         <real key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="delay">
-                                        <real key="value" value="0.29999999999999999"/>
+                                        <real key="value" value="0.20000000000000001"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lkl-BK-aNo">
                                 <connections>
                                     <action selector="buttonHideKeyboardTapped:" destination="GJQ-AZ-Fif" eventType="touchUpInside" id="nly-yJ-1Oc"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pO3-A7-U6a" customClass="View" customModule="PekoPeko" customModuleProvider="target">
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconSmartphone" translatesAutoresizingMaskIntoConstraints="NO" id="es8-5y-zV0">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="22" id="ACq-PF-crW"/>
+                                            <constraint firstAttribute="height" constant="22" id="R97-fk-iVA"/>
+                                        </constraints>
+                                    </imageView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uqu-JU-nx2">
+                                        <color key="backgroundColor" red="0.25490196078431371" green="0.11372549019607843" blue="0.066666666666666666" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="0.5" id="k87-Q2-wFs"/>
+                                        </constraints>
+                                    </view>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nhập số điện thoại" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kiN-d1-pjX" customClass="Textfield" customModule="PekoPeko" customModuleProvider="target">
+                                        <color key="tintColor" red="0.96078431369999995" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="0.25490196079999999" green="0.1137254902" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="GJQ-AZ-Fif" id="o9a-Vr-ANL"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="uqu-JU-nx2" firstAttribute="leading" secondItem="es8-5y-zV0" secondAttribute="trailing" constant="12" id="2sa-np-62W"/>
+                                    <constraint firstAttribute="bottom" secondItem="kiN-d1-pjX" secondAttribute="bottom" id="7oY-xS-Azm"/>
+                                    <constraint firstItem="es8-5y-zV0" firstAttribute="centerY" secondItem="pO3-A7-U6a" secondAttribute="centerY" id="Ao1-Ew-6NL"/>
+                                    <constraint firstItem="kiN-d1-pjX" firstAttribute="leading" secondItem="uqu-JU-nx2" secondAttribute="trailing" constant="15" id="Aqc-vb-nDj"/>
+                                    <constraint firstItem="uqu-JU-nx2" firstAttribute="height" secondItem="es8-5y-zV0" secondAttribute="height" id="LEr-VG-vOl"/>
+                                    <constraint firstAttribute="width" secondItem="pO3-A7-U6a" secondAttribute="height" multiplier="332:50" id="UZs-jA-3io"/>
+                                    <constraint firstItem="uqu-JU-nx2" firstAttribute="centerY" secondItem="pO3-A7-U6a" secondAttribute="centerY" id="Wvu-Qr-VzC"/>
+                                    <constraint firstItem="kiN-d1-pjX" firstAttribute="top" secondItem="pO3-A7-U6a" secondAttribute="top" id="azX-oK-uZu"/>
+                                    <constraint firstItem="es8-5y-zV0" firstAttribute="leading" secondItem="pO3-A7-U6a" secondAttribute="leading" constant="12" id="uop-Uv-JoM"/>
+                                    <constraint firstAttribute="trailing" secondItem="kiN-d1-pjX" secondAttribute="trailing" constant="15" id="wjI-a8-eiZ"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.90077837775735292" green="0.76305449867872699" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="fadeInLeft"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="force">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="delay">
+                                        <real key="value" value="0.20000000000000001"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kkq-pW-heF" customClass="View" customModule="PekoPeko" customModuleProvider="target">
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconKey" translatesAutoresizingMaskIntoConstraints="NO" id="gx6-s0-iqD">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="22" id="2du-IK-mbt"/>
+                                            <constraint firstAttribute="width" constant="22" id="2vM-X3-eyN"/>
+                                        </constraints>
+                                    </imageView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pth-fb-qh6">
+                                        <color key="backgroundColor" red="0.25490196079999999" green="0.1137254902" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="0.5" id="JyI-LF-JRB"/>
+                                        </constraints>
+                                    </view>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nhập mật khẩu" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FIN-Rc-IF2" customClass="Textfield" customModule="PekoPeko" customModuleProvider="target">
+                                        <color key="tintColor" red="0.96078431369999995" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="0.25490196079999999" green="0.1137254902" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="next" secureTextEntry="YES"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="GJQ-AZ-Fif" id="r8f-cJ-hEo"/>
+                                        </connections>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FNp-tl-YWe">
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="FNp-tl-YWe" secondAttribute="height" multiplier="1:1" id="f2m-mN-NS8"/>
+                                        </constraints>
+                                        <color key="tintColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" image="IconHide"/>
+                                        <connections>
+                                            <action selector="buttonShowHidePasswordTapped:" destination="GJQ-AZ-Fif" eventType="touchUpInside" id="NuS-0V-L2N"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="FIN-Rc-IF2" firstAttribute="leading" secondItem="pth-fb-qh6" secondAttribute="trailing" constant="15" id="6eM-UA-TxJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="FIN-Rc-IF2" secondAttribute="bottom" id="8sg-BV-uEz"/>
+                                    <constraint firstItem="gx6-s0-iqD" firstAttribute="leading" secondItem="kkq-pW-heF" secondAttribute="leading" constant="12" id="Bo7-Q2-Suz"/>
+                                    <constraint firstItem="pth-fb-qh6" firstAttribute="centerY" secondItem="kkq-pW-heF" secondAttribute="centerY" id="IPp-24-Cet"/>
+                                    <constraint firstItem="gx6-s0-iqD" firstAttribute="centerY" secondItem="kkq-pW-heF" secondAttribute="centerY" id="L9h-zw-yYb"/>
+                                    <constraint firstItem="pth-fb-qh6" firstAttribute="leading" secondItem="gx6-s0-iqD" secondAttribute="trailing" constant="12" id="LBI-Ph-tST"/>
+                                    <constraint firstItem="FIN-Rc-IF2" firstAttribute="top" secondItem="kkq-pW-heF" secondAttribute="top" id="XTg-Ey-kDw"/>
+                                    <constraint firstAttribute="bottom" secondItem="FNp-tl-YWe" secondAttribute="bottom" id="Yvn-DE-Kxd"/>
+                                    <constraint firstItem="pth-fb-qh6" firstAttribute="height" secondItem="gx6-s0-iqD" secondAttribute="height" id="aIA-9O-LKm"/>
+                                    <constraint firstItem="FNp-tl-YWe" firstAttribute="leading" secondItem="FIN-Rc-IF2" secondAttribute="trailing" id="noP-b2-RxX"/>
+                                    <constraint firstItem="FNp-tl-YWe" firstAttribute="top" secondItem="kkq-pW-heF" secondAttribute="top" id="stX-yo-k1Z"/>
+                                    <constraint firstAttribute="trailing" secondItem="FNp-tl-YWe" secondAttribute="trailing" id="vEl-Vc-x43"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.90077837780000003" green="0.76305449869999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="fadeInLeft"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="force">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="delay">
+                                        <real key="value" value="0.20000000000000001"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Od-xJ-jbS" customClass="Button" customModule="PekoPeko" customModuleProvider="target">
+                                <color key="backgroundColor" red="0.96078431369999995" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="140" id="4OM-qb-KeQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
+                                <state key="normal" title="Xác nhận">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="fadeInLeft"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="force">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="delay">
+                                        <real key="value" value="0.20000000000000001"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="buttonSubmitTapped:" destination="GJQ-AZ-Fif" eventType="touchUpInside" id="Krm-r6-cLO"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qz0-cV-j8u">
@@ -171,75 +323,50 @@
                                     <action selector="buttonBackTapped:" destination="GJQ-AZ-Fif" eventType="touchUpInside" id="FIL-20-zxB"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1234" textAlignment="natural" minimumFontSize="17" background="TextFieldLoginPhoneInput" translatesAutoresizingMaskIntoConstraints="NO" id="Blk-Yi-f4Y" customClass="SpringTextField" customModule="Spring">
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Blk-Yi-f4Y" secondAttribute="height" multiplier="324:50" id="tKU-E7-pWP"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="fadeInLeft"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="force">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="delay">
-                                        <real key="value" value="0.29999999999999999"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1234" textAlignment="natural" minimumFontSize="17" background="TextFieldLoginPhoneInput" translatesAutoresizingMaskIntoConstraints="NO" id="DO4-TS-x2l" customClass="SpringTextField" customModule="Spring">
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="DO4-TS-x2l" secondAttribute="height" multiplier="324:50" id="ibe-ZD-CIM"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="fadeInLeft"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="force">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="delay">
-                                        <real key="value" value="0.29999999999999999"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="kkq-pW-heF" firstAttribute="centerX" secondItem="nex-tL-c1R" secondAttribute="centerX" id="3h7-ss-juR"/>
+                            <constraint firstItem="Kys-81-Ew7" firstAttribute="top" secondItem="JvJ-h2-dnl" secondAttribute="bottom" constant="10" id="3sQ-68-O0f"/>
                             <constraint firstItem="Nb7-q0-6w7" firstAttribute="top" secondItem="JTj-Jx-kp4" secondAttribute="bottom" constant="4" id="5Q1-gm-KeI"/>
                             <constraint firstItem="JTj-Jx-kp4" firstAttribute="top" secondItem="09H-zS-S2Z" secondAttribute="bottom" constant="50" id="7Ck-RX-Pzb"/>
-                            <constraint firstItem="Blk-Yi-f4Y" firstAttribute="width" secondItem="nex-tL-c1R" secondAttribute="width" multiplier="9:10" id="7bg-p6-bla"/>
                             <constraint firstItem="JvJ-h2-dnl" firstAttribute="top" secondItem="Nb7-q0-6w7" secondAttribute="bottom" constant="4" id="8HK-fJ-OjT"/>
-                            <constraint firstItem="DO4-TS-x2l" firstAttribute="width" secondItem="Blk-Yi-f4Y" secondAttribute="width" id="Dcc-BC-biY"/>
-                            <constraint firstItem="sng-8n-r5J" firstAttribute="top" secondItem="JvJ-h2-dnl" secondAttribute="bottom" constant="15" id="G4s-xZ-Kxd"/>
                             <constraint firstItem="QoG-lf-ch6" firstAttribute="top" secondItem="lkl-BK-aNo" secondAttribute="bottom" id="Jti-9r-C9p"/>
+                            <constraint firstItem="3Od-xJ-jbS" firstAttribute="height" secondItem="kkq-pW-heF" secondAttribute="height" id="KoF-Q7-2Kb"/>
+                            <constraint firstItem="Kys-81-Ew7" firstAttribute="centerX" secondItem="nex-tL-c1R" secondAttribute="centerX" id="NI1-8t-EwH"/>
                             <constraint firstItem="sTY-dR-LES" firstAttribute="centerY" secondItem="nex-tL-c1R" secondAttribute="centerY" id="SIC-Mj-eMu"/>
                             <constraint firstItem="lkl-BK-aNo" firstAttribute="leading" secondItem="nex-tL-c1R" secondAttribute="leading" id="Ux7-vX-eR8"/>
-                            <constraint firstItem="sng-8n-r5J" firstAttribute="centerX" secondItem="sTY-dR-LES" secondAttribute="centerX" id="VQR-aw-yvu"/>
-                            <constraint firstItem="Blk-Yi-f4Y" firstAttribute="centerX" secondItem="sTY-dR-LES" secondAttribute="centerX" id="Vxs-WO-BSQ"/>
+                            <constraint firstItem="kkq-pW-heF" firstAttribute="top" secondItem="pO3-A7-U6a" secondAttribute="bottom" constant="20" id="WJL-53-v6e"/>
+                            <constraint firstItem="pO3-A7-U6a" firstAttribute="width" secondItem="nex-tL-c1R" secondAttribute="width" multiplier="9:10" id="Ys3-qX-VOP"/>
                             <constraint firstItem="sTY-dR-LES" firstAttribute="width" secondItem="nex-tL-c1R" secondAttribute="width" id="Zq1-i5-wmO"/>
-                            <constraint firstItem="Blk-Yi-f4Y" firstAttribute="top" secondItem="sng-8n-r5J" secondAttribute="bottom" constant="8" id="ZuV-vT-OzZ"/>
+                            <constraint firstItem="kkq-pW-heF" firstAttribute="width" secondItem="pO3-A7-U6a" secondAttribute="width" id="a7b-HQ-WPf"/>
                             <constraint firstItem="lkl-BK-aNo" firstAttribute="top" secondItem="nex-tL-c1R" secondAttribute="top" id="f7P-Jk-dO3"/>
+                            <constraint firstItem="pO3-A7-U6a" firstAttribute="centerX" secondItem="nex-tL-c1R" secondAttribute="centerX" id="fXd-e0-PnG"/>
+                            <constraint firstItem="kkq-pW-heF" firstAttribute="width" secondItem="kkq-pW-heF" secondAttribute="height" multiplier="332:50" id="hgY-bf-c4K"/>
+                            <constraint firstItem="3Od-xJ-jbS" firstAttribute="top" secondItem="kkq-pW-heF" secondAttribute="bottom" constant="20" id="hj5-EH-cPl"/>
                             <constraint firstItem="Qz0-cV-j8u" firstAttribute="leading" secondItem="nex-tL-c1R" secondAttribute="leading" id="ioI-5R-cr8"/>
                             <constraint firstItem="sTY-dR-LES" firstAttribute="centerX" secondItem="nex-tL-c1R" secondAttribute="centerX" id="itR-nL-nsq"/>
                             <constraint firstItem="Nb7-q0-6w7" firstAttribute="centerX" secondItem="sTY-dR-LES" secondAttribute="centerX" id="jKj-Fc-Rx1"/>
                             <constraint firstItem="JvJ-h2-dnl" firstAttribute="centerX" secondItem="sTY-dR-LES" secondAttribute="centerX" id="mLK-b9-97I"/>
-                            <constraint firstItem="DO4-TS-x2l" firstAttribute="centerX" secondItem="nex-tL-c1R" secondAttribute="centerX" id="mnE-8q-K6x"/>
                             <constraint firstAttribute="trailing" secondItem="lkl-BK-aNo" secondAttribute="trailing" id="nlt-S2-qEh"/>
-                            <constraint firstItem="DO4-TS-x2l" firstAttribute="top" secondItem="Blk-Yi-f4Y" secondAttribute="bottom" constant="8" id="qXG-ah-X1S"/>
+                            <constraint firstItem="3Od-xJ-jbS" firstAttribute="centerX" secondItem="lkl-BK-aNo" secondAttribute="centerX" id="plF-NZ-tb3"/>
                             <constraint firstItem="JTj-Jx-kp4" firstAttribute="centerX" secondItem="nex-tL-c1R" secondAttribute="centerX" id="tC0-Sa-Kqh"/>
                             <constraint firstItem="Qz0-cV-j8u" firstAttribute="top" secondItem="09H-zS-S2Z" secondAttribute="bottom" id="tdd-2F-UQH"/>
+                            <constraint firstItem="pO3-A7-U6a" firstAttribute="top" secondItem="Kys-81-Ew7" secondAttribute="bottom" constant="8" id="wcx-WL-KCn"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="DLa-uE-HCd"/>
+                    <connections>
+                        <outlet property="buttonShowHidePassword" destination="FNp-tl-YWe" id="RBN-Kq-YHD"/>
+                        <outlet property="constraintTop" destination="7Ck-RX-Pzb" id="Nga-rF-GCw"/>
+                        <outlet property="imageViewLogo" destination="JTj-Jx-kp4" id="PLb-NM-9MT"/>
+                        <outlet property="textfieldPassword" destination="FIN-Rc-IF2" id="hwf-IK-QwF"/>
+                        <outlet property="textfieldPhoneNumber" destination="kiN-d1-pjX" id="Wso-yO-gXC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xb6-tA-5st" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1893.5999999999999" y="71.514242878560722"/>
+            <point key="canvasLocation" x="1712.8" y="71.514242878560722"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fit-ll-QQh">
@@ -266,8 +393,10 @@
         <image name="ButtonLoginFacebook" width="294" height="50"/>
         <image name="ButtonLoginPhone" width="294" height="50"/>
         <image name="IconAppName" width="89" height="16"/>
+        <image name="IconHide" width="22" height="22"/>
+        <image name="IconKey" width="22" height="22"/>
         <image name="IconLeft" width="44" height="44"/>
         <image name="IconLogoAppSplash" width="189" height="201"/>
-        <image name="TextFieldLoginPhoneInput" width="324" height="50"/>
+        <image name="IconSmartphone" width="22" height="22"/>
     </resources>
 </document>
