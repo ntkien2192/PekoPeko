@@ -35,8 +35,6 @@ class CardViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    
     @IBAction func buttonLogoutTapped(_ sender: AnyObject) {
         AuthenticationStore().saveLoginValue(false)
         let loginController = UIStoryboard(name: LoginViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: LoginViewController.identify)

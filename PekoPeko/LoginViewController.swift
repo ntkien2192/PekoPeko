@@ -7,17 +7,14 @@
 //
 
 import UIKit
-import Spring
 
 class LoginViewController: UIViewController {
 
     static let storyboardName = "Login"
     static let identify = "LoginViewController"
     
-    @IBOutlet weak var buttonFacebook: SpringButton!
-    @IBOutlet weak var buttonPhone: SpringButton!
-    
-    
+    @IBOutlet weak var buttonFacebook: Button!
+    @IBOutlet weak var buttonPhone: Button!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,16 +64,5 @@ class LoginViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

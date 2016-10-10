@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.0.1)
+  - ImagePicker (1.4.1)
   - MBProgressHUD (1.0.0)
   - MTBBarcodeScanner (3.1.0)
   - NVActivityIndicatorView (3.0)
@@ -12,6 +13,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (from `https://github.com/Homely/Alamofire.git`, branch `ios8`)
+  - ImagePicker (from `https://github.com/hyperoslo/ImagePicker.git`, branch `swift-3`)
   - MBProgressHUD (~> 1.0.0)
   - MTBBarcodeScanner
   - NVActivityIndicatorView
@@ -26,6 +28,9 @@ EXTERNAL SOURCES:
   Alamofire:
     :branch: ios8
     :git: https://github.com/Homely/Alamofire.git
+  ImagePicker:
+    :branch: swift-3
+    :git: https://github.com/hyperoslo/ImagePicker.git
   Spring:
     :branch: swift3
     :git: https://github.com/MengTo/Spring.git
@@ -37,6 +42,9 @@ CHECKOUT OPTIONS:
   Alamofire:
     :commit: 276386cf230cb7e91964ca0021e7ddfa58d2439c
     :git: https://github.com/Homely/Alamofire.git
+  ImagePicker:
+    :commit: 183af703d59c3353786611196ba1b7317a5d90c4
+    :git: https://github.com/hyperoslo/ImagePicker.git
   Spring:
     :commit: e5c127b7aa6ce31e5f4d01100a8991423a1eb498
     :git: https://github.com/MengTo/Spring.git
@@ -46,6 +54,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: d8ab1487ca8accacde5d0c65ae8144bdf9a264b8
+  ImagePicker: 4a07c9368ef2b0855e92a11062ad7721dc2d9e8a
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MTBBarcodeScanner: 6d397077f1a4a886050df8e66584a59a1dc429e7
   NVActivityIndicatorView: 81953b5e65093ba79edf4fe7268e002039ca5268
@@ -56,6 +65,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 29b9f2a64f118c07e691667c2ba1efe536acfe0b
   UIResponder+KeyboardCache: dc1b7ff925c25ddb58b289bc71a3724c269767ef
 
-PODFILE CHECKSUM: 46accc31bc9becc9936a5f81d5062eb30501a567
+PODFILE CHECKSUM: 43f888d02c458b21995c7d1d5d174f3589f4789c
 
 COCOAPODS: 1.0.1

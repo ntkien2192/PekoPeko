@@ -14,16 +14,41 @@ import ObjectMapper
 
 class AuthenticationStore {
     
-    fileprivate let accessTokenKey = "gomabu.accesstoken"
-    fileprivate let authRestaurantIDKey = "gomabu.restaurantid"
-    fileprivate let authAdminIDKey = "gomabu.adminid"
-    
+    fileprivate let accessTokenKey = "pekopeko.accesstoken"
+    fileprivate let userIDKey = "gomabu.userid"
     fileprivate let isLoginKey = "pekopeko.isLoginKey"
+    fileprivate let phoneNumberKey = "pekopeko.phoneNumber"
     
     fileprivate var defaults: UserDefaults = {
         
         return UserDefaults.standard
     }()
+    
+    // MARK: User ID
+    
+    var hasUserID: Bool {
+        if userID != nil {
+            return true
+        }
+        
+        return false
+    }
+    
+    var userID: String? {
+        return defaults.value(forKey: userIDKey) as? String ?? nil
+    }
+    
+    func saveUserID(_ userID: String) {
+        defaults.set(userID, forKey: userIDKey)
+        defaults.synchronize()
+        
+    }
+    
+    func deleteUserID() {
+        defaults.removeObject(forKey: userIDKey)
+        defaults.synchronize()
+    }
+
     
     //MARK: LOGIN
     
@@ -40,21 +65,17 @@ class AuthenticationStore {
     // Access token
     
     var hasAccessToken: Bool {
-        
         if accessToken != nil {
             return true
         }
-        
         return false
     }
     
     var accessToken: String? {
-        
         return defaults.value(forKey: accessTokenKey) as? String ?? nil
     }
     
     func saveAcessToken(_ accessToken: String) {
-        
         defaults.set(accessToken, forKey: accessTokenKey)
         defaults.synchronize()
     }
@@ -65,183 +86,68 @@ class AuthenticationStore {
         defaults.synchronize()
     }
     
-    // Authenticated restaurant id
+    // Authenticated phoneNumber
     
-    var hasAuthRestaurantIDToken: Bool {
-        
-        if authRestaurantID != nil {
+    var hasPhoneNumber: Bool {
+        if phoneNumber != nil {
             return true
         }
-        
         return false
     }
     
-    var authRestaurantID: String? {
-        
-        return defaults.value(forKey: authRestaurantIDKey) as? String ?? nil
+    var phoneNumber: String? {
+        return defaults.value(forKey: phoneNumberKey) as? String ?? nil
     }
     
-    var restaurantID: UInt64? {
-        get {
-            if let authRestaurantID = authRestaurantID {
-                if let rid = UInt64(authRestaurantID) {
-                    return rid
-                }
-                return nil
-            }
-            return nil
-        }
-    }
-    
-    func saveAuthRestaurantID(_ authRestaurantID: String) {
-        
-        defaults.set(authRestaurantID, forKey: authRestaurantIDKey)
+    func savePhoneNumber(_ phoneNumber: String) {
+        defaults.set(phoneNumber, forKey: phoneNumberKey)
         defaults.synchronize()
     }
     
-    func deleteAuthRestauraID() {
-        
-        defaults.removeObject(forKey: authRestaurantIDKey)
-        defaults.synchronize()
-    }
-    
-    // Admin ID
-    
-    var hasAdminID: Bool {
-        
-        if adminID != nil {
-            return true
-        }
-        
-        return false
-    }
-    
-    var authAdminID: String? {
-        
-        return defaults.value(forKey: authAdminIDKey) as? String ?? nil
-    }
-    
-    var adminID: UInt64? {
-        get {
-            if let authAdminID = authAdminID {
-                if let aid = UInt64(authAdminID) {
-                    return aid
-                }
-                return nil
-            }
-            return nil
-        }
-    }
-    
-    func saveAuthAdminID(_ authAdminID: String) {
-        
-        defaults.set(authAdminID, forKey: authAdminIDKey)
-        defaults.synchronize()
-        
-    }
-    
-    func deleteAuthAdminID() {
-        
-        defaults.removeObject(forKey: authAdminIDKey)
+    func deletePhoneNumber() {
+        defaults.removeObject(forKey: phoneNumberKey)
         defaults.synchronize()
     }
     
     // Clear all data
     func clear() {
         defaults.removeObject(forKey: accessTokenKey)
-        defaults.removeObject(forKey: authAdminIDKey)
-        defaults.removeObject(forKey: authRestaurantIDKey)
+        defaults.removeObject(forKey: phoneNumberKey)
+        defaults.removeObject(forKey: isLoginKey)
         defaults.synchronize()
     }
     
-    /// Get access token by username and password combine
-    class func login(_ authParameters: AuthParameters, completionHandler: @escaping (Bool, Error?) -> Void) {
-        let parameters = authParameters.toJSON()
-        _ = Alamofire.request(Router.login(parameters as [String : AnyObject]))
-            .responseGMBAccessToken { response in
-                if let error = response.result.error {
-                    completionHandler(false, error)
-                    return
-                }
-                guard let responseData = response.result.value else {
-                    // TODO: Create error here
-                    completionHandler(false, nil)
-                    return
-                }
-                // TODO: Create Auth struct
-                if responseData.2 { // User is verified
-                    
-                    AuthenticationStore().saveAcessToken(responseData.0)
-                    AuthenticationStore().saveAuthAdminID(responseData.1)
-                    
-                    completionHandler(true, nil)
-                } else {
-                    let errorData = ["pekopeko_id": responseData.1]
-                    let error = ServerResponseError(data: errorData as [String : AnyObject], kind: .unverifiedAccount)
-                    completionHandler(false, error)
-                }
-        }
+    class func login(_ loginParameters: LoginParameter, completionHandler: @escaping (LoginResponse?, Error?) -> Void) {
+        let parameters = loginParameters.toJSON()
+        _ = Alamofire.request(Router.login(parameters as [String : AnyObject])).responseLogin({ (response) in
+            if let error = response.result.error {
+                completionHandler(nil, error)
+                return
+            }
+            guard let responseData = response.result.value else {
+                // TODO: Create error here
+                completionHandler(nil, nil)
+                return
+            }
+            completionHandler(responseData, nil)
+        })
     }
     
-    /**
-     Exchange Facebook/Google access token with GMB access token
-     
-     - parameter parameters: Dictionary contains provider and access token. Example: ["provider": "facebook/google", "access_token": "token_string"]
-     - parameter completionHandler:  The code to be executed once the request has finished.
-     
-     */
-    class func exchangeToken(_ parameters: [String: String], completionHandler: @escaping (Bool, Error?) -> Void) {
-        _ = Alamofire.request(Router.tokenExchange(parameters))
-            .responseGMBAccessToken { response in
-                if let error = response.result.error {
-                    completionHandler(false, error)
-                    return
-                }
-                
-                guard let responseData = response.result.value else {
-                    // TODO: Create error here
-                    completionHandler(false, nil)
-                    return
-                }
-                
-                // TODO: Create Auth struct
-                if responseData.2 { // User is verified
-                    AuthenticationStore().saveAcessToken(responseData.0)
-                    AuthenticationStore().saveAuthAdminID(responseData.1)
-                    
-                    completionHandler(true, nil)
-                } else {
-                    let errorData = ["gomabu_id": responseData.1]
-                    let error = ServerResponseError(data: errorData as [String : AnyObject], kind: .unverifiedAccount)
-                    completionHandler(false, error)
-                }
-        }
+    class func confirm(_ loginParameters: LoginParameter, completionHandler: @escaping (LoginResponse?, Error?) -> Void) {
+        let parameters = loginParameters.toJSON()
+        _ = Alamofire.request(Router.verifyPhoneNumber(parameters as [String : AnyObject])).responseLogin({ (response) in
+            if let error = response.result.error {
+                completionHandler(nil, error)
+                return
+            }
+            guard let responseData = response.result.value else {
+                // TODO: Create error here
+                completionHandler(nil, nil)
+                return
+            }
+            completionHandler(responseData, nil)
+        })
     }
-    
-//    class func forgotPassword(_ parameters: [String: String], completionHandler: @escaping (Bool, Error?) -> Void) {
-//        _ = Alamofire.request(Router.forgotPassword(parameters as [String : AnyObject]))
-//            .responseStatus { response in
-//                if let error = response.result.error {
-//                    completionHandler(false, error)
-//                    return
-//                }
-//                
-//                completionHandler(response.result.value ?? false, nil)
-//        }
-//    }
-//    
-//    
-//    class func resendActivationEmail(_ userID: String, completionHandler: @escaping (Bool, Error?) -> Void) {
-//        _ = Alamofire.request(Router.resendActivationEmail(userID))
-//            .responseStatus { response in
-//                if let error = response.result.error {
-//                    completionHandler(false, error)
-//                    return
-//                }
-//                
-//                completionHandler(response.result.value ?? false, nil)
-//        }
-//    }
 }
 
 enum SocialNetwork: String {
@@ -251,9 +157,8 @@ enum SocialNetwork: String {
 
 extension Alamofire.DataRequest {
     
-    /// Handle response from Auth API -> return GMB access token
-    func responseGMBAccessToken(_ completionHandler: @escaping (DataResponse<(String, String, Bool)>) -> Void) -> Self {
-        let responseSerializer = DataResponseSerializer<(String, String, Bool)> { request, response, data, error in
+    func responseLogin(_ completionHandler: @escaping (DataResponse<LoginResponse>) -> Void) -> Self {
+        let responseSerializer = DataResponseSerializer<LoginResponse> { request, response, data, error in
             guard error == nil else {
                 return .failure(error!)
             }
@@ -283,57 +188,32 @@ extension Alamofire.DataRequest {
             switch result {
             case .success(let value):
                 let jsonObject = SwiftyJSON.JSON(value)
-                let gmbToken = jsonObject["gmb_access_token"].stringValue
-                let gmbID = jsonObject["authenticated_id"].stringValue
-                let verified = jsonObject["verified"].boolValue
+                if jsonObject["code"].intValue != 1 {
+                    let failureReason = jsonObject["message"].stringValue
+                    let errorData = [NSLocalizedFailureReasonErrorKey: failureReason]
+                    let error = ServerResponseError(data: errorData as [String : AnyObject], kind: .dataSerializationFailed)
+                    return .failure(error)
+                } else  {
+                    let data = jsonObject["data"]
+                    let user = LoginResponse(json: data)
+                    
+                    let userID = data["_id"].stringValue
+                    if !userID.isEmpty {
+                        AuthenticationStore().saveUserID(userID)
+                    }
+                    
+                    let token = data["token"].stringValue
+                    if !token.isEmpty {
+                        AuthenticationStore().saveAcessToken(token)
+                    }
+                    
+                    return .success(user)
+                }
                 
-                return .success((gmbToken, gmbID, verified))
             case .failure(let error):
                 return .failure(error)
             }
         }
         return response(responseSerializer: responseSerializer, completionHandler: completionHandler)
-    }
-    
-    func responseStatus(_ completionHandler: @escaping (DataResponse<Bool>) -> Void) -> Self {
-        let responseSerializer = DataResponseSerializer<Bool> { request, response, data, error in
-            guard error == nil else {
-                return .failure(error!)
-            }
-            
-            guard let responseData = data else {
-                let error = ServerResponseError(data: nil, kind: .dataSerializationFailed)
-                return .failure(error)
-            }
-            
-            let JSONResponseSerializer = DataRequest.jsonResponseSerializer(options: .allowFragments)
-            let result = JSONResponseSerializer.serializeResponse(request, response, responseData, error)
-            
-            guard response?.statusCode == 200 else {
-                switch result {
-                case .success(let value):
-                    let json = SwiftyJSON.JSON(value)
-                    let failureReason = json["message"].stringValue
-                    let errorData = [NSLocalizedFailureReasonErrorKey: failureReason]
-                    let error = ServerResponseError(data: errorData as [String : AnyObject], kind: .dataSerializationFailed)
-                    
-                    return .failure(error)
-                case .failure(let error):
-                    return .failure(error)
-                }
-            }
-            
-            switch result {
-            case .success(let value):
-                let jsonObject = SwiftyJSON.JSON(value)
-                let status = jsonObject["status"].stringValue
-                
-                return .success(status == "success")
-            case .failure(let error):
-                return .failure(error)
-            }
-        }
-        
-        return response(responseSerializer: responseSerializer,completionHandler: completionHandler)
     }
 }

@@ -8,8 +8,9 @@
 
 import UIKit
 import Spring
-import MBProgressHUD
+//import MBProgressHUD
 import NVActivityIndicatorView
+import CoreLocation
 
 class LoginPhoneViewController: UIViewController {
 
@@ -31,6 +32,9 @@ class LoginPhoneViewController: UIViewController {
     
     var defaultConstraintValue: CGFloat?
     
+    let locationManager = CLLocationManager()
+    var userLocation: Location?
+    
     //MARK: View Life
     
     override func viewDidLoad() {
@@ -46,6 +50,25 @@ class LoginPhoneViewController: UIViewController {
     
     func viewConfig() {
         defaultConstraintValue = constraintTop.constant
+        
+        locationManager.delegate = self
+        
+        if CLLocationManager.authorizationStatus() == .notDetermined {
+            self.locationManager.requestWhenInUseAuthorization()
+        }
+        
+        locationManager.distanceFilter = kCLDistanceFilterNone
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.startUpdatingLocation()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        resetLabelIntro()
+        loginActivity.stopAnimating()
+        showLoginField()
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -90,23 +113,9 @@ class LoginPhoneViewController: UIViewController {
     }
     
     func submit() {
-        
-        
-        
-//        let loadingView = MBProgressHUD.showAdded(to: view, animated: true)
-//        loadingView.backgroundView.style = .solidColor
-//        loadingView.backgroundView.color = UIColor.RGBA(0.0, green: 0.0, blue: 0.0, alpha: 0.3)
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-//            loadingView.hide(animated: true)
-//        }
-        
         var error = ""
         var phoneNumber = ""
         var password = ""
-        
-        if error == "" {
-            
-        }
         
         if let phone = textfieldPhoneNumber.text {
             if !phone.isEmpty {
@@ -131,24 +140,48 @@ class LoginPhoneViewController: UIViewController {
             showError(error, animation: true)
         } else {
             slideDownView()
-            
             hideLoginField()
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                if phoneNumber == "1" && password == "1" {
-                    self.login()
-                } else {
-                    self.showError("Tài khoản này không tồn tại, vui lòng đăng nhập lại", animation: false)
-                    self.showLoginField()
+            loginActivity.startAnimating()
+            let loginParameter = LoginParameter(phone: phoneNumber, password: password, location: userLocation ?? Location(latitude: 0.0, longitude: 0.0))
+            AuthenticationStore.login(loginParameter, completionHandler: { (loginResponse, error) in
+                
+                
+                guard error == nil else {
+                    if let error = error as? ServerResponseError, let data = error.data,
+                        let reason: String = data[NSLocalizedFailureReasonErrorKey] as? String {
+                        self.showError(reason, animation: false)
+                        self.loginActivity.stopAnimating()
+                        self.showLoginField()
+                    }
+                    return
                 }
-            }
-        }
-    }
-    
-    func login() {
-        if let navigationController = navigationController {
-            AuthenticationStore().saveLoginValue(true)
-            navigationController.dismiss(animated: true, completion: nil)
+                
+                AuthenticationStore().savePhoneNumber(phoneNumber)
+                
+                if let loginResponse = loginResponse, let step = loginResponse.step {
+                    if step == .verify {
+                        let confirmCodeViewController = UIStoryboard(name: ConfirmCodeViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: ConfirmCodeViewController.identify)
+                        if let navigationController = self.navigationController {
+                            navigationController.show(confirmCodeViewController, sender: nil)
+                        }
+                    }
+                    
+                    if step == .ready {
+                        let confirmCodeViewController = UIStoryboard(name: ConfirmCodeViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: ConfirmCodeViewController.identify)
+                        if let navigationController = self.navigationController {
+                            navigationController.show(confirmCodeViewController, sender: nil)
+                        }
+                    }
+                    
+                    if step == .update {
+                        let confirmCodeViewController = UIStoryboard(name: UserUpdateInfoViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: UserUpdateInfoViewController.identify)
+                        if let navigationController = self.navigationController {
+                            navigationController.show(confirmCodeViewController, sender: nil)
+                        }
+                    }
+                }
+
+            })
         }
     }
     
@@ -160,14 +193,16 @@ class LoginPhoneViewController: UIViewController {
         labelIntro.textColor = UIColor.colorBrown
     }
     
-    func showError(_ message: String, animation: Bool) {
-        labelIntro.text = message
-        labelIntro.backgroundColor = UIColor.colorBrown
-        labelIntro.textColor = UIColor.white
-        if animation {
-            labelIntro.animation = "shake"
-            labelIntro.duration = 0.5
-            labelIntro.animate()
+    func showError(_ message: String?, animation: Bool) {
+        if let message = message {
+            labelIntro.text = message
+            labelIntro.backgroundColor = UIColor.colorBrown
+            labelIntro.textColor = UIColor.white
+            if animation {
+                labelIntro.animation = "shake"
+                labelIntro.duration = 0.5
+                labelIntro.animate()
+            }
         }
     }
     
@@ -200,8 +235,6 @@ class LoginPhoneViewController: UIViewController {
         
         buttonSubmit.animation = animation
         buttonSubmit.animate()
-        
-        loginActivity.startAnimating()
     }
     
     func showLoginField() {
@@ -218,11 +251,17 @@ class LoginPhoneViewController: UIViewController {
         
         buttonSubmit.animation = animation
         buttonSubmit.animate()
-        
-        loginActivity.stopAnimating()
     }
     
 
+}
+
+extension LoginPhoneViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        self.locationManager.stopUpdatingLocation()
+        let location = locations[0]
+        userLocation = Location(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+    }
 }
 
 extension LoginPhoneViewController: UITextFieldDelegate {
@@ -239,7 +278,7 @@ extension LoginPhoneViewController: UITextFieldDelegate {
         }
         
         
-        if let constraintValue = DeviceConfig.getConstraintValue(d35: -40, d40: -90, d50: 0, d55: 0) {
+        if let constraintValue = DeviceConfig.getConstraintValue(d35: -40, d40: -90, d50: -65, d55: 0) {
             if constraintTop.constant != constraintValue {
                 constraintTop.constant = constraintValue
                 view.setNeedsLayout()

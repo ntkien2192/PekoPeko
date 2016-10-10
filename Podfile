@@ -15,6 +15,7 @@ target 'PekoPeko' do
   pod 'NVActivityIndicatorView'
   pod 'NYSegmentedControl'
   pod "MTBBarcodeScanner"
+  pod 'ImagePicker', :git => 'https://github.com/hyperoslo/ImagePicker.git', :branch => 'swift-3'
   
   # Pods for PekoPeko
 

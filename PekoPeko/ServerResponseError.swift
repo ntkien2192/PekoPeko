@@ -16,6 +16,7 @@ struct ServerResponseError: Error {
         case unverifiedAccount
         case dataSerializationFailed
     }
+    
     let data: [String: AnyObject]?
     let kind: ErrorKind
 }

@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import Spring
 
 @IBDesignable
 
-class Textfield: UITextField {
+class Textfield: SpringTextField {
 
     var dropdownIconImageView: UIImageView?
     
