@@ -40,9 +40,10 @@ class Discount: NSObject {
     
     var title: String?
     var endedAt: Date?
+    var isNeverEnd:Bool?
     var use: Int?
     var total: Int?
-    var cover: String?
+    var coverUrl: String?
     
     required init(json: JSON) {
         userNumber = json[DiscountFields.Uses.rawValue].int
@@ -51,11 +52,16 @@ class Discount: NSObject {
         title = json[DiscountFields.Title.rawValue].string
         let time = json[DiscountFields.EndedAt.rawValue].double
         if let time = time {
-            endedAt = Date(timeIntervalSince1970: time)
+            if time < 0 {
+                isNeverEnd = true
+            } else {
+                isNeverEnd = false
+                endedAt = Date(timeIntervalSince1970: time)
+            }
         }
         use = json[DiscountFields.Use.rawValue].int
         total = json[DiscountFields.Total.rawValue].int
-        cover = json[DiscountFields.Cover.rawValue].string
+        coverUrl = json[DiscountFields.Cover.rawValue].string
     }
 }
 
@@ -67,6 +73,7 @@ enum RewardFields: String {
     case HPRequire = "hp_require"
     case HPCurrent = "hp_current"
     case CanRedeem = "can_redeem"
+    case Image = "image"
 }
 
 class Reward: NSObject {
@@ -77,6 +84,7 @@ class Reward: NSObject {
     var hpRequire: Int?
     var hpCurrent: Int?
     var isCanRedeem: Bool?
+    var imageUrl: String?
     
     required init(json: JSON) {
         rewardID = json[RewardFields.RewardID.rawValue].string
@@ -86,6 +94,7 @@ class Reward: NSObject {
         hpRequire = json[RewardFields.HPRequire.rawValue].int
         hpCurrent = json[RewardFields.HPCurrent.rawValue].int
         isCanRedeem = json[RewardFields.CanRedeem.rawValue].bool
+        imageUrl = json[RewardFields.Image.rawValue].string
     }
 }
 
@@ -168,7 +177,6 @@ class Card: NSObject {
     var hpCurrent: Int?
     var rewardTitle: String?
     
-    
     // card detail
     var shopPhone: String?
     var avgPrice: String?
@@ -189,7 +197,10 @@ class Card: NSObject {
         shopCoverUrl = json[CardFields.ShopCoverUrl.rawValue].string
         shopAvatarUrl = json[CardFields.ShopAvatarUrl.rawValue].string
         isAdded = json[CardFields.Added.rawValue].boolValue
-        discount = Discount(json: json[CardFields.Discount.rawValue])
+        if json[CardFields.Discount.rawValue] != nil {
+            discount = Discount(json: json[CardFields.Discount.rawValue])
+        }
+        
         
         // my Card
         addressID = json[CardFields.AddressID.rawValue].string

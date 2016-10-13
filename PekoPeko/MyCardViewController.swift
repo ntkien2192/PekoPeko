@@ -9,7 +9,7 @@
 import UIKit
 
 protocol MyCardViewControllerDelegate: class {
-    func myCardTapped(card: Card?)
+    func buttonCardTapped(card: Card?)
 }
 
 class MyCardViewController: BaseViewController {
@@ -35,7 +35,6 @@ class MyCardViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getMyCard()
     }
 
     override func viewConfig() {
@@ -86,7 +85,7 @@ extension MyCardViewController: UITableViewDataSource {
         if let cards = cards {
             return cards.count
         }
-        return 10
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -101,6 +100,6 @@ extension MyCardViewController: UITableViewDataSource {
 
 extension MyCardViewController: MyCardTableViewCellDelegate {
     func cellTapped(card: Card?) {
-        delegate?.myCardTapped(card: card)
+        delegate?.buttonCardTapped(card: card)
     }
 }

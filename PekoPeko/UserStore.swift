@@ -54,8 +54,71 @@ class UserStore {
         })
     }
     
+    
+    class func getBaseUserInfo(completionHandler: @escaping (User?, Error?) -> Void) {
+        _ = Alamofire.request(Router.getBaseUserInfo()).responseUser({ (response) in
+            if let error = response.result.error {
+                completionHandler(nil, error)
+                return
+            }
+            guard response.result.value != nil else {
+                // TODO: Create error here
+                completionHandler(nil, nil)
+                return
+            }
+            completionHandler(response.result.value ?? nil, nil)
+        })
+    }
 }
 extension Alamofire.DataRequest {
+    
+    func responseUser(_ completionHandler: @escaping (DataResponse<User?>) -> Void) -> Self {
+        let responseSerializer = DataResponseSerializer<User?> { request, response, data, error in
+            guard error == nil else {
+                return .failure(error!)
+            }
+            
+            guard let responseData = data else {
+                let error = ServerResponseError(data: nil, kind: .dataSerializationFailed)
+                return .failure(error)
+            }
+            
+            let JSONResponseSerializer = DataRequest.jsonResponseSerializer(options: .allowFragments)
+            let result = JSONResponseSerializer.serializeResponse(request, response, responseData, error)
+            
+            guard response?.statusCode == 200 else {
+                switch result {
+                case .success(let value):
+                    let json = SwiftyJSON.JSON(value)
+                    let failureReason = json["message"].stringValue
+                    let errorData = [NSLocalizedFailureReasonErrorKey: failureReason]
+                    let error = ServerResponseError(data: errorData as [String : AnyObject], kind: .dataSerializationFailed)
+                    
+                    return .failure(error)
+                case .failure(let error):
+                    return .failure(error)
+                }
+            }
+            
+            switch result {
+            case .success(let value):
+                let jsonObject = SwiftyJSON.JSON(value)
+                if jsonObject["code"].intValue != 10001 {
+                    let failureReason = jsonObject["message"].stringValue
+                    let errorData = [NSLocalizedFailureReasonErrorKey: failureReason]
+                    let error = ServerResponseError(data: errorData as [String : AnyObject], kind: .dataSerializationFailed)
+                    return .failure(error)
+                } else {
+                    let user = User(json: jsonObject["data"])
+                    return .success(user)
+                }
+                
+            case .failure(let error):
+                return .failure(error)
+            }
+        }
+        return response(responseSerializer: responseSerializer, completionHandler: completionHandler)
+    }
     
     func responseUploadInfo(_ completionHandler: @escaping (DataResponse<Bool?>) -> Void) -> Self {
         let responseSerializer = DataResponseSerializer<Bool?> { request, response, data, error in

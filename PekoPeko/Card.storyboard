@@ -78,7 +78,7 @@
             </objects>
             <point key="canvasLocation" x="325.60000000000002" y="142.57871064467767"/>
         </scene>
-        <!--Card Detail View Controller-->
+        <!--Thông tin thẻ-->
         <scene sceneID="Ucp-QO-CbA">
             <objects>
                 <viewController storyboardIdentifier="CardDetailViewController" id="X3Q-Ef-98E" customClass="CardDetailViewController" customModule="PekoPeko" customModuleProvider="target" sceneMemberID="viewController">
@@ -87,11 +87,12 @@
                         <viewControllerLayoutGuide type="bottom" id="ugx-ii-agZ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="VWO-WN-gc8">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="df2-n2-2oG">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="df2-n2-2oG">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="separatorInset" minX="30" minY="0.0" maxX="30" maxY="0.0"/>
                                 <connections>
                                     <outlet property="dataSource" destination="X3Q-Ef-98E" id="F9r-YE-1C0"/>
                                     <outlet property="delegate" destination="X3Q-Ef-98E" id="ON0-gy-m8R"/>
@@ -107,54 +108,43 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="MPv-gQ-UgT">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="TXJ-fM-2Mv">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="wzj-ka-2pK" customClass="Button" customModule="PekoPeko" customModuleProvider="target">
-                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                    <navigationItem key="navigationItem" title="Thông tin thẻ" id="MPv-gQ-UgT">
+                        <barButtonItem key="rightBarButtonItem" id="TXJ-fM-2Mv">
+                            <button key="customView" hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="wzj-ka-2pK" customClass="Button" customModule="PekoPeko" customModuleProvider="target">
+                                <rect key="frame" x="289" y="7" width="70" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Thêm Thẻ">
+                                <color key="backgroundColor" red="0.90077837780000003" green="0.76305449869999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="13"/>
+                                <state key="normal">
                                     <color key="titleColor" red="0.25490196079999999" green="0.1137254902" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="0.5"/>
+                                        <real key="value" value="0.0"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="4"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="value" red="0.48719200721153844" green="0.22908572223212198" blue="0.11857990011215237" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="buttonAddCardTapped:" destination="X3Q-Ef-98E" eventType="touchUpInside" id="3w4-Fm-3k3"/>
+                                </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
                     <nil key="simulatedStatusBarMetrics"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
+                        <outlet property="buttonAddCard" destination="wzj-ka-2pK" id="WVf-Ej-c79"/>
                         <outlet property="tableView" destination="df2-n2-2oG" id="m1N-vr-wQT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FR6-Jf-wzT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2528.8000000000002" y="142.57871064467767"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="WVd-lF-lil">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9fs-fB-jGv" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dsc-Gb-bmP">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="X3Q-Ef-98E" kind="relationship" relationship="rootViewController" id="QoP-Ij-Zjl"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jLA-6V-Hlm" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1589.5999999999999" y="142.57871064467767"/>
+            <point key="canvasLocation" x="1214" y="143"/>
         </scene>
     </scenes>
 </document>

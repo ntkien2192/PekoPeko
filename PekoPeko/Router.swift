@@ -22,6 +22,7 @@ enum Router: URLRequestConvertible {
     // Router
     case exchangeToken()
     case login([String: AnyObject])
+    case getBaseUserInfo()
     case verifyPhoneNumber([String: AnyObject])
     
     case uploadUserAvatar()
@@ -39,6 +40,9 @@ enum Router: URLRequestConvertible {
             
         case .login:
             return .post
+            
+        case .getBaseUserInfo:
+            return .get
             
         case .verifyPhoneNumber:
             return .post
@@ -71,6 +75,9 @@ enum Router: URLRequestConvertible {
         case .login:
             return "auth/phone"
             
+        case .getBaseUserInfo:
+            return "user/base-info"
+            
         case .verifyPhoneNumber:
             return "auth/verify"
             
@@ -101,6 +108,9 @@ enum Router: URLRequestConvertible {
             
         case .login:
             return ApiVersion.V200.rawValue
+            
+        case .getBaseUserInfo:
+            return ApiVersion.V100.rawValue
             
         case .verifyPhoneNumber:
             return ApiVersion.V200.rawValue
@@ -161,8 +171,6 @@ enum Router: URLRequestConvertible {
         urlRequest.setValue(apiVersion, forHTTPHeaderField: "Api-version")
         urlRequest.setValue(appVersion, forHTTPHeaderField: "App-version")
         urlRequest.setValue("\(UIDevice().modelName)/\(UIDevice().osVersion)", forHTTPHeaderField: "User-Agent")
-        
-
 
         switch self {
             

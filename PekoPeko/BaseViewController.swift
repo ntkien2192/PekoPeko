@@ -18,7 +18,9 @@ class BaseViewController: UIViewController {
     }
 
     func viewConfig() {
-        
+        if let navigationController = navigationController {
+            navigationController.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.colorBrown]
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -37,4 +39,5 @@ extension BaseViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }
+    
 }

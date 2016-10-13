@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="104" id="KGk-i7-Jjw" customClass="PointCardTableViewCell" customModule="PekoPeko" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="352" height="103"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <frame key="frameInset" width="352" height="102"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="THẺ TÍCH ĐIỂM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5VO-RO-UoN">
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="izf-mQ-5gb"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="21"/>
+                        <color key="textColor" red="0.25490196079999999" green="0.1137254902" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vqw-Sp-BZJ">
+                        <color key="backgroundColor" red="0.99215686270000003" green="0.84313725490000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="100" id="Mg4-7Z-0qg"/>
+                            <constraint firstAttribute="height" constant="1" id="tHj-3M-9SL"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WHa-IS-WPM">
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconHoneyPot" translatesAutoresizingMaskIntoConstraints="NO" id="6ZG-b8-N1y">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="oqe-dG-Z88"/>
+                                    <constraint firstAttribute="width" constant="20" id="pBy-GR-inI"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f1K-Ko-DT7">
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
+                                <color key="textColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="f1K-Ko-DT7" firstAttribute="leading" secondItem="WHa-IS-WPM" secondAttribute="leading" id="4Ev-0K-5DM"/>
+                            <constraint firstItem="6ZG-b8-N1y" firstAttribute="leading" secondItem="f1K-Ko-DT7" secondAttribute="trailing" constant="8" id="Dsy-d0-es7"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="WVp-w3-MeD"/>
+                            <constraint firstItem="f1K-Ko-DT7" firstAttribute="top" relation="greaterThanOrEqual" secondItem="WHa-IS-WPM" secondAttribute="top" constant="5" id="dZ4-XV-spx"/>
+                            <constraint firstAttribute="trailing" secondItem="6ZG-b8-N1y" secondAttribute="trailing" id="fvj-EC-2kg"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="f1K-Ko-DT7" secondAttribute="bottom" constant="5" id="iFV-dv-gs7"/>
+                            <constraint firstItem="6ZG-b8-N1y" firstAttribute="centerY" secondItem="WHa-IS-WPM" secondAttribute="centerY" id="pZc-FV-joJ"/>
+                            <constraint firstAttribute="width" priority="250" constant="250" id="t79-nt-0JM"/>
+                            <constraint firstItem="f1K-Ko-DT7" firstAttribute="centerY" secondItem="6ZG-b8-N1y" secondAttribute="centerY" id="uev-D3-BbO"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pr9-XS-c8d">
+                        <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="Rvl-l8-dYT"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="WHa-IS-WPM" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="7uN-3g-5WR"/>
+                    <constraint firstItem="pr9-XS-c8d" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="30" id="KlT-jf-x1n"/>
+                    <constraint firstItem="5VO-RO-UoN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="Mmo-83-xE9"/>
+                    <constraint firstAttribute="trailing" secondItem="5VO-RO-UoN" secondAttribute="trailing" constant="8" id="NNe-RS-KqM"/>
+                    <constraint firstAttribute="bottom" secondItem="WHa-IS-WPM" secondAttribute="bottom" constant="10" id="Sta-tJ-H2c"/>
+                    <constraint firstItem="pr9-XS-c8d" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="XlF-0a-hfw"/>
+                    <constraint firstItem="5VO-RO-UoN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="ZOp-Ma-yaV"/>
+                    <constraint firstItem="Vqw-Sp-BZJ" firstAttribute="top" secondItem="5VO-RO-UoN" secondAttribute="bottom" constant="10" id="ffo-SV-NBN"/>
+                    <constraint firstAttribute="trailing" secondItem="pr9-XS-c8d" secondAttribute="trailing" constant="30" id="j5C-0I-Kpn"/>
+                    <constraint firstItem="WHa-IS-WPM" firstAttribute="top" secondItem="Vqw-Sp-BZJ" secondAttribute="bottom" constant="10" id="rOg-SZ-bEA"/>
+                    <constraint firstItem="Vqw-Sp-BZJ" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="waq-w5-rJ5"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="labelHPRate" destination="f1K-Ko-DT7" id="KTM-dj-dqf"/>
+            </connections>
+            <point key="canvasLocation" x="18" y="83.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="IconHoneyPot" width="33" height="33"/>
+    </resources>
+</document>

@@ -11,28 +11,53 @@ import UIKit
 class CardViewController: UIViewController {
     var pageMenu: CAPSPageMenu?
     
+    var storyList: CardListViewController?
+    var myCardList: MyCardViewController?
+    
+    var currnetPage: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         viewConfig()
     }
     
     func viewConfig() {
-        let storyList = UIStoryboard(name: CardListViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: CardListViewController.identify) as! CardListViewController
-        storyList.title = "Cửa hàng"
-        storyList.delegate = self
+        storyList = UIStoryboard(name: CardListViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: CardListViewController.identify) as? CardListViewController
         
-        let myCardList = UIStoryboard(name: MyCardViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: MyCardViewController.identify) as! MyCardViewController
-        myCardList.title = "Thẻ của tôi"
-        myCardList.delegate = self
+        myCardList = UIStoryboard(name: MyCardViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: MyCardViewController.identify) as? MyCardViewController
+
+        if let storyList = storyList, let myCardList = myCardList {
+            
+            storyList.title = "Cửa hàng"
+            storyList.delegate = self
+            
+            myCardList.title = "Thẻ của tôi"
+            myCardList.delegate = self
+            
+            pageMenu = CAPSPageMenu(viewControllers: [storyList, myCardList], frame: view.bounds, pageMenuOptions: CAPSPageMenu.setting())
+        }
         
-        pageMenu = CAPSPageMenu(viewControllers: [storyList, myCardList], frame: view.bounds, pageMenuOptions: CAPSPageMenu.setting())
         if let pageMenu = pageMenu {
+            pageMenu.delegate = self
             pageMenu.view.backgroundColor = UIColor.RGB(230.0, green: 230.0, blue: 230.0)
             view.addSubview(pageMenu.view)
         }
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if let pageMenu = pageMenu, let storyList = storyList, let myCardList = myCardList {
+            switch pageMenu.currentPageIndex {
+            case 0:
+                storyList.reloadAllCard()
+            case 1:
+                myCardList.reloadMyCard()
+            default:
+                break
+            }
+        }
+    }
+    
     func present(card: Card?) {
         if let card = card, let shopID = card.shopID {
             let cardDetailViewController = UIStoryboard(name: CardDetailViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: CardDetailViewController.identify) as! CardDetailViewController
@@ -58,14 +83,26 @@ class CardViewController: UIViewController {
     }
 }
 
-extension CardViewController: CardListViewControllerDelegate {
-    func listCardTapped(card: Card?) {
-        present(card: card)
+extension CardViewController: CAPSPageMenuDelegate {
+    func didMoveToPage(_ controller: UIViewController, index: Int) {
+        if let pageMenu = pageMenu, let storyList = storyList, let myCardList = myCardList {
+            if currnetPage != index {
+                currnetPage = index
+                switch pageMenu.currentPageIndex {
+                case 0:
+                    storyList.reloadAllCard()
+                case 1:
+                    myCardList.reloadMyCard()
+                default:
+                    break
+                }
+            }
+        }
     }
 }
 
-extension CardViewController: MyCardViewControllerDelegate {
-    func myCardTapped(card: Card?) {
+extension CardViewController: CardListViewControllerDelegate, MyCardViewControllerDelegate{
+    func buttonCardTapped(card: Card?) {
         present(card: card)
     }
 }

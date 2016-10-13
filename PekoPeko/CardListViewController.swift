@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 
 protocol CardListViewControllerDelegate: class {
-    func listCardTapped(card: Card?)
+    func buttonCardTapped(card: Card?)
 }
 
 class CardListViewController: BaseViewController {
@@ -43,9 +43,6 @@ class CardListViewController: BaseViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if cards == nil {
-            getAllCard()
-        }
     }
     
     override func viewConfig() {
@@ -104,7 +101,7 @@ class CardListViewController: BaseViewController {
 
 extension CardListViewController: CardTableViewCellDelegate {
     func cellTapped(card: Card?) {
-        delegate?.listCardTapped(card: card)
+        delegate?.buttonCardTapped(card: card)
     }
 }
 

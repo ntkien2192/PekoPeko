@@ -13,14 +13,10 @@
             <rect key="frame" x="0.0" y="0.0" width="397" height="224"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <frame key="frameInset" width="397" height="223"/>
+                <frame key="frameInset" width="397" height="223.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DefaultCellImage" translatesAutoresizingMaskIntoConstraints="NO" id="w1C-ZD-qFl" customClass="ImageView" customModule="PekoPeko" customModuleProvider="target">
-                        <constraints>
-                            <constraint firstAttribute="width" secondItem="w1C-ZD-qFl" secondAttribute="height" multiplier="3:1.7" id="2O2-HG-VQT"/>
-                        </constraints>
-                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DefaultCellImage" translatesAutoresizingMaskIntoConstraints="NO" id="w1C-ZD-qFl" customClass="ImageView" customModule="PekoPeko" customModuleProvider="target"/>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GradientBackgrount" translatesAutoresizingMaskIntoConstraints="NO" id="rlj-5l-ywP">
                         <constraints>
                             <constraint firstAttribute="height" constant="70" id="F1U-Bt-Lui"/>
@@ -128,6 +124,7 @@
                     <constraint firstItem="w1C-ZD-qFl" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" id="D8h-Je-wJE"/>
                     <constraint firstAttribute="bottom" secondItem="w1C-ZD-qFl" secondAttribute="bottom" id="DEH-ed-25N"/>
                     <constraint firstAttribute="trailing" secondItem="Dn3-ZE-CXS" secondAttribute="trailing" constant="8" id="DMd-mm-Y2H"/>
+                    <constraint firstItem="w1C-ZD-qFl" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="3:1.7" priority="750" id="Dvo-dh-ZDH"/>
                     <constraint firstItem="w1C-ZD-qFl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="FCG-y0-otg"/>
                     <constraint firstAttribute="bottom" secondItem="Pax-Zz-kg6" secondAttribute="bottom" constant="11" id="J1D-xS-v0s"/>
                     <constraint firstItem="Dn3-ZE-CXS" firstAttribute="leading" secondItem="3WV-NY-Pf8" secondAttribute="leading" constant="35" id="Kc6-Rc-PRs"/>

@@ -14,7 +14,6 @@ import ObjectMapper
 class AuthenticationStore {
     
     fileprivate let accessTokenKey = "pekopeko.accesstoken"
-    fileprivate let userIDKey = "gomabu.userid"
     fileprivate let isLoginKey = "pekopeko.isLoginKey"
     fileprivate let phoneNumberKey = "pekopeko.phoneNumber"
     
@@ -22,32 +21,6 @@ class AuthenticationStore {
         
         return UserDefaults.standard
     }()
-    
-    // MARK: User ID
-    
-    var hasUserID: Bool {
-        if userID != nil {
-            return true
-        }
-        
-        return false
-    }
-    
-    var userID: String? {
-        return defaults.value(forKey: userIDKey) as? String ?? nil
-    }
-    
-    func saveUserID(_ userID: String) {
-        defaults.set(userID, forKey: userIDKey)
-        defaults.synchronize()
-        
-    }
-    
-    func deleteUserID() {
-        defaults.removeObject(forKey: userIDKey)
-        defaults.synchronize()
-    }
-
     
     //MARK: LOGIN
     
