@@ -32,16 +32,18 @@ class DetailCardHeaderTableViewCell: UITableViewCell {
                 if let shopCoverUrl = card.shopCoverUrl {
                     let URL = NSURL(string: shopCoverUrl)!
                     let fetcher = NetworkFetcher<UIImage>(URL: URL as URL)
+                    weak var _self = self
                     _ = cache.fetch(fetcher: fetcher).onSuccess({ (image) in
-                        self.imageViewCover.image = image.cropToBounds(width: image.size.width, height: image.size.width * 1.8 / 3.0)
+                        _self?.imageViewCover.image = image.cropToBounds(width: image.size.width, height: image.size.width * 1.8 / 3.0)
                     })
                 }
                 
                 if let shopAvatarUrl = card.shopAvatarUrl {
                     let URL = NSURL(string: shopAvatarUrl)!
                     let fetcher = NetworkFetcher<UIImage>(URL: URL as URL)
+                    weak var _self = self
                     _ = cache.fetch(fetcher: fetcher).onSuccess({ (image) in
-                        self.imageViewAvatar.image = image.cropToBounds(width: image.size.height, height: image.size.height)
+                        _self?.imageViewAvatar.image = image.cropToBounds(width: image.size.height, height: image.size.height)
                     })
                 }
                 

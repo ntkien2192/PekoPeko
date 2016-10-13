@@ -42,14 +42,15 @@ class UserUpdateInfoViewController: UIViewController {
                 uploadAvatarActivity.startAnimating()
                 buttonTakePicture.isHidden = true
                 buttonAvatar.isHidden = true
+                weak var _self = self
                 UserStore.updateAvatar(avatar, completionHandler: { (imageUrl, error) in
-                    self.uploadAvatarActivity.stopAnimating()
-                    self.buttonTakePicture.isHidden = false
-                    self.buttonAvatar.isHidden = false
+                    _self?.uploadAvatarActivity.stopAnimating()
+                    _self?.buttonTakePicture.isHidden = false
+                    _self?.buttonAvatar.isHidden = false
                     guard error == nil else {
                         return
                     }
-                    self.buttonAvatar.setImage(url: imageUrl ?? "")
+                    _self?.buttonAvatar.setImage(url: imageUrl ?? "")
                 })
             }
         }
@@ -155,10 +156,11 @@ class UserUpdateInfoViewController: UIViewController {
                 if let user = User(JSON: [UserFields.FullName.rawValue: name]) {
                     imageViewUser.isHidden = true
                     activityUploadUserFullname.startAnimating()
+                    weak var _self = self
                     UserStore.uploadFullName(user, completionHandler: { (success, error) in
                         
-                        self.imageViewUser.isHidden = false
-                        self.activityUploadUserFullname.stopAnimating()
+                        _self?.imageViewUser.isHidden = false
+                        _self?.activityUploadUserFullname.stopAnimating()
                         
                         guard error == nil else {
                             if let error = error as? ServerResponseError, let data = error.data,
@@ -207,10 +209,11 @@ class UserUpdateInfoViewController: UIViewController {
                 view.setNeedsLayout()
                 buttonAvatar.isHidden = false
                 buttonTakePicture.isHidden = false
+                weak var _self = self
                 UIView.animate(withDuration: 0.2) {
-                    self.view.layoutIfNeeded()
-                    self.buttonAvatar.alpha = 1.0
-                    self.buttonTakePicture.alpha = 1.0
+                    _self?.view.layoutIfNeeded()
+                    _self?.buttonAvatar.alpha = 1.0
+                    _self?.buttonTakePicture.alpha = 1.0
                 }
             }
         }
@@ -273,13 +276,14 @@ extension UserUpdateInfoViewController: UITextFieldDelegate {
             if constraintTop.constant != constraintValue {
                 constraintTop.constant = constraintValue
                 view.setNeedsLayout()
+                weak var _self = self
                 UIView.animate(withDuration: 0.2, animations: {
-                    self.view.layoutIfNeeded()
-                    self.buttonAvatar.alpha = 0.0
-                    self.buttonTakePicture.alpha = 0.0
+                    _self?.view.layoutIfNeeded()
+                    _self?.buttonAvatar.alpha = 0.0
+                    _self?.buttonTakePicture.alpha = 0.0
                     }, completion: { _ in
-                        self.buttonAvatar.isHidden = true
-                        self.buttonTakePicture.isHidden = true
+                        _self?.buttonAvatar.isHidden = true
+                        _self?.buttonTakePicture.isHidden = true
                 })
             }
         }

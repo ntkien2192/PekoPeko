@@ -21,7 +21,9 @@ class CardListViewController: BaseViewController {
     static let identify = "StoreListViewController"
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activityFirstLoad: UIActivityIndicatorView!
     
+    @IBOutlet weak var labelEmpty: UILabel!
     var refreshControl: UIRefreshControl?
     
     let locationManager = CLLocationManager()
@@ -74,8 +76,9 @@ class CardListViewController: BaseViewController {
     
     func getAllCard() {
         let cardRequest = CardRequest(location: userLocation ?? nil, nextPage: nextPage ?? nil)
+        weak var _self = self
         CardStore.getAllCard(cardRequest: cardRequest) { (cardResponse, error) in
-            if let refreshControl = self.refreshControl{
+            if let refreshControl = _self?.refreshControl{
                 refreshControl.endRefreshing()
             }
             guard error == nil else {
@@ -84,10 +87,10 @@ class CardListViewController: BaseViewController {
             
             if let cardResponse = cardResponse {
                 if let cards = cardResponse.cards {
-                    self.cards = cards
+                    _self?.cards = cards
                 }
                 if let pagination = cardResponse.pagination, let nextPage = pagination.nextPage {
-                    self.nextPage = nextPage
+                    _self?.nextPage = nextPage
                 }
             }
         }

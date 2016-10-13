@@ -55,6 +55,8 @@
 		E43D2C7F1DA7F6840019B2DD /* HomeTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43D2C7E1DA7F6840019B2DD /* HomeTabbarController.swift */; };
 		E43D2C821DA7F6C40019B2DD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43D2C811DA7F6C40019B2DD /* LoginViewController.swift */; };
 		E43D2C841DA80DAE0019B2DD /* LoginPhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43D2C831DA80DAE0019B2DD /* LoginPhoneViewController.swift */; };
+		E45086E41DAFD9140090ACB5 /* Redeem.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E45086E31DAFD9140090ACB5 /* Redeem.storyboard */; };
+		E45086E71DAFDA5A0090ACB5 /* RedeemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45086E61DAFDA5A0090ACB5 /* RedeemViewController.swift */; };
 		E451FFEF1DA8120B00B5A756 /* Textfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = E451FFEE1DA8120B00B5A756 /* Textfield.swift */; };
 		E451FFF11DA813B700B5A756 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = E451FFF01DA813B700B5A756 /* View.swift */; };
 		E451FFF31DA813C800B5A756 /* ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E451FFF21DA813C800B5A756 /* ScrollView.swift */; };
@@ -158,6 +160,8 @@
 		E43D2C7E1DA7F6840019B2DD /* HomeTabbarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTabbarController.swift; sourceTree = "<group>"; };
 		E43D2C811DA7F6C40019B2DD /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E43D2C831DA80DAE0019B2DD /* LoginPhoneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPhoneViewController.swift; sourceTree = "<group>"; };
+		E45086E31DAFD9140090ACB5 /* Redeem.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Redeem.storyboard; sourceTree = "<group>"; };
+		E45086E61DAFDA5A0090ACB5 /* RedeemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedeemViewController.swift; sourceTree = "<group>"; };
 		E451FFEE1DA8120B00B5A756 /* Textfield.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Textfield.swift; sourceTree = "<group>"; };
 		E451FFF01DA813B700B5A756 /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		E451FFF21DA813C800B5A756 /* ScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollView.swift; sourceTree = "<group>"; };
@@ -341,6 +345,14 @@
 			name = LoginViewController;
 			sourceTree = "<group>";
 		};
+		E45086E51DAFDA350090ACB5 /* RedeemViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E45086E61DAFDA5A0090ACB5 /* RedeemViewController.swift */,
+			);
+			name = RedeemViewController;
+			sourceTree = "<group>";
+		};
 		E476B0221DA92A8E007B1D62 /* CardViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -444,11 +456,12 @@
 		E49404CE1DA6AE6B00918C75 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E427F8EA1DAF90FB0012F3F5 /* SettingViewController */,
 				E476B0361DA93F0D007B1D62 /* BaseViewController.swift */,
 				E476B0221DA92A8E007B1D62 /* CardViewController */,
 				E43D2C7D1DA7F6490019B2DD /* HomeTabbarController */,
 				E43D2C801DA7F6A90019B2DD /* LoginViewController */,
+				E45086E51DAFDA350090ACB5 /* RedeemViewController */,
+				E427F8EA1DAF90FB0012F3F5 /* SettingViewController */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -519,6 +532,7 @@
 				E49404D71DA6B60800918C75 /* Home.storyboard */,
 				E43D2C7B1DA7F5570019B2DD /* Login.storyboard */,
 				E476B0231DA92AB4007B1D62 /* Card.storyboard */,
+				E45086E31DAFD9140090ACB5 /* Redeem.storyboard */,
 			);
 			name = Storyboard;
 			sourceTree = "<group>";
@@ -695,6 +709,7 @@
 				E49404D81DA6B60800918C75 /* Home.storyboard in Resources */,
 				E434E6021DAF480D00AFC400 /* PointCardTableViewCell.xib in Resources */,
 				E476B0241DA92AB4007B1D62 /* Card.storyboard in Resources */,
+				E45086E41DAFD9140090ACB5 /* Redeem.storyboard in Resources */,
 				E4246A0D1DAE411A00D0A074 /* DetailCardHeaderTableViewCell.xib in Resources */,
 				E427F8E91DAF790C0012F3F5 /* Reward10TableViewCell.xib in Resources */,
 				E476B02F1DA93BB0007B1D62 /* img_food_sample.png in Resources */,
@@ -869,6 +884,7 @@
 				E494049F1DA6AD1B00918C75 /* AppDelegate.swift in Sources */,
 				E4129A411DACE41200F78C79 /* CardStore.swift in Sources */,
 				E4246A051DAE245A00D0A074 /* CardDetailViewController.swift in Sources */,
+				E45086E71DAFDA5A0090ACB5 /* RedeemViewController.swift in Sources */,
 				E427F8E41DAF5F580012F3F5 /* RewardTableViewCell.swift in Sources */,
 				E451FFF31DA813C800B5A756 /* ScrollView.swift in Sources */,
 				E476B0391DA9445E007B1D62 /* ImageView.swift in Sources */,

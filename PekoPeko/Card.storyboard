@@ -25,16 +25,30 @@
                                     <outlet property="delegate" destination="clN-Iq-JzU" id="igV-tp-0kK"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="iwk-bi-1IB">
+                                <color key="color" red="0.25490196079999999" green="0.1137254902" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chưa có dữ liệu ở mục này" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VDM-6o-8Lb">
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <color key="textColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="LwV-dn-WTq" firstAttribute="top" secondItem="lN8-h3-h8D" secondAttribute="bottom" id="HtI-wy-vVo"/>
+                            <constraint firstItem="VDM-6o-8Lb" firstAttribute="centerX" secondItem="lN8-h3-h8D" secondAttribute="centerX" id="LOo-Vj-Z4j"/>
+                            <constraint firstItem="VDM-6o-8Lb" firstAttribute="centerY" secondItem="lN8-h3-h8D" secondAttribute="centerY" id="TXO-UW-0e5"/>
                             <constraint firstItem="lN8-h3-h8D" firstAttribute="leading" secondItem="xkL-z9-mKg" secondAttribute="leading" id="UJj-bo-gTQ"/>
                             <constraint firstAttribute="trailing" secondItem="lN8-h3-h8D" secondAttribute="trailing" id="ava-lC-t6D"/>
                             <constraint firstItem="lN8-h3-h8D" firstAttribute="top" secondItem="xkL-z9-mKg" secondAttribute="top" id="hBU-uL-gfr"/>
+                            <constraint firstItem="iwk-bi-1IB" firstAttribute="centerY" secondItem="lN8-h3-h8D" secondAttribute="centerY" id="ig4-T5-4ll"/>
+                            <constraint firstItem="iwk-bi-1IB" firstAttribute="centerX" secondItem="lN8-h3-h8D" secondAttribute="centerX" id="nBy-7i-VGK"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityFirstLoad" destination="iwk-bi-1IB" id="fIb-iO-e78"/>
+                        <outlet property="labelEmpty" destination="VDM-6o-8Lb" id="orP-oB-ZdG"/>
                         <outlet property="tableView" destination="lN8-h3-h8D" id="3zd-Ps-GoT"/>
                     </connections>
                 </viewController>

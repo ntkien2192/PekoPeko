@@ -54,9 +54,9 @@ class MyCardViewController: BaseViewController {
     
     func getMyCard() {
         let cardRequest = CardRequest(nextPage: nextPage ?? nil)
-        
+        weak var _self = self
         CardStore.getUserCard(cardRequest: cardRequest) { (cardResponse, error) in
-            if let refreshControl = self.refreshControl{
+            if let refreshControl = _self?.refreshControl{
                 refreshControl.endRefreshing()
             }
             guard error == nil else {
@@ -65,10 +65,10 @@ class MyCardViewController: BaseViewController {
             
             if let cardResponse = cardResponse {
                 if let cards = cardResponse.cards {
-                    self.cards = cards
+                    _self?.cards = cards
                 }
                 if let pagination = cardResponse.pagination, let nextPage = pagination.nextPage {
-                    self.nextPage = nextPage
+                    _self?.nextPage = nextPage
                 }
             }
         }

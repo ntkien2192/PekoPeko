@@ -73,14 +73,7 @@ class CardViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    @IBAction func buttonLogoutTapped(_ sender: AnyObject) {
-        AuthenticationStore().saveLoginValue(false)
-        let loginController = UIStoryboard(name: LoginViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: LoginViewController.identify)
-        if let navigationController = navigationController {
-            navigationController.present(loginController, animated: false, completion: nil)
-        }
-    }
+
 }
 
 extension CardViewController: CAPSPageMenuDelegate {

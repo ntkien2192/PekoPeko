@@ -92,14 +92,15 @@ class ConfirmCodeViewController: UIViewController {
         if AuthenticationStore().hasPhoneNumber {
             if let phoneNumber = AuthenticationStore().phoneNumber {
                 let loginParameter = LoginParameter(phone: phoneNumber, code: code, location: userLocation ?? Location(latitude: 0.0, longitude: 0.0))
+                weak var _self = self
                 AuthenticationStore.confirm(loginParameter, completionHandler: { (loginResponse, error) in
                     
                     guard error == nil else {
                         if let error = error as? ServerResponseError, let data = error.data,
                             let reason: String = data[NSLocalizedFailureReasonErrorKey] as? String {
-                            self.showError(reason, animation: false)
-                            self.confirmActivity.stopAnimating()
-                            self.showConfirmField()
+                            _self?.showError(reason, animation: false)
+                            _self?.confirmActivity.stopAnimating()
+                            _self?.showConfirmField()
                         }
                         return
                     }
@@ -107,14 +108,14 @@ class ConfirmCodeViewController: UIViewController {
                     if let loginResponse = loginResponse, let step = loginResponse.step {
                         if step == .ready {
                             AuthenticationStore().saveLoginValue(true)
-                            if let navigationController = self.navigationController {
+                            if let navigationController = _self?.navigationController {
                                 navigationController.dismiss(animated: true, completion: nil)
                             }
                         }
                         
                         if step == .update {
                             let confirmCodeViewController = UIStoryboard(name: UserUpdateInfoViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: UserUpdateInfoViewController.identify)
-                            if let navigationController = self.navigationController {
+                            if let navigationController = _self?.navigationController {
                                 navigationController.show(confirmCodeViewController, sender: nil)
                             }
                         }
@@ -152,9 +153,10 @@ class ConfirmCodeViewController: UIViewController {
                 constraintTop.constant = defaultConstraintValue
                 view.setNeedsLayout()
                 imageViewLogo.isHidden = false
+                weak var _self = self
                 UIView.animate(withDuration: 0.2) {
-                    self.view.layoutIfNeeded()
-                    self.imageViewLogo.alpha = 1.0
+                    _self?.view.layoutIfNeeded()
+                    _self?.imageViewLogo.alpha = 1.0
                 }
             }
         }
@@ -206,11 +208,12 @@ extension ConfirmCodeViewController: UITextFieldDelegate {
             if constraintTop.constant != constraintValue {
                 constraintTop.constant = constraintValue
                 view.setNeedsLayout()
+                weak var _self = self
                 UIView.animate(withDuration: 0.2, animations: {
-                    self.view.layoutIfNeeded()
-                    self.imageViewLogo.alpha = 0.0
+                    _self?.view.layoutIfNeeded()
+                    _self?.imageViewLogo.alpha = 0.0
                     }, completion: { _ in
-                        self.imageViewLogo.isHidden = true
+                        _self?.imageViewLogo.isHidden = true
                 })
             }
         }

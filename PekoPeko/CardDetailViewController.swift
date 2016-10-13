@@ -102,13 +102,14 @@ class CardDetailViewController: BaseViewController {
     
     func getCardDetail() {
         if let cardID = cardID {
+            weak var _self = self
             CardStore.getCard(cardID: cardID, completionHandler: { (card, error) in
                 guard error == nil else {
                     return
                 }
                 
                 if let card = card {
-                    self.card = card
+                    _self?.card = card
                 }
             })
         }
@@ -117,11 +118,12 @@ class CardDetailViewController: BaseViewController {
     @IBAction func buttonAddCardTapped(_ sender: AnyObject) {
         if !isAdded {
             if let card = card, let cardID = card.shopID {
+                weak var _self = self
                 CardStore.addCard(cardID: cardID, completionHandler: { (success, error) in
                     guard error == nil else {
                         return
                     }
-                    self.isAdded = success
+                    _self?.isAdded = success
                 })
             }
         }

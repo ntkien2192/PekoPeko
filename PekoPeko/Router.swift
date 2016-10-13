@@ -135,12 +135,7 @@ enum Router: URLRequestConvertible {
         }
     }
     
-    var appVersion: String {
-        if let appVersion = Bundle.main.infoDictionary?["CFBundleVersion"] as? String {
-            return appVersion
-        }
-        return ""
-    }
+
     
     // MARK: URLRequestConvertible
     
@@ -169,7 +164,7 @@ enum Router: URLRequestConvertible {
             urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
         }
         urlRequest.setValue(apiVersion, forHTTPHeaderField: "Api-version")
-        urlRequest.setValue(appVersion, forHTTPHeaderField: "App-version")
+        urlRequest.setValue(UIDevice().appVersion, forHTTPHeaderField: "App-version")
         urlRequest.setValue("\(UIDevice().modelName)/\(UIDevice().osVersion)", forHTTPHeaderField: "User-Agent")
 
         switch self {

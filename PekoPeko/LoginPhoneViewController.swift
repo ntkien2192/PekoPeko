@@ -143,15 +143,16 @@ class LoginPhoneViewController: UIViewController {
             hideLoginField()
             loginActivity.startAnimating()
             let loginParameter = LoginParameter(phone: phoneNumber, password: password, location: userLocation ?? Location(latitude: 0.0, longitude: 0.0))
+            weak var _self = self
             AuthenticationStore.login(loginParameter, completionHandler: { (loginResponse, error) in
                 
                 
                 guard error == nil else {
                     if let error = error as? ServerResponseError, let data = error.data,
                         let reason: String = data[NSLocalizedFailureReasonErrorKey] as? String {
-                        self.showError(reason, animation: false)
-                        self.loginActivity.stopAnimating()
-                        self.showLoginField()
+                        _self?.showError(reason, animation: false)
+                        _self?.loginActivity.stopAnimating()
+                        _self?.showLoginField()
                     }
                     return
                 }
@@ -161,21 +162,21 @@ class LoginPhoneViewController: UIViewController {
                 if let loginResponse = loginResponse, let step = loginResponse.step {
                     if step == .verify {
                         let confirmCodeViewController = UIStoryboard(name: ConfirmCodeViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: ConfirmCodeViewController.identify)
-                        if let navigationController = self.navigationController {
+                        if let navigationController = _self?.navigationController {
                             navigationController.show(confirmCodeViewController, sender: nil)
                         }
                     }
                     
                     if step == .ready {
                         AuthenticationStore().saveLoginValue(true)
-                        if let navigationController = self.navigationController {
+                        if let navigationController = _self?.navigationController {
                             navigationController.dismiss(animated: true, completion: nil)
                         }
                     }
                     
                     if step == .update {
                         let confirmCodeViewController = UIStoryboard(name: UserUpdateInfoViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: UserUpdateInfoViewController.identify)
-                        if let navigationController = self.navigationController {
+                        if let navigationController = _self?.navigationController {
                             navigationController.show(confirmCodeViewController, sender: nil)
                         }
                     }
@@ -212,9 +213,10 @@ class LoginPhoneViewController: UIViewController {
                 constraintTop.constant = defaultConstraintValue
                 view.setNeedsLayout()
                 imageViewLogo.isHidden = false
+                weak var _self = self
                 UIView.animate(withDuration: 0.2) {
-                    self.view.layoutIfNeeded()
-                    self.imageViewLogo.alpha = 1.0
+                    _self?.view.layoutIfNeeded()
+                    _self?.imageViewLogo.alpha = 1.0
                 }
             }
         }
@@ -281,11 +283,12 @@ extension LoginPhoneViewController: UITextFieldDelegate {
             if constraintTop.constant != constraintValue {
                 constraintTop.constant = constraintValue
                 view.setNeedsLayout()
+                weak var _self = self
                 UIView.animate(withDuration: 0.2, animations: {
-                    self.view.layoutIfNeeded()
-                    self.imageViewLogo.alpha = 0.0
+                    _self?.view.layoutIfNeeded()
+                    _self?.imageViewLogo.alpha = 0.0
                     }, completion: { _ in
-                        self.imageViewLogo.isHidden = true
+                        _self?.imageViewLogo.isHidden = true
                 })
             }
         }

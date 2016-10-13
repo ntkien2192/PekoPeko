@@ -103,7 +103,7 @@ extension Alamofire.DataRequest {
             switch result {
             case .success(let value):
                 let jsonObject = SwiftyJSON.JSON(value)
-                if jsonObject["code"].intValue != 10001 {
+                if jsonObject["code"].intValue != 1 {
                     let failureReason = jsonObject["message"].stringValue
                     let errorData = [NSLocalizedFailureReasonErrorKey: failureReason]
                     let error = ServerResponseError(data: errorData as [String : AnyObject], kind: .dataSerializationFailed)

@@ -46,8 +46,9 @@ class RewardTableViewCell: UITableViewCell {
                 if let imageUrl = reward.imageUrl {
                     let URL = NSURL(string: imageUrl)!
                     let fetcher = NetworkFetcher<UIImage>(URL: URL as URL)
+                    weak var _self = self
                     _ = cache.fetch(fetcher: fetcher).onSuccess({ (image) in
-                        self.imageViewAvatar.image = image
+                        _self?.imageViewAvatar.image = image
                     })
                 }
                 

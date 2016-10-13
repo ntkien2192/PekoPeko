@@ -28,6 +28,20 @@ extension Button {
     }
 }
 
+extension UIImageView {
+    func setImage(image: UIImage) {
+        weak var _self = self
+        UIView.animate(withDuration: 0.2, animations: {
+            _self?.alpha = 0.0
+            }) { _ in
+                _self?.image = image
+                UIView.animate(withDuration: 0.2, animations: { 
+                    _self?.alpha = 1.0
+                })
+        }
+    }
+}
+
 extension UIImage {
     func cropToBounds(width: CGFloat, height: CGFloat) -> UIImage {
         
@@ -130,6 +144,13 @@ extension UIDevice {
     
     var osVersion: String {
         return UIDevice.current.systemVersion
+    }
+    
+    var appVersion: String {
+        if let appVersion = Bundle.main.infoDictionary?["CFBundleVersion"] as? String {
+            return appVersion
+        }
+        return ""
     }
 }
 

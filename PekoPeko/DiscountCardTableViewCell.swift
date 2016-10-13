@@ -26,8 +26,9 @@ class DiscountCardTableViewCell: UITableViewCell {
                 if let coverUrl = discount.coverUrl {
                     let URL = NSURL(string: coverUrl)!
                     let fetcher = NetworkFetcher<UIImage>(URL: URL as URL)
+                    weak var _self = self
                     _ = cache.fetch(fetcher: fetcher).onSuccess({ (image) in
-                        self.imageViewCover.image = image
+                        _self?.imageViewCover.image = image
                     })
                 }
                 

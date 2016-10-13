@@ -8,44 +8,134 @@
 
 import UIKit
 import  NVActivityIndicatorView
+import Haneke
 
-class SettingViewController: UIViewController {
+class SettingViewController: BaseViewController {
 
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var buttonAvatar: Button!
     @IBOutlet weak var buttonTakePicture: Button!
     @IBOutlet weak var activityUploadData: NVActivityIndicatorView!
     
+    @IBOutlet weak var labelAppVersion: UILabel!
+    @IBOutlet weak var labelAppLanguage: UILabel!
+    
+    @IBOutlet weak var labelName: UILabel!
+    
     var imagePicker: UIImagePickerController?
+    
+    var refreshControl: UIRefreshControl?
+    
     var avatar: UIImage? {
         didSet {
             if let avatar = avatar {
+                activityUploadData.color = UIColor.colorYellow
                 activityUploadData.startAnimating()
                 buttonTakePicture.isHidden = true
                 buttonAvatar.isHidden = true
+                weak var _self = self
                 UserStore.updateAvatar(avatar, completionHandler: { (imageUrl, error) in
-                    self.activityUploadData.stopAnimating()
-                    self.buttonTakePicture.isHidden = false
-                    self.buttonAvatar.isHidden = false
+                    _self?.activityUploadData.stopAnimating()
+                    _self?.buttonTakePicture.isHidden = false
+                    _self?.buttonAvatar.isHidden = false
                     guard error == nil else {
                         return
                     }
-                    self.buttonAvatar.setImage(url: imageUrl ?? "")
+                    _self?.buttonAvatar.setImage(url: imageUrl ?? "")
                 })
+            }
+        }
+    }
+    
+    var user: User? {
+        didSet {
+            if let user = user {
+                if let fullName = user.fullName {
+                    labelName.text = fullName
+                }
+                
+                labelAppVersion.text = UIDevice().appVersion
+                
+                let cache = Shared.imageCache
+                if let avatarUrl = user.avatarUrl {
+                    let URL = NSURL(string: avatarUrl)!
+                    let fetcher = NetworkFetcher<UIImage>(URL: URL as URL)
+                    weak var _self = self
+                    _ = cache.fetch(fetcher: fetcher).onSuccess({ (image) in
+                        _self?.buttonAvatar.setImage(image, for: .normal)
+                    })
+                }
             }
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
+    
+    override func viewConfig() {
+        super.viewConfig()
+        refreshControl = UIRefreshControl()
+        if let refreshControl = refreshControl {
+            refreshControl.addTarget(self, action: #selector(SettingViewController.reloadUserInfo), for: .valueChanged)
+            scrollView.addSubview(refreshControl)
+            scrollView.sendSubview(toBack: refreshControl)
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        getUserInfo()
+    }
 
+    func reloadUserInfo() {
+        getUserInfo()
+    }
+    
+    func getUserInfo() {
+        weak var _self = self
+        UserStore.getBaseUserInfo { (user, error) in
+            if let refreshControl = _self?.refreshControl {
+                refreshControl.endRefreshing()
+            }
+            guard error == nil else {
+                return
+            }
+            if let user = user {
+                _self?.user = user
+            }
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func buttonLogoutTapped(_ sender: AnyObject) {
+        AuthenticationStore().saveLoginValue(false)
+        let loginController = UIStoryboard(name: LoginViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: LoginViewController.identify)
+        if let navigationController = navigationController {
+            navigationController.present(loginController, animated: false, completion: nil)
+        }
+    }
+    
+    @IBAction func buttonRateAppTapped(_ sender: AnyObject) {
+        
+    }
+    
+    @IBAction func buttonSendEmailTapped(_ sender: AnyObject) {
+        
+    }
+    
+    @IBAction func buttonChangePhoneNumberTapped(_ sender: AnyObject) {
+        
+    }
+    
+    @IBAction func buttonChangePasswordTapped(_ sender: AnyObject) {
+        
+    }
     
     /// Take Pictures Alert Button
     ///
