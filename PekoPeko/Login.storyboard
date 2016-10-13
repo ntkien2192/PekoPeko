@@ -196,7 +196,7 @@
                                         <color key="tintColor" red="0.96078431369999995" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="textColor" red="0.25490196079999999" green="0.1137254902" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="phonePad" returnKeyType="next"/>
                                         <connections>
                                             <outlet property="delegate" destination="GJQ-AZ-Fif" id="o9a-Vr-ANL"/>
                                         </connections>
@@ -818,6 +818,9 @@
                                         <real key="value" value="0.20000000000000001"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="buttonStartTapped:" destination="7Fe-Os-Gy4" eventType="touchUpInside" id="qgr-49-jb9"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jIj-iE-pGr" customClass="View" customModule="PekoPeko" customModuleProvider="target">
                                 <subviews>
@@ -842,11 +845,15 @@
                                             <outlet property="delegate" destination="7Fe-Os-Gy4" id="rhL-7c-II3"/>
                                         </connections>
                                     </textField>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="1jf-vk-tAR">
+                                        <color key="color" red="0.25490196079999999" green="0.1137254902" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="tbT-hC-J2u" firstAttribute="height" secondItem="k61-cq-ved" secondAttribute="height" id="B94-jX-i5j"/>
                                     <constraint firstItem="tbT-hC-J2u" firstAttribute="centerY" secondItem="jIj-iE-pGr" secondAttribute="centerY" id="HTN-Yz-YKm"/>
+                                    <constraint firstItem="1jf-vk-tAR" firstAttribute="centerY" secondItem="k61-cq-ved" secondAttribute="centerY" id="LAP-ow-qDE"/>
                                     <constraint firstAttribute="bottom" secondItem="rZi-OL-VtG" secondAttribute="bottom" id="Lnc-IR-3gD"/>
                                     <constraint firstAttribute="trailing" secondItem="rZi-OL-VtG" secondAttribute="trailing" constant="15" id="QTZ-WT-jKV"/>
                                     <constraint firstAttribute="width" secondItem="jIj-iE-pGr" secondAttribute="height" multiplier="332:50" id="Qmx-8N-nxC"/>
@@ -854,6 +861,7 @@
                                     <constraint firstItem="rZi-OL-VtG" firstAttribute="top" secondItem="jIj-iE-pGr" secondAttribute="top" id="TzT-RO-xBc"/>
                                     <constraint firstItem="rZi-OL-VtG" firstAttribute="leading" secondItem="tbT-hC-J2u" secondAttribute="trailing" constant="15" id="Wxm-U5-ZTC"/>
                                     <constraint firstItem="k61-cq-ved" firstAttribute="leading" secondItem="jIj-iE-pGr" secondAttribute="leading" constant="12" id="bYQ-a0-CJq"/>
+                                    <constraint firstItem="1jf-vk-tAR" firstAttribute="centerX" secondItem="k61-cq-ved" secondAttribute="centerX" id="fth-Iq-NWm"/>
                                     <constraint firstItem="k61-cq-ved" firstAttribute="centerY" secondItem="jIj-iE-pGr" secondAttribute="centerY" id="wbt-9n-UN3"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -896,13 +904,18 @@
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="next" secureTextEntry="YES"/>
                                         <connections>
-                                            <outlet property="delegate" destination="GJQ-AZ-Fif" id="Jwx-jn-sD3"/>
+                                            <outlet property="delegate" destination="7Fe-Os-Gy4" id="VoO-sd-AwU"/>
                                         </connections>
                                     </textField>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="zd0-2E-A79">
+                                        <frame key="frameInset" minX="13" minY="14" width="20" height="20"/>
+                                        <color key="color" red="0.25490196079999999" green="0.1137254902" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="nKs-B3-Oj9" firstAttribute="centerY" secondItem="MKo-qK-avv" secondAttribute="centerY" id="0nO-Cn-hnX"/>
+                                    <constraint firstItem="zd0-2E-A79" firstAttribute="centerY" secondItem="DOY-my-4bP" secondAttribute="centerY" id="2vg-hd-HXQ"/>
                                     <constraint firstItem="oWr-C7-jeK" firstAttribute="top" secondItem="MKo-qK-avv" secondAttribute="top" id="8s9-64-abG"/>
                                     <constraint firstAttribute="bottom" secondItem="oWr-C7-jeK" secondAttribute="bottom" id="D0b-ky-X5P"/>
                                     <constraint firstAttribute="trailing" secondItem="oWr-C7-jeK" secondAttribute="trailing" constant="15" id="Gn6-wT-3T0"/>
@@ -956,7 +969,7 @@
                                         <real key="value" value="70"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="0.5"/>
+                                        <real key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                         <color key="value" red="0.90077837780000003" green="0.76305449869999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -967,12 +980,12 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I3Z-I9-rvq" customClass="Button" customModule="PekoPeko" customModuleProvider="target">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.99265462159999995" green="0.84121900800000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="Mga-dm-1R8"/>
                                     <constraint firstAttribute="width" constant="36" id="mDA-pb-lwf"/>
                                 </constraints>
-                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                 <state key="normal" image="IconPhotoCamera"/>
                                 <userDefinedRuntimeAttributes>
@@ -980,10 +993,10 @@
                                         <real key="value" value="18"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="0.5"/>
+                                        <real key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" red="0.25490196079999999" green="0.1137254902" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
@@ -992,7 +1005,6 @@
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tên hiển thị cùng với một hình ảnh đẹp sẽ khiến bạn nổi bật hơn" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9mw-lM-9ir" customClass="Label" customModule="PekoPeko" customModuleProvider="target">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="I33-H4-5ll"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="fCY-b3-D3b"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
@@ -1022,9 +1034,26 @@
                                     </mask>
                                 </variation>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hh5-pw-B2a" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="bY2-B0-p0b"/>
+                                    <constraint firstAttribute="width" constant="50" id="ceb-Ne-LOV"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="typeName" value="BallTrianglePath"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="padding">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Hh5-pw-B2a" firstAttribute="centerX" secondItem="ruM-30-ZLf" secondAttribute="centerX" id="0Xe-nx-Pz0"/>
                             <constraint firstItem="TGd-32-PBa" firstAttribute="top" secondItem="c22-ht-KPe" secondAttribute="bottom" id="5kt-zf-mwV"/>
                             <constraint firstItem="MKo-qK-avv" firstAttribute="top" secondItem="jIj-iE-pGr" secondAttribute="bottom" constant="20" id="9ab-8b-GBn"/>
                             <constraint firstItem="I3Z-I9-rvq" firstAttribute="bottom" secondItem="ruM-30-ZLf" secondAttribute="bottom" id="9tu-2A-vqE"/>
@@ -1047,24 +1076,35 @@
                             <constraint firstItem="MKo-qK-avv" firstAttribute="width" secondItem="jIj-iE-pGr" secondAttribute="width" id="h6y-ZT-fwe"/>
                             <constraint firstItem="MKo-qK-avv" firstAttribute="centerX" secondItem="dbv-3g-0T6" secondAttribute="centerX" id="hhq-71-k49"/>
                             <constraint firstItem="I3Z-I9-rvq" firstAttribute="trailing" secondItem="ruM-30-ZLf" secondAttribute="trailing" id="jhD-sO-Stn"/>
+                            <constraint firstItem="zd0-2E-A79" firstAttribute="centerX" secondItem="k61-cq-ved" secondAttribute="centerX" id="m1I-4V-npW"/>
                             <constraint firstItem="9mw-lM-9ir" firstAttribute="centerX" secondItem="dbv-3g-0T6" secondAttribute="centerX" id="o4V-OH-BAk"/>
+                            <constraint firstItem="9mw-lM-9ir" firstAttribute="width" secondItem="jIj-iE-pGr" secondAttribute="width" id="oSU-4j-MHh"/>
                             <constraint firstItem="PV1-9A-szb" firstAttribute="top" secondItem="dbv-3g-0T6" secondAttribute="bottom" id="rVt-47-9vy"/>
                             <constraint firstItem="9mw-lM-9ir" firstAttribute="top" secondItem="ruM-30-ZLf" secondAttribute="bottom" constant="20" id="rho-Xw-RXs"/>
+                            <constraint firstItem="Hh5-pw-B2a" firstAttribute="centerY" secondItem="ruM-30-ZLf" secondAttribute="centerY" id="ucH-wt-bG5"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityUploadPromoCode" destination="zd0-2E-A79" id="kPg-Iq-oRr"/>
+                        <outlet property="activityUploadUserFullname" destination="1jf-vk-tAR" id="owU-Bt-Trj"/>
                         <outlet property="buttonAvatar" destination="ruM-30-ZLf" id="6u0-ge-lwA"/>
                         <outlet property="buttonShowHidePassword" destination="dbv-3g-0T6" id="ev2-oU-Ew1"/>
                         <outlet property="buttonSubmit" destination="oer-Po-COg" id="8an-Z2-8AR"/>
                         <outlet property="buttonTakePicture" destination="I3Z-I9-rvq" id="OMJ-X1-qb7"/>
                         <outlet property="constraintTop" destination="PUY-hZ-HPY" id="Chi-Qd-eLW"/>
+                        <outlet property="imageViewPromoCode" destination="DOY-my-4bP" id="1HS-E5-Ekb"/>
+                        <outlet property="imageViewUser" destination="k61-cq-ved" id="k69-S4-rlK"/>
+                        <outlet property="labelIntro" destination="9mw-lM-9ir" id="aP2-be-3BB"/>
+                        <outlet property="textfieldFullname" destination="rZi-OL-VtG" id="m75-qF-axS"/>
+                        <outlet property="textfieldPromoCode" destination="oWr-C7-jeK" id="vlm-hI-6fv"/>
+                        <outlet property="uploadAvatarActivity" destination="Hh5-pw-B2a" id="yzv-xp-Mjm"/>
                         <outlet property="viewInputCode" destination="MKo-qK-avv" id="9Ui-SL-NT3"/>
                         <outlet property="viewInputName" destination="jIj-iE-pGr" id="Xhu-cx-D7m"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uzy-cJ-Z7V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3077.5999999999999" y="71.514242878560722"/>
+            <point key="canvasLocation" x="3161" y="72"/>
         </scene>
     </scenes>
     <resources>

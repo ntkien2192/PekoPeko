@@ -167,9 +167,9 @@ class LoginPhoneViewController: UIViewController {
                     }
                     
                     if step == .ready {
-                        let confirmCodeViewController = UIStoryboard(name: ConfirmCodeViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: ConfirmCodeViewController.identify)
+                        AuthenticationStore().saveLoginValue(true)
                         if let navigationController = self.navigationController {
-                            navigationController.show(confirmCodeViewController, sender: nil)
+                            navigationController.dismiss(animated: true, completion: nil)
                         }
                     }
                     
@@ -180,7 +180,6 @@ class LoginPhoneViewController: UIViewController {
                         }
                     }
                 }
-
             })
         }
     }

@@ -15,22 +15,42 @@
                         <viewControllerLayoutGuide type="bottom" id="fQs-pF-0vT"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="6Ig-II-a1V">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CxP-2Q-uAY">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="CxP-2Q-uAY" firstAttribute="leading" secondItem="6Ig-II-a1V" secondAttribute="leading" id="QIg-Ze-MgH"/>
-                            <constraint firstItem="CxP-2Q-uAY" firstAttribute="top" secondItem="zNm-me-ogX" secondAttribute="bottom" id="RvR-ji-LEz"/>
-                            <constraint firstAttribute="trailing" secondItem="CxP-2Q-uAY" secondAttribute="trailing" id="Unn-HT-yX0"/>
-                            <constraint firstItem="fQs-pF-0vT" firstAttribute="top" secondItem="CxP-2Q-uAY" secondAttribute="bottom" id="gBC-Rs-eBN"/>
-                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="0GI-3Q-R82"/>
+                    <toolbarItems>
+                        <barButtonItem title=" " id="9gB-KR-5mb"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" id="0GI-3Q-R82">
+                        <nil key="title"/>
+                        <barButtonItem key="backBarButtonItem" title=" " id="1MP-rL-Irn"/>
+                        <view key="titleView" contentMode="scaleToFill" id="4U2-M5-Ebf">
+                            <rect key="frame" x="113" y="2" width="150" height="40"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoBar.png" translatesAutoresizingMaskIntoConstraints="NO" id="teO-9x-bp0">
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="150" id="QbO-g0-eZs"/>
+                                        <constraint firstAttribute="height" constant="40" id="ivq-NT-cqv"/>
+                                    </constraints>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="teO-9x-bp0" secondAttribute="trailing" id="937-i5-ZMu"/>
+                                <constraint firstItem="teO-9x-bp0" firstAttribute="top" secondItem="4U2-M5-Ebf" secondAttribute="top" id="MDz-WY-vVd"/>
+                                <constraint firstItem="teO-9x-bp0" firstAttribute="leading" secondItem="4U2-M5-Ebf" secondAttribute="leading" id="Oug-X7-qAM"/>
+                                <constraint firstAttribute="bottom" secondItem="teO-9x-bp0" secondAttribute="bottom" id="u2K-Ie-S3F"/>
+                            </constraints>
+                        </view>
+                        <barButtonItem key="rightBarButtonItem" image="IconSettings" id="C9N-zz-v9S">
+                            <connections>
+                                <segue destination="VJY-rp-pNu" kind="show" id="Ljf-gF-NB4"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G6M-II-v1X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -45,15 +65,37 @@
                         <viewControllerLayoutGuide type="bottom" id="kWq-1U-qD8"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Em9-7c-yRX">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="bo2-4L-yeG"/>
+                    <navigationItem key="navigationItem" id="bo2-4L-yeG">
+                        <nil key="title"/>
+                        <barButtonItem key="backBarButtonItem" title=" " id="StP-tf-PtS"/>
+                        <view key="titleView" contentMode="scaleToFill" id="Vuk-Fi-uDQ">
+                            <rect key="frame" x="113" y="2" width="150" height="40"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoBar.png" translatesAutoresizingMaskIntoConstraints="NO" id="8Oj-Wm-ZPw">
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="VbM-1a-F71"/>
+                                        <constraint firstAttribute="width" constant="150" id="ieV-af-CsG"/>
+                                    </constraints>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="8Oj-Wm-ZPw" secondAttribute="bottom" id="7h6-cJ-kAV"/>
+                                <constraint firstAttribute="trailing" secondItem="8Oj-Wm-ZPw" secondAttribute="trailing" id="REB-he-mJA"/>
+                                <constraint firstItem="8Oj-Wm-ZPw" firstAttribute="top" secondItem="Vuk-Fi-uDQ" secondAttribute="top" id="UlH-8k-9qV"/>
+                                <constraint firstItem="8Oj-Wm-ZPw" firstAttribute="leading" secondItem="Vuk-Fi-uDQ" secondAttribute="leading" id="nD1-fs-AOD"/>
+                            </constraints>
+                        </view>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hbU-eh-97G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1169" y="1033"/>
+            <point key="canvasLocation" x="1168.8" y="1032.2338830584708"/>
         </scene>
         <!--Card View Controller-->
         <scene sceneID="lDE-vQ-R4t">
@@ -90,9 +132,9 @@
                                 <constraint firstAttribute="trailing" secondItem="MhQ-xJ-feB" secondAttribute="trailing" id="Wvz-uy-wIw"/>
                             </constraints>
                         </view>
-                        <barButtonItem key="rightBarButtonItem" title="Logout" id="ESU-89-Qs4">
+                        <barButtonItem key="rightBarButtonItem" image="IconSettings" id="sYf-vX-qi4">
                             <connections>
-                                <action selector="buttonLogoutTapped:" destination="pd0-z8-O7W" id="fD1-Is-SNN"/>
+                                <segue destination="VJY-rp-pNu" kind="show" id="nf7-r9-BV1"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -105,7 +147,7 @@
         <scene sceneID="CI6-oe-3qW">
             <objects>
                 <navigationController navigationBarHidden="YES" id="Hll-f5-Lp3" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6CQ-gO-BwF">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="6CQ-gO-BwF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -128,6 +170,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="FUF-YL-0YZ" kind="relationship" relationship="viewControllers" id="EmM-bf-kom"/>
@@ -139,16 +182,19 @@
             </objects>
             <point key="canvasLocation" x="122" y="-576"/>
         </scene>
-        <!--Item 1-->
+        <!--Navigation Controller-->
         <scene sceneID="Ori-fr-Wwr">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FUF-YL-0YZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 1" id="fvI-5g-KOC"/>
+                    <tabBarItem key="tabBarItem" title="" image="ButtonHome" selectedImage="ButtonHomeTapped" id="fvI-5g-KOC">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                    </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="v8y-X1-ge9">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="v8y-X1-ge9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.99265462159999995" green="0.84121900800000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.99215686274509807" green="0.84313725490196079" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <offsetWrapper key="textShadowOffset" horizontal="0.0" vertical="0.0"/>
                         </textAttributes>
@@ -162,15 +208,16 @@
             </objects>
             <point key="canvasLocation" x="-406.875" y="274.64788732394368"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="uYf-ks-0AL">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YRu-KX-N7j" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="plu-Yf-NI7"/>
+                    <tabBarItem key="tabBarItem" title="" image="ButtonPromoCode" selectedImage="ButtonPromoCodeTapped" id="plu-Yf-NI7"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="NYQ-8y-WgB">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="NYQ-8y-WgB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" red="0.99265462159999995" green="0.84121900800000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -182,16 +229,20 @@
             </objects>
             <point key="canvasLocation" x="1169" y="274"/>
         </scene>
-        <!--Item 2-->
+        <!--Navigation Controller-->
         <scene sceneID="GCH-Nd-HVS">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pIj-Qk-oUI" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 2" id="Tyd-Nr-vDn"/>
+                    <tabBarItem key="tabBarItem" title="" image="ButtonQRScan" selectedImage="ButtonQRScanTapped" id="Tyd-Nr-vDn"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="INl-lU-u6z">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="INl-lU-u6z">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" red="0.99265462159999995" green="0.84121900800000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.25490196079999999" green="0.1137254902" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -202,8 +253,130 @@
             </objects>
             <point key="canvasLocation" x="360.80000000000001" y="273.91304347826087"/>
         </scene>
+        <!--User Update Info View Controller-->
+        <scene sceneID="VY0-Yy-lDt">
+            <objects>
+                <viewController storyboardIdentifier="UserUpdateInfoViewController" id="VJY-rp-pNu" customClass="UserUpdateInfoViewController" customModule="PekoPeko" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XEa-dK-T1T"/>
+                        <viewControllerLayoutGuide type="bottom" id="Lae-mL-35U"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8mJ-3u-BQz">
+                        <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SrZ-Ff-7Cw">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="0Da-pZ-gQb"/>
+                                    <constraint firstAttribute="height" constant="50" id="fYi-Kv-Nq7"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="12" minY="12" maxX="12" maxY="12"/>
+                                <state key="normal" image="IconLeft"/>
+                                <connections>
+                                    <action selector="buttonBackTapped:" destination="VJY-rp-pNu" eventType="touchUpInside" id="gmb-Nn-7Yb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BOI-MF-dSW" customClass="Button" customModule="PekoPeko" customModuleProvider="target">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="140" id="6Bc-hF-wyd"/>
+                                    <constraint firstAttribute="width" constant="140" id="6Hy-S1-uZE"/>
+                                </constraints>
+                                <state key="normal" image="UserDefaultAvatar"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="70"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.90077837780000003" green="0.76305449869999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="buttonTakePicturesTapped:" destination="VJY-rp-pNu" eventType="touchUpInside" id="YxJ-GM-lMm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eJg-Zp-C8a" customClass="Button" customModule="PekoPeko" customModuleProvider="target">
+                                <color key="backgroundColor" red="0.99265462159999995" green="0.84121900800000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="Jzq-ks-VX4"/>
+                                    <constraint firstAttribute="width" constant="36" id="nBB-im-WLW"/>
+                                </constraints>
+                                <color key="tintColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                <state key="normal" image="IconPhotoCamera"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="18"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="buttonTakePicturesTapped:" destination="VJY-rp-pNu" eventType="touchUpInside" id="FDG-zm-S0Z"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="12y-5a-qXj" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="T8o-XT-Vi5"/>
+                                    <constraint firstAttribute="width" constant="50" id="n9s-pt-HVu"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="typeName" value="BallTrianglePath"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="padding">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="BOI-MF-dSW" firstAttribute="centerX" secondItem="8mJ-3u-BQz" secondAttribute="centerX" id="2uj-Za-XaQ"/>
+                            <constraint firstItem="12y-5a-qXj" firstAttribute="centerX" secondItem="BOI-MF-dSW" secondAttribute="centerX" id="99y-uD-kQk"/>
+                            <constraint firstItem="SrZ-Ff-7Cw" firstAttribute="top" secondItem="XEa-dK-T1T" secondAttribute="bottom" id="HGV-zh-SWb"/>
+                            <constraint firstItem="BOI-MF-dSW" firstAttribute="top" secondItem="XEa-dK-T1T" secondAttribute="bottom" constant="50" id="Idi-vs-opv"/>
+                            <constraint firstItem="SrZ-Ff-7Cw" firstAttribute="leading" secondItem="8mJ-3u-BQz" secondAttribute="leading" id="J3d-X2-qVv"/>
+                            <constraint firstItem="12y-5a-qXj" firstAttribute="centerY" secondItem="BOI-MF-dSW" secondAttribute="centerY" id="eRY-mY-iXY"/>
+                            <constraint firstItem="eJg-Zp-C8a" firstAttribute="trailing" secondItem="BOI-MF-dSW" secondAttribute="trailing" id="ilb-bm-yGQ"/>
+                            <constraint firstItem="eJg-Zp-C8a" firstAttribute="bottom" secondItem="BOI-MF-dSW" secondAttribute="bottom" id="sZi-3V-8bm"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="buttonAvatar" destination="BOI-MF-dSW" id="MmL-5R-LUy"/>
+                        <outlet property="buttonTakePicture" destination="eJg-Zp-C8a" id="Xyb-va-Klc"/>
+                        <outlet property="constraintTop" destination="Idi-vs-opv" id="HcQ-eY-bhK"/>
+                        <outlet property="uploadAvatarActivity" destination="12y-5a-qXj" id="s4H-3k-k46"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z0S-we-cfF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-18" y="1955"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="ButtonHome" width="25" height="25"/>
+        <image name="ButtonHomeTapped" width="25" height="25"/>
+        <image name="ButtonPromoCode" width="25" height="25"/>
+        <image name="ButtonPromoCodeTapped" width="25" height="25"/>
+        <image name="ButtonQRScan" width="25" height="25"/>
+        <image name="ButtonQRScanTapped" width="25" height="25"/>
+        <image name="IconLeft" width="44" height="44"/>
+        <image name="IconPhotoCamera" width="22" height="22"/>
+        <image name="IconSettings" width="22" height="22"/>
+        <image name="UserDefaultAvatar" width="400" height="400"/>
         <image name="logoBar.png" width="418" height="112"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="nf7-r9-BV1"/>
+    </inferredMetricsTieBreakers>
 </document>

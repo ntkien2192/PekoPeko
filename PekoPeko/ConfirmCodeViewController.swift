@@ -106,7 +106,10 @@ class ConfirmCodeViewController: UIViewController {
                     
                     if let loginResponse = loginResponse, let step = loginResponse.step {
                         if step == .ready {
-                            self.navigationController?.dismiss(animated: true, completion: nil)
+                            AuthenticationStore().saveLoginValue(true)
+                            if let navigationController = self.navigationController {
+                                navigationController.dismiss(animated: true, completion: nil)
+                            }
                         }
                         
                         if step == .update {

@@ -19,12 +19,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Cache Keyboard
         UIResponder.cacheKeyboard()
-//        UIApplication.shared.statusBarStyle = .lightContent
-        
-        // Override point for customization after application launch.
-        
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .any, barMetrics: .default)
         UINavigationBar.appearance().shadowImage = UIImage()
+        
+        
+        
+        
         
         return true
     }

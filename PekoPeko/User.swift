@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftyJSON
+import ObjectMapper
 
 enum LoginStep: String {
     case input = "input"
@@ -16,7 +17,7 @@ enum LoginStep: String {
     case verify = "verify"
 }
 
-enum LoginResponseFields: String {
+enum UserFields: String {
     case UserID = "_id"
     case FacebookConnected = "facebook_connected"
     case Avatar = "avatar"
@@ -26,7 +27,7 @@ enum LoginResponseFields: String {
     case FullName = "full_name"
 }
 
-class LoginResponse: NSObject {
+class User: Mappable {
     
     var userID: String?
     var isFacebookConnected: Bool?
@@ -37,10 +38,10 @@ class LoginResponse: NSObject {
     var fullName: String?
     
     required init(json: JSON) {
-        userID = json[LoginResponseFields.UserID.rawValue].string
-        isFacebookConnected = json[LoginResponseFields.FacebookConnected.rawValue].boolValue
-        avatarUrl = json[LoginResponseFields.Avatar.rawValue].string
-        let stepString = json[LoginResponseFields.Step.rawValue].stringValue
+        userID = json[UserFields.UserID.rawValue].string
+        isFacebookConnected = json[UserFields.FacebookConnected.rawValue].boolValue
+        avatarUrl = json[UserFields.Avatar.rawValue].string
+        let stepString = json[UserFields.Step.rawValue].stringValue
 
         if stepString == LoginStep.input.rawValue {
             step = .input
@@ -52,7 +53,12 @@ class LoginResponse: NSObject {
             step = .verify
         }
         
-        type = json[LoginResponseFields.UserID.rawValue].string
-        fullName = json[LoginResponseFields.FullName.rawValue].string
+        type = json[UserFields.UserID.rawValue].string
+        fullName = json[UserFields.FullName.rawValue].string
+    }
+
+    required init?(map: Map) {}
+    func mapping(map: Map) {
+        fullName <- map[UserFields.FullName.rawValue]
     }
 }

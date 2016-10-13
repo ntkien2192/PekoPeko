@@ -2,6 +2,21 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>VNF.ProximaNova-Regular.ttf</string>
+		<string>UTM Bebas.ttf</string>
+		<string>UVF ProximaNova-Regular.ttf</string>
+		<string>BebasNeue-webfont.ttf</string>
+		<string>ProximaNova-Bold.otf</string>
+		<string>ProximaNova-Regular.otf</string>
+		<string>ProximaNova-Semibold.otf</string>
+		<string>ProximaNovaSoft-Bold.otf</string>
+		<string>ProximaNovaSoft-Medium.otf</string>
+		<string>ProximaNovaSoft-Regular.otf</string>
+		<string>ProximaNovaSoft-Semibold.otf</string>
+		<string>BEBAS___.ttf</string>
+	</array>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string></string>
 	<key>NSAppTransportSecurity</key>

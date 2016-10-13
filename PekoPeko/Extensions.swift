@@ -8,6 +8,84 @@
 
 import UIKit
 import Foundation
+import Haneke
+
+extension Button {
+    func setImage(url: String, placeholder: String) {
+        if let url = URL(string: url) {
+            self.hnk_setImageFromURL(url, state: .normal, placeholder: UIImage(named: placeholder), format: nil, failure: nil) { (image) in
+                self.setImage(image, for: .normal)
+            }
+        }
+    }
+    
+    func setImage(url: String) {
+        if let url = URL(string: url) {
+            self.hnk_setImageFromURL(url, state: .normal, placeholder: self.image(for: .normal), format: nil, failure: nil) { (image) in
+                self.setImage(image, for: .normal)
+            }
+        }
+    }
+}
+
+extension UIImage {
+    func cropToBounds(width: CGFloat, height: CGFloat) -> UIImage {
+        
+        let contextImage: UIImage = UIImage(cgImage: self.cgImage!)
+        let contextSize: CGSize = contextImage.size
+        
+        var posX: CGFloat = 0.0
+        var posY: CGFloat = 0.0
+        var cgwidth: CGFloat = CGFloat(width)
+        var cgheight: CGFloat = CGFloat(height)
+        
+        // See what size is longer and create the center off of that
+        if contextSize.width > contextSize.height {
+            posX = ((contextSize.width - contextSize.height) / 2.0)
+            posY = 0.0
+            cgwidth = contextSize.height
+            cgheight = contextSize.height
+        } else {
+            posX = 0.0
+            posY = ((contextSize.height - contextSize.width) / 2.0)
+            cgwidth = contextSize.width
+            cgheight = contextSize.width
+        }
+        
+        let rect: CGRect = CGRect(x: posX, y: posY, width: cgwidth, height: cgheight)
+        let imageRef: CGImage = contextImage.cgImage!.cropping(to: rect)!
+        let image: UIImage = UIImage(cgImage: imageRef, scale: self.scale, orientation: self.imageOrientation)
+        
+        return image
+    }
+    
+    func resizeImage(targetSize: CGSize) -> UIImage {
+        let size = self.size
+        
+        let widthRatio  = targetSize.width  / self.size.width
+        let heightRatio = targetSize.height / self.size.height
+        
+        // Figure out what our orientation is, and use that to form the rectangle
+        var newSize: CGSize
+        if(widthRatio > heightRatio) {
+            newSize = CGSize(width: size.width * heightRatio, height: size.height * heightRatio)
+        } else {
+            newSize = CGSize(width: size.width * widthRatio, height: size.height * widthRatio)
+        }
+        
+        // This is the rect that we've calculated out and this is what is actually used below
+        let rect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height)
+        
+        // Actually do the resizing to the rect using the ImageContext stuff
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
+        self.draw(in: rect)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        
+        return newImage
+    }
+
+}
 
 extension UIDevice {
     var modelName: String {
@@ -64,7 +142,7 @@ extension UIColor {
     @nonobjc static let colorYellow = UIColor(hex: "#FDD700")
     
     class func RGB(_ red: CGFloat, green: CGFloat, blue: CGFloat) -> UIColor {
-        return RGBA(red, green: green, blue: blue, alpha: 255.0)
+        return RGBA(red, green: green, blue: blue, alpha: 1.0)
     }
     
     class func RGBA(_ red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) -> UIColor {

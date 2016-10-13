@@ -6,10 +6,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Store List View Controller-->
+        <!--Card List View Controller-->
         <scene sceneID="j3I-fU-FG9">
             <objects>
-                <viewController storyboardIdentifier="StoreListViewController" id="clN-Iq-JzU" customClass="StoreListViewController" customModule="PekoPeko" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StoreListViewController" id="clN-Iq-JzU" customClass="CardListViewController" customModule="PekoPeko" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ci5-uB-71N"/>
                         <viewControllerLayoutGuide type="bottom" id="LwV-dn-WTq"/>
@@ -19,14 +19,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lN8-h3-h8D">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="clN-Iq-JzU" id="bT4-rt-CAy"/>
                                     <outlet property="delegate" destination="clN-Iq-JzU" id="igV-tp-0kK"/>
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="LwV-dn-WTq" firstAttribute="top" secondItem="lN8-h3-h8D" secondAttribute="bottom" id="HtI-wy-vVo"/>
                             <constraint firstItem="lN8-h3-h8D" firstAttribute="leading" secondItem="xkL-z9-mKg" secondAttribute="leading" id="UJj-bo-gTQ"/>
@@ -53,12 +53,108 @@
                     <view key="view" contentMode="scaleToFill" id="wP9-oV-DWF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IMb-cQ-lWN">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="mIG-zo-oeA" id="9a6-Aw-OKz"/>
+                                    <outlet property="delegate" destination="mIG-zo-oeA" id="ewB-Ie-CrL"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="IMb-cQ-lWN" secondAttribute="trailing" id="82f-u9-HMP"/>
+                            <constraint firstItem="IMb-cQ-lWN" firstAttribute="leading" secondItem="wP9-oV-DWF" secondAttribute="leading" id="eKc-Rn-2LB"/>
+                            <constraint firstItem="IMb-cQ-lWN" firstAttribute="top" secondItem="wP9-oV-DWF" secondAttribute="top" id="hXH-YS-w9H"/>
+                            <constraint firstItem="YF0-Oa-wid" firstAttribute="top" secondItem="IMb-cQ-lWN" secondAttribute="bottom" id="pjD-EL-3fL"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="IMb-cQ-lWN" id="fUC-ou-hoS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AZq-7Q-zCd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="327" y="143"/>
+            <point key="canvasLocation" x="325.60000000000002" y="142.57871064467767"/>
+        </scene>
+        <!--Card Detail View Controller-->
+        <scene sceneID="Ucp-QO-CbA">
+            <objects>
+                <viewController storyboardIdentifier="CardDetailViewController" id="X3Q-Ef-98E" customClass="CardDetailViewController" customModule="PekoPeko" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nHf-dw-ubw"/>
+                        <viewControllerLayoutGuide type="bottom" id="ugx-ii-agZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VWO-WN-gc8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="df2-n2-2oG">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="X3Q-Ef-98E" id="F9r-YE-1C0"/>
+                                    <outlet property="delegate" destination="X3Q-Ef-98E" id="ON0-gy-m8R"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="df2-n2-2oG" firstAttribute="leading" secondItem="VWO-WN-gc8" secondAttribute="leading" id="2L3-RJ-WKC"/>
+                            <constraint firstItem="df2-n2-2oG" firstAttribute="top" secondItem="nHf-dw-ubw" secondAttribute="bottom" id="OF5-TM-vfG"/>
+                            <constraint firstAttribute="trailing" secondItem="df2-n2-2oG" secondAttribute="trailing" id="OZb-ob-GCl"/>
+                            <constraint firstItem="ugx-ii-agZ" firstAttribute="top" secondItem="df2-n2-2oG" secondAttribute="bottom" id="a8W-4g-PMI"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="MPv-gQ-UgT">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="TXJ-fM-2Mv">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="wzj-ka-2pK" customClass="Button" customModule="PekoPeko" customModuleProvider="target">
+                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Thêm Thẻ">
+                                    <color key="titleColor" red="0.25490196079999999" green="0.1137254902" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="df2-n2-2oG" id="m1N-vr-wQT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FR6-Jf-wzT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2528.8000000000002" y="142.57871064467767"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="WVd-lF-lil">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9fs-fB-jGv" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dsc-Gb-bmP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="X3Q-Ef-98E" kind="relationship" relationship="rootViewController" id="QoP-Ij-Zjl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jLA-6V-Hlm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1589.5999999999999" y="142.57871064467767"/>
         </scene>
     </scenes>
 </document>

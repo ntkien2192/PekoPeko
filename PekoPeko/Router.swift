@@ -16,48 +16,111 @@ enum ApiVersion: String {
 }
 
 enum Router: URLRequestConvertible {
-//    static let baseURLString = "https://api.hungrybear.vn/"
-    static let baseURLString = "http://192.168.0.119:8000/"
+    static let baseURLString = "https://api.hungrybear.vn/"
+    static let baseUploadFile = "https://files.hungrybear.vn/"
     
     // Router
-    case tokenExchange([String: String])
+    case exchangeToken()
     case login([String: AnyObject])
     case verifyPhoneNumber([String: AnyObject])
     
+    case uploadUserAvatar()
+    case uploadUserFullname([String: AnyObject])
+    
+    case getAllcard([String: AnyObject])
+    case getUserCard([String: AnyObject])
+    case addCard(String)
+    case getCard(String)
     
     var method: HTTPMethod {
         switch self {
-        case .tokenExchange:
-            return .post
+        case .exchangeToken:
+            return .get
+            
         case .login:
             return .post
+            
         case .verifyPhoneNumber:
             return .post
+            
+        case .uploadUserAvatar:
+            return .post
+            
+        case .uploadUserFullname:
+            return .put
+            
+        case .getAllcard:
+            return .get
+            
+        case .getUserCard:
+            return .get
+            
+        case .addCard:
+            return .post
+            
+        case .getCard:
+            return .get
         }
     }
     
     var path: String {
         switch self {
-        case .tokenExchange:
-            return "/auth/token_exchange/"
+        case .exchangeToken:
+            return "auth/refresh-token"
             
         case .login:
             return "auth/phone"
             
         case .verifyPhoneNumber:
             return "auth/verify"
+            
+        case .uploadUserAvatar:
+            return "user/avatar"
+            
+        case .uploadUserFullname:
+            return "user/basic"
+            
+        case .getAllcard:
+            return "card/all"
+            
+        case .getUserCard:
+            return "user/card"
+            
+        case .addCard(let cardID):
+            return "card/\(cardID)"
+            
+        case .getCard(let cardID):
+            return "card/\(cardID)"
         }
     }
     
     var apiVersion: String {
         switch self {
-        case .tokenExchange:
-            return "/auth/token_exchange/"
+        case .exchangeToken:
+            return ApiVersion.V100.rawValue
             
         case .login:
             return ApiVersion.V200.rawValue
             
         case .verifyPhoneNumber:
+            return ApiVersion.V200.rawValue
+            
+        case .uploadUserAvatar:
+            return ApiVersion.V100.rawValue
+            
+        case .uploadUserFullname:
+            return ApiVersion.V200.rawValue
+            
+        case .getAllcard:
+            return ApiVersion.V200.rawValue
+            
+        case .getUserCard:
+            return ApiVersion.V200.rawValue
+            
+        case .addCard:
+            return ApiVersion.V200.rawValue
+        
+        case .getCard:
             return ApiVersion.V200.rawValue
         }
     }
@@ -72,31 +135,57 @@ enum Router: URLRequestConvertible {
     // MARK: URLRequestConvertible
     
     func asURLRequest() throws -> URLRequest {
-        let url = try Router.baseURLString.asURL()
+        var url = try Router.baseURLString.asURL()
+        
+        switch self {
+        case .uploadUserAvatar():
+            url = try Router.baseUploadFile.asURL()
+        default:
+            break
+        }
         
         var urlRequest = URLRequest(url: url.appendingPathComponent(path))
         urlRequest.httpMethod = method.rawValue
         
         if let token = AuthenticationStore().accessToken {
-            let plainAuthData = "\(token):".data(using: String.Encoding.utf8)
-            // Use base64 auth string due to send bearer string not working
-            let base64AuthString = (plainAuthData?.base64EncodedString(options: Data.Base64EncodingOptions(rawValue: 0)))! as String
-            urlRequest.setValue("Basic \(base64AuthString)", forHTTPHeaderField: "Authorization")
+            urlRequest.setValue(token, forHTTPHeaderField: "Authorization")
         }
         
-        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        switch self {
+        case .uploadUserAvatar():
+            urlRequest.setValue("multipart/form-data", forHTTPHeaderField: "Content-Type")
+            break
+        default:
+            urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        }
         urlRequest.setValue(apiVersion, forHTTPHeaderField: "Api-version")
         urlRequest.setValue(appVersion, forHTTPHeaderField: "App-version")
         urlRequest.setValue("\(UIDevice().modelName)/\(UIDevice().osVersion)", forHTTPHeaderField: "User-Agent")
+        
+
 
         switch self {
-        case .tokenExchange(let parameters):
-            urlRequest = try JSONEncoding.default.encode(urlRequest, with: parameters)
+            
         case .login(let parameters):
             urlRequest = try JSONEncoding.default.encode(urlRequest, with: parameters)
+            
         case .verifyPhoneNumber(let parameters):
             urlRequest = try JSONEncoding.default.encode(urlRequest, with: parameters)
+            
+        case .uploadUserFullname(let parameters):
+            urlRequest = try JSONEncoding.default.encode(urlRequest, with: parameters)
+            
+        case .getAllcard(let parameters):
+            urlRequest = try URLEncoding.default.encode(urlRequest, with: parameters)
+            
+        case .getUserCard(let parameters):
+            urlRequest = try URLEncoding.default.encode(urlRequest, with: parameters)
+            
+        default:
+            break
         }
+        
+
         return urlRequest
     }
 }
