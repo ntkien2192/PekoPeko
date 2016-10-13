@@ -340,9 +340,9 @@
 				E49404CC1DA6AE5F00918C75 /* Models */,
 				E49404CD1DA6AE6600918C75 /* Views */,
 				E49404CE1DA6AE6B00918C75 /* Controllers */,
-				E49404CF1DA6AE7900918C75 /* Store */,
-				E49404D01DA6AE8100918C75 /* Extention */,
-				E49404D11DA6AE8F00918C75 /* Helper */,
+				E49404CF1DA6AE7900918C75 /* Stores */,
+				E49404D01DA6AE8100918C75 /* Extentions */,
+				E49404D11DA6AE8F00918C75 /* Helpers */,
 				E49404D21DA6AEA100918C75 /* Resources */,
 				E49404D31DA6AEB000918C75 /* AppDelegate */,
 				E49404D41DA6AEC100918C75 /* Config */,
@@ -403,7 +403,7 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
-		E49404CF1DA6AE7900918C75 /* Store */ = {
+		E49404CF1DA6AE7900918C75 /* Stores */ = {
 			isa = PBXGroup;
 			children = (
 				E424228D1DA8A10900F7D6FC /* Router.swift */,
@@ -411,22 +411,22 @@
 				E470CF641DAC99BA00434909 /* UserStore.swift */,
 				E4129A401DACE41200F78C79 /* CardStore.swift */,
 			);
-			name = Store;
+			name = Stores;
 			sourceTree = "<group>";
 		};
-		E49404D01DA6AE8100918C75 /* Extention */ = {
+		E49404D01DA6AE8100918C75 /* Extentions */ = {
 			isa = PBXGroup;
 			children = (
 				E42435C91DA8E0C700E6E5E7 /* Extensions.swift */,
 			);
-			name = Extention;
+			name = Extentions;
 			sourceTree = "<group>";
 		};
-		E49404D11DA6AE8F00918C75 /* Helper */ = {
+		E49404D11DA6AE8F00918C75 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = Helper;
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 		E49404D21DA6AEA100918C75 /* Resources */ = {
