@@ -101,31 +101,12 @@
                                             <constraint firstAttribute="width" secondItem="h6i-00-dTP" secondAttribute="height" multiplier="52:64" id="kAK-R7-v2p"/>
                                         </constraints>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vRf-AE-wew" customClass="Button" customModule="PekoPeko" customModuleProvider="target">
-                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                        <state key="normal" title="Chia sẻ">
-                                            <color key="titleColor" red="0.30196078430000001" green="0.2901960784" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="4"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="0.5"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                <color key="value" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="lf3-uQ-8oe" firstAttribute="leading" secondItem="B6q-BI-5ei" secondAttribute="trailing" id="0k0-oi-Gxy"/>
                                     <constraint firstAttribute="trailing" secondItem="lf3-uQ-8oe" secondAttribute="trailing" id="17f-87-fu4"/>
                                     <constraint firstItem="B6q-BI-5ei" firstAttribute="width" secondItem="0ik-tE-t4V" secondAttribute="width" multiplier="2:3" id="1CT-Cn-PiQ"/>
-                                    <constraint firstAttribute="trailing" secondItem="vRf-AE-wew" secondAttribute="trailing" constant="8" id="3lF-jK-EoH"/>
-                                    <constraint firstItem="vRf-AE-wew" firstAttribute="top" secondItem="lf3-uQ-8oe" secondAttribute="bottom" constant="8" id="46I-e7-2Wm"/>
                                     <constraint firstAttribute="trailing" secondItem="jOi-DF-Gmu" secondAttribute="trailing" id="4E8-Mh-oQC"/>
                                     <constraint firstItem="h6i-00-dTP" firstAttribute="leading" secondItem="nrx-PF-Ird" secondAttribute="trailing" constant="8" id="5tO-Di-RhQ"/>
                                     <constraint firstAttribute="bottom" secondItem="Qel-4A-pZm" secondAttribute="bottom" constant="15" id="Ae2-p6-Apy"/>
@@ -135,8 +116,6 @@
                                     <constraint firstItem="nrx-PF-Ird" firstAttribute="centerY" secondItem="3aT-FI-QCV" secondAttribute="centerY" id="LtP-D3-GMA"/>
                                     <constraint firstItem="Qel-4A-pZm" firstAttribute="top" secondItem="B6q-BI-5ei" secondAttribute="bottom" constant="7.5" id="MA1-Cj-Rtg"/>
                                     <constraint firstItem="3aT-FI-QCV" firstAttribute="centerY" secondItem="Qel-4A-pZm" secondAttribute="centerY" multiplier="1.01" id="T1D-IF-9sD"/>
-                                    <constraint firstItem="vRf-AE-wew" firstAttribute="leading" secondItem="jOi-DF-Gmu" secondAttribute="leading" constant="8" id="TuU-XS-ANl"/>
-                                    <constraint firstAttribute="bottom" secondItem="vRf-AE-wew" secondAttribute="bottom" constant="8" id="Vf3-6S-3wO"/>
                                     <constraint firstItem="h6i-00-dTP" firstAttribute="centerY" secondItem="Qel-4A-pZm" secondAttribute="centerY" id="Vz8-8Y-c6l"/>
                                     <constraint firstItem="3aT-FI-QCV" firstAttribute="leading" secondItem="Qel-4A-pZm" secondAttribute="trailing" constant="8" id="ahj-0z-8sD"/>
                                     <constraint firstItem="nrx-PF-Ird" firstAttribute="leading" secondItem="3aT-FI-QCV" secondAttribute="trailing" constant="8" id="bwx-GS-EYc"/>
@@ -190,6 +169,32 @@
                                 <color key="textColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="afn-gC-VhU">
+                                <frame key="frameInset" minY="1200" width="344" height="227.5"/>
+                                <connections>
+                                    <action selector="buttonCellTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="dR0-zE-hKc"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vRf-AE-wew" customClass="Button" customModule="PekoPeko" customModuleProvider="target">
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <state key="normal" title="Chia sẻ">
+                                    <color key="titleColor" red="0.30196078430000001" green="0.2901960784" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="buttonShareTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="TQc-cw-Ygb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -202,14 +207,22 @@
                             <constraint firstItem="lf3-uQ-8oe" firstAttribute="top" secondItem="man-Cs-5Ay" secondAttribute="bottom" constant="8" id="Jdz-NU-vFh"/>
                             <constraint firstAttribute="bottom" secondItem="0ik-tE-t4V" secondAttribute="bottom" id="Kci-l0-qWZ"/>
                             <constraint firstItem="We4-AK-KB3" firstAttribute="leading" secondItem="CM6-Lv-4LS" secondAttribute="trailing" constant="15" id="Kjp-JJ-3Qh"/>
+                            <constraint firstItem="afn-gC-VhU" firstAttribute="leading" secondItem="AFF-qO-nYm" secondAttribute="leading" id="MTJ-2l-A5u"/>
                             <constraint firstAttribute="trailing" secondItem="man-Cs-5Ay" secondAttribute="trailing" constant="8" id="Q9r-KQ-0Mt"/>
+                            <constraint firstItem="vRf-AE-wew" firstAttribute="width" secondItem="jOi-DF-Gmu" secondAttribute="width" constant="-16" id="Um0-nz-NUw"/>
                             <constraint firstAttribute="trailing" secondItem="0ik-tE-t4V" secondAttribute="trailing" id="VTx-fz-ZIg"/>
+                            <constraint firstAttribute="trailing" secondItem="vRf-AE-wew" secondAttribute="trailing" constant="8" id="aBr-2D-Wia"/>
                             <constraint firstItem="man-Cs-5Ay" firstAttribute="leading" secondItem="We4-AK-KB3" secondAttribute="trailing" constant="6" id="aJp-i2-DFL"/>
+                            <constraint firstAttribute="bottom" secondItem="afn-gC-VhU" secondAttribute="bottom" id="cEG-dq-Szg"/>
                             <constraint firstItem="9ab-BL-ByB" firstAttribute="top" secondItem="CM6-Lv-4LS" secondAttribute="top" id="g15-aP-6vZ"/>
+                            <constraint firstAttribute="trailing" secondItem="afn-gC-VhU" secondAttribute="trailing" id="hcx-VC-Uun"/>
                             <constraint firstAttribute="trailing" secondItem="Ihn-ls-Jbh" secondAttribute="trailing" id="iaU-AA-dkT"/>
+                            <constraint firstItem="vRf-AE-wew" firstAttribute="top" secondItem="jOi-DF-Gmu" secondAttribute="bottom" constant="8" id="ixW-wz-Poi"/>
                             <constraint firstItem="CM6-Lv-4LS" firstAttribute="leading" secondItem="AFF-qO-nYm" secondAttribute="leading" constant="10" id="j6s-jV-8f4"/>
+                            <constraint firstItem="afn-gC-VhU" firstAttribute="top" secondItem="AFF-qO-nYm" secondAttribute="top" id="jkz-2O-Zrh"/>
                             <constraint firstItem="Ihn-ls-Jbh" firstAttribute="leading" secondItem="AFF-qO-nYm" secondAttribute="leading" id="koL-zf-HH9"/>
                             <constraint firstItem="9ab-BL-ByB" firstAttribute="leading" secondItem="CM6-Lv-4LS" secondAttribute="trailing" constant="15" id="nxu-ws-TIo"/>
+                            <constraint firstAttribute="bottom" secondItem="vRf-AE-wew" secondAttribute="bottom" constant="8" id="rom-Xo-zww"/>
                             <constraint firstItem="CM6-Lv-4LS" firstAttribute="top" secondItem="AFF-qO-nYm" secondAttribute="top" constant="18" id="uhv-7Y-HqR"/>
                             <constraint firstItem="Ihn-ls-Jbh" firstAttribute="top" secondItem="AFF-qO-nYm" secondAttribute="top" id="w2i-DH-EFV"/>
                             <constraint firstItem="0ik-tE-t4V" firstAttribute="leading" secondItem="AFF-qO-nYm" secondAttribute="leading" id="z0H-lf-2Gu"/>
@@ -220,22 +233,12 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
-                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="afn-gC-VhU">
-                        <frame key="frameInset" minY="1200" width="374" height="243"/>
-                        <connections>
-                            <action selector="buttonCellTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="dR0-zE-hKc"/>
-                        </connections>
-                    </button>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="afn-gC-VhU" secondAttribute="bottom" id="80B-wY-ESX"/>
                     <constraint firstAttribute="bottom" secondItem="AFF-qO-nYm" secondAttribute="bottom" constant="8" id="JJE-Gv-cVV"/>
-                    <constraint firstItem="afn-gC-VhU" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Jov-O4-bUC"/>
-                    <constraint firstAttribute="trailing" secondItem="afn-gC-VhU" secondAttribute="trailing" id="Keu-9l-baH"/>
                     <constraint firstAttribute="trailing" secondItem="AFF-qO-nYm" secondAttribute="trailing" constant="15" id="YYo-j2-Iio"/>
                     <constraint firstItem="AFF-qO-nYm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="ZBc-n5-wTU"/>
-                    <constraint firstItem="afn-gC-VhU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="h5D-xo-N1I"/>
                     <constraint firstItem="AFF-qO-nYm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="qYu-E6-K9a"/>
                 </constraints>
             </tableViewCellContentView>

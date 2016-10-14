@@ -172,6 +172,11 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eGC-GA-ncg">
+                                <connections>
+                                    <action selector="buttonPointTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="tNk-BH-yMn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -181,6 +186,7 @@
                             <constraint firstItem="eTd-pf-TKg" firstAttribute="top" secondItem="gbQ-3M-CXj" secondAttribute="top" constant="8" id="CtZ-oH-UE1"/>
                             <constraint firstAttribute="bottom" secondItem="eTd-pf-TKg" secondAttribute="bottom" constant="8" id="EK8-nJ-6Hz"/>
                             <constraint firstItem="5we-cj-CcP" firstAttribute="leading" secondItem="xIg-8w-hRF" secondAttribute="trailing" constant="8" id="Fav-Li-X1R"/>
+                            <constraint firstAttribute="trailing" secondItem="eGC-GA-ncg" secondAttribute="trailing" id="GuL-1C-R5o"/>
                             <constraint firstItem="l3h-Fu-XLi" firstAttribute="width" secondItem="xIg-8w-hRF" secondAttribute="width" id="IlO-5l-vvr"/>
                             <constraint firstItem="eTd-pf-TKg" firstAttribute="leading" secondItem="5we-cj-CcP" secondAttribute="trailing" constant="8" id="JwF-cU-CTl"/>
                             <constraint firstItem="l3h-Fu-XLi" firstAttribute="top" secondItem="gbQ-3M-CXj" secondAttribute="top" constant="8" id="Lop-vI-4h1"/>
@@ -190,12 +196,15 @@
                             <constraint firstItem="eTd-pf-TKg" firstAttribute="width" secondItem="xIg-8w-hRF" secondAttribute="width" id="b1f-Rm-GtR"/>
                             <constraint firstItem="xIg-8w-hRF" firstAttribute="top" secondItem="gbQ-3M-CXj" secondAttribute="top" constant="8" id="eQL-T6-TRK"/>
                             <constraint firstItem="5we-cj-CcP" firstAttribute="width" secondItem="xIg-8w-hRF" secondAttribute="width" id="h47-mt-LbS"/>
+                            <constraint firstItem="eGC-GA-ncg" firstAttribute="leading" secondItem="gbQ-3M-CXj" secondAttribute="leading" id="hzX-Dj-KQ7"/>
                             <constraint firstAttribute="bottom" secondItem="xIg-8w-hRF" secondAttribute="bottom" constant="8" id="lAp-ty-RqR"/>
+                            <constraint firstAttribute="bottom" secondItem="eGC-GA-ncg" secondAttribute="bottom" id="lpP-c0-42Q"/>
                             <constraint firstItem="xIg-8w-hRF" firstAttribute="leading" secondItem="gbQ-3M-CXj" secondAttribute="leading" constant="8" id="mCl-A5-0o4"/>
                             <constraint firstItem="5we-cj-CcP" firstAttribute="top" secondItem="gbQ-3M-CXj" secondAttribute="top" constant="8" id="pkk-aq-2WN"/>
                             <constraint firstAttribute="bottom" secondItem="l3h-Fu-XLi" secondAttribute="bottom" constant="8" id="qXl-Yn-7Au"/>
                             <constraint firstAttribute="bottom" secondItem="tOx-jI-sdU" secondAttribute="bottom" constant="8" id="r8x-mV-60T"/>
                             <constraint firstItem="tOx-jI-sdU" firstAttribute="width" secondItem="xIg-8w-hRF" secondAttribute="width" id="vus-ci-7fk"/>
+                            <constraint firstItem="eGC-GA-ncg" firstAttribute="top" secondItem="gbQ-3M-CXj" secondAttribute="top" id="y5I-e8-1ay"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">

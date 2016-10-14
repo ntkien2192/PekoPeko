@@ -11,6 +11,7 @@ import Haneke
 
 protocol RewardTableViewCellDelegate: class {
     func buttonExchangeTapped(reward: Reward?)
+    func buttonPointTapped(reward: Reward?)
 }
 
 class RewardTableViewCell: UITableViewCell {
@@ -61,6 +62,14 @@ class RewardTableViewCell: UITableViewCell {
                 }
                 
                 if let hpRequire = reward.hpRequire, let hpCurrent = reward.hpCurrent {
+                    
+                    if hpCurrent >= hpRequire {
+                        isCanExchange = true
+                    } else {
+                        isCanExchange = false
+                    }
+                    
+                    
                     let view = [viewHoney1, viewHoney2, viewHoney3, viewHoney4, viewHoney5]
                     let imageView = [imageViewHoney1, imageViewHoney2, imageViewHoney3, imageViewHoney4, imageViewHoney5]
                     
@@ -81,8 +90,6 @@ class RewardTableViewCell: UITableViewCell {
                             view[i]?.backgroundColor  = UIColor.RGB(250, green: 250, blue: 250)
                             imageView[i]?.isHidden = true
                         }
-                        
-                        
                     }
                     
                     
@@ -104,9 +111,22 @@ class RewardTableViewCell: UITableViewCell {
         }
     }
     
-    var isCanExchange: Bool = false
+    var isCanExchange: Bool = false {
+        didSet {
+            if isCanExchange {
+                buttonExchange.setBackgroundImage(UIImage(named: "ButtonExchangeON"), for: .normal)
+            } else {
+                buttonExchange.setBackgroundImage(UIImage(named: "ButtonExchangeOFF"), for: .normal)
+            }
+        }
+    }
     
     @IBAction func buttonExchangeTapped(_ sender: AnyObject) {
         delegate?.buttonExchangeTapped(reward: reward)
     }
+    
+    @IBAction func buttonPointTapped(_ sender: AnyObject) {
+        delegate?.buttonPointTapped(reward: reward)
+    }
+    
 }

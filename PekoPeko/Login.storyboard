@@ -333,10 +333,10 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qz0-cV-j8u">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="QbT-ZP-pr1"/>
-                                    <constraint firstAttribute="height" constant="50" id="eNV-Ba-L7q"/>
+                                    <constraint firstAttribute="width" constant="44" id="QbT-ZP-pr1"/>
+                                    <constraint firstAttribute="height" constant="44" id="eNV-Ba-L7q"/>
                                 </constraints>
-                                <inset key="imageEdgeInsets" minX="12" minY="12" maxX="12" maxY="12"/>
+                                <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                 <state key="normal" image="IconLeft"/>
                                 <connections>
                                     <action selector="buttonBackTapped:" destination="GJQ-AZ-Fif" eventType="touchUpInside" id="FIL-20-zxB"/>
@@ -518,10 +518,10 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VcP-Sk-0In">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="LI2-QQ-scb"/>
-                                    <constraint firstAttribute="height" constant="50" id="hhj-li-4h6"/>
+                                    <constraint firstAttribute="width" constant="44" id="LI2-QQ-scb"/>
+                                    <constraint firstAttribute="height" constant="44" id="hhj-li-4h6"/>
                                 </constraints>
-                                <inset key="imageEdgeInsets" minX="12" minY="12" maxX="12" maxY="12"/>
+                                <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                 <state key="normal" image="IconLeft"/>
                                 <connections>
                                     <action selector="buttonBackTapped:" destination="sCP-Kx-29X" eventType="touchUpInside" id="zjb-Ry-UPv"/>
@@ -948,10 +948,10 @@
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TGd-32-PBa">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="MKk-7E-5es"/>
-                                    <constraint firstAttribute="height" constant="50" id="oPM-ae-MCC"/>
+                                    <constraint firstAttribute="width" constant="44" id="MKk-7E-5es"/>
+                                    <constraint firstAttribute="height" constant="44" id="oPM-ae-MCC"/>
                                 </constraints>
-                                <inset key="imageEdgeInsets" minX="12" minY="12" maxX="12" maxY="12"/>
+                                <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                 <state key="normal" image="IconLeft"/>
                                 <connections>
                                     <action selector="buttonBackTapped:" destination="7Fe-Os-Gy4" eventType="touchUpInside" id="iVD-uf-OFj"/>

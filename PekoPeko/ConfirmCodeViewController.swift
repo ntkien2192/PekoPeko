@@ -84,6 +84,10 @@ class ConfirmCodeViewController: UIViewController {
         for i in 0..<tfs.count {
             if let tf = tfs[i] {
                 if let text: String = tf.text {
+                    if text.isEmpty {
+                        tfs[i]?.becomeFirstResponder()
+                        return
+                    }
                     code = "\(code)\(text)"
                 }
             }

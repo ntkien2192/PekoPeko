@@ -295,6 +295,11 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gfM-bL-q4O">
+                                <connections>
+                                    <action selector="buttonPointTapped:" destination="wdy-Wd-ll7" eventType="touchUpInside" id="pn7-1B-amT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -316,6 +321,7 @@
                             <constraint firstItem="cFI-oS-wgo" firstAttribute="top" secondItem="lMQ-t4-y9g" secondAttribute="top" constant="8" id="OKy-Q1-hWy"/>
                             <constraint firstItem="yOC-0b-20y" firstAttribute="top" secondItem="lMQ-t4-y9g" secondAttribute="top" constant="8" id="P6w-5w-TUd"/>
                             <constraint firstAttribute="width" priority="250" constant="300" id="PEZ-ty-qIC"/>
+                            <constraint firstItem="gfM-bL-q4O" firstAttribute="leading" secondItem="lMQ-t4-y9g" secondAttribute="leading" id="Szi-Af-F7B"/>
                             <constraint firstAttribute="bottom" secondItem="Ln0-6J-qvl" secondAttribute="bottom" constant="8" id="UBA-pa-oqS"/>
                             <constraint firstAttribute="bottom" secondItem="6Tl-Qn-dmp" secondAttribute="bottom" constant="8" id="WYI-ab-exX"/>
                             <constraint firstItem="Ggg-Zt-IMW" firstAttribute="top" secondItem="lMQ-t4-y9g" secondAttribute="top" constant="8" id="XsD-fk-ueq"/>
@@ -325,12 +331,15 @@
                             <constraint firstItem="aXL-Ec-AId" firstAttribute="leading" secondItem="f1R-oK-1of" secondAttribute="trailing" constant="8" id="aTV-gj-ES9"/>
                             <constraint firstItem="Ln0-6J-qvl" firstAttribute="leading" secondItem="lMQ-t4-y9g" secondAttribute="leading" constant="8" id="cz0-6A-zv9"/>
                             <constraint firstItem="rwG-hm-ejz" firstAttribute="height" secondItem="aSI-ZY-HgY" secondAttribute="height" id="qUO-yA-pKz"/>
+                            <constraint firstItem="gfM-bL-q4O" firstAttribute="top" secondItem="lMQ-t4-y9g" secondAttribute="top" id="rdp-Ev-cRx"/>
                             <constraint firstItem="Ggg-Zt-IMW" firstAttribute="width" secondItem="aSI-ZY-HgY" secondAttribute="width" id="tHO-xK-Kxs"/>
                             <constraint firstItem="yOC-0b-20y" firstAttribute="height" secondItem="aSI-ZY-HgY" secondAttribute="height" id="u83-Ak-5bF"/>
                             <constraint firstItem="cFI-oS-wgo" firstAttribute="height" secondItem="aSI-ZY-HgY" secondAttribute="height" id="vZ6-Il-hch"/>
                             <constraint firstItem="f1R-oK-1of" firstAttribute="leading" secondItem="Ln0-6J-qvl" secondAttribute="trailing" constant="8" id="vfa-YU-loo"/>
                             <constraint firstAttribute="height" constant="112" id="wxH-Jn-z7X"/>
+                            <constraint firstAttribute="trailing" secondItem="gfM-bL-q4O" secondAttribute="trailing" id="y6O-oT-ct1"/>
                             <constraint firstItem="Ggg-Zt-IMW" firstAttribute="leading" secondItem="rwG-hm-ejz" secondAttribute="trailing" constant="8" id="yxK-4F-t2y"/>
+                            <constraint firstAttribute="bottom" secondItem="gfM-bL-q4O" secondAttribute="bottom" id="zF1-7u-CG3"/>
                             <constraint firstItem="cFI-oS-wgo" firstAttribute="leading" secondItem="Ggg-Zt-IMW" secondAttribute="trailing" constant="8" id="zay-so-22o"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>

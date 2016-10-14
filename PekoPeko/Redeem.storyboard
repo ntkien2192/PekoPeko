@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Title-->
+        <!--Redeem View Controller-->
         <scene sceneID="AiW-wL-8ej">
             <objects>
                 <viewController storyboardIdentifier="RedeemViewController" id="sGm-AU-wOO" customClass="RedeemViewController" customModule="PekoPeko" customModuleProvider="target" sceneMemberID="viewController">
@@ -20,6 +20,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ikW-qB-UQf">
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e1X-Nb-0Cj">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="2hR-UY-d41"/>
+                                            <constraint firstAttribute="width" constant="44" id="zGh-AG-6XP"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                        <state key="normal" title="Button" image="IconLeft"/>
+                                        <connections>
+                                            <action selector="buttonBackTapped:" destination="sGm-AU-wOO" eventType="touchUpInside" id="wmQ-nq-VUx"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vDs-go-JnV">
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                        <color key="textColor" red="0.25490196079999999" green="0.1137254902" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.99265462159999995" green="0.84121900800000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="vDs-go-JnV" secondAttribute="trailing" constant="52" id="2GR-QC-pAR"/>
+                                    <constraint firstItem="vDs-go-JnV" firstAttribute="centerY" secondItem="e1X-Nb-0Cj" secondAttribute="centerY" id="2bC-Md-i7g"/>
+                                    <constraint firstAttribute="height" constant="64" id="U2F-le-Vni"/>
+                                    <constraint firstAttribute="bottom" secondItem="e1X-Nb-0Cj" secondAttribute="bottom" id="VGh-Xr-X6c"/>
+                                    <constraint firstItem="vDs-go-JnV" firstAttribute="leading" secondItem="e1X-Nb-0Cj" secondAttribute="trailing" constant="8" id="fgi-8x-i9b"/>
+                                    <constraint firstItem="e1X-Nb-0Cj" firstAttribute="leading" secondItem="ikW-qB-UQf" secondAttribute="leading" id="wxE-o6-Ocz"/>
+                                </constraints>
+                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ButtonExchangeON" translatesAutoresizingMaskIntoConstraints="NO" id="xWS-zw-NPH">
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="xWS-zw-NPH" secondAttribute="height" multiplier="1500:249" id="WhA-OK-Asf"/>
@@ -31,7 +60,7 @@
                                     <constraint firstAttribute="height" constant="40" id="ql4-Tk-NSC"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="fadeInLeft"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="fadeInUp"/>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="force">
                                         <real key="value" value="1"/>
@@ -46,7 +75,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="fadeInLeft"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="fadeInUp"/>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="force">
                                         <real key="value" value="1"/>
@@ -61,11 +90,11 @@
                                     <constraint firstAttribute="width" constant="300" id="88l-pM-JQa"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="I0H-Pj-KJ9"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                 <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="fadeInLeft"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="fadeInUp"/>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="force">
                                         <real key="value" value="1"/>
@@ -75,16 +104,76 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WZq-lm-kyC">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PXH-13-4Bb" customClass="View" customModule="PekoPeko" customModuleProvider="target">
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jZu-M3-2Gj">
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconRedeem" translatesAutoresizingMaskIntoConstraints="NO" id="XxI-Qx-tXo">
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="XxI-Qx-tXo" secondAttribute="height" multiplier="1:1" id="vah-jA-cCC"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Đổi quà" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ay5-Me-Nc8">
+                                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="ay5-Me-Nc8" firstAttribute="leading" secondItem="XxI-Qx-tXo" secondAttribute="trailing" constant="8" id="87t-8b-eXB"/>
+                                            <constraint firstItem="XxI-Qx-tXo" firstAttribute="leading" secondItem="jZu-M3-2Gj" secondAttribute="leading" id="DMd-Op-aTe"/>
+                                            <constraint firstAttribute="height" constant="26" id="RvT-eT-fq0"/>
+                                            <constraint firstItem="XxI-Qx-tXo" firstAttribute="top" secondItem="jZu-M3-2Gj" secondAttribute="top" id="UTQ-vi-BtE"/>
+                                            <constraint firstItem="ay5-Me-Nc8" firstAttribute="centerY" secondItem="XxI-Qx-tXo" secondAttribute="centerY" multiplier="1.1" id="VRi-4U-a3d"/>
+                                            <constraint firstAttribute="bottom" secondItem="XxI-Qx-tXo" secondAttribute="bottom" id="c78-Cv-CL8"/>
+                                            <constraint firstAttribute="trailing" secondItem="ay5-Me-Nc8" secondAttribute="trailing" id="eAw-0l-r0F"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mWo-WS-Lgf">
+                                        <connections>
+                                            <action selector="buttonRedeemTapped:" destination="sGm-AU-wOO" eventType="touchUpInside" id="0Ha-GC-zoa"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.96078431369999995" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="mWo-WS-Lgf" secondAttribute="bottom" id="0CC-az-njK"/>
+                                    <constraint firstAttribute="trailing" secondItem="mWo-WS-Lgf" secondAttribute="trailing" id="GeP-T2-gOf"/>
+                                    <constraint firstItem="mWo-WS-Lgf" firstAttribute="leading" secondItem="PXH-13-4Bb" secondAttribute="leading" id="ND0-8d-3Nk"/>
+                                    <constraint firstItem="mWo-WS-Lgf" firstAttribute="top" secondItem="PXH-13-4Bb" secondAttribute="top" id="R10-f7-LES"/>
+                                    <constraint firstItem="jZu-M3-2Gj" firstAttribute="centerY" secondItem="PXH-13-4Bb" secondAttribute="centerY" id="ZMI-aH-dIq"/>
+                                    <constraint firstItem="jZu-M3-2Gj" firstAttribute="centerX" secondItem="PXH-13-4Bb" secondAttribute="centerX" id="tNB-nM-ddn"/>
+                                    <constraint firstAttribute="height" constant="50" id="xwG-XQ-4gu"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="fadeInUp"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="force">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="delay">
+                                        <real key="value" value="0.20000000000000001"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a1N-sR-g9p">
+                                <frame key="frameInset" minY="1064" width="375" height="553"/>
+                                <connections>
+                                    <action selector="buttonHideKeyboardTapped:" destination="sGm-AU-wOO" eventType="touchUpInside" id="Fb9-9u-AVP"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WZq-lm-kyC" customClass="View" customModule="PekoPeko" customModuleProvider="target">
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vRr-hb-KfF" customClass="Textfield" customModule="PekoPeko" customModuleProvider="target">
                                         <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="vRr-hb-KfF" secondAttribute="height" multiplier="1:1" id="utF-Ch-rlP"/>
                                         </constraints>
                                         <color key="textColor" red="0.25490196079999999" green="0.1137254902" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="27"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="4"/>
@@ -96,15 +185,19 @@
                                                 <color key="value" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="delegate" destination="sGm-AU-wOO" id="us1-To-8Ru"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P4N-eH-Wmu" customClass="Textfield" customModule="PekoPeko" customModuleProvider="target">
                                         <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="P4N-eH-Wmu" secondAttribute="height" multiplier="1:1" id="KKf-mQ-HwF"/>
                                         </constraints>
                                         <color key="textColor" red="0.25490196079999999" green="0.1137254902" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="27"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="4"/>
@@ -116,12 +209,16 @@
                                                 <color key="value" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="delegate" destination="sGm-AU-wOO" id="qs5-Z7-6me"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PnX-mC-u3f" customClass="Textfield" customModule="PekoPeko" customModuleProvider="target">
                                         <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="textColor" red="0.25490196079999999" green="0.1137254902" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="27"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="4"/>
@@ -133,12 +230,16 @@
                                                 <color key="value" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="delegate" destination="sGm-AU-wOO" id="6Qz-O0-aaQ"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t9c-rH-pHw" customClass="Textfield" customModule="PekoPeko" customModuleProvider="target">
                                         <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="textColor" red="0.25490196079999999" green="0.1137254902" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="27"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="4"/>
@@ -150,6 +251,9 @@
                                                 <color key="value" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="delegate" destination="sGm-AU-wOO" id="ZWH-hE-QC3"/>
+                                        </connections>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LMW-DD-kLm">
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -162,9 +266,10 @@
                                     </view>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BsI-He-dd7" customClass="Textfield" customModule="PekoPeko" customModuleProvider="target">
                                         <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="textColor" red="0.25490196079999999" green="0.1137254902" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="27"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="4"/>
@@ -176,15 +281,19 @@
                                                 <color key="value" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="delegate" destination="sGm-AU-wOO" id="AF5-gj-Ddv"/>
+                                        </connections>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dqf-JD-d3O">
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ube-bL-TP9" customClass="Textfield" customModule="PekoPeko" customModuleProvider="target">
                                         <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="textColor" red="0.25490196079999999" green="0.1137254902" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="27"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="4"/>
@@ -196,6 +305,9 @@
                                                 <color key="value" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="delegate" destination="sGm-AU-wOO" id="1Hm-j1-Rvf"/>
+                                        </connections>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vnv-XA-ffV">
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -249,32 +361,55 @@
                                     <constraint firstAttribute="bottom" secondItem="wem-ik-qfU" secondAttribute="bottom" id="wR6-Z7-hKX"/>
                                     <constraint firstItem="vRr-hb-KfF" firstAttribute="top" secondItem="WZq-lm-kyC" secondAttribute="top" id="yvR-EK-uZF"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="fadeInUp"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="force">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="delay">
+                                        <real key="value" value="0.29999999999999999"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="ikW-qB-UQf" secondAttribute="trailing" id="9AW-Kj-IqR"/>
+                            <constraint firstAttribute="trailing" secondItem="PXH-13-4Bb" secondAttribute="trailing" id="9Fv-Bn-vDo"/>
                             <constraint firstItem="xWS-zw-NPH" firstAttribute="leading" secondItem="EH4-Gd-JrB" secondAttribute="leading" id="ApL-Rv-JSG"/>
+                            <constraint firstItem="PXH-13-4Bb" firstAttribute="top" secondItem="a1N-sR-g9p" secondAttribute="bottom" id="EFP-0L-dnz"/>
                             <constraint firstItem="312-mX-1Pf" firstAttribute="leading" secondItem="EH4-Gd-JrB" secondAttribute="leading" constant="30" id="Emz-D8-UUC"/>
                             <constraint firstItem="9jA-ge-hCo" firstAttribute="leading" secondItem="312-mX-1Pf" secondAttribute="trailing" constant="10" id="Fzj-5Z-XVa"/>
+                            <constraint firstItem="ikW-qB-UQf" firstAttribute="top" secondItem="EH4-Gd-JrB" secondAttribute="top" id="Hjw-ee-B4B"/>
                             <constraint firstAttribute="trailing" secondItem="xWS-zw-NPH" secondAttribute="trailing" id="Iim-62-V2x"/>
                             <constraint firstAttribute="trailing" secondItem="WZq-lm-kyC" secondAttribute="trailing" constant="20" id="KSc-pG-EsQ"/>
                             <constraint firstItem="BRm-hG-Kyk" firstAttribute="centerX" secondItem="EH4-Gd-JrB" secondAttribute="centerX" id="Kn0-vV-z1P"/>
                             <constraint firstItem="WZq-lm-kyC" firstAttribute="leading" secondItem="EH4-Gd-JrB" secondAttribute="leading" constant="20" id="LaM-9C-zUM"/>
+                            <constraint firstAttribute="trailing" secondItem="a1N-sR-g9p" secondAttribute="trailing" id="MFf-qh-ZSr"/>
+                            <constraint firstItem="PXH-13-4Bb" firstAttribute="leading" secondItem="EH4-Gd-JrB" secondAttribute="leading" id="Pur-rs-83r"/>
                             <constraint firstItem="BRm-hG-Kyk" firstAttribute="top" secondItem="xWS-zw-NPH" secondAttribute="bottom" constant="20" id="ScR-Sh-bdB"/>
                             <constraint firstAttribute="trailing" secondItem="9jA-ge-hCo" secondAttribute="trailing" constant="30" id="c7S-pN-Y2B"/>
-                            <constraint firstItem="xWS-zw-NPH" firstAttribute="top" secondItem="BFw-BY-rtA" secondAttribute="bottom" id="dSZ-GD-AGz"/>
+                            <constraint firstItem="a1N-sR-g9p" firstAttribute="top" secondItem="ikW-qB-UQf" secondAttribute="bottom" id="gJf-9h-7r4"/>
                             <constraint firstItem="312-mX-1Pf" firstAttribute="centerY" secondItem="xWS-zw-NPH" secondAttribute="centerY" id="goC-w2-7Zo"/>
+                            <constraint firstItem="ikW-qB-UQf" firstAttribute="leading" secondItem="EH4-Gd-JrB" secondAttribute="leading" id="jWx-sL-BI5"/>
+                            <constraint firstItem="xWS-zw-NPH" firstAttribute="top" secondItem="ikW-qB-UQf" secondAttribute="bottom" id="mOP-jn-i8J"/>
                             <constraint firstItem="WZq-lm-kyC" firstAttribute="top" secondItem="BRm-hG-Kyk" secondAttribute="bottom" constant="20" id="t0x-tr-CSS"/>
+                            <constraint firstItem="HDg-FJ-cWY" firstAttribute="top" secondItem="PXH-13-4Bb" secondAttribute="bottom" id="udW-hW-lX8"/>
+                            <constraint firstItem="a1N-sR-g9p" firstAttribute="leading" secondItem="EH4-Gd-JrB" secondAttribute="leading" id="yst-ab-Aag"/>
                             <constraint firstItem="9jA-ge-hCo" firstAttribute="centerY" secondItem="312-mX-1Pf" secondAttribute="centerY" id="zCx-v6-55h"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="168-79-ypl">
-                        <barButtonItem key="backBarButtonItem" title=" " id="SkG-rA-Nz6"/>
-                    </navigationItem>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <outlet property="labelTitle" destination="9jA-ge-hCo" id="iTx-8Y-tz9"/>
-                        <outlet property="naviItem" destination="168-79-ypl" id="5Ki-Js-K5v"/>
+                        <outlet property="constraintBottom" destination="udW-hW-lX8" id="973-Sn-Km5"/>
+                        <outlet property="labelRedeemName" destination="9jA-ge-hCo" id="FwU-K9-ddG"/>
+                        <outlet property="labelTitle" destination="vDs-go-JnV" id="oFW-uT-fka"/>
+                        <outlet property="textfieldCode1" destination="vRr-hb-KfF" id="83c-VZ-sDX"/>
+                        <outlet property="textfieldCode2" destination="PnX-mC-u3f" id="c1a-vQ-x1j"/>
+                        <outlet property="textfieldCode3" destination="t9c-rH-pHw" id="HbR-SQ-CNO"/>
+                        <outlet property="textfieldCode4" destination="BsI-He-dd7" id="8la-Et-aZi"/>
+                        <outlet property="textfieldCode5" destination="Ube-bL-TP9" id="6sQ-Jb-gUj"/>
+                        <outlet property="textfieldCode6" destination="P4N-eH-Wmu" id="lwh-qj-c9P"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tQb-AD-Pjm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -285,5 +420,7 @@
     <resources>
         <image name="ButtonExchangeON" width="500" height="83"/>
         <image name="IconBear" width="52" height="42"/>
+        <image name="IconLeft" width="44" height="44"/>
+        <image name="IconRedeem" width="44" height="44"/>
     </resources>
 </document>

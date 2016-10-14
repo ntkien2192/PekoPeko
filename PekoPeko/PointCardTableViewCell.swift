@@ -22,6 +22,7 @@ class PointCardTableViewCell: UITableViewCell {
                     let formatter = NumberFormatter()
                     formatter.numberStyle = .currency
                     formatter.locale = Locale(identifier: "es_VN")
+                    formatter.currencySymbol = "VND"
                     
                     labelHPRate.text = "\(NSString(format: "%@ chi tiêu = 1", formatter.string(from: NSNumber(value: hpRate))!))"
                 }

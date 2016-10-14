@@ -13,6 +13,15 @@
 		E4129A3D1DACDC6400F78C79 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4129A3C1DACDC6400F78C79 /* Card.swift */; };
 		E4129A3F1DACE25600F78C79 /* CardResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4129A3E1DACE25600F78C79 /* CardResponse.swift */; };
 		E4129A411DACE41200F78C79 /* CardStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4129A401DACE41200F78C79 /* CardStore.swift */; };
+		E41448571DB08EE2006C70EF /* RedeemRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41448561DB08EE2006C70EF /* RedeemRequest.swift */; };
+		E41448591DB08FD2006C70EF /* RedeemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41448581DB08FD2006C70EF /* RedeemStore.swift */; };
+		E414485D1DB0970E006C70EF /* RedeemSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E414485C1DB0970E006C70EF /* RedeemSuccessView.swift */; };
+		E414485F1DB09718006C70EF /* RedeemSuccessView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E414485E1DB09718006C70EF /* RedeemSuccessView.xib */; };
+		E41448671DB0BE7E006C70EF /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41448661DB0BE7E006C70EF /* MessageView.swift */; };
+		E41448691DB0BE87006C70EF /* MessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E41448681DB0BE87006C70EF /* MessageView.xib */; };
+		E414486C1DB0D79B006C70EF /* Shop.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E414486B1DB0D79B006C70EF /* Shop.storyboard */; };
+		E414486E1DB0D7C9006C70EF /* ShopDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E414486D1DB0D7C9006C70EF /* ShopDetailViewController.swift */; };
+		E41448711DB0DA90006C70EF /* AddPointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41448701DB0DA90006C70EF /* AddPointViewController.swift */; };
 		E424228E1DA8A10900F7D6FC /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = E424228D1DA8A10900F7D6FC /* Router.swift */; };
 		E42422901DA8A14A00F7D6FC /* AuthenticationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E424228F1DA8A14A00F7D6FC /* AuthenticationStore.swift */; };
 		E42422921DA8A47900F7D6FC /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42422911DA8A47900F7D6FC /* Authentication.swift */; };
@@ -118,6 +127,15 @@
 		E4129A3C1DACDC6400F78C79 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		E4129A3E1DACE25600F78C79 /* CardResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardResponse.swift; sourceTree = "<group>"; };
 		E4129A401DACE41200F78C79 /* CardStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardStore.swift; sourceTree = "<group>"; };
+		E41448561DB08EE2006C70EF /* RedeemRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedeemRequest.swift; sourceTree = "<group>"; };
+		E41448581DB08FD2006C70EF /* RedeemStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedeemStore.swift; sourceTree = "<group>"; };
+		E414485C1DB0970E006C70EF /* RedeemSuccessView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedeemSuccessView.swift; sourceTree = "<group>"; };
+		E414485E1DB09718006C70EF /* RedeemSuccessView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RedeemSuccessView.xib; sourceTree = "<group>"; };
+		E41448661DB0BE7E006C70EF /* MessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
+		E41448681DB0BE87006C70EF /* MessageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageView.xib; sourceTree = "<group>"; };
+		E414486B1DB0D79B006C70EF /* Shop.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Shop.storyboard; sourceTree = "<group>"; };
+		E414486D1DB0D7C9006C70EF /* ShopDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopDetailViewController.swift; sourceTree = "<group>"; };
+		E41448701DB0DA90006C70EF /* AddPointViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPointViewController.swift; sourceTree = "<group>"; };
 		E424228D1DA8A10900F7D6FC /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		E424228F1DA8A14A00F7D6FC /* AuthenticationStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationStore.swift; sourceTree = "<group>"; };
 		E42422911DA8A47900F7D6FC /* Authentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
@@ -250,6 +268,47 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		E414485A1DB096AF006C70EF /* BaseView */ = {
+			isa = PBXGroup;
+			children = (
+				E476B0201DA929AF007B1D62 /* CAPSPageMenu.swift */,
+				E476B01A1DA91709007B1D62 /* SegmentControl.swift */,
+				E451FFEE1DA8120B00B5A756 /* Textfield.swift */,
+				E451FFF01DA813B700B5A756 /* View.swift */,
+				E451FFF21DA813C800B5A756 /* ScrollView.swift */,
+				E451FFF41DA813DA00B5A756 /* Button.swift */,
+				E476B0161DA8FB74007B1D62 /* Label.swift */,
+				E476B0381DA9445E007B1D62 /* ImageView.swift */,
+			);
+			name = BaseView;
+			sourceTree = "<group>";
+		};
+		E414485B1DB096C1006C70EF /* RedeemSuccessView */ = {
+			isa = PBXGroup;
+			children = (
+				E414485C1DB0970E006C70EF /* RedeemSuccessView.swift */,
+				E414485E1DB09718006C70EF /* RedeemSuccessView.xib */,
+			);
+			name = RedeemSuccessView;
+			sourceTree = "<group>";
+		};
+		E41448651DB0BE66006C70EF /* MessageView */ = {
+			isa = PBXGroup;
+			children = (
+				E41448661DB0BE7E006C70EF /* MessageView.swift */,
+				E41448681DB0BE87006C70EF /* MessageView.xib */,
+			);
+			name = MessageView;
+			sourceTree = "<group>";
+		};
+		E414486F1DB0D7D1006C70EF /* ShopDetailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E414486D1DB0D7C9006C70EF /* ShopDetailViewController.swift */,
+			);
+			name = ShopDetailViewController;
+			sourceTree = "<group>";
+		};
 		E42469DE1DADF54100D0A074 /* MyCardTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -360,6 +419,7 @@
 				E4246A061DAE27F800D0A074 /* CardListViewController.swift */,
 				E476B0271DA92AD6007B1D62 /* MyCardViewController.swift */,
 				E4246A041DAE245A00D0A074 /* CardDetailViewController.swift */,
+				E41448701DB0DA90006C70EF /* AddPointViewController.swift */,
 			);
 			name = CardViewController;
 			sourceTree = "<group>";
@@ -440,6 +500,7 @@
 				E4129A3C1DACDC6400F78C79 /* Card.swift */,
 				E4129A3E1DACE25600F78C79 /* CardResponse.swift */,
 				E42469DC1DADE79100D0A074 /* CardRequest.swift */,
+				E41448561DB08EE2006C70EF /* RedeemRequest.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -457,11 +518,12 @@
 			isa = PBXGroup;
 			children = (
 				E476B0361DA93F0D007B1D62 /* BaseViewController.swift */,
-				E476B0221DA92A8E007B1D62 /* CardViewController */,
 				E43D2C7D1DA7F6490019B2DD /* HomeTabbarController */,
+				E476B0221DA92A8E007B1D62 /* CardViewController */,
 				E43D2C801DA7F6A90019B2DD /* LoginViewController */,
 				E45086E51DAFDA350090ACB5 /* RedeemViewController */,
 				E427F8EA1DAF90FB0012F3F5 /* SettingViewController */,
+				E414486F1DB0D7D1006C70EF /* ShopDetailViewController */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -473,6 +535,7 @@
 				E424228F1DA8A14A00F7D6FC /* AuthenticationStore.swift */,
 				E470CF641DAC99BA00434909 /* UserStore.swift */,
 				E4129A401DACE41200F78C79 /* CardStore.swift */,
+				E41448581DB08FD2006C70EF /* RedeemStore.swift */,
 			);
 			name = Stores;
 			sourceTree = "<group>";
@@ -533,6 +596,7 @@
 				E43D2C7B1DA7F5570019B2DD /* Login.storyboard */,
 				E476B0231DA92AB4007B1D62 /* Card.storyboard */,
 				E45086E31DAFD9140090ACB5 /* Redeem.storyboard */,
+				E414486B1DB0D79B006C70EF /* Shop.storyboard */,
 			);
 			name = Storyboard;
 			sourceTree = "<group>";
@@ -540,17 +604,12 @@
 		E49404D61DA6AEEA00918C75 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				E41448651DB0BE66006C70EF /* MessageView */,
+				E414485B1DB096C1006C70EF /* RedeemSuccessView */,
+				E414485A1DB096AF006C70EF /* BaseView */,
 				E4246A081DAE40E100D0A074 /* DetailCardTableViewCell */,
 				E42469DE1DADF54100D0A074 /* MyCardTableViewCell */,
 				E476B0291DA9379E007B1D62 /* CardTableViewCell */,
-				E476B0201DA929AF007B1D62 /* CAPSPageMenu.swift */,
-				E476B01A1DA91709007B1D62 /* SegmentControl.swift */,
-				E451FFEE1DA8120B00B5A756 /* Textfield.swift */,
-				E451FFF01DA813B700B5A756 /* View.swift */,
-				E451FFF21DA813C800B5A756 /* ScrollView.swift */,
-				E451FFF41DA813DA00B5A756 /* Button.swift */,
-				E476B0161DA8FB74007B1D62 /* Label.swift */,
-				E476B0381DA9445E007B1D62 /* ImageView.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -694,6 +753,7 @@
 				E42469FE1DAE101C00D0A074 /* ProximaNovaSoft-Regular.otf in Resources */,
 				E4246A001DAE101C00D0A074 /* ProximaNovaSoft-Semibold.otf in Resources */,
 				E427F8E51DAF5F580012F3F5 /* RewardTableViewCell.xib in Resources */,
+				E414486C1DB0D79B006C70EF /* Shop.storyboard in Resources */,
 				E4246A011DAE101C00D0A074 /* UTM Bebas.ttf in Resources */,
 				E4246A021DAE101C00D0A074 /* UVF ProximaNova-Regular.ttf in Resources */,
 				E4246A031DAE101C00D0A074 /* VNF.ProximaNova-Regular.ttf in Resources */,
@@ -707,6 +767,7 @@
 				E476B0331DA93C3B007B1D62 /* ic_buy_one_get_one.png in Resources */,
 				E49404A41DA6AD1B00918C75 /* Main.storyboard in Resources */,
 				E49404D81DA6B60800918C75 /* Home.storyboard in Resources */,
+				E414485F1DB09718006C70EF /* RedeemSuccessView.xib in Resources */,
 				E434E6021DAF480D00AFC400 /* PointCardTableViewCell.xib in Resources */,
 				E476B0241DA92AB4007B1D62 /* Card.storyboard in Resources */,
 				E45086E41DAFD9140090ACB5 /* Redeem.storyboard in Resources */,
@@ -714,6 +775,7 @@
 				E427F8E91DAF790C0012F3F5 /* Reward10TableViewCell.xib in Resources */,
 				E476B02F1DA93BB0007B1D62 /* img_food_sample.png in Resources */,
 				E49404DA1DA6BB2100918C75 /* logoBar.png in Resources */,
+				E41448691DB0BE87006C70EF /* MessageView.xib in Resources */,
 				E476B02D1DA937C1007B1D62 /* CardTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -882,10 +944,13 @@
 				E476B0191DA908FD007B1D62 /* CardViewController.swift in Sources */,
 				E43D2C841DA80DAE0019B2DD /* LoginPhoneViewController.swift in Sources */,
 				E494049F1DA6AD1B00918C75 /* AppDelegate.swift in Sources */,
+				E41448671DB0BE7E006C70EF /* MessageView.swift in Sources */,
 				E4129A411DACE41200F78C79 /* CardStore.swift in Sources */,
 				E4246A051DAE245A00D0A074 /* CardDetailViewController.swift in Sources */,
 				E45086E71DAFDA5A0090ACB5 /* RedeemViewController.swift in Sources */,
 				E427F8E41DAF5F580012F3F5 /* RewardTableViewCell.swift in Sources */,
+				E41448711DB0DA90006C70EF /* AddPointViewController.swift in Sources */,
+				E414485D1DB0970E006C70EF /* RedeemSuccessView.swift in Sources */,
 				E451FFF31DA813C800B5A756 /* ScrollView.swift in Sources */,
 				E476B0391DA9445E007B1D62 /* ImageView.swift in Sources */,
 				E476B02C1DA937C1007B1D62 /* CardTableViewCell.swift in Sources */,
@@ -893,14 +958,17 @@
 				E42435CA1DA8E0C700E6E5E7 /* Extensions.swift in Sources */,
 				E451FFF11DA813B700B5A756 /* View.swift in Sources */,
 				E451FFF51DA813DA00B5A756 /* Button.swift in Sources */,
+				E41448591DB08FD2006C70EF /* RedeemStore.swift in Sources */,
 				E476B0281DA92AD6007B1D62 /* MyCardViewController.swift in Sources */,
 				E427F8E81DAF790C0012F3F5 /* Reward10TableViewCell.swift in Sources */,
+				E414486E1DB0D7C9006C70EF /* ShopDetailViewController.swift in Sources */,
 				E42B6AE11DAB394B0091746F /* LoginParameter.swift in Sources */,
 				E470CF651DAC99BA00434909 /* UserStore.swift in Sources */,
 				E43D2C7F1DA7F6840019B2DD /* HomeTabbarController.swift in Sources */,
 				E42422921DA8A47900F7D6FC /* Authentication.swift in Sources */,
 				E476B01B1DA91709007B1D62 /* SegmentControl.swift in Sources */,
 				E4CC4A671DAF3991003B8385 /* DiscountCardTableViewCell.swift in Sources */,
+				E41448571DB08EE2006C70EF /* RedeemRequest.swift in Sources */,
 				E427F8EC1DAF91280012F3F5 /* SettingViewController.swift in Sources */,
 				E434E6011DAF480D00AFC400 /* PointCardTableViewCell.swift in Sources */,
 				E4246A071DAE27F800D0A074 /* CardListViewController.swift in Sources */,

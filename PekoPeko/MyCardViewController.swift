@@ -85,7 +85,7 @@ extension MyCardViewController: UITableViewDataSource {
         if let cards = cards {
             return cards.count
         }
-        return 0
+        return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

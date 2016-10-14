@@ -10,6 +10,16 @@ import UIKit
 import Foundation
 import Haneke
 
+extension UIView {
+    func addFullView(view: UIView) {
+        self.addSubview(view)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[view]-0-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": view]))
+        
+        self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[view]-0-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": view]))
+    }
+}
+
 extension Button {
     func setImage(url: String, placeholder: String) {
         if let url = URL(string: url) {

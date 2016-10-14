@@ -183,6 +183,23 @@ extension CardDetailViewController: UITableViewDataSource {
 
 extension CardDetailViewController: RewardTableViewCellDelegate, Reward10TableViewCellDelegate {
     func buttonExchangeTapped(reward: Reward?) {
-        
+        let redeemViewController = UIStoryboard(name: RedeemViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: RedeemViewController.identify) as! RedeemViewController
+        redeemViewController.reward = reward
+        if let card = card {
+            redeemViewController.card = card
+        }
+        if let navigationController = navigationController {
+            navigationController.present(redeemViewController, animated: true, completion: nil)
+        }
+    }
+    
+    func buttonPointTapped(reward: Reward?) {
+        let addPointViewController = UIStoryboard(name: AddPointViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: AddPointViewController.identify) as! AddPointViewController
+        if let card = card {
+            addPointViewController.card = card
+        }
+        if let navigationController = navigationController {
+            navigationController.present(addPointViewController, animated: true, completion: nil)
+        }
     }
 }

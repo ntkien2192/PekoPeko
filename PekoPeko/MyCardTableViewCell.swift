@@ -64,4 +64,7 @@ class MyCardTableViewCell: UITableViewCell {
         delegate?.cellTapped(card: card)
     }
     
+    @IBAction func buttonShareTapped(_ sender: AnyObject) {
+        
+    }
 }

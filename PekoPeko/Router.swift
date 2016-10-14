@@ -32,6 +32,7 @@ enum Router: URLRequestConvertible {
     case getUserCard([String: AnyObject])
     case addCard(String)
     case getCard(String)
+    case redeem([String: AnyObject])
     
     var method: HTTPMethod {
         switch self {
@@ -64,6 +65,9 @@ enum Router: URLRequestConvertible {
             
         case .getCard:
             return .get
+            
+        case .redeem:
+            return .post
         }
     }
     
@@ -98,6 +102,9 @@ enum Router: URLRequestConvertible {
             
         case .getCard(let cardID):
             return "card/\(cardID)"
+            
+        case .redeem:
+            return "card/redeem"
         }
     }
     
@@ -131,6 +138,9 @@ enum Router: URLRequestConvertible {
             return ApiVersion.V200.rawValue
         
         case .getCard:
+            return ApiVersion.V200.rawValue
+            
+        case .redeem:
             return ApiVersion.V200.rawValue
         }
     }
@@ -184,10 +194,12 @@ enum Router: URLRequestConvertible {
         case .getUserCard(let parameters):
             urlRequest = try URLEncoding.default.encode(urlRequest, with: parameters)
             
+        case .redeem(let parameters):
+            urlRequest = try JSONEncoding.default.encode(urlRequest, with: parameters)
+            
         default:
             break
         }
-        
 
         return urlRequest
     }

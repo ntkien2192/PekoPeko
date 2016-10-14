@@ -21,9 +21,7 @@ class CardListViewController: BaseViewController {
     static let identify = "StoreListViewController"
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var activityFirstLoad: UIActivityIndicatorView!
     
-    @IBOutlet weak var labelEmpty: UILabel!
     var refreshControl: UIRefreshControl?
     
     let locationManager = CLLocationManager()
@@ -121,7 +119,7 @@ extension CardListViewController: UITableViewDataSource {
         if let cards = cards {
             return cards.count
         }
-        return 0
+        return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
