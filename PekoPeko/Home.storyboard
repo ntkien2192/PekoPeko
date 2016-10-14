@@ -6,10 +6,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--ScanQR Code View Controller-->
         <scene sceneID="5af-dH-ym6">
             <objects>
-                <viewController id="KQ2-Vi-bpH" sceneMemberID="viewController">
+                <viewController id="KQ2-Vi-bpH" customClass="ScanQRCodeViewController" customModule="PekoPeko" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zNm-me-ogX"/>
                         <viewControllerLayoutGuide type="bottom" id="fQs-pF-0vT"/>
@@ -17,7 +17,18 @@
                     <view key="view" contentMode="scaleToFill" id="6Ig-II-a1V">
                         <rect key="frame" x="0.0" y="64" width="384" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tO8-kA-dvw">
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="tO8-kA-dvw" firstAttribute="leading" secondItem="6Ig-II-a1V" secondAttribute="leading" id="b7u-oa-Zxp"/>
+                            <constraint firstAttribute="trailing" secondItem="tO8-kA-dvw" secondAttribute="trailing" id="g3U-pV-Xh9"/>
+                            <constraint firstItem="tO8-kA-dvw" firstAttribute="top" secondItem="zNm-me-ogX" secondAttribute="bottom" id="gEb-oL-IVs"/>
+                            <constraint firstItem="fQs-pF-0vT" firstAttribute="top" secondItem="tO8-kA-dvw" secondAttribute="bottom" id="jZh-8Z-9Ih"/>
+                        </constraints>
                     </view>
                     <toolbarItems>
                         <barButtonItem title=" " id="9gB-KR-5mb"/>
@@ -26,7 +37,7 @@
                         <nil key="title"/>
                         <barButtonItem key="backBarButtonItem" title=" " id="1MP-rL-Irn"/>
                         <view key="titleView" contentMode="scaleToFill" id="4U2-M5-Ebf">
-                            <rect key="frame" x="113" y="2" width="150" height="40"/>
+                            <rect key="frame" x="117" y="2" width="150" height="40"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoBar.png" translatesAutoresizingMaskIntoConstraints="NO" id="teO-9x-bp0">
@@ -51,10 +62,13 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="scanView" destination="tO8-kA-dvw" id="vBh-NF-yed"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G6M-II-v1X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="360.80000000000001" y="1032.2338830584708"/>
+            <point key="canvasLocation" x="360" y="1032.2338830584708"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="syg-Os-pkS">
@@ -73,7 +87,7 @@
                         <nil key="title"/>
                         <barButtonItem key="backBarButtonItem" title=" " id="StP-tf-PtS"/>
                         <view key="titleView" contentMode="scaleToFill" id="Vuk-Fi-uDQ">
-                            <rect key="frame" x="113" y="2" width="150" height="40"/>
+                            <rect key="frame" x="117" y="2" width="150" height="40"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoBar.png" translatesAutoresizingMaskIntoConstraints="NO" id="8Oj-Wm-ZPw">
@@ -114,7 +128,7 @@
                         <nil key="title"/>
                         <barButtonItem key="backBarButtonItem" title=" " id="owy-QZ-pKc"/>
                         <view key="titleView" contentMode="scaleToFill" id="kdJ-n7-GBs">
-                            <rect key="frame" x="113" y="2" width="150" height="40"/>
+                            <rect key="frame" x="117" y="2" width="150" height="40"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoBar.png" translatesAutoresizingMaskIntoConstraints="NO" id="MhQ-xJ-feB">
@@ -797,6 +811,6 @@
         <image name="logoBar.png" width="418" height="112"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="nf7-r9-BV1"/>
+        <segue reference="Ljf-gF-NB4"/>
     </inferredMetricsTieBreakers>
 </document>

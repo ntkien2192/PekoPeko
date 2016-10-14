@@ -6,11 +6,13 @@ PODS:
   - NVActivityIndicatorView (3.0)
   - NYSegmentedControl (1.0.7)
   - ObjectMapper (2.0.0)
-  - PullToRefresher (2.0.1)
   - Spring (1.0.3)
   - SwiftDate (4.0.4)
   - SwiftHEXColors (1.0.4)
   - SwiftyJSON (3.1.0)
+  - TSCurrencyTextField (0.1.0):
+    - TSCurrencyTextField/Core (= 0.1.0)
+  - TSCurrencyTextField/Core (0.1.0)
   - UIResponder+KeyboardCache (0.1)
 
 DEPENDENCIES:
@@ -21,11 +23,11 @@ DEPENDENCIES:
   - NVActivityIndicatorView
   - NYSegmentedControl
   - ObjectMapper (~> 2.0)
-  - PullToRefresher (~> 2.0)
   - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift3`)
   - SwiftDate (~> 4.0)
   - SwiftHEXColors (from `https://github.com/thii/SwiftHEXColors.git`, branch `swift-3.0`)
   - SwiftyJSON
+  - TSCurrencyTextField (~> 0.1.0)
   - UIResponder+KeyboardCache (~> 0.1)
 
 EXTERNAL SOURCES:
@@ -64,13 +66,13 @@ SPEC CHECKSUMS:
   NVActivityIndicatorView: 81953b5e65093ba79edf4fe7268e002039ca5268
   NYSegmentedControl: 55b4f9eb652767cae9799623ec3e49e50029ef47
   ObjectMapper: aed2570edabbd3c9b26c939e1cabdb6558f933e0
-  PullToRefresher: 9a529c2506b91f299805e5a5a0c3ef0b44e8ba63
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
   SwiftDate: 16d9e299eafb8021d921e874f13c0f79e7f1a801
   SwiftHEXColors: b0ecc7bd83a1aa2e1956f9ba51f55ebb2bcf86ef
   SwiftyJSON: 29b9f2a64f118c07e691667c2ba1efe536acfe0b
+  TSCurrencyTextField: 03f9d4d263d617d1f0e034e4ace12febcfa6fe48
   UIResponder+KeyboardCache: dc1b7ff925c25ddb58b289bc71a3724c269767ef
 
-PODFILE CHECKSUM: e3430052d62524d6f6844fbeffef254cd1a9b8e2
+PODFILE CHECKSUM: abab3cb9d4c9ac8aea621b98c866c43a096d07ab
 
 COCOAPODS: 1.0.1

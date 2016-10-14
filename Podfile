@@ -16,8 +16,8 @@ target 'PekoPeko' do
   pod 'NYSegmentedControl'
   pod "MTBBarcodeScanner"
   pod 'HanekeSwift', :git => 'https://github.com/Haneke/HanekeSwift.git', :branch => 'feature/swift-3'
-  pod 'PullToRefresher', '~> 2.0'
   pod 'SwiftDate', '~> 4.0'
+  pod 'TSCurrencyTextField', '~> 0.1.0'
   
   # Pods for PekoPeko
 

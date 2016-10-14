@@ -113,6 +113,7 @@ class RedeemViewController: BaseViewController {
     }
 
     @IBAction func buttonBackTapped(_ sender: AnyObject) {
+        self.view.endEditing(true)
         self.dismiss(animated: true, completion: nil)
     }
     

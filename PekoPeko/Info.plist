@@ -2,31 +2,7 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>UIAppFonts</key>
-	<array>
-		<string>VNF.ProximaNova-Regular.ttf</string>
-		<string>UTM Bebas.ttf</string>
-		<string>UVF ProximaNova-Regular.ttf</string>
-		<string>BebasNeue-webfont.ttf</string>
-		<string>ProximaNova-Bold.otf</string>
-		<string>ProximaNova-Regular.otf</string>
-		<string>ProximaNova-Semibold.otf</string>
-		<string>ProximaNovaSoft-Bold.otf</string>
-		<string>ProximaNovaSoft-Medium.otf</string>
-		<string>ProximaNovaSoft-Regular.otf</string>
-		<string>ProximaNovaSoft-Semibold.otf</string>
-		<string>BEBAS___.ttf</string>
-	</array>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string></string>
-	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSAllowsArbitraryLoads</key>
-		<true/>
-	</dict>
-	<key>NSCameraUsageDescription</key>
-	<string></string>
-	<key>NSLocationWhenInUseUsageDescription</key>
+	<key>CFBundleDisplayName</key>
 	<string></string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
@@ -46,6 +22,32 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string></string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string></string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string></string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>VNF.ProximaNova-Regular.ttf</string>
+		<string>UTM Bebas.ttf</string>
+		<string>UVF ProximaNova-Regular.ttf</string>
+		<string>BebasNeue-webfont.ttf</string>
+		<string>ProximaNova-Bold.otf</string>
+		<string>ProximaNova-Regular.otf</string>
+		<string>ProximaNova-Semibold.otf</string>
+		<string>ProximaNovaSoft-Bold.otf</string>
+		<string>ProximaNovaSoft-Medium.otf</string>
+		<string>ProximaNovaSoft-Regular.otf</string>
+		<string>ProximaNovaSoft-Semibold.otf</string>
+		<string>BEBAS___.ttf</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -65,8 +67,6 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>

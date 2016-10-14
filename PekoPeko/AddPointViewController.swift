@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TSCurrencyTextField
 
 protocol AddPointViewControllerDelegate: class {
     func buttonAddpointTapped()
@@ -18,13 +19,20 @@ class AddPointViewController: BaseViewController {
     static let identify = "AddPointViewController"
     
     @IBOutlet weak var labelTitle: UILabel!
+    @IBOutlet weak var labelName: UILabel!
+    @IBOutlet weak var labelAddress: UILabel!
     
+    @IBOutlet weak var constraintTop: NSLayoutConstraint!
     @IBOutlet weak var textfieldCode1: Textfield!
     @IBOutlet weak var textfieldCode2: Textfield!
     @IBOutlet weak var textfieldCode3: Textfield!
     @IBOutlet weak var textfieldCode4: Textfield!
     @IBOutlet weak var textfieldCode5: Textfield!
     @IBOutlet weak var textfieldCode6: Textfield!
+    
+    @IBOutlet weak var textfieldMoney: TSCurrencyTextField!
+    
+    var defaultConstraintValue: CGFloat?
     
     var card: Card?
     
@@ -36,15 +44,45 @@ class AddPointViewController: BaseViewController {
 
     override func viewConfig() {
         super.viewConfig()
-        
+        textfieldMoney.rightView = UIView.init(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
+        textfieldMoney.rightViewMode = UITextFieldViewMode.always
+        textfieldMoney.layer.cornerRadius = 5.0
+        textfieldMoney.currencyNumberFormatter.locale = Locale.init(identifier: "en_VN")
+        textfieldMoney.currencyNumberFormatter.currencySymbol = ""
+        textfieldMoney.amount = NSNumber(value: 0.00)
     }
     
     func hideKeyboard() {
         view.endEditing(true)
+        if let defaultConstraintValue = defaultConstraintValue {
+            if constraintTop.constant != defaultConstraintValue {
+                constraintTop.constant = defaultConstraintValue
+                view.setNeedsLayout()
+                weak var _self = self
+                UIView.animate(withDuration: 0.2) {
+                    _self?.view.layoutIfNeeded()
+                }
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        defaultConstraintValue = constraintTop.constant
+        loadPointInfo()
+    }
+    
+    func loadPointInfo() {
+        if let card = card {
+            if let shopName = card.shopName {
+                labelTitle.text = shopName
+                labelName.text = shopName
+            }
+            
+            if let shopAddress = card.shopAddress {
+                labelAddress.text = shopAddress
+            }
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -61,6 +99,7 @@ class AddPointViewController: BaseViewController {
     }
     
     @IBAction func buttonBackTapped(_ sender: AnyObject) {
+        self.view.endEditing(true)
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -69,6 +108,7 @@ class AddPointViewController: BaseViewController {
     }
     
     @IBAction func buttonAddPointTapped(_ sender: AnyObject) {
+        
     }
     
 }
@@ -76,6 +116,17 @@ class AddPointViewController: BaseViewController {
 extension AddPointViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.layer.borderWidth = 2.0
+        
+        if let constraintValue = DeviceConfig.getConstraintValue(d35: -40, d40: -200, d50: -65, d55: 0) {
+            if constraintTop.constant != constraintValue {
+                constraintTop.constant = constraintValue
+                view.setNeedsLayout()
+                weak var _self = self
+                UIView.animate(withDuration: 0.2, animations: {
+                    _self?.view.layoutIfNeeded()
+                })
+            }
+        }
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
