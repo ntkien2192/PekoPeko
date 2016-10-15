@@ -16,15 +16,6 @@ class ScanQRCodeViewController: UIViewController {
     
     var scaner: MTBBarcodeScanner?
     
-    var scanResult: String? {
-        didSet {
-            if let scanResult = scanResult{
-                let json = SwiftyJSON.JSON(scanResult)
-                print(json)
-            }
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -61,13 +52,34 @@ class ScanQRCodeViewController: UIViewController {
                         
                         if let codes = codes {
                             if codes.count != 0 {
-                                self.scanResult = (codes.first as! AVMetadataMachineReadableCodeObject).stringValue
                                 scaner.stopScanning()
+                                if let data = (codes.first as! AVMetadataMachineReadableCodeObject).stringValue.data(using: String.Encoding.utf8) {
+                                    let point = Point(json: JSON(data: data))
+                                    self.loadCardList(point: point)
+                                }
+                                
                             }
                         }
                         }, error: nil)
                 }
             })
+        }
+    }
+    
+    func loadCardList(point: Point) {
+        
+        if let cardID = point.shopID {
+            
+        }
+        
+        
+        
+
+        
+        let addPointViewController = UIStoryboard(name: AddPointViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: AddPointViewController.identify) as! AddPointViewController
+        addPointViewController.point = point
+        if let navigationController = navigationController {
+            navigationController.present(addPointViewController, animated: true, completion: nil)
         }
     }
     

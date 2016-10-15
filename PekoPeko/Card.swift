@@ -22,82 +22,6 @@ class Pagination: NSObject {
     }
 }
 
-enum DiscountFields: String {
-    case Uses = "uses"
-    case Visible = "visible"
-    
-    // card detail
-    case Title = "title"
-    case EndedAt = "ended_at"
-    case Use = "use"
-    case Total = "total"
-    case Cover = "cover"
-}
-
-class Discount: NSObject {
-    var userNumber: Int?
-    var isVisible: Bool?
-    
-    var title: String?
-    var endedAt: Date?
-    var isNeverEnd:Bool?
-    var use: Int?
-    var total: Int?
-    var coverUrl: String?
-    
-    required init(json: JSON) {
-        userNumber = json[DiscountFields.Uses.rawValue].int
-        isVisible = json[DiscountFields.Visible.rawValue].bool
-        
-        title = json[DiscountFields.Title.rawValue].string
-        let time = json[DiscountFields.EndedAt.rawValue].double
-        if let time = time {
-            if time < 0 {
-                isNeverEnd = true
-            } else {
-                isNeverEnd = false
-                endedAt = Date(timeIntervalSince1970: time)
-            }
-        }
-        use = json[DiscountFields.Use.rawValue].int
-        total = json[DiscountFields.Total.rawValue].int
-        coverUrl = json[DiscountFields.Cover.rawValue].string
-    }
-}
-
-enum RewardFields: String {
-    case RewardID = "reward_id"
-    case Redeemed = "redeemed"
-    case Title = "title"
-    case Desc = "desc"
-    case HPRequire = "hp_require"
-    case HPCurrent = "hp_current"
-    case CanRedeem = "can_redeem"
-    case Image = "image"
-}
-
-class Reward: NSObject {
-    var rewardID: String?
-    var isRedeemed: Bool?
-    var title: String?
-    var desc: String?
-    var hpRequire: Int?
-    var hpCurrent: Int?
-    var isCanRedeem: Bool?
-    var imageUrl: String?
-    
-    required init(json: JSON) {
-        rewardID = json[RewardFields.RewardID.rawValue].string
-        isRedeemed = json[RewardFields.Redeemed.rawValue].bool
-        title = json[RewardFields.Title.rawValue].string
-        desc = json[RewardFields.Desc.rawValue].string
-        hpRequire = json[RewardFields.HPRequire.rawValue].int
-        hpCurrent = json[RewardFields.HPCurrent.rawValue].int
-        isCanRedeem = json[RewardFields.CanRedeem.rawValue].bool
-        imageUrl = json[RewardFields.Image.rawValue].string
-    }
-}
-
 enum AllRewardFields: String {
     case Current = "current"
     case Rewards = "rewards"
@@ -125,6 +49,34 @@ class WordTime: NSObject {
     required init(json: JSON) {
         openTime = json[WordTimeFields.Open.rawValue].string
         closeTime = json[WordTimeFields.Close.rawValue].string
+    }
+}
+
+enum AddressFields: String {
+    case AddressID = "_id"
+    case Address = "address"
+    case Thumb = "thumb"
+    case Location = "location"
+    case QRData = "qr_data"
+}
+
+class Address: NSObject {
+    var addressID: String?
+    var addressContent: String?
+    var thumb: String?
+    var location: Location?
+    var qrCode: QRCode?
+    
+    required init(json: JSON) {
+        addressID = json[AddressFields.AddressID.rawValue].string
+        addressContent = json[AddressFields.Address.rawValue].string
+        thumb = json[AddressFields.Thumb.rawValue].string
+        location = Location(json: json[AddressFields.Location.rawValue])
+        addressID = json[AddressFields.AddressID.rawValue].string
+        let qrData = json[AddressFields.AddressID.rawValue].stringValue
+        if let data = qrData.data(using: String.Encoding.utf8) {
+            qrCode = QRCode(json: JSON(data: data))
+        }
     }
 }
 
@@ -160,7 +112,6 @@ enum CardFields: String {
 class Card: NSObject {
     var shopID: String?
     var shopName: String?
-    
     var shopAddress: String?
     var cardAddress: String?
     var distance: String?
@@ -186,6 +137,9 @@ class Card: NSObject {
     var rewards: [AllReward]?
     var openingTime: WordTime?
     
+    // List address
+    var addressList: [Address]?
+    
     required init(json: JSON) {
         shopID = json[CardFields.ShopID.rawValue].string
         shopName = json[CardFields.ShopName.rawValue].string
@@ -200,7 +154,6 @@ class Card: NSObject {
         if json[CardFields.Discount.rawValue] != nil {
             discount = Discount(json: json[CardFields.Discount.rawValue])
         }
-        
         
         // my Card
         addressID = json[CardFields.AddressID.rawValue].string

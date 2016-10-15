@@ -12,7 +12,7 @@ class HomeTabbarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         if let items = tabBar.items {
             for item in items {
@@ -25,6 +25,7 @@ class HomeTabbarController: UITabBarController {
                 item.imageInsets = UIEdgeInsetsMake(6,0,-6,0)
             }
         }
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {

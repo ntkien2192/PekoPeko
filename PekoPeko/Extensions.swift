@@ -10,6 +10,12 @@ import UIKit
 import Foundation
 import Haneke
 
+extension String {
+    func replace(_ string:String, replacement:String) -> String {
+        return self.replacingOccurrences(of: string, with: replacement, options: NSString.CompareOptions.literal, range: nil)
+    }
+}
+
 extension UIView {
     func addFullView(view: UIView) {
         self.addSubview(view)

@@ -17,6 +17,8 @@ enum ApiVersion: String {
 
 enum Router: URLRequestConvertible {
     static let baseURLString = "https://api.hungrybear.vn/"
+//    static let baseURLString = "192.168.0.104:8000"
+    
     static let baseUploadFile = "https://files.hungrybear.vn/"
     
     // Router
@@ -32,7 +34,8 @@ enum Router: URLRequestConvertible {
     case getUserCard([String: AnyObject])
     case addCard(String)
     case getCard(String)
-    case redeem([String: AnyObject])
+    case redeemAward([String: AnyObject])
+    case redeemPoint([String: AnyObject])
     
     var method: HTTPMethod {
         switch self {
@@ -66,7 +69,10 @@ enum Router: URLRequestConvertible {
         case .getCard:
             return .get
             
-        case .redeem:
+        case .redeemAward:
+            return .post
+            
+        case .redeemPoint:
             return .post
         }
     }
@@ -103,8 +109,11 @@ enum Router: URLRequestConvertible {
         case .getCard(let cardID):
             return "card/\(cardID)"
             
-        case .redeem:
+        case .redeemAward:
             return "card/redeem"
+            
+        case .redeemPoint:
+            return "card/scan"
         }
     }
     
@@ -140,7 +149,10 @@ enum Router: URLRequestConvertible {
         case .getCard:
             return ApiVersion.V200.rawValue
             
-        case .redeem:
+        case .redeemAward:
+            return ApiVersion.V200.rawValue
+        
+        case .redeemPoint:
             return ApiVersion.V200.rawValue
         }
     }
@@ -194,7 +206,10 @@ enum Router: URLRequestConvertible {
         case .getUserCard(let parameters):
             urlRequest = try URLEncoding.default.encode(urlRequest, with: parameters)
             
-        case .redeem(let parameters):
+        case .redeemAward(let parameters):
+            urlRequest = try JSONEncoding.default.encode(urlRequest, with: parameters)
+
+        case .redeemPoint(let parameters):
             urlRequest = try JSONEncoding.default.encode(urlRequest, with: parameters)
             
         default:

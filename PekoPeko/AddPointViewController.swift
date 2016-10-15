@@ -15,7 +15,7 @@ protocol AddPointViewControllerDelegate: class {
 
 class AddPointViewController: BaseViewController {
 
-    static let storyboardName = "Card"
+    static let storyboardName = "Redeem"
     static let identify = "AddPointViewController"
     
     @IBOutlet weak var labelTitle: UILabel!
@@ -35,6 +35,7 @@ class AddPointViewController: BaseViewController {
     var defaultConstraintValue: CGFloat?
     
     var card: Card?
+    var point: Point?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,6 +82,21 @@ class AddPointViewController: BaseViewController {
             
             if let shopAddress = card.shopAddress {
                 labelAddress.text = shopAddress
+            }
+        }
+        
+        if let point = point {
+            if let cardID = point.shopID {
+                
+                CardStore.getCard(cardID: cardID, completionHandler: { (card, error) in
+                    guard error == nil else {
+                        return
+                    }
+                    
+                    if let card = card {
+                        self.card = card
+                    }
+                })
             }
         }
     }

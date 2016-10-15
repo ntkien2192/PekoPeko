@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,13 +22,21 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tO8-kA-dvw">
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconScan" translatesAutoresizingMaskIntoConstraints="NO" id="gop-Zx-wwa">
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="gop-Zx-wwa" secondAttribute="height" multiplier="1080:1920" id="PLn-6s-qgi"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="gop-Zx-wwa" firstAttribute="width" secondItem="6Ig-II-a1V" secondAttribute="width" id="H1e-va-Dc8"/>
+                            <constraint firstItem="gop-Zx-wwa" firstAttribute="centerY" secondItem="tO8-kA-dvw" secondAttribute="centerY" id="SZi-zv-VUe"/>
                             <constraint firstItem="tO8-kA-dvw" firstAttribute="leading" secondItem="6Ig-II-a1V" secondAttribute="leading" id="b7u-oa-Zxp"/>
                             <constraint firstAttribute="trailing" secondItem="tO8-kA-dvw" secondAttribute="trailing" id="g3U-pV-Xh9"/>
                             <constraint firstItem="tO8-kA-dvw" firstAttribute="top" secondItem="zNm-me-ogX" secondAttribute="bottom" id="gEb-oL-IVs"/>
                             <constraint firstItem="fQs-pF-0vT" firstAttribute="top" secondItem="tO8-kA-dvw" secondAttribute="bottom" id="jZh-8Z-9Ih"/>
+                            <constraint firstItem="gop-Zx-wwa" firstAttribute="centerX" secondItem="tO8-kA-dvw" secondAttribute="centerX" id="wDO-mK-czq"/>
                         </constraints>
                     </view>
                     <toolbarItems>
@@ -806,6 +815,7 @@
         <image name="ButtonQRScan" width="25" height="25"/>
         <image name="ButtonQRScanTapped" width="25" height="25"/>
         <image name="IconPhotoCamera" width="22" height="22"/>
+        <image name="IconScan" width="540" height="959"/>
         <image name="IconSettings" width="22" height="22"/>
         <image name="UserDefaultAvatar" width="400" height="400"/>
         <image name="logoBar.png" width="418" height="112"/>

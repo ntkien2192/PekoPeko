@@ -8,6 +8,7 @@
 
 import UIKit
 import ObjectMapper
+import SwiftyJSON
 
 enum LocationFields: String {
     case Latitude = "lat"
@@ -21,6 +22,11 @@ class Location: Mappable {
     init(latitude: Double, longitude: Double) {
         self.latitude = latitude
         self.longitude = longitude
+    }
+    
+    required init(json: JSON) {
+        latitude = json[LocationFields.Latitude.rawValue].double
+        longitude = json[LocationFields.Longitude.rawValue].double
     }
     
     required init?(map: Map) {}

@@ -70,6 +70,9 @@
 		E451FFF11DA813B700B5A756 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = E451FFF01DA813B700B5A756 /* View.swift */; };
 		E451FFF31DA813C800B5A756 /* ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E451FFF21DA813C800B5A756 /* ScrollView.swift */; };
 		E451FFF51DA813DA00B5A756 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = E451FFF41DA813DA00B5A756 /* Button.swift */; };
+		E45746DB1DB27F1200021604 /* Reward.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45746DA1DB27F1200021604 /* Reward.swift */; };
+		E45746DD1DB27F4400021604 /* Discount.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45746DC1DB27F4400021604 /* Discount.swift */; };
+		E45746DF1DB27FB100021604 /* QRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45746DE1DB27FB100021604 /* QRCode.swift */; };
 		E470CF651DAC99BA00434909 /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E470CF641DAC99BA00434909 /* UserStore.swift */; };
 		E476B0171DA8FB74007B1D62 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = E476B0161DA8FB74007B1D62 /* Label.swift */; };
 		E476B0191DA908FD007B1D62 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E476B0181DA908FD007B1D62 /* CardViewController.swift */; };
@@ -93,6 +96,7 @@
 		E49404BF1DA6AD1B00918C75 /* PekoPekoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49404BE1DA6AD1B00918C75 /* PekoPekoUITests.swift */; };
 		E49404D81DA6B60800918C75 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E49404D71DA6B60800918C75 /* Home.storyboard */; };
 		E49404DA1DA6BB2100918C75 /* logoBar.png in Resources */ = {isa = PBXBuildFile; fileRef = E49404D91DA6BB2100918C75 /* logoBar.png */; };
+		E49D5A8F1DB1C62A001E19DD /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49D5A8E1DB1C62A001E19DD /* Point.swift */; };
 		E4CC4A671DAF3991003B8385 /* DiscountCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CC4A651DAF3991003B8385 /* DiscountCardTableViewCell.swift */; };
 		E4CC4A681DAF3991003B8385 /* DiscountCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4CC4A661DAF3991003B8385 /* DiscountCardTableViewCell.xib */; };
 		E4FF02011DB11BBA00177F9F /* ScanQRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FF02001DB11BBA00177F9F /* ScanQRCodeViewController.swift */; };
@@ -198,6 +202,9 @@
 		E451FFF01DA813B700B5A756 /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		E451FFF21DA813C800B5A756 /* ScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollView.swift; sourceTree = "<group>"; };
 		E451FFF41DA813DA00B5A756 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		E45746DA1DB27F1200021604 /* Reward.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reward.swift; sourceTree = "<group>"; };
+		E45746DC1DB27F4400021604 /* Discount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Discount.swift; sourceTree = "<group>"; };
+		E45746DE1DB27FB100021604 /* QRCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCode.swift; sourceTree = "<group>"; };
 		E470CF641DAC99BA00434909 /* UserStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
 		E476B0161DA8FB74007B1D62 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		E476B0181DA908FD007B1D62 /* CardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
@@ -227,6 +234,7 @@
 		E49404C01DA6AD1B00918C75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E49404D71DA6B60800918C75 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		E49404D91DA6BB2100918C75 /* logoBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoBar.png; sourceTree = "<group>"; };
+		E49D5A8E1DB1C62A001E19DD /* Point.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
 		E4CC4A651DAF3991003B8385 /* DiscountCardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountCardTableViewCell.swift; sourceTree = "<group>"; };
 		E4CC4A661DAF3991003B8385 /* DiscountCardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiscountCardTableViewCell.xib; sourceTree = "<group>"; };
 		E4FF02001DB11BBA00177F9F /* ScanQRCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanQRCodeViewController.swift; sourceTree = "<group>"; };
@@ -423,6 +431,7 @@
 			isa = PBXGroup;
 			children = (
 				E45086E61DAFDA5A0090ACB5 /* RedeemViewController.swift */,
+				E41448701DB0DA90006C70EF /* AddPointViewController.swift */,
 			);
 			name = RedeemViewController;
 			sourceTree = "<group>";
@@ -434,7 +443,6 @@
 				E4246A061DAE27F800D0A074 /* CardListViewController.swift */,
 				E476B0271DA92AD6007B1D62 /* MyCardViewController.swift */,
 				E4246A041DAE245A00D0A074 /* CardDetailViewController.swift */,
-				E41448701DB0DA90006C70EF /* AddPointViewController.swift */,
 			);
 			name = CardViewController;
 			sourceTree = "<group>";
@@ -516,6 +524,10 @@
 				E4129A3E1DACE25600F78C79 /* CardResponse.swift */,
 				E42469DC1DADE79100D0A074 /* CardRequest.swift */,
 				E41448561DB08EE2006C70EF /* RedeemRequest.swift */,
+				E49D5A8E1DB1C62A001E19DD /* Point.swift */,
+				E45746DA1DB27F1200021604 /* Reward.swift */,
+				E45746DC1DB27F4400021604 /* Discount.swift */,
+				E45746DE1DB27FB100021604 /* QRCode.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -955,6 +967,7 @@
 				E42469E11DADF55800D0A074 /* MyCardTableViewCell.swift in Sources */,
 				E42B6AE51DAB966D0091746F /* UserUpdateInfoViewController.swift in Sources */,
 				E42B6ADD1DAB36720091746F /* ConfirmCodeViewController.swift in Sources */,
+				E45746DD1DB27F4400021604 /* Discount.swift in Sources */,
 				E451FFEF1DA8120B00B5A756 /* Textfield.swift in Sources */,
 				E424228E1DA8A10900F7D6FC /* Router.swift in Sources */,
 				E42B6AE31DAB3BCE0091746F /* User.swift in Sources */,
@@ -978,6 +991,7 @@
 				E414485D1DB0970E006C70EF /* RedeemSuccessView.swift in Sources */,
 				E451FFF31DA813C800B5A756 /* ScrollView.swift in Sources */,
 				E476B0391DA9445E007B1D62 /* ImageView.swift in Sources */,
+				E45746DF1DB27FB100021604 /* QRCode.swift in Sources */,
 				E476B02C1DA937C1007B1D62 /* CardTableViewCell.swift in Sources */,
 				E476B0371DA93F0D007B1D62 /* BaseViewController.swift in Sources */,
 				E42435CA1DA8E0C700E6E5E7 /* Extensions.swift in Sources */,
@@ -991,9 +1005,11 @@
 				E470CF651DAC99BA00434909 /* UserStore.swift in Sources */,
 				E43D2C7F1DA7F6840019B2DD /* HomeTabbarController.swift in Sources */,
 				E42422921DA8A47900F7D6FC /* Authentication.swift in Sources */,
+				E49D5A8F1DB1C62A001E19DD /* Point.swift in Sources */,
 				E4FF02011DB11BBA00177F9F /* ScanQRCodeViewController.swift in Sources */,
 				E476B01B1DA91709007B1D62 /* SegmentControl.swift in Sources */,
 				E4CC4A671DAF3991003B8385 /* DiscountCardTableViewCell.swift in Sources */,
+				E45746DB1DB27F1200021604 /* Reward.swift in Sources */,
 				E41448571DB08EE2006C70EF /* RedeemRequest.swift in Sources */,
 				E427F8EC1DAF91280012F3F5 /* SettingViewController.swift in Sources */,
 				E434E6011DAF480D00AFC400 /* PointCardTableViewCell.swift in Sources */,
