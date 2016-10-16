@@ -34,6 +34,7 @@ enum Router: URLRequestConvertible {
     case getUserCard([String: AnyObject])
     case addCard(String)
     case getCard(String)
+    case getCardAddresss(String)
     case redeemAward([String: AnyObject])
     case redeemPoint([String: AnyObject])
     
@@ -67,6 +68,9 @@ enum Router: URLRequestConvertible {
             return .post
             
         case .getCard:
+            return .get
+            
+        case .getCardAddresss:
             return .get
             
         case .redeemAward:
@@ -109,6 +113,9 @@ enum Router: URLRequestConvertible {
         case .getCard(let cardID):
             return "card/\(cardID)"
             
+        case .getCardAddresss(let cardID):
+            return "shop/\(cardID)/address"
+            
         case .redeemAward:
             return "card/redeem"
             
@@ -148,6 +155,9 @@ enum Router: URLRequestConvertible {
         
         case .getCard:
             return ApiVersion.V200.rawValue
+
+        case .getCardAddresss:
+            return ApiVersion.V100.rawValue
             
         case .redeemAward:
             return ApiVersion.V200.rawValue

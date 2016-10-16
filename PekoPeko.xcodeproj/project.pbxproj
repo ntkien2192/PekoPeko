@@ -22,6 +22,10 @@
 		E414486C1DB0D79B006C70EF /* Shop.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E414486B1DB0D79B006C70EF /* Shop.storyboard */; };
 		E414486E1DB0D7C9006C70EF /* ShopDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E414486D1DB0D7C9006C70EF /* ShopDetailViewController.swift */; };
 		E41448711DB0DA90006C70EF /* AddPointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41448701DB0DA90006C70EF /* AddPointViewController.swift */; };
+		E423FB001DB3333D005C51BB /* CardAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E423FAFF1DB3333D005C51BB /* CardAddressViewController.swift */; };
+		E423FB041DB337AF005C51BB /* CardAddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E423FB021DB337AF005C51BB /* CardAddressTableViewCell.swift */; };
+		E423FB051DB337AF005C51BB /* CardAddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E423FB031DB337AF005C51BB /* CardAddressTableViewCell.xib */; };
+		E423FB071DB34661005C51BB /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E423FB061DB34661005C51BB /* TableView.swift */; };
 		E424228E1DA8A10900F7D6FC /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = E424228D1DA8A10900F7D6FC /* Router.swift */; };
 		E42422901DA8A14A00F7D6FC /* AuthenticationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E424228F1DA8A14A00F7D6FC /* AuthenticationStore.swift */; };
 		E42422921DA8A47900F7D6FC /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42422911DA8A47900F7D6FC /* Authentication.swift */; };
@@ -154,6 +158,10 @@
 		E414486B1DB0D79B006C70EF /* Shop.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Shop.storyboard; sourceTree = "<group>"; };
 		E414486D1DB0D7C9006C70EF /* ShopDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopDetailViewController.swift; sourceTree = "<group>"; };
 		E41448701DB0DA90006C70EF /* AddPointViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPointViewController.swift; sourceTree = "<group>"; };
+		E423FAFF1DB3333D005C51BB /* CardAddressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardAddressViewController.swift; sourceTree = "<group>"; };
+		E423FB021DB337AF005C51BB /* CardAddressTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardAddressTableViewCell.swift; sourceTree = "<group>"; };
+		E423FB031DB337AF005C51BB /* CardAddressTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardAddressTableViewCell.xib; sourceTree = "<group>"; };
+		E423FB061DB34661005C51BB /* TableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
 		E424228D1DA8A10900F7D6FC /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		E424228F1DA8A14A00F7D6FC /* AuthenticationStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationStore.swift; sourceTree = "<group>"; };
 		E42422911DA8A47900F7D6FC /* Authentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
@@ -302,6 +310,7 @@
 				E451FFF41DA813DA00B5A756 /* Button.swift */,
 				E476B0161DA8FB74007B1D62 /* Label.swift */,
 				E476B0381DA9445E007B1D62 /* ImageView.swift */,
+				E423FB061DB34661005C51BB /* TableView.swift */,
 			);
 			name = BaseView;
 			sourceTree = "<group>";
@@ -330,6 +339,15 @@
 				E414486D1DB0D7C9006C70EF /* ShopDetailViewController.swift */,
 			);
 			name = ShopDetailViewController;
+			sourceTree = "<group>";
+		};
+		E423FB011DB3378E005C51BB /* CardAddressTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				E423FB021DB337AF005C51BB /* CardAddressTableViewCell.swift */,
+				E423FB031DB337AF005C51BB /* CardAddressTableViewCell.xib */,
+			);
+			name = CardAddressTableViewCell;
 			sourceTree = "<group>";
 		};
 		E42469DE1DADF54100D0A074 /* MyCardTableViewCell */ = {
@@ -432,6 +450,7 @@
 			children = (
 				E45086E61DAFDA5A0090ACB5 /* RedeemViewController.swift */,
 				E41448701DB0DA90006C70EF /* AddPointViewController.swift */,
+				E423FAFF1DB3333D005C51BB /* CardAddressViewController.swift */,
 			);
 			name = RedeemViewController;
 			sourceTree = "<group>";
@@ -632,6 +651,7 @@
 		E49404D61DA6AEEA00918C75 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				E423FB011DB3378E005C51BB /* CardAddressTableViewCell */,
 				E41448651DB0BE66006C70EF /* MessageView */,
 				E414485B1DB096C1006C70EF /* RedeemSuccessView */,
 				E414485A1DB096AF006C70EF /* BaseView */,
@@ -803,6 +823,7 @@
 				E476B0351DA93D16007B1D62 /* location.png in Resources */,
 				E476B0331DA93C3B007B1D62 /* ic_buy_one_get_one.png in Resources */,
 				E49404A41DA6AD1B00918C75 /* Main.storyboard in Resources */,
+				E423FB051DB337AF005C51BB /* CardAddressTableViewCell.xib in Resources */,
 				E49404D81DA6B60800918C75 /* Home.storyboard in Resources */,
 				E414485F1DB09718006C70EF /* RedeemSuccessView.xib in Resources */,
 				E434E6021DAF480D00AFC400 /* PointCardTableViewCell.xib in Resources */,
@@ -976,8 +997,10 @@
 				E476B0171DA8FB74007B1D62 /* Label.swift in Sources */,
 				E42B6ADF1DAB37F20091746F /* Location.swift in Sources */,
 				E4129A3F1DACE25600F78C79 /* CardResponse.swift in Sources */,
+				E423FB001DB3333D005C51BB /* CardAddressViewController.swift in Sources */,
 				E476B0211DA929AF007B1D62 /* CAPSPageMenu.swift in Sources */,
 				E4246A0C1DAE411A00D0A074 /* DetailCardHeaderTableViewCell.swift in Sources */,
+				E423FB041DB337AF005C51BB /* CardAddressTableViewCell.swift in Sources */,
 				E42422901DA8A14A00F7D6FC /* AuthenticationStore.swift in Sources */,
 				E476B0191DA908FD007B1D62 /* CardViewController.swift in Sources */,
 				E43D2C841DA80DAE0019B2DD /* LoginPhoneViewController.swift in Sources */,
@@ -1004,6 +1027,7 @@
 				E42B6AE11DAB394B0091746F /* LoginParameter.swift in Sources */,
 				E470CF651DAC99BA00434909 /* UserStore.swift in Sources */,
 				E43D2C7F1DA7F6840019B2DD /* HomeTabbarController.swift in Sources */,
+				E423FB071DB34661005C51BB /* TableView.swift in Sources */,
 				E42422921DA8A47900F7D6FC /* Authentication.swift in Sources */,
 				E49D5A8F1DB1C62A001E19DD /* Point.swift in Sources */,
 				E4FF02011DB11BBA00177F9F /* ScanQRCodeViewController.swift in Sources */,

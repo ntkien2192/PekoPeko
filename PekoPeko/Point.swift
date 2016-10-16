@@ -36,16 +36,16 @@ class Point: Mappable {
     // Response
     var honeyPot: Int?
     
-//    init(shopID: String, addressID: String, pinCode: Int, key: String, pointType: Int, createdAt: Double, totalBill: Double, hasDiscount: Bool) {
-//        self.shopID = shopID
-//        self.addressID = addressID
-//        self.pinCode = pinCode
-//        self.key = key
-//        self.pointType = pointType
-//        self.createdAt = createdAt
-//        self.totalBill = totalBill
-//        self.hasDiscount = hasDiscount
-//    }
+    init(shopID: String, addressID: String, pinCode: Int, key: String, pointType: Int, createdAt: Double, totalBill: Double, hasDiscount: Bool) {
+        self.shopID = shopID
+        self.addressID = addressID
+        self.pinCode = pinCode
+        self.key = key
+        self.pointType = pointType
+        self.createdAt = createdAt
+        self.totalBill = totalBill
+        self.hasDiscount = hasDiscount
+    }
     
     required init(json: JSON) {
         shopID = json[PointFields.ShopID.rawValue].string

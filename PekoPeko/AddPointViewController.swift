@@ -30,12 +30,14 @@ class AddPointViewController: BaseViewController {
     @IBOutlet weak var textfieldCode5: Textfield!
     @IBOutlet weak var textfieldCode6: Textfield!
     
+    @IBOutlet weak var buttonDiscount: UISwitch!
     @IBOutlet weak var textfieldMoney: TSCurrencyTextField!
     
     var defaultConstraintValue: CGFloat?
     
     var card: Card?
-    var point: Point?
+    var qrCode: QRCode?
+    var address: Address?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,6 +73,7 @@ class AddPointViewController: BaseViewController {
         super.viewWillAppear(animated)
         defaultConstraintValue = constraintTop.constant
         loadPointInfo()
+        loadQRCode()
     }
     
     func loadPointInfo() {
@@ -79,39 +82,74 @@ class AddPointViewController: BaseViewController {
                 labelTitle.text = shopName
                 labelName.text = shopName
             }
-            
-            if let shopAddress = card.shopAddress {
-                labelAddress.text = shopAddress
+        }
+        
+        if let address = address {
+            if let addressContent = address.addressContent {
+                labelAddress.text = addressContent
             }
         }
         
-        if let point = point {
-            if let cardID = point.shopID {
-                
-                CardStore.getCard(cardID: cardID, completionHandler: { (card, error) in
-                    guard error == nil else {
+
+    }
+    
+    func loadQRCode() {
+        if let qrCode = qrCode {
+            
+        }
+    }
+    
+    func addPoint() {
+        var error = ""
+        if textfieldMoney.amount.floatValue == 0.0 {
+            error = "Số tiền tổng hoá đơn không được để trống"
+        }
+        
+        var pinCode = ""
+        let tfs = [textfieldCode1, textfieldCode2, textfieldCode3, textfieldCode4, textfieldCode5, textfieldCode6]
+        for i in 0..<tfs.count {
+            if let tf = tfs[i] {
+                if let text: String = tf.text {
+                    if text.isEmpty {
+                        tfs[i]?.becomeFirstResponder()
                         return
                     }
-                    
-                    if let card = card {
-                        self.card = card
-                    }
-                })
+                    pinCode = "\(pinCode)\(text)"
+                }
             }
         }
+        
+        if pinCode.length < 6 {
+            error = "Bạn chưa điền đẩy đủ PIN Code"
+        }
+        
+        if !error.isEmpty {
+            let messageView = MessageView(frame: self.view.bounds)
+            messageView.message = error
+            self.view.addFullView(view: messageView)
+        } else {
+            
+            if let address = address, let qrCode = address.qrCode,
+                let shopID = qrCode.shopID,
+                let addressID = qrCode.addressID,
+                let key = qrCode.key,
+                let createdAt = qrCode.createdAt,
+                let code = NumberFormatter().number(from: pinCode) {
+                
+                
+                let point = Point(shopID: shopID, addressID: addressID, pinCode: code.intValue, key: key, pointType: 1, createdAt: createdAt, totalBill:textfieldMoney.amount.doubleValue, hasDiscount: buttonDiscount.isOn)
+                
+                
+                
+            }
+
+        }
+
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    @IBAction func buttonUserDiscountTapped(_ sender: AnyObject) {
-        if (sender as! UISwitch).isOn {
-            print("on")
-        } else {
-            print("off")
-        }
     }
     
     @IBAction func buttonBackTapped(_ sender: AnyObject) {
@@ -124,7 +162,7 @@ class AddPointViewController: BaseViewController {
     }
     
     @IBAction func buttonAddPointTapped(_ sender: AnyObject) {
-        
+        addPoint()
     }
     
 }

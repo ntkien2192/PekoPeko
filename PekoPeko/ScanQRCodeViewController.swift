@@ -71,16 +71,6 @@ class ScanQRCodeViewController: UIViewController {
         if let cardID = point.shopID {
             
         }
-        
-        
-        
-
-        
-        let addPointViewController = UIStoryboard(name: AddPointViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: AddPointViewController.identify) as! AddPointViewController
-        addPointViewController.point = point
-        if let navigationController = navigationController {
-            navigationController.present(addPointViewController, animated: true, completion: nil)
-        }
     }
     
     override func didReceiveMemoryWarning() {

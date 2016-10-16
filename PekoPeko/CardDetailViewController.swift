@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 enum RowDisplayType: Int {
     case header = -10
@@ -194,12 +195,39 @@ extension CardDetailViewController: RewardTableViewCellDelegate, Reward10TableVi
     }
     
     func buttonPointTapped(reward: Reward?) {
-        let addPointViewController = UIStoryboard(name: AddPointViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: AddPointViewController.identify) as! AddPointViewController
-        if let card = card {
-            addPointViewController.card = card
+        if let card = card, let cardID = card.shopID {
+            let loadingNotification = MBProgressHUD.showAdded(to: view, animated: true)
+            loadingNotification.mode = MBProgressHUDMode.indeterminate
+            
+            CardStore.getCardAddress(cardID: cardID, completionHandler: { (addresses, error) in
+                loadingNotification.hide(animated: true)
+                
+                guard error == nil else {
+                    return
+                }
+                
+                if let addresses = addresses {
+                    if addresses.count > 1 {
+                        let cardAddressViewController = UIStoryboard(name: CardAddressViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: CardAddressViewController.identify) as! CardAddressViewController
+                        cardAddressViewController.card = card
+                        cardAddressViewController.addresses = addresses
+                        self.present(cardAddressViewController, animated: true, completion: nil)
+                    } else if addresses.count == 1 {
+                        let addPointViewController = UIStoryboard(name: AddPointViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: AddPointViewController.identify) as! AddPointViewController
+                        addPointViewController.card = card
+                        addPointViewController.address = addresses.first
+                        self.present(addPointViewController, animated: true, completion: nil)
+                    }
+                }
+            })
         }
-        if let navigationController = navigationController {
-            navigationController.present(addPointViewController, animated: true, completion: nil)
-        }
+        
+//        let addPointViewController = UIStoryboard(name: AddPointViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: AddPointViewController.identify) as! AddPointViewController
+//        if let card = card {
+//            addPointViewController.card = card
+//        }
+//        if let navigationController = navigationController {
+//            navigationController.present(addPointViewController, animated: true, completion: nil)
+//        }
     }
 }

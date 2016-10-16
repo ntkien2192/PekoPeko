@@ -73,10 +73,7 @@ class Address: NSObject {
         thumb = json[AddressFields.Thumb.rawValue].string
         location = Location(json: json[AddressFields.Location.rawValue])
         addressID = json[AddressFields.AddressID.rawValue].string
-        let qrData = json[AddressFields.AddressID.rawValue].stringValue
-        if let data = qrData.data(using: String.Encoding.utf8) {
-            qrCode = QRCode(json: JSON(data: data))
-        }
+        qrCode = QRCode(json: SwiftyJSON.JSON(json[AddressFields.AddressID.rawValue].stringValue))
     }
 }
 

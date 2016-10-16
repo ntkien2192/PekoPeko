@@ -64,7 +64,7 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="260" id="0nu-lq-Ocd"/>
+                        <constraint firstAttribute="width" constant="300" id="0nu-lq-Ocd"/>
                         <constraint firstItem="HxX-D0-glN" firstAttribute="top" secondItem="ejB-aD-Z6Q" secondAttribute="bottom" constant="8" id="6rB-ib-46J"/>
                         <constraint firstAttribute="bottom" secondItem="OFj-E1-ZG4" secondAttribute="bottom" constant="10" id="9KB-iX-aLv"/>
                         <constraint firstItem="cAh-OM-lgk" firstAttribute="leading" secondItem="Sv6-53-TNr" secondAttribute="leading" constant="20" id="9gz-nW-hop"/>
