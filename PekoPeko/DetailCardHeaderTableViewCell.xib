@@ -42,7 +42,7 @@
                         <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location.png" translatesAutoresizingMaskIntoConstraints="NO" id="mz7-iC-ocB">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconShopLocation" translatesAutoresizingMaskIntoConstraints="NO" id="mz7-iC-ocB">
                         <constraints>
                             <constraint firstAttribute="height" constant="14" id="cnd-1D-acs"/>
                             <constraint firstAttribute="width" constant="10" id="cr6-gB-vHz"/>
@@ -99,7 +99,7 @@
     </objects>
     <resources>
         <image name="DefaultCellImage" width="500" height="300"/>
+        <image name="IconShopLocation" width="12" height="16"/>
         <image name="ShopAvatar" width="40" height="40"/>
-        <image name="location.png" width="34" height="44"/>
     </resources>
 </document>

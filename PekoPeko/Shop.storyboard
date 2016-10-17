@@ -17,7 +17,24 @@
                     <view key="view" contentMode="scaleToFill" id="Sb7-kA-0SU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i72-h4-xOQ">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="M6Q-7Z-Fb6"/>
+                                    <constraint firstAttribute="height" constant="44" id="VyJ-lK-SUa"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                <state key="normal" image="IconLeft"/>
+                                <connections>
+                                    <action selector="buttonBackTapped:" destination="JPZ-0g-I6g" eventType="touchUpInside" id="Csl-QS-XAx"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="i72-h4-xOQ" firstAttribute="leading" secondItem="Sb7-kA-0SU" secondAttribute="leading" id="8Fk-bF-4KJ"/>
+                            <constraint firstItem="i72-h4-xOQ" firstAttribute="top" secondItem="OVF-wE-ITM" secondAttribute="bottom" id="KVn-8N-ARa"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Tl-JB-Gbz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -25,4 +42,7 @@
             <point key="canvasLocation" x="-57" y="51"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="IconLeft" width="44" height="44"/>
+    </resources>
 </document>

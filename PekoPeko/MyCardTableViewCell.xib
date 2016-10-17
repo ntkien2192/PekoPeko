@@ -155,7 +155,7 @@
                                 <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location.png" translatesAutoresizingMaskIntoConstraints="NO" id="We4-AK-KB3">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconShopLocation" translatesAutoresizingMaskIntoConstraints="NO" id="We4-AK-KB3">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="10" id="hgh-Jo-7lq"/>
                                     <constraint firstAttribute="height" constant="14" id="kzS-uV-rF1"/>
@@ -281,8 +281,8 @@
         <image name="IconMore" width="44" height="44"/>
         <image name="IconNextReward" width="36" height="44"/>
         <image name="IconRewardUnlocked" width="230" height="229"/>
+        <image name="IconShopLocation" width="12" height="16"/>
         <image name="ShopAvatar" width="40" height="40"/>
         <image name="item_top_loyalty_cards.png" width="1068" height="67"/>
-        <image name="location.png" width="34" height="44"/>
     </resources>
 </document>

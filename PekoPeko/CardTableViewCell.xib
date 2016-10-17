@@ -48,7 +48,7 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location.png" translatesAutoresizingMaskIntoConstraints="NO" id="dFG-EE-cS3">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconShopLocation" translatesAutoresizingMaskIntoConstraints="NO" id="dFG-EE-cS3">
                         <constraints>
                             <constraint firstAttribute="width" constant="10" id="8Gy-EQ-cTI"/>
                             <constraint firstAttribute="height" constant="14" id="uxy-A5-wPz"/>
@@ -91,7 +91,7 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_buy_one_get_one.png" translatesAutoresizingMaskIntoConstraints="NO" id="3WV-NY-Pf8" customClass="ImageView" customModule="PekoPeko" customModuleProvider="target">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconDiscount" translatesAutoresizingMaskIntoConstraints="NO" id="3WV-NY-Pf8" customClass="ImageView" customModule="PekoPeko" customModuleProvider="target">
                         <constraints>
                             <constraint firstAttribute="height" constant="50" id="C9y-E1-6qo"/>
                             <constraint firstAttribute="width" constant="50" id="x79-SH-X5O"/>
@@ -170,8 +170,8 @@
     <resources>
         <image name="DefaultCellImage" width="500" height="300"/>
         <image name="GradientBackgrount" width="664" height="110"/>
+        <image name="IconDiscount" width="45" height="45"/>
+        <image name="IconShopLocation" width="12" height="16"/>
         <image name="ShopAvatar" width="40" height="40"/>
-        <image name="ic_buy_one_get_one.png" width="120" height="120"/>
-        <image name="location.png" width="34" height="44"/>
     </resources>
 </document>

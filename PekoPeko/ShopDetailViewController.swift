@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ShopDetailViewController: UIViewController {
+class ShopDetailViewController: BaseViewController {
 
     static let storyboardName = "Shop"
     static let identify = "ShopDetailViewController"
@@ -21,8 +21,16 @@ class ShopDetailViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    override func viewConfig() {
+        super.viewConfig()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func buttonBackTapped(_ sender: AnyObject) {
+        dismiss(animated: true, completion: nil)
     }
 }

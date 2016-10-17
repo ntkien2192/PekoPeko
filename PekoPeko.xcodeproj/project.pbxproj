@@ -21,6 +21,12 @@
 		E41448691DB0BE87006C70EF /* MessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E41448681DB0BE87006C70EF /* MessageView.xib */; };
 		E414486C1DB0D79B006C70EF /* Shop.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E414486B1DB0D79B006C70EF /* Shop.storyboard */; };
 		E41448711DB0DA90006C70EF /* AddPointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41448701DB0DA90006C70EF /* AddPointViewController.swift */; };
+		E41DC09D1DB4D61A00411F55 /* ShopInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41DC09B1DB4D61A00411F55 /* ShopInfoTableViewCell.swift */; };
+		E41DC09E1DB4D61A00411F55 /* ShopInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E41DC09C1DB4D61A00411F55 /* ShopInfoTableViewCell.xib */; };
+		E41DC0A11DB4D62B00411F55 /* ShopCoverTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41DC09F1DB4D62B00411F55 /* ShopCoverTableViewCell.swift */; };
+		E41DC0A21DB4D62B00411F55 /* ShopCoverTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E41DC0A01DB4D62B00411F55 /* ShopCoverTableViewCell.xib */; };
+		E41DC0A71DB4D9CC00411F55 /* ShopAddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41DC0A51DB4D9CC00411F55 /* ShopAddressTableViewCell.swift */; };
+		E41DC0A81DB4D9CC00411F55 /* ShopAddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E41DC0A61DB4D9CC00411F55 /* ShopAddressTableViewCell.xib */; };
 		E423FB041DB337AF005C51BB /* CardAddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E423FB021DB337AF005C51BB /* CardAddressTableViewCell.swift */; };
 		E423FB051DB337AF005C51BB /* CardAddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E423FB031DB337AF005C51BB /* CardAddressTableViewCell.xib */; };
 		E423FB071DB34661005C51BB /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E423FB061DB34661005C51BB /* TableView.swift */; };
@@ -88,10 +94,6 @@
 		E476B0281DA92AD6007B1D62 /* MyCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E476B0271DA92AD6007B1D62 /* MyCardViewController.swift */; };
 		E476B02C1DA937C1007B1D62 /* CardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E476B02A1DA937C1007B1D62 /* CardTableViewCell.swift */; };
 		E476B02D1DA937C1007B1D62 /* CardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E476B02B1DA937C1007B1D62 /* CardTableViewCell.xib */; };
-		E476B02F1DA93BB0007B1D62 /* img_food_sample.png in Resources */ = {isa = PBXBuildFile; fileRef = E476B02E1DA93BB0007B1D62 /* img_food_sample.png */; };
-		E476B0311DA93C0B007B1D62 /* buy1Detail.png in Resources */ = {isa = PBXBuildFile; fileRef = E476B0301DA93C0B007B1D62 /* buy1Detail.png */; };
-		E476B0331DA93C3B007B1D62 /* ic_buy_one_get_one.png in Resources */ = {isa = PBXBuildFile; fileRef = E476B0321DA93C3B007B1D62 /* ic_buy_one_get_one.png */; };
-		E476B0351DA93D16007B1D62 /* location.png in Resources */ = {isa = PBXBuildFile; fileRef = E476B0341DA93D16007B1D62 /* location.png */; };
 		E476B0371DA93F0D007B1D62 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E476B0361DA93F0D007B1D62 /* BaseViewController.swift */; };
 		E476B0391DA9445E007B1D62 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E476B0381DA9445E007B1D62 /* ImageView.swift */; };
 		E47CB7DC1DB4C71A0078279F /* ShopDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47CB7DB1DB4C71A0078279F /* ShopDetailViewController.swift */; };
@@ -160,6 +162,12 @@
 		E41448681DB0BE87006C70EF /* MessageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageView.xib; sourceTree = "<group>"; };
 		E414486B1DB0D79B006C70EF /* Shop.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Shop.storyboard; sourceTree = "<group>"; };
 		E41448701DB0DA90006C70EF /* AddPointViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPointViewController.swift; sourceTree = "<group>"; };
+		E41DC09B1DB4D61A00411F55 /* ShopInfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopInfoTableViewCell.swift; sourceTree = "<group>"; };
+		E41DC09C1DB4D61A00411F55 /* ShopInfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShopInfoTableViewCell.xib; sourceTree = "<group>"; };
+		E41DC09F1DB4D62B00411F55 /* ShopCoverTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopCoverTableViewCell.swift; sourceTree = "<group>"; };
+		E41DC0A01DB4D62B00411F55 /* ShopCoverTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShopCoverTableViewCell.xib; sourceTree = "<group>"; };
+		E41DC0A51DB4D9CC00411F55 /* ShopAddressTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopAddressTableViewCell.swift; sourceTree = "<group>"; };
+		E41DC0A61DB4D9CC00411F55 /* ShopAddressTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShopAddressTableViewCell.xib; sourceTree = "<group>"; };
 		E423FB021DB337AF005C51BB /* CardAddressTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardAddressTableViewCell.swift; sourceTree = "<group>"; };
 		E423FB031DB337AF005C51BB /* CardAddressTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardAddressTableViewCell.xib; sourceTree = "<group>"; };
 		E423FB061DB34661005C51BB /* TableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
@@ -227,10 +235,6 @@
 		E476B0271DA92AD6007B1D62 /* MyCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCardViewController.swift; sourceTree = "<group>"; };
 		E476B02A1DA937C1007B1D62 /* CardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardTableViewCell.swift; sourceTree = "<group>"; };
 		E476B02B1DA937C1007B1D62 /* CardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardTableViewCell.xib; sourceTree = "<group>"; };
-		E476B02E1DA93BB0007B1D62 /* img_food_sample.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_food_sample.png; sourceTree = "<group>"; };
-		E476B0301DA93C0B007B1D62 /* buy1Detail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buy1Detail.png; sourceTree = "<group>"; };
-		E476B0321DA93C3B007B1D62 /* ic_buy_one_get_one.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_buy_one_get_one.png; sourceTree = "<group>"; };
-		E476B0341DA93D16007B1D62 /* location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location.png; sourceTree = "<group>"; };
 		E476B0361DA93F0D007B1D62 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		E476B0381DA9445E007B1D62 /* ImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		E47CB7DB1DB4C71A0078279F /* ShopDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopDetailViewController.swift; sourceTree = "<group>"; };
@@ -347,6 +351,43 @@
 			name = ShopDetailViewController;
 			sourceTree = "<group>";
 		};
+		E41DC0921DB4D31200411F55 /* ShopDetailTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				E41DC0A31DB4D9A800411F55 /* ShopAddressTableViewCell */,
+				E41DC0981DB4D5D700411F55 /* ShopInfoTableViewCell */,
+				E41DC0931DB4D32D00411F55 /* CoverTableViewCell */,
+			);
+			name = ShopDetailTableViewCell;
+			sourceTree = "<group>";
+		};
+		E41DC0931DB4D32D00411F55 /* CoverTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				E41DC09F1DB4D62B00411F55 /* ShopCoverTableViewCell.swift */,
+				E41DC0A01DB4D62B00411F55 /* ShopCoverTableViewCell.xib */,
+			);
+			name = CoverTableViewCell;
+			sourceTree = "<group>";
+		};
+		E41DC0981DB4D5D700411F55 /* ShopInfoTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				E41DC09B1DB4D61A00411F55 /* ShopInfoTableViewCell.swift */,
+				E41DC09C1DB4D61A00411F55 /* ShopInfoTableViewCell.xib */,
+			);
+			name = ShopInfoTableViewCell;
+			sourceTree = "<group>";
+		};
+		E41DC0A31DB4D9A800411F55 /* ShopAddressTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				E41DC0A51DB4D9CC00411F55 /* ShopAddressTableViewCell.swift */,
+				E41DC0A61DB4D9CC00411F55 /* ShopAddressTableViewCell.xib */,
+			);
+			name = ShopAddressTableViewCell;
+			sourceTree = "<group>";
+		};
 		E423FB011DB3378E005C51BB /* CardAddressTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -387,10 +428,10 @@
 		E4246A081DAE40E100D0A074 /* DetailCardTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				E4246A091DAE40FB00D0A074 /* DetailCardHeaderTableViewCell */,
 				E427F8E11DAF5F420012F3F5 /* RewardTableViewCell */,
 				E434E5FE1DAF47E400AFC400 /* PointCardTableViewCell */,
 				E4CC4A641DAF3979003B8385 /* DiscountCardTableViewCell */,
-				E4246A091DAE40FB00D0A074 /* DetailCardHeaderTableViewCell */,
 			);
 			name = DetailCardTableViewCell;
 			sourceTree = "<group>";
@@ -623,10 +664,6 @@
 			children = (
 				E42469F41DAE0FB200D0A074 /* Font */,
 				E42469E31DADF64E00D0A074 /* item_top_loyalty_cards.png */,
-				E476B0341DA93D16007B1D62 /* location.png */,
-				E476B0321DA93C3B007B1D62 /* ic_buy_one_get_one.png */,
-				E476B0301DA93C0B007B1D62 /* buy1Detail.png */,
-				E476B02E1DA93BB0007B1D62 /* img_food_sample.png */,
 				E49404D91DA6BB2100918C75 /* logoBar.png */,
 				E49404A51DA6AD1B00918C75 /* Assets.xcassets */,
 			);
@@ -672,6 +709,7 @@
 				E41448651DB0BE66006C70EF /* MessageView */,
 				E414485B1DB096C1006C70EF /* RedeemSuccessView */,
 				E414485A1DB096AF006C70EF /* BaseView */,
+				E41DC0921DB4D31200411F55 /* ShopDetailTableViewCell */,
 				E4246A081DAE40E100D0A074 /* DetailCardTableViewCell */,
 				E42469DE1DADF54100D0A074 /* MyCardTableViewCell */,
 				E476B0291DA9379E007B1D62 /* CardTableViewCell */,
@@ -817,13 +855,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				E42469F51DAE101C00D0A074 /* BEBAS___.ttf in Resources */,
+				E41DC09E1DB4D61A00411F55 /* ShopInfoTableViewCell.xib in Resources */,
 				E42469F61DAE101C00D0A074 /* BebasNeue-webfont.ttf in Resources */,
 				E42469F71DAE101C00D0A074 /* ProximaNova-Bold.otf in Resources */,
 				E42469F81DAE101C00D0A074 /* ProximaNova-Regular.otf in Resources */,
 				E4CC4A681DAF3991003B8385 /* DiscountCardTableViewCell.xib in Resources */,
 				E42469F91DAE101C00D0A074 /* ProximaNova-Semibold.otf in Resources */,
 				E42469FA1DAE101C00D0A074 /* ProximaNovaSoft-Bold.otf in Resources */,
+				E41DC0A81DB4D9CC00411F55 /* ShopAddressTableViewCell.xib in Resources */,
 				E42469FC1DAE101C00D0A074 /* ProximaNovaSoft-Medium.otf in Resources */,
+				E41DC0A21DB4D62B00411F55 /* ShopCoverTableViewCell.xib in Resources */,
 				E42469FE1DAE101C00D0A074 /* ProximaNovaSoft-Regular.otf in Resources */,
 				E4246A001DAE101C00D0A074 /* ProximaNovaSoft-Semibold.otf in Resources */,
 				E427F8E51DAF5F580012F3F5 /* RewardTableViewCell.xib in Resources */,
@@ -836,9 +877,6 @@
 				E49404A61DA6AD1B00918C75 /* Assets.xcassets in Resources */,
 				E42469E21DADF55800D0A074 /* MyCardTableViewCell.xib in Resources */,
 				E43D2C7C1DA7F5570019B2DD /* Login.storyboard in Resources */,
-				E476B0311DA93C0B007B1D62 /* buy1Detail.png in Resources */,
-				E476B0351DA93D16007B1D62 /* location.png in Resources */,
-				E476B0331DA93C3B007B1D62 /* ic_buy_one_get_one.png in Resources */,
 				E49404A41DA6AD1B00918C75 /* Main.storyboard in Resources */,
 				E423FB051DB337AF005C51BB /* CardAddressTableViewCell.xib in Resources */,
 				E49404D81DA6B60800918C75 /* Home.storyboard in Resources */,
@@ -849,7 +887,6 @@
 				E4246A0D1DAE411A00D0A074 /* DetailCardHeaderTableViewCell.xib in Resources */,
 				E4271BF11DB4727900B485B3 /* CardAddressView.xib in Resources */,
 				E427F8E91DAF790C0012F3F5 /* Reward10TableViewCell.xib in Resources */,
-				E476B02F1DA93BB0007B1D62 /* img_food_sample.png in Resources */,
 				E49404DA1DA6BB2100918C75 /* logoBar.png in Resources */,
 				E41448691DB0BE87006C70EF /* MessageView.xib in Resources */,
 				E476B02D1DA937C1007B1D62 /* CardTableViewCell.xib in Resources */,
@@ -1020,12 +1057,14 @@
 				E4246A0C1DAE411A00D0A074 /* DetailCardHeaderTableViewCell.swift in Sources */,
 				E423FB041DB337AF005C51BB /* CardAddressTableViewCell.swift in Sources */,
 				E42422901DA8A14A00F7D6FC /* AuthenticationStore.swift in Sources */,
+				E41DC09D1DB4D61A00411F55 /* ShopInfoTableViewCell.swift in Sources */,
 				E476B0191DA908FD007B1D62 /* CardViewController.swift in Sources */,
 				E43D2C841DA80DAE0019B2DD /* LoginPhoneViewController.swift in Sources */,
 				E494049F1DA6AD1B00918C75 /* AppDelegate.swift in Sources */,
 				E41448671DB0BE7E006C70EF /* MessageView.swift in Sources */,
 				E4129A411DACE41200F78C79 /* CardStore.swift in Sources */,
 				E4246A051DAE245A00D0A074 /* CardDetailViewController.swift in Sources */,
+				E41DC0A11DB4D62B00411F55 /* ShopCoverTableViewCell.swift in Sources */,
 				E45086E71DAFDA5A0090ACB5 /* RedeemViewController.swift in Sources */,
 				E427F8E41DAF5F580012F3F5 /* RewardTableViewCell.swift in Sources */,
 				E41448711DB0DA90006C70EF /* AddPointViewController.swift in Sources */,
@@ -1052,6 +1091,7 @@
 				E4FF02011DB11BBA00177F9F /* ScanQRCodeViewController.swift in Sources */,
 				E476B01B1DA91709007B1D62 /* SegmentControl.swift in Sources */,
 				E4CC4A671DAF3991003B8385 /* DiscountCardTableViewCell.swift in Sources */,
+				E41DC0A71DB4D9CC00411F55 /* ShopAddressTableViewCell.swift in Sources */,
 				E45746DB1DB27F1200021604 /* Reward.swift in Sources */,
 				E46CD5861DB4B25C001F37AF /* Shop.swift in Sources */,
 				E41448571DB08EE2006C70EF /* RedeemRequest.swift in Sources */,

@@ -247,6 +247,11 @@ class AddPointViewController: BaseViewController {
     }
     
     @IBAction func buttonShopTapped(_ sender: AnyObject) {
+        if let card = card {
+            let shopDetailController = UIStoryboard(name: ShopDetailViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: ShopDetailViewController.identify) as! ShopDetailViewController
+            shopDetailController.card = card
+            present(shopDetailController, animated: true, completion: nil)
+        }
     }
 }
 
