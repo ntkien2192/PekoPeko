@@ -45,7 +45,7 @@ class CardStore {
     }
 
     class func addCard(cardID: String, completionHandler: @escaping (Bool, Error?) -> Void) {
-        _ = Alamofire.request(Router.addCard(cardID)).responseAddCard({ (response) in
+        _ = Alamofire.request(Router.addCard(cardID)).responseEditCard({ (response) in
             if let error = response.result.error {
                 completionHandler(false, error)
                 return
@@ -59,8 +59,8 @@ class CardStore {
         })
     }
     
-    class func getCard(cardID: String, completionHandler: @escaping (Card?, Error?) -> Void) {
-        _ = Alamofire.request(Router.getCard(cardID)).responseGetCard({ (response) in
+    class func getCardInfo(cardID: String, completionHandler: @escaping (Card?, Error?) -> Void) {
+        _ = Alamofire.request(Router.getCardInfo(cardID)).responseGetCard({ (response) in
             if let error = response.result.error {
                 completionHandler(nil, error)
                 return
@@ -86,6 +86,21 @@ class CardStore {
                 return
             }
             completionHandler(response.result.value ?? nil, nil)
+        })
+    }
+    
+    class func deleteCard(cardID: String, completionHandler: @escaping (Bool, Error?) -> Void) {
+        _ = Alamofire.request(Router.deleteCard(cardID)).responseEditCard({ (response) in
+            if let error = response.result.error {
+                completionHandler(false, error)
+                return
+            }
+            guard response.result.value != nil else {
+                // TODO: Create error here
+                completionHandler(false, nil)
+                return
+            }
+            completionHandler(response.result.value ?? false, nil)
         })
     }
 }
@@ -196,7 +211,7 @@ extension Alamofire.DataRequest {
         return response(responseSerializer: responseSerializer, completionHandler: completionHandler)
     }
     
-    func responseAddCard(_ completionHandler: @escaping (DataResponse<Bool>) -> Void) -> Self {
+    func responseEditCard(_ completionHandler: @escaping (DataResponse<Bool>) -> Void) -> Self {
         let responseSerializer = DataResponseSerializer<Bool> { request, response, data, error in
             guard error == nil else {
                 return .failure(error!)

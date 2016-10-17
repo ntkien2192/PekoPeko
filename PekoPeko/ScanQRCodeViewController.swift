@@ -54,8 +54,8 @@ class ScanQRCodeViewController: UIViewController {
                             if codes.count != 0 {
                                 scaner.stopScanning()
                                 if let data = (codes.first as! AVMetadataMachineReadableCodeObject).stringValue.data(using: String.Encoding.utf8) {
-                                    let point = Point(json: JSON(data: data))
-                                    self.loadCardList(point: point)
+                                    let qrCode = QRCode(json: JSON(data: data))
+                                    self.loadCardList(qrCode: qrCode)
                                 }
                                 
                             }
@@ -66,10 +66,13 @@ class ScanQRCodeViewController: UIViewController {
         }
     }
     
-    func loadCardList(point: Point) {
-        
-        if let cardID = point.shopID {
-            
+    func loadCardList(qrCode: QRCode) {
+        let addPointViewController = UIStoryboard(name: AddPointViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: AddPointViewController.identify) as! AddPointViewController
+        addPointViewController.qrCode = qrCode
+        addPointViewController.delegate = self
+        addPointViewController.isScan = true
+        if let window = self.view.window, let rootViewController = window.rootViewController {
+            rootViewController.present(addPointViewController, animated: true, completion: nil)
         }
     }
     
@@ -77,16 +80,20 @@ class ScanQRCodeViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+extension ScanQRCodeViewController: AddPointViewControllerDelegate {
+    func pointAdded(point: Point?) {
+        if let point = point {
+            let messageView = MessageView(frame: self.view.bounds)
+            if let honeyPot = point.honeyPot {
+                if honeyPot == 0 {
+                    messageView.message = "Tổng hoá đơn của bạn không đủ lớn để nhận điểm"
+                } else {
+                    messageView.message = "Bạn đã nhận được \(honeyPot) điểm"
+                }
+            }
+            self.view.addFullView(view: messageView)
+        }
     }
-    */
-
 }

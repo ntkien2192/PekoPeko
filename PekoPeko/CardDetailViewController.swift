@@ -23,6 +23,8 @@ class CardDetailViewController: BaseViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var buttonAddCard: Button!
     
+    var refreshControl: UIRefreshControl?
+    
     var rowDisplayType: [Int] = [Int]() {
         didSet {
             tableView.reloadData()
@@ -67,6 +69,8 @@ class CardDetailViewController: BaseViewController {
         }
     }
     
+    var addresses: [Address]?
+    
     var isAdded: Bool = false {
         didSet {
             buttonAddCard.isHidden = false
@@ -94,23 +98,60 @@ class CardDetailViewController: BaseViewController {
         tableView.register(UINib(nibName: RewardTableViewCell.identify, bundle: nil), forCellReuseIdentifier: RewardTableViewCell.identify)
         tableView.register(UINib(nibName: Reward10TableViewCell.identify, bundle: nil), forCellReuseIdentifier: Reward10TableViewCell.identify)
         
+        refreshControl = UIRefreshControl()
+        if let refreshControl = refreshControl {
+            refreshControl.addTarget(self, action: #selector(CardDetailViewController.reloadCardInfo), for: .valueChanged)
+            tableView.addSubview(refreshControl)
+            tableView.sendSubview(toBack: refreshControl)
+        }
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        getCardDetail()
+        reloadCardInfo()
     }
     
-    func getCardDetail() {
+    func reloadCardInfo() {
+        getCardInfo()
+        getCardAddress()
+    }
+    
+    func getCardInfo() {
         if let cardID = cardID {
             weak var _self = self
-            CardStore.getCard(cardID: cardID, completionHandler: { (card, error) in
+            CardStore.getCardInfo(cardID: cardID, completionHandler: { (card, error) in
                 guard error == nil else {
+                    if let error = error as? ServerResponseError, let data = error.data {
+                        let messageView = MessageView(frame: self.view.bounds)
+                        messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
+                        self.view.addFullView(view: messageView)
+                    }
                     return
                 }
                 
                 if let card = card {
                     _self?.card = card
+                }
+            })
+        }
+    }
+    
+    func getCardAddress() {
+        if let cardID = cardID {
+            weak var _self = self
+            CardStore.getCardAddress(cardID: cardID, completionHandler: { (addresses, error) in
+                guard error == nil else {
+                    if let error = error as? ServerResponseError, let data = error.data {
+                        let messageView = MessageView(frame: self.view.bounds)
+                        messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
+                        self.view.addFullView(view: messageView)
+                    }
+                    return
+                }
+                
+                if let addresses = addresses {
+                    _self?.addresses = addresses
                 }
             })
         }
@@ -122,6 +163,11 @@ class CardDetailViewController: BaseViewController {
                 weak var _self = self
                 CardStore.addCard(cardID: cardID, completionHandler: { (success, error) in
                     guard error == nil else {
+                        if let error = error as? ServerResponseError, let data = error.data {
+                            let messageView = MessageView(frame: self.view.bounds)
+                            messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
+                            self.view.addFullView(view: messageView)
+                        }
                         return
                     }
                     _self?.isAdded = success
@@ -129,7 +175,6 @@ class CardDetailViewController: BaseViewController {
             }
         }
     }
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -151,6 +196,7 @@ extension CardDetailViewController: UITableViewDataSource {
         case -10:
             let cell = tableView.dequeueReusableCell(withIdentifier: DetailCardHeaderTableViewCell.identify, for: indexPath) as! DetailCardHeaderTableViewCell
             cell.card = card
+            cell.delegate = self
             return cell
         case -9:
             let cell = tableView.dequeueReusableCell(withIdentifier: DiscountCardTableViewCell.identify, for: indexPath) as! DiscountCardTableViewCell
@@ -189,45 +235,69 @@ extension CardDetailViewController: RewardTableViewCellDelegate, Reward10TableVi
         if let card = card {
             redeemViewController.card = card
         }
-        if let navigationController = navigationController {
-            navigationController.present(redeemViewController, animated: true, completion: nil)
+        if let window = self.view.window, let rootViewController = window.rootViewController {
+            rootViewController.present(redeemViewController, animated: true, completion: nil)
         }
     }
     
     func buttonPointTapped(reward: Reward?) {
-        if let card = card, let cardID = card.shopID {
-            let loadingNotification = MBProgressHUD.showAdded(to: view, animated: true)
-            loadingNotification.mode = MBProgressHUDMode.indeterminate
-            
-            CardStore.getCardAddress(cardID: cardID, completionHandler: { (addresses, error) in
-                loadingNotification.hide(animated: true)
-                
-                guard error == nil else {
-                    return
+        if let addresses = addresses {
+            if addresses.count == 1 {
+                let addPointViewController = UIStoryboard(name: AddPointViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: AddPointViewController.identify) as! AddPointViewController
+                addPointViewController.card = card
+                addPointViewController.address = addresses.first
+                addPointViewController.delegate = self
+                if let window = self.view.window, let rootViewController = window.rootViewController {
+                    rootViewController.present(addPointViewController, animated: true, completion: nil)
                 }
-                
-                if let addresses = addresses {
-                    if addresses.count > 1 {
-                        let cardAddressViewController = UIStoryboard(name: CardAddressViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: CardAddressViewController.identify) as! CardAddressViewController
-                        cardAddressViewController.card = card
-                        cardAddressViewController.addresses = addresses
-                        self.present(cardAddressViewController, animated: true, completion: nil)
-                    } else if addresses.count == 1 {
-                        let addPointViewController = UIStoryboard(name: AddPointViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: AddPointViewController.identify) as! AddPointViewController
-                        addPointViewController.card = card
-                        addPointViewController.address = addresses.first
-                        self.present(addPointViewController, animated: true, completion: nil)
-                    }
-                }
-            })
+            } else if addresses.count > 1 {
+                let cardAddressView = CardAddressView(frame: view.bounds)
+                cardAddressView.addresses = addresses
+                cardAddressView.delegate = self
+                self.view.addFullView(view: cardAddressView)
+            }
+        } else {
+            getCardAddress()
         }
-        
-//        let addPointViewController = UIStoryboard(name: AddPointViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: AddPointViewController.identify) as! AddPointViewController
-//        if let card = card {
-//            addPointViewController.card = card
-//        }
-//        if let navigationController = navigationController {
-//            navigationController.present(addPointViewController, animated: true, completion: nil)
-//        }
+    }
+}
+
+extension CardDetailViewController: CardAddressViewDelegate {
+    func addressTapped(address: Address?) {
+        let addPointViewController = UIStoryboard(name: AddPointViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: AddPointViewController.identify) as! AddPointViewController
+        addPointViewController.card = card
+        addPointViewController.address = address
+        addPointViewController.delegate = self
+        if let window = self.view.window, let rootViewController = window.rootViewController {
+            rootViewController.present(addPointViewController, animated: true, completion: nil)
+        }
+    }
+}
+
+extension CardDetailViewController: AddPointViewControllerDelegate {
+    func pointAdded(point: Point?) {
+        if let point = point {
+            let messageView = MessageView(frame: self.view.bounds)
+            if let honeyPot = point.honeyPot {
+                if honeyPot == 0 {
+                    messageView.message = "Tổng hoá đơn của bạn không đủ lớn để nhận điểm"
+                } else {
+                    messageView.message = "Bạn đã nhận được \(honeyPot) điểm"
+                }
+            }
+            self.view.addFullView(view: messageView)
+        }
+    }
+}
+
+// MARK: Cell Delegate
+
+extension CardDetailViewController: DetailCardHeaderTableViewCellDelegate {
+    func shopTapped(card: Card?) {
+        let shopDetailController = UIStoryboard(name: ShopDetailViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: ShopDetailViewController.identify) as! ShopDetailViewController
+        shopDetailController.card = card
+        if let window = self.view.window, let rootViewController = window.rootViewController {
+            rootViewController.present(shopDetailController, animated: true, completion: nil)
+        }
     }
 }

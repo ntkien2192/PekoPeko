@@ -39,6 +39,11 @@ class SettingViewController: BaseViewController {
                     _self?.buttonTakePicture.isHidden = false
                     _self?.buttonAvatar.isHidden = false
                     guard error == nil else {
+                        if let error = error as? ServerResponseError, let data = error.data {
+                            let messageView = MessageView(frame: self.view.bounds)
+                            messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
+                            self.view.addFullView(view: messageView)
+                        }
                         return
                     }
                     _self?.buttonAvatar.setImage(url: imageUrl ?? "")
@@ -56,13 +61,13 @@ class SettingViewController: BaseViewController {
                 
                 labelAppVersion.text = UIDevice().appVersion
                 
-                let cache = Shared.imageCache
                 if let avatarUrl = user.avatarUrl {
+                    let cache = Shared.imageCache
                     let URL = NSURL(string: avatarUrl)!
                     let fetcher = NetworkFetcher<UIImage>(URL: URL as URL)
                     weak var _self = self
                     _ = cache.fetch(fetcher: fetcher).onSuccess({ (image) in
-                        _self?.buttonAvatar.setImage(image, for: .normal)
+                        _self?.buttonAvatar.setImage(image.cropToBounds(width: image.size.height, height: image.size.height), for: .normal)
                     })
                 }
             }
@@ -100,6 +105,11 @@ class SettingViewController: BaseViewController {
                 refreshControl.endRefreshing()
             }
             guard error == nil else {
+                if let error = error as? ServerResponseError, let data = error.data {
+                    let messageView = MessageView(frame: self.view.bounds)
+                    messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
+                    self.view.addFullView(view: messageView)
+                }
                 return
             }
             if let user = user {
@@ -116,8 +126,8 @@ class SettingViewController: BaseViewController {
     @IBAction func buttonLogoutTapped(_ sender: AnyObject) {
         AuthenticationStore().saveLoginValue(false)
         let loginController = UIStoryboard(name: LoginViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: LoginViewController.identify)
-        if let navigationController = navigationController {
-            navigationController.present(loginController, animated: false, completion: nil)
+        if let window = self.view.window, let rootViewController = window.rootViewController {
+            rootViewController.present(loginController, animated: false, completion: nil)
         }
     }
     
@@ -156,16 +166,10 @@ class SettingViewController: BaseViewController {
                 imagePicker.navigationBar.backgroundColor = UIColor.colorYellow
                 imagePicker.navigationBar.tintColor = UIColor.colorBrown
                 imagePicker.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.colorBrown]
-                let view = UIView(frame: CGRect(x: 0.0, y: 0.0, width: self.view.bounds.width, height: 20.0))
-                view.backgroundColor = UIColor.colorYellow
-                imagePicker.view.addSubview(view)
-                imagePicker.view.bringSubview(toFront: view)
-                view.translatesAutoresizingMaskIntoConstraints = false
-                imagePicker.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[view]-0-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": view]));
-                imagePicker.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[view]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": view]))
-                imagePicker.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[view(==20)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": view]))
                 
-                self.present(imagePicker, animated: true, completion: nil)
+                if let window = self.view.window, let rootViewController = window.rootViewController {
+                    rootViewController.present(imagePicker, animated: true, completion: nil)
+                }
             }
             
         }
@@ -190,7 +194,9 @@ class SettingViewController: BaseViewController {
                 imagePicker.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[view]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": view]))
                 imagePicker.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[view(==20)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": view]))
                 
-                self.present(imagePicker, animated: true, completion: nil)
+                if let window = self.view.window, let rootViewController = window.rootViewController {
+                    rootViewController.present(imagePicker, animated: true, completion: nil)
+                }
             }
         }
         alertController.addAction(choosePictureAction)
@@ -198,9 +204,10 @@ class SettingViewController: BaseViewController {
         let cancleAction = UIAlertAction(title: "Huỷ", style: .cancel, handler: nil)
         alertController.addAction(cancleAction)
         
-        present(alertController, animated: true, completion: nil)
+        if let window = self.view.window, let rootViewController = window.rootViewController {
+            rootViewController.present(alertController, animated: true, completion: nil)
+        }
     }
-
 }
 
 extension SettingViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {

@@ -33,10 +33,13 @@ enum Router: URLRequestConvertible {
     case getAllcard([String: AnyObject])
     case getUserCard([String: AnyObject])
     case addCard(String)
-    case getCard(String)
+    case getCardInfo(String)
     case getCardAddresss(String)
+    case deleteCard(String)
     case redeemAward([String: AnyObject])
     case redeemPoint([String: AnyObject])
+    
+    case getShopInfo(String, [String: AnyObject])
     
     var method: HTTPMethod {
         switch self {
@@ -67,17 +70,23 @@ enum Router: URLRequestConvertible {
         case .addCard:
             return .post
             
-        case .getCard:
+        case .getCardInfo:
             return .get
             
         case .getCardAddresss:
             return .get
+            
+        case .deleteCard:
+            return .delete
             
         case .redeemAward:
             return .post
             
         case .redeemPoint:
             return .post
+            
+        case .getShopInfo:
+            return .get
         }
     }
     
@@ -110,17 +119,23 @@ enum Router: URLRequestConvertible {
         case .addCard(let cardID):
             return "card/\(cardID)"
             
-        case .getCard(let cardID):
+        case .getCardInfo(let cardID):
             return "card/\(cardID)"
             
         case .getCardAddresss(let cardID):
             return "shop/\(cardID)/address"
+            
+        case .deleteCard(let cardID):
+            return "card/\(cardID)"
             
         case .redeemAward:
             return "card/redeem"
             
         case .redeemPoint:
             return "card/scan"
+            
+        case .getShopInfo(let shopID, _):
+            return "shop/\(shopID)"
         }
     }
     
@@ -153,10 +168,13 @@ enum Router: URLRequestConvertible {
         case .addCard:
             return ApiVersion.V200.rawValue
         
-        case .getCard:
+        case .getCardInfo:
             return ApiVersion.V200.rawValue
 
         case .getCardAddresss:
+            return ApiVersion.V100.rawValue
+        
+        case .deleteCard:
             return ApiVersion.V100.rawValue
             
         case .redeemAward:
@@ -164,10 +182,11 @@ enum Router: URLRequestConvertible {
         
         case .redeemPoint:
             return ApiVersion.V200.rawValue
+        
+        case .getShopInfo:
+            return ApiVersion.V200.rawValue
         }
     }
-    
-
     
     // MARK: URLRequestConvertible
     
@@ -221,6 +240,9 @@ enum Router: URLRequestConvertible {
 
         case .redeemPoint(let parameters):
             urlRequest = try JSONEncoding.default.encode(urlRequest, with: parameters)
+            
+        case .getShopInfo(_, let parameters):
+            urlRequest = try URLEncoding.default.encode(urlRequest, with: parameters)
             
         default:
             break

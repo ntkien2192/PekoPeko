@@ -43,8 +43,9 @@ class RewardTableViewCell: UITableViewCell {
     var reward: Reward? {
         didSet {
             if let reward = reward {
-                let cache = Shared.imageCache
+                
                 if let imageUrl = reward.imageUrl {
+                    let cache = Shared.imageCache
                     let URL = NSURL(string: imageUrl)!
                     let fetcher = NetworkFetcher<UIImage>(URL: URL as URL)
                     weak var _self = self
@@ -61,15 +62,18 @@ class RewardTableViewCell: UITableViewCell {
                     labelDescription.text = desc
                 }
                 
-                if let hpRequire = reward.hpRequire, let hpCurrent = reward.hpCurrent {
-                    
-                    if hpCurrent >= hpRequire {
-                        isCanExchange = true
+                if let isCanRedeem = reward.isCanRedeem {
+                    if isCanRedeem {
+                        if let isRedeemed = reward.isRedeemed {
+                            isCanExchange = !isRedeemed
+                        }
                     } else {
                         isCanExchange = false
                     }
-                    
-                    
+                }
+                
+                if  let hpRequire = reward.hpRequire, let hpCurrent = reward.hpCurrent {
+
                     let view = [viewHoney1, viewHoney2, viewHoney3, viewHoney4, viewHoney5]
                     let imageView = [imageViewHoney1, imageViewHoney2, imageViewHoney3, imageViewHoney4, imageViewHoney5]
                     
@@ -94,14 +98,10 @@ class RewardTableViewCell: UITableViewCell {
                     
                     
                     if hpCurrent >= hpRequire {
-                        isCanExchange = true
-                        buttonExchange.setBackgroundImage(UIImage(named: "ButtonExchangeON"), for: .normal)
                         labelNeedMore.text = "Đã đủ"
                         labelNeedMore.textColor = UIColor.colorOrange
                         labelNeedMoreEnd.textColor = UIColor.colorOrange
                     } else {
-                        isCanExchange = false
-                        buttonExchange.setBackgroundImage(UIImage(named: "ButtonExchangeOFF"), for: .normal)
                         labelNeedMore.text = "Cần thêm \(hpRequire - hpCurrent)"
                         labelNeedMore.textColor = UIColor.RGB(51, green: 51, blue: 51)
                         labelNeedMoreEnd.textColor = UIColor.RGB(51, green: 51, blue: 51)

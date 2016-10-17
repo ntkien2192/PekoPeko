@@ -57,8 +57,10 @@ class RedeemViewController: BaseViewController {
     }
     
     func sentRedeem() {
-        var code = ""
         
+        var error = ""
+        
+        var pinCode = ""
         let tfs = [textfieldCode1, textfieldCode2, textfieldCode3, textfieldCode4, textfieldCode5, textfieldCode6]
         for i in 0..<tfs.count {
             if let tf = tfs[i] {
@@ -67,44 +69,47 @@ class RedeemViewController: BaseViewController {
                         tfs[i]?.becomeFirstResponder()
                         return
                     }
-                    code = "\(code)\(text)"
+                    pinCode = "\(pinCode)\(text)"
                 }
             }
         }
         
-        if let card = card , let reward = reward {
-            if let shopName = card.shopName, let shopID = card.shopID {
-                let redeemRequest = RedeemRequest(shopID: shopID, redeemID: shopName, pinCode: NSString(format: "%i", code).integerValue)
-                RedeemStore.redeem(redeemRequest: redeemRequest, completionHandler: { (success, error) in
-                    guard error == nil else {
-                        
-                        let popView = RedeemSuccessView(frame: self.view.bounds)
-                        popView.delegate = self
-                        popView.card = card
-                        popView.reward = reward
-                        self.view.addFullView(view: popView)
-                        
-                        
-                        
-//                        if let error = error as? ServerResponseError, let data = error.data {
-//                            let messageView = MessageView(frame: self.view.bounds)
-//                            messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
-//                            self.view.addFullView(view: messageView)
-//                        }
-                        return
-                    }
-                    
-                    if success {
-                        let popView = RedeemSuccessView(frame: self.view.bounds)
-                        popView.delegate = self
-                        popView.card = card
-                        popView.reward = reward
-                        self.view.addFullView(view: popView)
-                    }
-                })
-            }
+        if pinCode.length < 6 {
+            error = "Bạn chưa điền đẩy đủ PIN Code"
         }
-
+        
+        
+        if !error.isEmpty {
+            let messageView = MessageView(frame: self.view.bounds)
+            messageView.message = error
+            self.view.addFullView(view: messageView)
+        } else {
+            
+            if let card = card , let reward = reward {
+                if let shopID = card.shopID, let rewardID = reward.rewardID, let code = NumberFormatter().number(from: pinCode){
+                    let redeemRequest = RedeemRequest(shopID: shopID, redeemID: rewardID, pinCode: code.intValue)
+                    RedeemStore.redeem(redeemRequest: redeemRequest, completionHandler: { (success, error) in
+                        guard error == nil else {
+                            if let error = error as? ServerResponseError, let data = error.data {
+                                let messageView = MessageView(frame: self.view.bounds)
+                                messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
+                                self.view.addFullView(view: messageView)
+                            }
+                            return
+                        }
+                        
+                        if success {
+                            let popView = RedeemSuccessView(frame: self.view.bounds)
+                            popView.delegate = self
+                            popView.card = card
+                            popView.reward = reward
+                            self.view.addFullView(view: popView)
+                        }
+                    })
+                }
+            }
+            
+        }
     }
     
     override func didReceiveMemoryWarning() {

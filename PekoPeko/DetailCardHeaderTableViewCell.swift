@@ -10,8 +10,7 @@ import UIKit
 import Haneke
 
 protocol DetailCardHeaderTableViewCellDelegate: class {
-    func buttonAddCardTapped(card: Card?)
-    func buttonRestaurantTapped(card: Card?)
+    func shopTapped(card: Card?)
 }
 
 class DetailCardHeaderTableViewCell: UITableViewCell {
@@ -28,8 +27,9 @@ class DetailCardHeaderTableViewCell: UITableViewCell {
     var card: Card? {
         didSet {
             if let card = card {
-                let cache = Shared.imageCache
+                
                 if let shopCoverUrl = card.shopCoverUrl {
+                    let cache = Shared.imageCache
                     let URL = NSURL(string: shopCoverUrl)!
                     let fetcher = NetworkFetcher<UIImage>(URL: URL as URL)
                     weak var _self = self
@@ -39,6 +39,7 @@ class DetailCardHeaderTableViewCell: UITableViewCell {
                 }
                 
                 if let shopAvatarUrl = card.shopAvatarUrl {
+                    let cache = Shared.imageCache
                     let URL = NSURL(string: shopAvatarUrl)!
                     let fetcher = NetworkFetcher<UIImage>(URL: URL as URL)
                     weak var _self = self
@@ -59,6 +60,7 @@ class DetailCardHeaderTableViewCell: UITableViewCell {
     }
     
     @IBAction func buttonRestaurantTapped(_ sender: AnyObject) {
+        delegate?.shopTapped(card: card)
     }
     
 }

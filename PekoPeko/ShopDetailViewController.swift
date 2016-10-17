@@ -2,7 +2,7 @@
 //  ShopDetailViewController.swift
 //  PekoPeko
 //
-//  Created by Nguyễn Trung Kiên on 14/10/2016.
+//  Created by Nguyễn Trung Kiên on 17/10/2016.
 //  Copyright © 2016 hungrybear. All rights reserved.
 //
 
@@ -10,16 +10,19 @@ import UIKit
 
 class ShopDetailViewController: UIViewController {
 
+    static let storyboardName = "Shop"
+    static let identify = "ShopDetailViewController"
     
+    var card: Card?
     
-    
-    
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
+    override func viewDidLoad() {
+        super.viewDidLoad()
 
+        // Do any additional setup after loading the view.
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
 }

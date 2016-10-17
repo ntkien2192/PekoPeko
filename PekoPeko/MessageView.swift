@@ -8,8 +8,14 @@
 
 import UIKit
 
+protocol MessageViewDelegate: class {
+    func clossTapped()
+}
+
 class MessageView: UIView {
 
+    weak var delegate: MessageViewDelegate?
+    
     @IBOutlet weak var view: UIView!
     @IBOutlet weak var labelMessage: UILabel!
     
@@ -37,11 +43,12 @@ class MessageView: UIView {
     }
 
     @IBAction func buttonCloseTapped(_ sender: AnyObject) {
+        weak var _self = self
         UIView.animate(withDuration: 0.2, animations: { 
             self.alpha = 0.0
             }) { _ in
-                self.removeFromSuperview()
+                _self?.delegate?.clossTapped()
+                _self?.removeFromSuperview()
         }
     }
-    
 }

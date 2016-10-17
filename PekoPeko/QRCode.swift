@@ -24,6 +24,8 @@ class QRCode: NSObject {
     var pointType: Int?
     var createdAt: Double?
     
+    override init() {}
+    
     required init(json: JSON) {
         shopID = json[QRCodeFields.ShopID.rawValue].string
         addressID = json[QRCodeFields.AddressID.rawValue].string

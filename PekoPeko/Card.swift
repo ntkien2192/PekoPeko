@@ -73,7 +73,10 @@ class Address: NSObject {
         thumb = json[AddressFields.Thumb.rawValue].string
         location = Location(json: json[AddressFields.Location.rawValue])
         addressID = json[AddressFields.AddressID.rawValue].string
-        qrCode = QRCode(json: SwiftyJSON.JSON(json[AddressFields.AddressID.rawValue].stringValue))
+        if let data = json[AddressFields.QRData.rawValue].stringValue.data(using: String.Encoding.utf8) {
+            let json = JSON(data: data)
+            qrCode = QRCode(json: json)
+        }
     }
 }
 
@@ -136,6 +139,12 @@ class Card: NSObject {
     
     // List address
     var addressList: [Address]?
+    
+    init(shop: Shop) {
+        self.shopName = shop.fullName
+        self.addressList = shop.addresses
+        self.shopAvatarUrl = shop.avatarUrl
+    }
     
     required init(json: JSON) {
         shopID = json[CardFields.ShopID.rawValue].string

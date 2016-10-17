@@ -80,6 +80,11 @@ class CardListViewController: BaseViewController {
                 refreshControl.endRefreshing()
             }
             guard error == nil else {
+                if let error = error as? ServerResponseError, let data = error.data {
+                    let messageView = MessageView(frame: self.view.bounds)
+                    messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
+                    self.view.addFullView(view: messageView)
+                }
                 return
             }
             
@@ -101,6 +106,14 @@ class CardListViewController: BaseViewController {
 }
 
 extension CardListViewController: CardTableViewCellDelegate {
+    func shopTapped(card: Card?) {
+        let shopDetailController = UIStoryboard(name: ShopDetailViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: ShopDetailViewController.identify) as! ShopDetailViewController
+        shopDetailController.card = card
+        if let window = self.view.window, let rootViewController = window.rootViewController {
+            rootViewController.present(shopDetailController, animated: true, completion: nil)
+        }
+    }
+
     func cellTapped(card: Card?) {
         delegate?.buttonCardTapped(card: card)
     }
@@ -119,7 +132,7 @@ extension CardListViewController: UITableViewDataSource {
         if let cards = cards {
             return cards.count
         }
-        return 5
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

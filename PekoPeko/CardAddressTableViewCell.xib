@@ -43,11 +43,11 @@
                             <constraint firstItem="ZeJ-lP-Hhv" firstAttribute="top" secondItem="eIq-XR-xSf" secondAttribute="top" id="iUB-1v-TV8"/>
                             <constraint firstAttribute="width" secondItem="eIq-XR-xSf" secondAttribute="height" multiplier="2:1" priority="750" id="lUv-vw-l7k"/>
                             <constraint firstItem="1Yz-Vd-Qnl" firstAttribute="leading" secondItem="eIq-XR-xSf" secondAttribute="leading" id="n7h-zP-pMw"/>
-                            <constraint firstItem="1Yz-Vd-Qnl" firstAttribute="height" secondItem="eIq-XR-xSf" secondAttribute="height" multiplier="1.2:3" id="r0V-0o-qh4"/>
+                            <constraint firstItem="1Yz-Vd-Qnl" firstAttribute="height" secondItem="eIq-XR-xSf" secondAttribute="height" multiplier="1.4:3" id="r0V-0o-qh4"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                <real key="value" value="10"/>
+                                <real key="value" value="5"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                 <real key="value" value="0.5"/>
@@ -68,9 +68,9 @@
                     <constraint firstItem="eIq-XR-xSf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="EF3-p2-Qo2"/>
                     <constraint firstAttribute="bottom" secondItem="eIq-XR-xSf" secondAttribute="bottom" constant="8" id="Hou-5M-0p7"/>
                     <constraint firstItem="EXf-bn-KMD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Lba-Av-fgc"/>
-                    <constraint firstItem="eIq-XR-xSf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="Tnh-1Y-QND"/>
+                    <constraint firstItem="eIq-XR-xSf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Tnh-1Y-QND"/>
                     <constraint firstAttribute="bottom" secondItem="EXf-bn-KMD" secondAttribute="bottom" id="e95-6J-MmP"/>
-                    <constraint firstAttribute="trailing" secondItem="eIq-XR-xSf" secondAttribute="trailing" constant="8" id="ojQ-j4-JIE"/>
+                    <constraint firstAttribute="trailing" secondItem="eIq-XR-xSf" secondAttribute="trailing" id="ojQ-j4-JIE"/>
                     <constraint firstAttribute="trailing" secondItem="EXf-bn-KMD" secondAttribute="trailing" id="y4n-Af-dGq"/>
                 </constraints>
             </tableViewCellContentView>

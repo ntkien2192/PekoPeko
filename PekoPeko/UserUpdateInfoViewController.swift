@@ -48,6 +48,11 @@ class UserUpdateInfoViewController: UIViewController {
                     _self?.buttonTakePicture.isHidden = false
                     _self?.buttonAvatar.isHidden = false
                     guard error == nil else {
+                        if let error = error as? ServerResponseError, let data = error.data {
+                            let messageView = MessageView(frame: self.view.bounds)
+                            messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
+                            self.view.addFullView(view: messageView)
+                        }
                         return
                     }
                     _self?.buttonAvatar.setImage(url: imageUrl ?? "")
@@ -94,16 +99,10 @@ class UserUpdateInfoViewController: UIViewController {
                 imagePicker.navigationBar.backgroundColor = UIColor.colorYellow
                 imagePicker.navigationBar.tintColor = UIColor.colorBrown
                 imagePicker.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.colorBrown]
-                let view = UIView(frame: CGRect(x: 0.0, y: 0.0, width: self.view.bounds.width, height: 20.0))
-                view.backgroundColor = UIColor.colorYellow
-                imagePicker.view.addSubview(view)
-                imagePicker.view.bringSubview(toFront: view)
-                view.translatesAutoresizingMaskIntoConstraints = false
-                imagePicker.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[view]-0-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": view]));
-                imagePicker.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[view]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": view]))
-                imagePicker.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[view(==20)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": view]))
                 
-                self.present(imagePicker, animated: true, completion: nil)
+                if let window = self.view.window, let rootViewController = window.rootViewController {
+                    rootViewController.present(imagePicker, animated: true, completion: nil)
+                }
             }
             
         }
@@ -128,7 +127,9 @@ class UserUpdateInfoViewController: UIViewController {
                 imagePicker.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[view]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": view]))
                 imagePicker.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[view(==20)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": view]))
                 
-                self.present(imagePicker, animated: true, completion: nil)
+                if let window = self.view.window, let rootViewController = window.rootViewController {
+                    rootViewController.present(imagePicker, animated: true, completion: nil)
+                }
             }
         }
         alertController.addAction(choosePictureAction)
@@ -136,7 +137,9 @@ class UserUpdateInfoViewController: UIViewController {
         let cancleAction = UIAlertAction(title: "Huỷ", style: .cancel, handler: nil)
         alertController.addAction(cancleAction)
         
-        present(alertController, animated: true, completion: nil)
+        if let window = self.view.window, let rootViewController = window.rootViewController {
+            rootViewController.present(alertController, animated: true, completion: nil)
+        }
     }
     
     @IBAction func buttonBackTapped(_ sender: AnyObject) {

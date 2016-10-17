@@ -33,8 +33,8 @@ class HomeTabbarController: UITabBarController {
         if !AuthenticationStore().isLogin {
             let loginController = UIStoryboard(name: LoginViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: LoginViewController.identify)
             
-            if let navigationController = navigationController {
-                navigationController.present(loginController, animated: false, completion: nil)
+            if let window = self.view.window, let rootViewController = window.rootViewController {
+                rootViewController.present(loginController, animated: false, completion: nil)
             }
         }
     }

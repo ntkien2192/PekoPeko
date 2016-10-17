@@ -25,8 +25,9 @@ class CardAddressTableViewCell: UITableViewCell {
     var address: Address? {
         didSet {
             if let address = address {
-                let cache = Shared.imageCache
+                
                 if let thumb = address.thumb {
+                    let cache = Shared.imageCache
                     let URL = NSURL(string: thumb)!
                     let fetcher = NetworkFetcher<UIImage>(URL: URL as URL)
                     weak var _self = self

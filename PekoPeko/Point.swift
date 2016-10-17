@@ -64,5 +64,7 @@ class Point: Mappable {
         pointType <- map[PointFields.PointType.rawValue]
         createdAt <- map[PointFields.CreatedAt.rawValue]
         pinCode <- map[PointFields.PinCode.rawValue]
+        hasDiscount <- map[PointFields.HasDiscount.rawValue]
+        totalBill <- map[PointFields.TotalBill.rawValue]
     }
 }

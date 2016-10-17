@@ -22,8 +22,9 @@ class DiscountCardTableViewCell: UITableViewCell {
     var card: Card? {
         didSet {
             if let card = card, let discount = card.discount {
-                let cache = Shared.imageCache
+                
                 if let coverUrl = discount.coverUrl {
+                    let cache = Shared.imageCache
                     let URL = NSURL(string: coverUrl)!
                     let fetcher = NetworkFetcher<UIImage>(URL: URL as URL)
                     weak var _self = self
