@@ -90,6 +90,74 @@
             </objects>
             <point key="canvasLocation" x="-58.399999999999999" y="50.824587706146929"/>
         </scene>
+        <!--Shop Menu View Controller-->
+        <scene sceneID="ywT-WN-gSH">
+            <objects>
+                <viewController storyboardIdentifier="ShopMenuViewController" id="Zyz-DM-vqT" customClass="ShopMenuViewController" customModule="PekoPeko" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="51G-Pi-5JG"/>
+                        <viewControllerLayoutGuide type="bottom" id="nJq-VB-NdL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dhb-ak-0H6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nGZ-nm-Hfz">
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mCb-eL-24I">
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                        <color key="textColor" red="0.25490196079999999" green="0.1137254902" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PLi-PV-ecR">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="KGo-Pw-5FH"/>
+                                            <constraint firstAttribute="width" constant="44" id="sV0-PL-yvf"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                        <state key="normal" image="IconLeft"/>
+                                        <connections>
+                                            <action selector="buttonBackTapped:" destination="Zyz-DM-vqT" eventType="touchUpInside" id="za7-5H-vIa"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.97672003510000005" green="0.83731091020000004" blue="0.020159324629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="PLi-PV-ecR" secondAttribute="bottom" id="6Ev-pk-zqC"/>
+                                    <constraint firstAttribute="trailing" secondItem="mCb-eL-24I" secondAttribute="trailing" constant="52" id="DyR-zk-ZFk"/>
+                                    <constraint firstItem="PLi-PV-ecR" firstAttribute="leading" secondItem="nGZ-nm-Hfz" secondAttribute="leading" id="Ef2-gW-jvk"/>
+                                    <constraint firstItem="mCb-eL-24I" firstAttribute="centerY" secondItem="PLi-PV-ecR" secondAttribute="centerY" id="OZT-Dq-rVn"/>
+                                    <constraint firstItem="mCb-eL-24I" firstAttribute="leading" secondItem="nGZ-nm-Hfz" secondAttribute="leading" constant="52" id="p75-Kn-dB1"/>
+                                    <constraint firstItem="PLi-PV-ecR" firstAttribute="top" secondItem="nGZ-nm-Hfz" secondAttribute="top" id="pm9-IQ-iIG"/>
+                                    <constraint firstAttribute="height" constant="44" id="wjB-d9-IVD"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7su-OH-I90">
+                                <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="0GG-3O-FF2"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="nGZ-nm-Hfz" secondAttribute="trailing" id="BPG-cJ-yE3"/>
+                            <constraint firstItem="nGZ-nm-Hfz" firstAttribute="leading" secondItem="dhb-ak-0H6" secondAttribute="leading" id="aLN-YB-tDa"/>
+                            <constraint firstAttribute="trailing" secondItem="7su-OH-I90" secondAttribute="trailing" id="axW-Yr-qbW"/>
+                            <constraint firstItem="7su-OH-I90" firstAttribute="top" secondItem="nGZ-nm-Hfz" secondAttribute="bottom" id="mJh-t6-vKC"/>
+                            <constraint firstItem="7su-OH-I90" firstAttribute="leading" secondItem="dhb-ak-0H6" secondAttribute="leading" id="mei-Ag-w3z"/>
+                            <constraint firstItem="nGZ-nm-Hfz" firstAttribute="top" secondItem="51G-Pi-5JG" secondAttribute="bottom" id="o9d-nB-PA8"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="labelTitle" destination="mCb-eL-24I" id="L3d-JL-zKb"/>
+                        <outlet property="segmentView" destination="7su-OH-I90" id="pni-1z-k0t"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fUI-6G-HQ5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="693.60000000000002" y="50.824587706146929"/>
+        </scene>
     </scenes>
     <resources>
         <image name="IconLeft" width="44" height="44"/>

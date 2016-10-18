@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import MBProgressHUD
 
 enum ShopRowDisplayType: Int {
     case header = -10
@@ -253,39 +254,40 @@ extension ShopDetailViewController: UITableViewDelegate {
 
 extension ShopDetailViewController: ShopMenuShowMoreTableViewCellDelegate {
     func showMoreTapped() {
+        let shopMenuViewController = UIStoryboard(name: ShopMenuViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: ShopMenuViewController.identify)
         
+        present(shopMenuViewController, animated: true, completion: nil)
     }
 }
 
 extension ShopDetailViewController: ShopInfoTableViewCellDelegate {
     func followTapped(shop: Shop?, isFollowing: Bool) {
-        if isFollowing {
-            let alertView = AlertView(frame: self.view.bounds)
-            alertView.message = "Bạn có chắc chắn muốn bỏ theo dõi không?"
-            alertView.setButtonSubmit("Bỏ theo dõi", action: {
-                if let shop = shop, let shopID = shop.shopID {
-                    UserStore.unFollow(followingID: shopID, completionHandler: { (success, error) in
-                        guard error == nil else {
-                            if let error = error as? ServerResponseError, let data = error.data {
-                                let messageView = MessageView(frame: self.view.bounds)
-                                messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
-                                self.view.addFullView(view: messageView)
-                            }
-                            return
+        if let shop = shop, let shopID = shop.shopID {
+            if isFollowing {
+                let loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: true)
+                loadingNotification.mode = MBProgressHUDMode.indeterminate
+                UserStore.unFollow(followingID: shopID, completionHandler: { (success, error) in
+                    loadingNotification.hide(animated: true)
+                    guard error == nil else {
+                        if let error = error as? ServerResponseError, let data = error.data {
+                            let messageView = MessageView(frame: self.view.bounds)
+                            messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
+                            self.view.addFullView(view: messageView)
                         }
-                        
-                        if success {
-                            shop.isFollowing = false
-                            shop.followers = (shop.followers ?? 1) - 1
-                            self.tableView.reloadRows(at: [IndexPath(item: 1, section: 0)], with: .automatic)
-                        }
-                    })
-                }
-            })
-            self.view.addFullView(view: alertView)
-        } else {
-            if let shop = shop, let shopID = shop.shopID {
+                        return
+                    }
+                    
+                    if success {
+                        shop.isFollowing = false
+                        shop.followers = (shop.followers ?? 1) - 1
+                        self.tableView.reloadRows(at: [IndexPath(item: 1, section: 0)], with: .automatic)
+                    }
+                })
+            } else {
+                let loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: true)
+                loadingNotification.mode = MBProgressHUDMode.indeterminate
                 UserStore.follow(followingID: shopID, completionHandler: { (success, error) in
+                    loadingNotification.hide(animated: true)
                     guard error == nil else {
                         if let error = error as? ServerResponseError, let data = error.data {
                             let messageView = MessageView(frame: self.view.bounds)

@@ -18,6 +18,8 @@ enum ApiVersion: String {
 enum Router: URLRequestConvertible {
     static let baseURLString = "https://api.hungrybear.vn/"
 //    static let baseURLString = "192.168.0.104:8000"
+//    static let baseURLString = "https://api.pekopeko.vn/"
+    
     
     static let baseUploadFile = "https://files.hungrybear.vn/"
     

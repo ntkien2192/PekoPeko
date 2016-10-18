@@ -106,14 +106,6 @@ class CardListViewController: BaseViewController {
 }
 
 extension CardListViewController: CardTableViewCellDelegate {
-//    func shopTapped(card: Card?) {
-//        let shopDetailController = UIStoryboard(name: ShopDetailViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: ShopDetailViewController.identify) as! ShopDetailViewController
-//        shopDetailController.card = card
-//        if let window = self.view.window, let rootViewController = window.rootViewController {
-//            rootViewController.present(shopDetailController, animated: true, completion: nil)
-//        }
-//    }
-
     func cellTapped(card: Card?) {
         delegate?.buttonCardTapped(card: card)
     }

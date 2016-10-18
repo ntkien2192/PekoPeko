@@ -113,38 +113,44 @@ extension MyCardViewController: MyCardTableViewCellDelegate {
     func moreTapped(card: Card?) {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let deleteAction = UIAlertAction(title: "Xoá thẻ", style: .destructive) { (action) in
-            let loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: true)
-            loadingNotification.mode = MBProgressHUDMode.indeterminate
-            if let card = card, let cardID = card.shopID {
-                weak var _self = self
-                CardStore.deleteCard(cardID: cardID, completionHandler: { (success, error) in
-                    
-                    loadingNotification.hide(animated: true)
-                    
-                    guard error == nil else {
-                        if let error = error as? ServerResponseError, let data = error.data {
-                            let messageView = MessageView(frame: self.view.bounds)
-                            messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
-                            _self?.view.addFullView(view: messageView)
+            
+            let alertView = AlertView(frame: self.view.bounds)
+            alertView.message = "Xác nhận xoá thẻ?"
+            alertView.setButtonSubmit("Xoá", action: {
+                let loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: true)
+                loadingNotification.mode = MBProgressHUDMode.indeterminate
+                if let card = card, let cardID = card.shopID {
+                    weak var _self = self
+                    CardStore.deleteCard(cardID: cardID, completionHandler: { (success, error) in
+                        
+                        loadingNotification.hide(animated: true)
+                        
+                        guard error == nil else {
+                            if let error = error as? ServerResponseError, let data = error.data {
+                                let messageView = MessageView(frame: self.view.bounds)
+                                messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
+                                _self?.view.addFullView(view: messageView)
+                            }
+                            return
                         }
-                        return
-                    }
-                    
-                    if success {
-                        if let cards = _self?.cards {
-                            var tempCard: [Card] = [Card]()
-                            for mainCard in cards {
-                                if let mainCardID = mainCard.shopID {
-                                    if mainCardID != cardID {
-                                        tempCard.append(mainCard)
+                        
+                        if success {
+                            if let cards = _self?.cards {
+                                var tempCard: [Card] = [Card]()
+                                for mainCard in cards {
+                                    if let mainCardID = mainCard.shopID {
+                                        if mainCardID != cardID {
+                                            tempCard.append(mainCard)
+                                        }
                                     }
                                 }
+                                _self?.cards = tempCard
                             }
-                            _self?.cards = tempCard
                         }
-                    }
-                })
-            }
+                    })
+                }
+            })
+            self.view.addFullView(view: alertView)
         }
         alertController.addAction(deleteAction)
         
@@ -155,12 +161,4 @@ extension MyCardViewController: MyCardTableViewCellDelegate {
             rootViewController.present(alertController, animated: true, completion: nil)
         }
     }
-
-//    func shopTapped(card: Card?) {
-//        let shopDetailController = UIStoryboard(name: ShopDetailViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: ShopDetailViewController.identify) as! ShopDetailViewController
-//        shopDetailController.card = card
-//        if let window = self.view.window, let rootViewController = window.rootViewController {
-//            rootViewController.present(shopDetailController, animated: true, completion: nil)
-//        }
-//    }
 }
