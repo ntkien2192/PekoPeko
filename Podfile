@@ -13,7 +13,7 @@ target 'PekoPeko' do
   pod 'MBProgressHUD', '~> 1.0.0'
   pod 'UIResponder+KeyboardCache', '~> 0.1'
   pod 'NVActivityIndicatorView'
-  pod 'NYSegmentedControl'
+  pod 'HMSegmentedControl'
   pod "MTBBarcodeScanner"
   pod 'HanekeSwift', :git => 'https://github.com/Haneke/HanekeSwift.git', :branch => 'feature/swift-3'
   pod 'SwiftDate', '~> 4.0'

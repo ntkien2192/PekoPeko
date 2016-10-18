@@ -37,49 +37,6 @@ class AllReward: NSObject {
     }
 }
 
-enum WordTimeFields: String {
-    case Open = "open"
-    case Close = "close"
-}
-
-class WordTime: NSObject {
-    var openTime: String?
-    var closeTime: String?
-    
-    required init(json: JSON) {
-        openTime = json[WordTimeFields.Open.rawValue].string
-        closeTime = json[WordTimeFields.Close.rawValue].string
-    }
-}
-
-enum AddressFields: String {
-    case AddressID = "_id"
-    case Address = "address"
-    case Thumb = "thumb"
-    case Location = "location"
-    case QRData = "qr_data"
-}
-
-class Address: NSObject {
-    var addressID: String?
-    var addressContent: String?
-    var thumb: String?
-    var location: Location?
-    var qrCode: QRCode?
-    
-    required init(json: JSON) {
-        addressID = json[AddressFields.AddressID.rawValue].string
-        addressContent = json[AddressFields.Address.rawValue].string
-        thumb = json[AddressFields.Thumb.rawValue].string
-        location = Location(json: json[AddressFields.Location.rawValue])
-        addressID = json[AddressFields.AddressID.rawValue].string
-        if let data = json[AddressFields.QRData.rawValue].stringValue.data(using: String.Encoding.utf8) {
-            let json = JSON(data: data)
-            qrCode = QRCode(json: json)
-        }
-    }
-}
-
 enum CardFields: String {
     case ShopID = "shop_id"
     case ShopName = "shop_name"

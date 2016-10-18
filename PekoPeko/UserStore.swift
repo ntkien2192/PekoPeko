@@ -69,6 +69,38 @@ class UserStore {
             completionHandler(response.result.value ?? nil, nil)
         })
     }
+    
+    class func follow(followingID: String, completionHandler: @escaping (Bool, Error?) -> Void) {
+        let parameters = ["following_id": followingID]
+        _ = Alamofire.request(Router.follow(parameters as [String : AnyObject])).responseUploadInfo({ (response) in
+            if let error = response.result.error {
+                completionHandler(false, error)
+                return
+            }
+            guard response.result.value != nil else {
+                // TODO: Create error here
+                completionHandler(false, nil)
+                return
+            }
+            completionHandler(true, nil)
+        })
+    }
+    
+    class func unFollow(followingID: String, completionHandler: @escaping (Bool, Error?) -> Void) {
+        let parameters = ["following_id": followingID]
+        _ = Alamofire.request(Router.unFollow(parameters as [String : AnyObject])).responseUploadInfo({ (response) in
+            if let error = response.result.error {
+                completionHandler(false, error)
+                return
+            }
+            guard response.result.value != nil else {
+                // TODO: Create error here
+                completionHandler(false, nil)
+                return
+            }
+            completionHandler(true, nil)
+        })
+    }
 }
 extension Alamofire.DataRequest {
     
@@ -151,7 +183,7 @@ extension Alamofire.DataRequest {
             switch result {
             case .success(let value):
                 let jsonObject = SwiftyJSON.JSON(value)
-                if jsonObject["code"].intValue != 10001 {
+                if jsonObject["code"].intValue != 10001 && jsonObject["code"].intValue != 1 {
                     let failureReason = jsonObject["message"].stringValue
                     let errorData = [NSLocalizedFailureReasonErrorKey: failureReason]
                     let error = ServerResponseError(data: errorData as [String : AnyObject], kind: .dataSerializationFailed)

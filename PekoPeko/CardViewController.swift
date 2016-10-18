@@ -27,8 +27,7 @@ class CardViewController: UIViewController {
         myCardList = UIStoryboard(name: MyCardViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: MyCardViewController.identify) as? MyCardViewController
 
         if let storyList = storyList, let myCardList = myCardList {
-            
-            storyList.title = "Cửa hàng"
+            storyList.title = "Danh sách thẻ"
             storyList.delegate = self
             
             myCardList.title = "Thẻ của tôi"

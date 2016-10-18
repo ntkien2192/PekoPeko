@@ -73,7 +73,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location.png" translatesAutoresizingMaskIntoConstraints="NO" id="hWW-3x-B2R">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconShopLocation" translatesAutoresizingMaskIntoConstraints="NO" id="hWW-3x-B2R">
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="14" id="Nii-Bx-54d"/>
                                                     <constraint firstAttribute="width" constant="10" id="owb-Kk-uGt"/>
@@ -184,6 +184,6 @@
         <image name="BackgroundPopup" width="442" height="111"/>
         <image name="IconLogoApp" width="60" height="64"/>
         <image name="IconPaperSaw" width="500" height="27"/>
-        <image name="location.png" width="34" height="44"/>
+        <image name="IconShopLocation" width="12" height="16"/>
     </resources>
 </document>

@@ -12,7 +12,7 @@ import Haneke
 protocol MyCardTableViewCellDelegate: class {
     func cellTapped(card: Card?)
     func moreTapped(card: Card?)
-    func shopTapped(card: Card?)
+//    func shopTapped(card: Card?)
 }
 
 class MyCardTableViewCell: UITableViewCell {
@@ -64,9 +64,9 @@ class MyCardTableViewCell: UITableViewCell {
         }
     }
     
-    @IBAction func buttonShopTapped(_ sender: AnyObject) {
-        delegate?.shopTapped(card: card)
-    }
+//    @IBAction func buttonShopTapped(_ sender: AnyObject) {
+//        delegate?.shopTapped(card: card)
+//    }
     
     @IBAction func buttonMoreTapped(_ sender: AnyObject) {
         delegate?.moreTapped(card: card)

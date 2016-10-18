@@ -157,8 +157,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a1N-sR-g9p">
-                                <frame key="frameInset" minY="1064" width="375" height="553"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a1N-sR-g9p">
                                 <connections>
                                     <action selector="buttonHideKeyboardTapped:" destination="sGm-AU-wOO" eventType="touchUpInside" id="Fb9-9u-AVP"/>
                                 </connections>

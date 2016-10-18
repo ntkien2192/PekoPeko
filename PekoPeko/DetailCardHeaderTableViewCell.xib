@@ -34,6 +34,12 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconRightArrow" translatesAutoresizingMaskIntoConstraints="NO" id="kig-Lz-dfW">
+                        <constraints>
+                            <constraint firstAttribute="width" constant="18" id="8Xv-Ql-S4K"/>
+                            <constraint firstAttribute="height" constant="18" id="9pw-ek-ntp"/>
+                        </constraints>
+                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZB-AC-Adx">
                         <constraints>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="QoG-wN-l1s"/>
@@ -74,15 +80,17 @@
                     <constraint firstItem="W2P-fM-uB2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="7b2-Oh-bkj"/>
                     <constraint firstItem="c1O-tL-vo4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Akr-Tv-4ek"/>
                     <constraint firstAttribute="bottom" secondItem="W2P-fM-uB2" secondAttribute="bottom" id="CuH-fH-j5Q"/>
-                    <constraint firstAttribute="trailing" secondItem="SZB-AC-Adx" secondAttribute="trailing" constant="10" id="K8E-4J-T3H"/>
                     <constraint firstItem="c1O-tL-vo4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="SQR-y4-xkT"/>
                     <constraint firstItem="Muq-wj-n70" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="YKn-yu-GxH"/>
                     <constraint firstItem="bR4-Ie-Kgf" firstAttribute="top" secondItem="mz7-iC-ocB" secondAttribute="top" id="bad-Rl-eGu"/>
+                    <constraint firstAttribute="trailing" secondItem="kig-Lz-dfW" secondAttribute="trailing" constant="10" id="ex9-Ue-0jh"/>
+                    <constraint firstItem="kig-Lz-dfW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="f1P-Hn-7dr"/>
                     <constraint firstAttribute="trailing" secondItem="Muq-wj-n70" secondAttribute="trailing" id="jW6-Hw-fe0"/>
                     <constraint firstItem="W2P-fM-uB2" firstAttribute="top" secondItem="Muq-wj-n70" secondAttribute="bottom" id="o2Y-iD-QDz"/>
                     <constraint firstItem="Muq-wj-n70" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="pX9-cH-EBO"/>
                     <constraint firstItem="SZB-AC-Adx" firstAttribute="leading" secondItem="c1O-tL-vo4" secondAttribute="trailing" constant="15" id="wq0-GX-41I"/>
                     <constraint firstAttribute="trailing" secondItem="W2P-fM-uB2" secondAttribute="trailing" id="y48-xN-JN8"/>
+                    <constraint firstItem="kig-Lz-dfW" firstAttribute="leading" secondItem="SZB-AC-Adx" secondAttribute="trailing" constant="8" id="yUH-K7-QvL"/>
                     <constraint firstItem="bR4-Ie-Kgf" firstAttribute="leading" secondItem="mz7-iC-ocB" secondAttribute="trailing" constant="6" id="yak-Hu-GRZ"/>
                     <constraint firstItem="SZB-AC-Adx" firstAttribute="top" secondItem="c1O-tL-vo4" secondAttribute="top" id="ycK-GQ-v8R"/>
                     <constraint firstItem="mz7-iC-ocB" firstAttribute="top" secondItem="SZB-AC-Adx" secondAttribute="bottom" constant="5" id="zIc-I7-4t6"/>
@@ -99,6 +107,7 @@
     </objects>
     <resources>
         <image name="DefaultCellImage" width="500" height="300"/>
+        <image name="IconRightArrow" width="44" height="44"/>
         <image name="IconShopLocation" width="12" height="16"/>
         <image name="ShopAvatar" width="40" height="40"/>
     </resources>

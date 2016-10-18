@@ -19,6 +19,8 @@ class CardAddressView: UIView {
     @IBOutlet weak var view: UIView!
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var constraintHeight: NSLayoutConstraint!
+    
     var addresses: [Address]?
     
     override init(frame: CGRect) {
@@ -31,8 +33,9 @@ class CardAddressView: UIView {
         self.layoutIfNeeded()
         
         tableView.tableFooterView = UIView()
-        
         tableView.register(UINib(nibName: CardAddressTableViewCell.identify, bundle: nil), forCellReuseIdentifier: CardAddressTableViewCell.identify)
+        
+        
     }
     
     required init?(coder aDecoder: NSCoder) {

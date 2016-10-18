@@ -40,6 +40,11 @@ enum Router: URLRequestConvertible {
     case redeemPoint([String: AnyObject])
     
     case getShopInfo(String, [String: AnyObject])
+    case getShopFullInfo(String)
+    case getShopMenuItem(String)
+    
+    case follow([String: AnyObject])
+    case unFollow([String: AnyObject])
     
     var method: HTTPMethod {
         switch self {
@@ -87,6 +92,18 @@ enum Router: URLRequestConvertible {
             
         case .getShopInfo:
             return .get
+            
+        case .getShopFullInfo:
+            return .get
+            
+        case .getShopMenuItem:
+            return .get
+
+        case .follow:
+            return .put
+            
+        case .unFollow:
+            return .put
         }
     }
     
@@ -136,6 +153,18 @@ enum Router: URLRequestConvertible {
             
         case .getShopInfo(let shopID, _):
             return "shop/\(shopID)"
+            
+        case .getShopFullInfo(let shopID):
+            return "shop/\(shopID)/full-info"
+            
+        case .getShopMenuItem(let shopID):
+            return "shop/\(shopID)/menu"
+            
+        case .follow:
+            return "user/follow"
+            
+        case .unFollow:
+            return "user/unfollow"
         }
     }
     
@@ -185,6 +214,18 @@ enum Router: URLRequestConvertible {
         
         case .getShopInfo:
             return ApiVersion.V200.rawValue
+            
+        case .getShopFullInfo:
+            return ApiVersion.V100.rawValue
+            
+        case .getShopMenuItem:
+            return ApiVersion.V100.rawValue
+
+        case .follow:
+            return ApiVersion.V100.rawValue
+        
+        case .unFollow:
+            return ApiVersion.V100.rawValue
         }
     }
     
@@ -243,6 +284,12 @@ enum Router: URLRequestConvertible {
             
         case .getShopInfo(_, let parameters):
             urlRequest = try URLEncoding.default.encode(urlRequest, with: parameters)
+            
+        case .follow(let parameters):
+            urlRequest = try JSONEncoding.default.encode(urlRequest, with: parameters)
+            
+        case .unFollow(let parameters):
+            urlRequest = try JSONEncoding.default.encode(urlRequest, with: parameters)
             
         default:
             break

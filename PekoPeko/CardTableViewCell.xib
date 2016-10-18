@@ -113,17 +113,10 @@
                             <action selector="buttonCellTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Ces-Cx-a7C"/>
                         </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aas-nR-pvE">
-                        <connections>
-                            <action selector="buttonShopTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="aQA-Pr-U9O"/>
-                        </connections>
-                    </button>
                 </subviews>
                 <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="aas-nR-pvE" secondAttribute="bottom" id="2Da-h2-FTb"/>
                     <constraint firstAttribute="bottom" secondItem="OIA-cw-Rbg" secondAttribute="bottom" id="3Jy-8I-53u"/>
-                    <constraint firstItem="aas-nR-pvE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="3N8-W3-5P9"/>
                     <constraint firstItem="Pax-Zz-kg6" firstAttribute="leading" secondItem="dFG-EE-cS3" secondAttribute="trailing" constant="6" id="4ej-qB-KNj"/>
                     <constraint firstAttribute="bottom" secondItem="rlj-5l-ywP" secondAttribute="bottom" id="4py-51-1OS"/>
                     <constraint firstItem="Pax-Zz-kg6" firstAttribute="top" secondItem="dFG-EE-cS3" secondAttribute="top" id="Abe-Gv-39x"/>
@@ -145,8 +138,6 @@
                     <constraint firstItem="rlj-5l-ywP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="b4V-SG-jhP"/>
                     <constraint firstItem="OIA-cw-Rbg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="dpG-J7-wwQ"/>
                     <constraint firstItem="dFG-EE-cS3" firstAttribute="top" secondItem="ay2-ZE-Cll" secondAttribute="bottom" constant="5" id="gIF-Ua-mAD"/>
-                    <constraint firstAttribute="trailing" secondItem="aas-nR-pvE" secondAttribute="trailing" id="gWT-wJ-MBr"/>
-                    <constraint firstItem="aas-nR-pvE" firstAttribute="top" secondItem="J6k-Uf-Yfr" secondAttribute="top" id="hrz-BG-uLP"/>
                     <constraint firstAttribute="trailing" secondItem="OIA-cw-Rbg" secondAttribute="trailing" id="myL-hP-RTd"/>
                     <constraint firstItem="ay2-ZE-Cll" firstAttribute="top" secondItem="J6k-Uf-Yfr" secondAttribute="top" id="slI-Pb-606"/>
                     <constraint firstAttribute="trailing" secondItem="w1C-ZD-qFl" secondAttribute="trailing" id="vM2-pw-jh6"/>

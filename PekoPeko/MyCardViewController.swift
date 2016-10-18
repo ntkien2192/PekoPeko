@@ -156,11 +156,11 @@ extension MyCardViewController: MyCardTableViewCellDelegate {
         }
     }
 
-    func shopTapped(card: Card?) {
-        let shopDetailController = UIStoryboard(name: ShopDetailViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: ShopDetailViewController.identify) as! ShopDetailViewController
-        shopDetailController.card = card
-        if let window = self.view.window, let rootViewController = window.rootViewController {
-            rootViewController.present(shopDetailController, animated: true, completion: nil)
-        }
-    }
+//    func shopTapped(card: Card?) {
+//        let shopDetailController = UIStoryboard(name: ShopDetailViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: ShopDetailViewController.identify) as! ShopDetailViewController
+//        shopDetailController.card = card
+//        if let window = self.view.window, let rootViewController = window.rootViewController {
+//            rootViewController.present(shopDetailController, animated: true, completion: nil)
+//        }
+//    }
 }

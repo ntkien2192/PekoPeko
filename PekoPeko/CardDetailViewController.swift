@@ -73,11 +73,11 @@ class CardDetailViewController: BaseViewController {
     
     var isAdded: Bool = false {
         didSet {
-            buttonAddCard.isHidden = false
-            if isAdded {
-                buttonAddCard.setTitle("Đã thêm", for: .normal)
+            if !isAdded {
+                buttonAddCard.isHidden = false
+                buttonAddCard.setTitle("Lưu thẻ", for: .normal)
             } else {
-                buttonAddCard.setTitle("Thêm Thẻ", for: .normal)
+                buttonAddCard.isHidden = true
             }
         }
     }
@@ -121,17 +121,23 @@ class CardDetailViewController: BaseViewController {
         if let cardID = cardID {
             weak var _self = self
             CardStore.getCardInfo(cardID: cardID, completionHandler: { (card, error) in
-                guard error == nil else {
-                    if let error = error as? ServerResponseError, let data = error.data {
-                        let messageView = MessageView(frame: self.view.bounds)
-                        messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
-                        self.view.addFullView(view: messageView)
+                if let _self = _self {
+                    if let refreshControl = _self.refreshControl {
+                        refreshControl.endRefreshing()
                     }
-                    return
-                }
-                
-                if let card = card {
-                    _self?.card = card
+                    
+                    guard error == nil else {
+                        if let error = error as? ServerResponseError, let data = error.data {
+                            let messageView = MessageView(frame: _self.view.bounds)
+                            messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
+                            _self.view.addFullView(view: messageView)
+                        }
+                        return
+                    }
+                    
+                    if let card = card {
+                        _self.card = card
+                    }
                 }
             })
         }
@@ -141,17 +147,22 @@ class CardDetailViewController: BaseViewController {
         if let cardID = cardID {
             weak var _self = self
             CardStore.getCardAddress(cardID: cardID, completionHandler: { (addresses, error) in
-                guard error == nil else {
-                    if let error = error as? ServerResponseError, let data = error.data {
-                        let messageView = MessageView(frame: self.view.bounds)
-                        messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
-                        self.view.addFullView(view: messageView)
+                if let _self = _self {
+                    if let refreshControl = _self.refreshControl {
+                        refreshControl.endRefreshing()
                     }
-                    return
-                }
-                
-                if let addresses = addresses {
-                    _self?.addresses = addresses
+                    guard error == nil else {
+                        if let error = error as? ServerResponseError, let data = error.data {
+                            let messageView = MessageView(frame: _self.view.bounds)
+                            messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
+                            _self.view.addFullView(view: messageView)
+                        }
+                        return
+                    }
+                    
+                    if let addresses = addresses {
+                        _self.addresses = addresses
+                    }
                 }
             })
         }

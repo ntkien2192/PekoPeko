@@ -1,10 +1,10 @@
 PODS:
   - Alamofire (4.0.1)
   - HanekeSwift (0.10.1)
+  - HMSegmentedControl (1.5.3)
   - MBProgressHUD (1.0.0)
   - MTBBarcodeScanner (3.1.0)
   - NVActivityIndicatorView (3.0)
-  - NYSegmentedControl (1.0.7)
   - ObjectMapper (2.0.0)
   - Spring (1.0.3)
   - SwiftDate (4.0.4)
@@ -18,10 +18,10 @@ PODS:
 DEPENDENCIES:
   - Alamofire (from `https://github.com/Homely/Alamofire.git`, branch `ios8`)
   - HanekeSwift (from `https://github.com/Haneke/HanekeSwift.git`, branch `feature/swift-3`)
+  - HMSegmentedControl
   - MBProgressHUD (~> 1.0.0)
   - MTBBarcodeScanner
   - NVActivityIndicatorView
-  - NYSegmentedControl
   - ObjectMapper (~> 2.0)
   - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift3`)
   - SwiftDate (~> 4.0)
@@ -61,10 +61,10 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Alamofire: d8ab1487ca8accacde5d0c65ae8144bdf9a264b8
   HanekeSwift: 4113367892828e7700d24a384027de6ebc79aad1
+  HMSegmentedControl: 7c6145afb50f26cec5f3243082f6f12b9f41318f
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MTBBarcodeScanner: 6d397077f1a4a886050df8e66584a59a1dc429e7
   NVActivityIndicatorView: 81953b5e65093ba79edf4fe7268e002039ca5268
-  NYSegmentedControl: 55b4f9eb652767cae9799623ec3e49e50029ef47
   ObjectMapper: aed2570edabbd3c9b26c939e1cabdb6558f933e0
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
   SwiftDate: 16d9e299eafb8021d921e874f13c0f79e7f1a801
@@ -73,6 +73,6 @@ SPEC CHECKSUMS:
   TSCurrencyTextField: 03f9d4d263d617d1f0e034e4ace12febcfa6fe48
   UIResponder+KeyboardCache: dc1b7ff925c25ddb58b289bc71a3724c269767ef
 
-PODFILE CHECKSUM: abab3cb9d4c9ac8aea621b98c866c43a096d07ab
+PODFILE CHECKSUM: 73d24b9520164da4e751026e8fedf50cd1271abf
 
 COCOAPODS: 1.0.1
