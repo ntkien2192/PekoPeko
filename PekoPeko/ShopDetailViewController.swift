@@ -254,8 +254,10 @@ extension ShopDetailViewController: UITableViewDelegate {
 
 extension ShopDetailViewController: ShopMenuShowMoreTableViewCellDelegate {
     func showMoreTapped() {
-        let shopMenuViewController = UIStoryboard(name: ShopMenuViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: ShopMenuViewController.identify)
-        
+        let shopMenuViewController = UIStoryboard(name: ShopMenuViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: ShopMenuViewController.identify) as! ShopMenuViewController
+        if let shop = shop {
+            shopMenuViewController.shop = shop
+        }
         present(shopMenuViewController, animated: true, completion: nil)
     }
 }
