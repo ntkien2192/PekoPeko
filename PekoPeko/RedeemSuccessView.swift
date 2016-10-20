@@ -16,13 +16,11 @@ class RedeemSuccessView: UIView {
 
     weak var delegate: RedeemSuccessViewDelegate?
     
-    @IBOutlet weak var contentView: View!
     @IBOutlet weak var view: UIView!
     @IBOutlet weak var labelRedeemName: UILabel!
 
     @IBOutlet weak var labelCardName: UILabel!
     @IBOutlet weak var labelCardAddress: UILabel!
-    
     
     var card: Card?
     var reward: Reward?

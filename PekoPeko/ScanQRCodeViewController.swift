@@ -69,7 +69,6 @@ class ScanQRCodeViewController: UIViewController {
     func loadCardList(qrCode: QRCode) {
         let addPointViewController = UIStoryboard(name: AddPointViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: AddPointViewController.identify) as! AddPointViewController
         addPointViewController.qrCode = qrCode
-        addPointViewController.delegate = self
         addPointViewController.isScan = true
         
         if let topController = AppDelegate.topController() {
@@ -80,26 +79,5 @@ class ScanQRCodeViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-}
-
-extension ScanQRCodeViewController: AddPointViewControllerDelegate {
-    func pointAdded(point: Point?) {
-        if let point = point {
-            let messageView = MessageView(frame: view.bounds)
-            if let honeyPot = point.honeyPot {
-                if honeyPot == 0 {
-                    messageView.message = "Tổng hoá đơn của bạn không đủ lớn để nhận điểm"
-                } else {
-                    messageView.message = "Bạn đã nhận được \(honeyPot) điểm"
-                }
-            }
-            messageView.setButtonClose("Đóng", action: {
-                if !AuthenticationStore().isLogin {
-                    HomeTabbarController.sharedInstance.logOut()
-                }
-            })
-            self.view.addFullView(view: messageView)
-        }
     }
 }

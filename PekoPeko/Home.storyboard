@@ -195,7 +195,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
                         <segue destination="FUF-YL-0YZ" kind="relationship" relationship="viewControllers" id="EmM-bf-kom"/>
@@ -755,7 +755,7 @@
     </scenes>
     <resources>
         <image name="ButtonHome" width="25" height="25"/>
-        <image name="ButtonHomeTapped" width="25" height="25"/>
+        <image name="ButtonHomeTapped" width="27" height="27"/>
         <image name="ButtonPromoCode" width="25" height="25"/>
         <image name="ButtonPromoCodeTapped" width="25" height="25"/>
         <image name="ButtonQRScan" width="25" height="25"/>

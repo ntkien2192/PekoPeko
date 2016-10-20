@@ -50,7 +50,7 @@ class SettingViewController: BaseViewController {
                                         HomeTabbarController.sharedInstance.logOut()
                                     }
                                 })
-                                self.view.addFullView(view: messageView)
+                                _self.addFullView(view: messageView)
                             }
                             return
                         }
@@ -137,7 +137,7 @@ class SettingViewController: BaseViewController {
                                 HomeTabbarController.sharedInstance.logOut()
                             }
                         })
-                        _self.view.addFullView(view: messageView)
+                        _self.addFullView(view: messageView)
                     }
                     return
                 }
@@ -164,7 +164,7 @@ class SettingViewController: BaseViewController {
                 topController.present(loginController, animated: true, completion: nil)
             }
         })
-        view.addFullView(view: alertView)
+        addFullView(view: alertView)
     }
     
     @IBAction func buttonConnectFacebookTapped(_ sender: AnyObject) {
@@ -197,7 +197,7 @@ class SettingViewController: BaseViewController {
                                                 HomeTabbarController.sharedInstance.logOut()
                                             }
                                         })
-                                        _self.view.addFullView(view: messageView)
+                                        _self.addFullView(view: messageView)
                                     }
                                     return
                                 }
@@ -210,7 +210,7 @@ class SettingViewController: BaseViewController {
                                             HomeTabbarController.sharedInstance.logOut()
                                         }
                                     })
-                                    _self.view.addFullView(view: messageView)
+                                    _self.addFullView(view: messageView)
                                 }
                             })
                         }

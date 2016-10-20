@@ -56,7 +56,10 @@ class ShopAddressTableViewCell: UITableViewCell {
                 }
                 
                 if let telephone = shop.telephone {
-                    self.telePhone = telephone
+                    if !telephone.isEmpty {
+                        buttonTelephone.isHidden = false
+                        self.telePhone = telephone
+                    }
                 }
             }
         }

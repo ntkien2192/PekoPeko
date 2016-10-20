@@ -145,7 +145,7 @@ class ShopMenuViewController: BaseViewController {
                                         HomeTabbarController.sharedInstance.logOut()
                                     }
                                 })
-                                _self.view.addFullView(view: messageView)
+                                _self.addFullView(view: messageView)
                             }
                             return
                         }
@@ -244,7 +244,7 @@ extension ShopMenuViewController: UICollectionViewDataSource, UICollectionViewDe
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         if let segmentControl = segmentControl {
-            segmentControl.selectedSegmentIndex = Int(floor(scrollView.bounds.size.height / scrollView.contentOffset.y))
+            segmentControl.selectedSegmentIndex = Int(scrollView.contentOffset.x / scrollView.bounds.size.width)
         }
     }
 }

@@ -130,7 +130,7 @@ class LoginViewController: UIViewController {
                                             HomeTabbarController.sharedInstance.logOut()
                                         }
                                     })
-                                    _self.view.addFullView(view: messageView)
+                                    _self.addFullView(view: messageView)
                                 }
                                 return
                             }

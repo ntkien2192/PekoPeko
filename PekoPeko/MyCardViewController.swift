@@ -76,7 +76,7 @@ class MyCardViewController: BaseViewController {
                                 HomeTabbarController.sharedInstance.logOut()
                             }
                         })
-                        _self.view.addFullView(view: messageView)
+                        _self.addFullView(view: messageView)
                     }
                     return
                 }
@@ -158,7 +158,7 @@ extension MyCardViewController: MyCardTableViewCellDelegate, MyCardRewardTableVi
                                             HomeTabbarController.sharedInstance.logOut()
                                         }
                                     })
-                                    _self.view.addFullView(view: messageView)
+                                    _self.addFullView(view: messageView)
                                 }
                                 return
                             }
@@ -179,7 +179,7 @@ extension MyCardViewController: MyCardTableViewCellDelegate, MyCardRewardTableVi
                         })
                     }
                 })
-                _self.view.addFullView(view: alertView)
+                _self.addFullView(view: alertView)
             }
         }
         alertController.addAction(deleteAction)

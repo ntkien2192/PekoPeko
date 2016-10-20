@@ -107,8 +107,8 @@ class CardDetailViewController: BaseViewController {
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         reloadCardInfo()
     }
     
@@ -119,9 +119,17 @@ class CardDetailViewController: BaseViewController {
     
     func getCardInfo() {
         if let cardID = cardID {
+            
+            let loadingNotification = MBProgressHUD.showAdded(to: view, animated: true)
+            loadingNotification.mode = MBProgressHUDMode.indeterminate
+            
             weak var _self = self
+            
             CardStore.getCardInfo(cardID: cardID, completionHandler: { (card, error) in
                 if let _self = _self {
+                    
+                    loadingNotification.hide(animated: true)
+                    
                     if let refreshControl = _self.refreshControl {
                         refreshControl.endRefreshing()
                     }
@@ -135,7 +143,7 @@ class CardDetailViewController: BaseViewController {
                                     HomeTabbarController.sharedInstance.logOut()
                                 }
                             })
-                            _self.view.addFullView(view: messageView)
+                            _self.addFullView(view: messageView)
                         }
                         return
                     }
@@ -165,7 +173,7 @@ class CardDetailViewController: BaseViewController {
                                     HomeTabbarController.sharedInstance.logOut()
                                 }
                             })
-                            _self.view.addFullView(view: messageView)
+                            _self.addFullView(view: messageView)
                         }
                         return
                     }
@@ -200,7 +208,7 @@ class CardDetailViewController: BaseViewController {
                                         HomeTabbarController.sharedInstance.logOut()
                                     }
                                 })
-                                self.view.addFullView(view: messageView)
+                                _self.addFullView(view: messageView)
                             }
                             return
                         }
@@ -282,7 +290,6 @@ extension CardDetailViewController: RewardTableViewCellDelegate, Reward10TableVi
                 let addPointViewController = UIStoryboard(name: AddPointViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: AddPointViewController.identify) as! AddPointViewController
                 addPointViewController.card = card
                 addPointViewController.address = addresses.first
-                addPointViewController.delegate = self
                 
                 if let topController = AppDelegate.topController() {
                     topController.present(addPointViewController, animated: true, completion: nil)
@@ -291,7 +298,7 @@ extension CardDetailViewController: RewardTableViewCellDelegate, Reward10TableVi
                 let cardAddressView = CardAddressView(frame: view.bounds)
                 cardAddressView.addresses = addresses
                 cardAddressView.delegate = self
-                self.view.addFullView(view: cardAddressView)
+                addFullView(view: cardAddressView)
             }
         } else {
             getCardAddress()
@@ -304,30 +311,8 @@ extension CardDetailViewController: CardAddressViewDelegate {
         let addPointViewController = UIStoryboard(name: AddPointViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: AddPointViewController.identify) as! AddPointViewController
         addPointViewController.card = card
         addPointViewController.address = address
-        addPointViewController.delegate = self
         if let topController = AppDelegate.topController() {
             topController.present(addPointViewController, animated: true, completion: nil)
-        }
-    }
-}
-
-extension CardDetailViewController: AddPointViewControllerDelegate {
-    func pointAdded(point: Point?) {
-        if let point = point {
-            let messageView = MessageView(frame: view.bounds)
-            if let honeyPot = point.honeyPot {
-                if honeyPot == 0 {
-                    messageView.message = "Tổng hoá đơn của bạn không đủ lớn để nhận điểm"
-                } else {
-                    messageView.message = "Bạn đã nhận được \(honeyPot) điểm"
-                }
-            }
-            messageView.setButtonClose("Đóng", action: {
-                if !AuthenticationStore().isLogin {
-                    HomeTabbarController.sharedInstance.logOut()
-                }
-            })
-            self.view.addFullView(view: messageView)
         }
     }
 }

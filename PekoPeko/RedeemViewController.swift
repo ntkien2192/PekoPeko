@@ -87,7 +87,7 @@ class RedeemViewController: BaseViewController {
                     HomeTabbarController.sharedInstance.logOut()
                 }
             })
-            self.view.addFullView(view: messageView)
+            addFullView(view: messageView)
         } else {
             
             if let card = card , let reward = reward {
@@ -107,7 +107,7 @@ class RedeemViewController: BaseViewController {
                                             HomeTabbarController.sharedInstance.logOut()
                                         }
                                     })
-                                    _self.view.addFullView(view: messageView)
+                                    _self.addFullView(view: messageView)
                                 }
                                 return
                             }
@@ -117,7 +117,7 @@ class RedeemViewController: BaseViewController {
                                 popView.delegate = self
                                 popView.card = card
                                 popView.reward = reward
-                                _self.view.addFullView(view: popView)
+                                _self.addFullView(view: popView)
                             }
                         }
                     })

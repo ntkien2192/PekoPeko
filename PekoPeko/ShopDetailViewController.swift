@@ -75,15 +75,24 @@ class ShopDetailViewController: UIViewController {
                         var tempArr = [MenuCellItem]()
                         var index = 0
                         
-                        if tempMenuItems.count > 1 {
-                            let menuCellItem = MenuCellItem(item: tempMenuItems[0])
-                            tempArr.append(menuCellItem)
-                            tempMenuItems.remove(at: 0)
-                            type.append(index)
-                            index = index + 1
+                        if tempMenuItems.count != 1 {
+                            if tempMenuItems.count == 2 {
+                                let menuCellItem = MenuCellItem(item1: tempMenuItems[0], item2: tempMenuItems[1])
+                                tempArr.append(menuCellItem)
+                                type.append(index)
+                                index = index + 1
+                                tempMenuItems.remove(at: 0)
+                                tempMenuItems.remove(at: 0)
+                            } else {
+                                let menuCellItem = MenuCellItem(item: tempMenuItems[0])
+                                tempArr.append(menuCellItem)
+                                tempMenuItems.remove(at: 0)
+                                type.append(index)
+                                index = index + 1
+                            }
                         }
                         
-                        if tempMenuItems.count > 1 {
+                        if tempMenuItems.count != 0 {
                             for _ in 0..<Int(tempMenuItems.count / 2) {
                                 let menuCellItem = MenuCellItem(item1: tempMenuItems[0], item2: tempMenuItems[1])
                                 tempArr.append(menuCellItem)
@@ -120,7 +129,8 @@ class ShopDetailViewController: UIViewController {
             if isLoaded {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                     UIView.animate(withDuration: 0.2, animations: {
-                        self.navigationView.alpha = 0.0
+                        let value = self.tableView.contentOffset.y > 150.0 ? 150.0 : self.tableView.contentOffset.y
+                        self.navigationView.alpha = value / 150.0
                     })
                 }
             }
@@ -156,7 +166,11 @@ class ShopDetailViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         UIApplication.shared.statusBarStyle = .lightContent
-        getShopInfo()
+        
+        if shop == nil {
+            getShopInfo()
+        }
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -182,7 +196,7 @@ class ShopDetailViewController: UIViewController {
                                     HomeTabbarController.sharedInstance.logOut()
                                 }
                             })
-                            _self.view.addFullView(view: messageView)
+                            _self.addFullView(view: messageView)
                         }
                         return
                     }
@@ -216,7 +230,7 @@ class ShopDetailViewController: UIViewController {
                                         HomeTabbarController.sharedInstance.logOut()
                                     }
                                 })
-                                _self.view.addFullView(view: messageView)
+                                _self.addFullView(view: messageView)
                             }
                             return
                         }
@@ -341,7 +355,7 @@ extension ShopDetailViewController: ShopInfoTableViewCellDelegate {
                                         HomeTabbarController.sharedInstance.logOut()
                                     }
                                 })
-                                _self.view.addFullView(view: messageView)
+                                _self.addFullView(view: messageView)
                             }
                             return
                         }
@@ -372,7 +386,7 @@ extension ShopDetailViewController: ShopInfoTableViewCellDelegate {
                                         HomeTabbarController.sharedInstance.logOut()
                                     }
                                 })
-                                _self.view.addFullView(view: messageView)
+                                _self.addFullView(view: messageView)
                             }
                             return
                         }
@@ -398,7 +412,7 @@ extension ShopDetailViewController: ShopAddressTableViewCellDelegate, CardAddres
                 UIApplication.shared.openURL(url)
             }
         })
-        view.addFullView(view: alertView)
+        addFullView(view: alertView)
     }
     
     func showMoreAddressTapped(shop: Shop?){
@@ -406,7 +420,7 @@ extension ShopDetailViewController: ShopAddressTableViewCellDelegate, CardAddres
             let cardAddressView = CardAddressView(frame: view.bounds)
             cardAddressView.addresses = addresses
             cardAddressView.delegate = self
-            self.view.addFullView(view: cardAddressView)
+            addFullView(view: cardAddressView)
         }
     }
     
@@ -421,7 +435,7 @@ extension ShopDetailViewController: ShopAddressTableViewCellDelegate, CardAddres
                         UIApplication.shared.openURL(url)
                     }
                 })
-                view.addFullView(view: alertView)
+                addFullView(view: alertView)
             }
         }
     }

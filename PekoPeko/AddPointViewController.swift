@@ -10,16 +10,10 @@ import UIKit
 import TSCurrencyTextField
 import Haneke
 
-protocol AddPointViewControllerDelegate: class {
-    func pointAdded(point: Point?)
-}
-
 class AddPointViewController: BaseViewController {
 
     static let storyboardName = "Redeem"
     static let identify = "AddPointViewController"
-    
-    weak var delegate: AddPointViewControllerDelegate?
     
     @IBOutlet weak var labelTitle: UILabel!
     @IBOutlet weak var labelName: UILabel!
@@ -137,7 +131,7 @@ class AddPointViewController: BaseViewController {
                                         HomeTabbarController.sharedInstance.logOut()
                                     }
                                 })
-                                self.view.addFullView(view: messageView)
+                                _self.addFullView(view: messageView)
                             }
                             return
                         }
@@ -184,7 +178,7 @@ class AddPointViewController: BaseViewController {
                     HomeTabbarController.sharedInstance.logOut()
                 }
             })
-            self.view.addFullView(view: messageView)
+            addFullView(view: messageView)
         } else {
             
             var mainQrCode = QRCode()
@@ -216,7 +210,6 @@ class AddPointViewController: BaseViewController {
             let key = qrCode.key,
             let createdAt = qrCode.createdAt {
             
-            
             let point = Point(shopID: shopID, addressID: addressID, pinCode: pinCode, key: key, pointType: 1, createdAt: createdAt, totalBill:totalBill, hasDiscount: hasDiscount)
             
             weak var _self = self
@@ -232,15 +225,32 @@ class AddPointViewController: BaseViewController {
                                     HomeTabbarController.sharedInstance.logOut()
                                 }
                             })
-                            _self.view.addFullView(view: messageView)
+                            _self.addFullView(view: messageView)
                         }
                         return
                     }
                     
                     if let point = point {
-                        _self.dismiss(animated: true, completion: {
-                            _self.delegate?.pointAdded(point: point)
-                        })
+                        if let honeyPot = point.honeyPot {
+                            if honeyPot == 0 {
+                                let messageView = MessageView(frame: _self.view.bounds)
+                                messageView.message = "Tổng hoá đơn của bạn không đủ lớn để nhận điểm"
+                                messageView.setButtonClose("Quay lại thẻ", action: { 
+                                    _self.dismiss(animated: true, completion: nil)
+                                })
+                                _self.addFullView(view: messageView)
+                            } else {
+                                let addpointSuccessView = AddPointSuccessView(frame: _self.view.bounds)
+                                if let card = _self.card {
+                                    addpointSuccessView.card = card
+                                }
+                                addpointSuccessView.honeyPot = honeyPot
+                                addpointSuccessView.setButtonClose("Quay lại thẻ", action: { 
+                                    _self.dismiss(animated: true, completion: nil)
+                                })
+                                _self.addFullView(view: addpointSuccessView)
+                            }
+                        }
                     }
                 }
             })

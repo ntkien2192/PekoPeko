@@ -73,6 +73,8 @@
 		E42B6AE11DAB394B0091746F /* LoginParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42B6AE01DAB394B0091746F /* LoginParameter.swift */; };
 		E42B6AE31DAB3BCE0091746F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42B6AE21DAB3BCE0091746F /* User.swift */; };
 		E42B6AE51DAB966D0091746F /* UserUpdateInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42B6AE41DAB966D0091746F /* UserUpdateInfoViewController.swift */; };
+		E4346EC41DB91AE1000566EE /* AddPointSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4346EC31DB91AE1000566EE /* AddPointSuccessView.swift */; };
+		E4346EC61DB91AEF000566EE /* AddPointSuccessView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4346EC51DB91AEF000566EE /* AddPointSuccessView.xib */; };
 		E434E6011DAF480D00AFC400 /* PointCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E434E5FF1DAF480D00AFC400 /* PointCardTableViewCell.swift */; };
 		E434E6021DAF480D00AFC400 /* PointCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E434E6001DAF480D00AFC400 /* PointCardTableViewCell.xib */; };
 		E43D2C7C1DA7F5570019B2DD /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E43D2C7B1DA7F5570019B2DD /* Login.storyboard */; };
@@ -238,6 +240,8 @@
 		E42B6AE01DAB394B0091746F /* LoginParameter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginParameter.swift; sourceTree = "<group>"; };
 		E42B6AE21DAB3BCE0091746F /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E42B6AE41DAB966D0091746F /* UserUpdateInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserUpdateInfoViewController.swift; sourceTree = "<group>"; };
+		E4346EC31DB91AE1000566EE /* AddPointSuccessView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPointSuccessView.swift; sourceTree = "<group>"; };
+		E4346EC51DB91AEF000566EE /* AddPointSuccessView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddPointSuccessView.xib; sourceTree = "<group>"; };
 		E434E5FF1DAF480D00AFC400 /* PointCardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointCardTableViewCell.swift; sourceTree = "<group>"; };
 		E434E6001DAF480D00AFC400 /* PointCardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PointCardTableViewCell.xib; sourceTree = "<group>"; };
 		E43D2C7B1DA7F5570019B2DD /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
@@ -557,6 +561,15 @@
 			name = ShopMenuTableViewCell;
 			sourceTree = "<group>";
 		};
+		E4346EC21DB91AC3000566EE /* AddPointSuccessView */ = {
+			isa = PBXGroup;
+			children = (
+				E4346EC31DB91AE1000566EE /* AddPointSuccessView.swift */,
+				E4346EC51DB91AEF000566EE /* AddPointSuccessView.xib */,
+			);
+			name = AddPointSuccessView;
+			sourceTree = "<group>";
+		};
 		E434E5FE1DAF47E400AFC400 /* PointCardTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -803,6 +816,7 @@
 		E49404D61DA6AEEA00918C75 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				E4346EC21DB91AC3000566EE /* AddPointSuccessView */,
 				E46894E21DB696FA0004B322 /* SegmentView */,
 				E416D0F41DB6333E002BBA81 /* AlertView */,
 				E4271BED1DB4725300B485B3 /* CardAddressView */,
@@ -986,6 +1000,7 @@
 				E41DC09E1DB4D61A00411F55 /* ShopInfoTableViewCell.xib in Resources */,
 				E42469F61DAE101C00D0A074 /* BebasNeue-webfont.ttf in Resources */,
 				E4EC1D801DB5C32C005CECB6 /* ShopMenu2TableViewCell.xib in Resources */,
+				E4346EC61DB91AEF000566EE /* AddPointSuccessView.xib in Resources */,
 				E42469F71DAE101C00D0A074 /* ProximaNova-Bold.otf in Resources */,
 				E42469F81DAE101C00D0A074 /* ProximaNova-Regular.otf in Resources */,
 				E4CC4A681DAF3991003B8385 /* DiscountCardTableViewCell.xib in Resources */,
@@ -1184,6 +1199,7 @@
 				E45746DD1DB27F4400021604 /* Discount.swift in Sources */,
 				E42187AE1DB8713400EFC98C /* SocialConfirmViewController.swift in Sources */,
 				E4271BEF1DB4726E00B485B3 /* CardAddressView.swift in Sources */,
+				E4346EC41DB91AE1000566EE /* AddPointSuccessView.swift in Sources */,
 				E451FFEF1DA8120B00B5A756 /* Textfield.swift in Sources */,
 				E424228E1DA8A10900F7D6FC /* Router.swift in Sources */,
 				E42B6AE31DAB3BCE0091746F /* User.swift in Sources */,
