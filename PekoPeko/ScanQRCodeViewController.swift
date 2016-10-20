@@ -71,8 +71,9 @@ class ScanQRCodeViewController: UIViewController {
         addPointViewController.qrCode = qrCode
         addPointViewController.delegate = self
         addPointViewController.isScan = true
-        if let window = self.view.window, let rootViewController = window.rootViewController {
-            rootViewController.present(addPointViewController, animated: true, completion: nil)
+        
+        if let topController = AppDelegate.topController() {
+            topController.present(addPointViewController, animated: true, completion: nil)
         }
     }
     
@@ -93,6 +94,11 @@ extension ScanQRCodeViewController: AddPointViewControllerDelegate {
                     messageView.message = "Bạn đã nhận được \(honeyPot) điểm"
                 }
             }
+            messageView.setButtonClose("Đóng", action: {
+                if !AuthenticationStore().isLogin {
+                    HomeTabbarController.sharedInstance.logOut()
+                }
+            })
             self.view.addFullView(view: messageView)
         }
     }

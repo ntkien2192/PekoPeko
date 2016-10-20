@@ -26,6 +26,10 @@ enum Router: URLRequestConvertible {
     // Router
     case exchangeToken()
     case login([String: AnyObject])
+    case loginSocial([String: AnyObject])
+    
+    case connectFacebook([String: AnyObject])
+    
     case getBaseUserInfo()
     case verifyPhoneNumber([String: AnyObject])
     
@@ -55,6 +59,12 @@ enum Router: URLRequestConvertible {
             
         case .login:
             return .post
+            
+        case .loginSocial:
+            return .post
+            
+        case .connectFacebook:
+            return .put
             
         case .getBaseUserInfo:
             return .get
@@ -116,6 +126,12 @@ enum Router: URLRequestConvertible {
             
         case .login:
             return "auth/phone"
+         
+        case .loginSocial:
+            return "auth/social"
+          
+        case .connectFacebook:
+            return "user/connect/facebook"
             
         case .getBaseUserInfo:
             return "user/base-info"
@@ -176,6 +192,12 @@ enum Router: URLRequestConvertible {
             return ApiVersion.V100.rawValue
             
         case .login:
+            return ApiVersion.V200.rawValue
+            
+        case .loginSocial:
+            return ApiVersion.V200.rawValue
+            
+        case .connectFacebook:
             return ApiVersion.V200.rawValue
             
         case .getBaseUserInfo:
@@ -264,6 +286,12 @@ enum Router: URLRequestConvertible {
         switch self {
             
         case .login(let parameters):
+            urlRequest = try JSONEncoding.default.encode(urlRequest, with: parameters)
+
+        case .loginSocial(let parameters):
+            urlRequest = try JSONEncoding.default.encode(urlRequest, with: parameters)
+            
+        case .connectFacebook(let parameters):
             urlRequest = try JSONEncoding.default.encode(urlRequest, with: parameters)
             
         case .verifyPhoneNumber(let parameters):

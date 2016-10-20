@@ -118,9 +118,11 @@ class ShopDetailViewController: UIViewController {
     var isLoaded: Bool = false {
         didSet {
             if isLoaded {
-                UIView.animate(withDuration: 0.2, animations: { 
-                    self.navigationView.alpha = 0.0
-                })
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    UIView.animate(withDuration: 0.2, animations: {
+                        self.navigationView.alpha = 0.0
+                    })
+                }
             }
         }
     }
@@ -175,6 +177,11 @@ class ShopDetailViewController: UIViewController {
                         if let error = error as? ServerResponseError, let data = error.data {
                             let messageView = MessageView(frame: _self.view.bounds)
                             messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
+                            messageView.setButtonClose("Đóng", action: {
+                                if !AuthenticationStore().isLogin {
+                                    HomeTabbarController.sharedInstance.logOut()
+                                }
+                            })
                             _self.view.addFullView(view: messageView)
                         }
                         return
@@ -204,6 +211,11 @@ class ShopDetailViewController: UIViewController {
                             if let error = error as? ServerResponseError, let data = error.data {
                                 let messageView = MessageView(frame: _self.view.bounds)
                                 messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
+                                messageView.setButtonClose("Đóng", action: {
+                                    if !AuthenticationStore().isLogin {
+                                        HomeTabbarController.sharedInstance.logOut()
+                                    }
+                                })
                                 _self.view.addFullView(view: messageView)
                             }
                             return
@@ -292,8 +304,8 @@ extension ShopDetailViewController: UITableViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if isLoaded {
-            let value = scrollView.contentOffset.y > 100.0 ? 100.0 : scrollView.contentOffset.y
-            navigationView.alpha = value / 100.0
+            let value = scrollView.contentOffset.y > 150.0 ? 150.0 : scrollView.contentOffset.y
+            navigationView.alpha = value / 150.0
         }
     }
 }
@@ -324,6 +336,11 @@ extension ShopDetailViewController: ShopInfoTableViewCellDelegate {
                             if let error = error as? ServerResponseError, let data = error.data {
                                 let messageView = MessageView(frame: _self.view.bounds)
                                 messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
+                                messageView.setButtonClose("Đóng", action: {
+                                    if !AuthenticationStore().isLogin {
+                                        HomeTabbarController.sharedInstance.logOut()
+                                    }
+                                })
                                 _self.view.addFullView(view: messageView)
                             }
                             return
@@ -350,6 +367,11 @@ extension ShopDetailViewController: ShopInfoTableViewCellDelegate {
                             if let error = error as? ServerResponseError, let data = error.data {
                                 let messageView = MessageView(frame: _self.view.bounds)
                                 messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
+                                messageView.setButtonClose("Đóng", action: {
+                                    if !AuthenticationStore().isLogin {
+                                        HomeTabbarController.sharedInstance.logOut()
+                                    }
+                                })
                                 _self.view.addFullView(view: messageView)
                             }
                             return

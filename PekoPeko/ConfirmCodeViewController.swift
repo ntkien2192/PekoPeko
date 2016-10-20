@@ -33,6 +33,8 @@ class ConfirmCodeViewController: UIViewController {
     let locationManager = CLLocationManager()
     var userLocation: Location?
     
+    var loginType: String = "phone"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -95,7 +97,7 @@ class ConfirmCodeViewController: UIViewController {
         
         if AuthenticationStore().hasPhoneNumber {
             if let phoneNumber = AuthenticationStore().phoneNumber {
-                let loginParameter = LoginParameter(phone: phoneNumber, code: code, location: userLocation ?? Location(latitude: 0.0, longitude: 0.0))
+                let loginParameter = LoginParameter(phone: phoneNumber, code: code, type: loginType, location: userLocation ?? Location(latitude: 0.0, longitude: 0.0))
                 weak var _self = self
                 AuthenticationStore.confirm(loginParameter, completionHandler: { (loginResponse, error) in
                     

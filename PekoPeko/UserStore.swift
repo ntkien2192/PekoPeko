@@ -101,6 +101,22 @@ class UserStore {
             completionHandler(true, nil)
         })
     }
+    
+    class func connectFacebook(facebookCredential: String, completionHandler: @escaping (Bool, Error?) -> Void) {
+        let parameters = ["facebook_credential": facebookCredential]
+        _ = Alamofire.request(Router.connectFacebook(parameters as [String : AnyObject])).responseUploadInfo({ (response) in
+            if let error = response.result.error {
+                completionHandler(false, error)
+                return
+            }
+            guard response.result.value != nil else {
+                // TODO: Create error here
+                completionHandler(false, nil)
+                return
+            }
+            completionHandler(true, nil)
+        })
+    }
 }
 extension Alamofire.DataRequest {
     
@@ -136,6 +152,11 @@ extension Alamofire.DataRequest {
             case .success(let value):
                 let jsonObject = SwiftyJSON.JSON(value)
                 if jsonObject["code"].intValue != 1 {
+                    
+                    if jsonObject["code"].intValue == -11 {
+                        AuthenticationStore().saveLoginValue(false)
+                    }
+                    
                     let failureReason = jsonObject["message"].stringValue
                     let errorData = [NSLocalizedFailureReasonErrorKey: failureReason]
                     let error = ServerResponseError(data: errorData as [String : AnyObject], kind: .dataSerializationFailed)
@@ -184,6 +205,11 @@ extension Alamofire.DataRequest {
             case .success(let value):
                 let jsonObject = SwiftyJSON.JSON(value)
                 if jsonObject["code"].intValue != 10001 && jsonObject["code"].intValue != 1 {
+                    
+                    if jsonObject["code"].intValue == -11 {
+                        AuthenticationStore().saveLoginValue(false)
+                    }
+                    
                     let failureReason = jsonObject["message"].stringValue
                     let errorData = [NSLocalizedFailureReasonErrorKey: failureReason]
                     let error = ServerResponseError(data: errorData as [String : AnyObject], kind: .dataSerializationFailed)
@@ -230,7 +256,12 @@ extension Alamofire.DataRequest {
             switch result {
             case .success(let value):
                 let jsonObject = SwiftyJSON.JSON(value)
-                if jsonObject["code"].intValue != 10001 {
+                if jsonObject["code"].intValue != 10001 && jsonObject["code"].intValue != 1 {
+                    
+                    if jsonObject["code"].intValue == -11 {
+                        AuthenticationStore().saveLoginValue(false)
+                    }
+                    
                     let failureReason = jsonObject["message"].stringValue
                     let errorData = [NSLocalizedFailureReasonErrorKey: failureReason]
                     let error = ServerResponseError(data: errorData as [String : AnyObject], kind: .dataSerializationFailed)

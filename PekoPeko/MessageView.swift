@@ -18,6 +18,11 @@ class MessageView: UIView {
     
     @IBOutlet weak var view: UIView!
     @IBOutlet weak var labelMessage: UILabel!
+    @IBOutlet weak var buttonClose: Button!
+    
+    typealias MessageViewViewHandle = () -> Void
+    
+    var closeAction: MessageViewViewHandle?
     
     var message: String?
     
@@ -41,14 +46,24 @@ class MessageView: UIView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
+    func setButtonClose(_ title: String, action: @escaping MessageViewViewHandle) {
+        closeAction = action
+        buttonClose.setTitle(title, for: UIControlState())
+    }
+    
     @IBAction func buttonCloseTapped(_ sender: AnyObject) {
         weak var _self = self
         UIView.animate(withDuration: 0.2, animations: { 
             self.alpha = 0.0
             }) { _ in
-                _self?.delegate?.clossTapped()
-                _self?.removeFromSuperview()
+                
+                if let _self = _self {
+                    if let closeAction = _self.closeAction {
+                        closeAction()
+                    }
+                    _self.removeFromSuperview()
+                }
         }
     }
 }

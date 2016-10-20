@@ -10,6 +10,20 @@ import UIKit
 import Foundation
 import Haneke
 
+extension AppDelegate {
+    class func topController() -> UIViewController? {
+        if let keyWindow = UIApplication.shared.keyWindow {
+            if var topController = keyWindow.rootViewController {
+                while let presentedViewController = topController.presentedViewController {
+                    topController = presentedViewController
+                }
+                return topController
+            }
+        }
+        return nil
+    }
+}
+
 extension String {
     func replace(_ string:String, replacement:String) -> String {
         return self.replacingOccurrences(of: string, with: replacement, options: NSString.CompareOptions.literal, range: nil)
@@ -177,6 +191,7 @@ extension UIColor {
     @nonobjc static let colorBrown = UIColor(hex: "#411D11")
     @nonobjc static let colorRed = UIColor(hex: "#E01C23")
     @nonobjc static let colorYellow = UIColor(hex: "#FDD700")
+    @nonobjc static let colorLightGray = UIColor(hex: "#E6E6E6")
     
     class func RGB(_ red: CGFloat, green: CGFloat, blue: CGFloat) -> UIColor {
         return RGBA(red, green: green, blue: blue, alpha: 1.0)

@@ -52,6 +52,11 @@ class UserUpdateInfoViewController: UIViewController {
                             if let error = error as? ServerResponseError, let data = error.data {
                                 let messageView = MessageView(frame: _self.view.bounds)
                                 messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
+                                messageView.setButtonClose("Đóng", action: {
+                                    if !AuthenticationStore().isLogin {
+                                        HomeTabbarController.sharedInstance.logOut()
+                                    }
+                                })
                                 _self.view.addFullView(view: messageView)
                             }
                             return
@@ -103,8 +108,8 @@ class UserUpdateInfoViewController: UIViewController {
                 imagePicker.navigationBar.tintColor = UIColor.colorBrown
                 imagePicker.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.colorBrown]
                 
-                if let window = self.view.window, let rootViewController = window.rootViewController {
-                    rootViewController.present(imagePicker, animated: true, completion: nil)
+                if let topController = AppDelegate.topController() {
+                    topController.present(imagePicker, animated: true, completion: nil)
                 }
             }
             
@@ -130,8 +135,8 @@ class UserUpdateInfoViewController: UIViewController {
                 imagePicker.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[view]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": view]))
                 imagePicker.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[view(==20)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": view]))
                 
-                if let window = self.view.window, let rootViewController = window.rootViewController {
-                    rootViewController.present(imagePicker, animated: true, completion: nil)
+                if let topController = AppDelegate.topController() {
+                    topController.present(imagePicker, animated: true, completion: nil)
                 }
             }
         }
@@ -140,8 +145,8 @@ class UserUpdateInfoViewController: UIViewController {
         let cancleAction = UIAlertAction(title: "Huỷ", style: .cancel, handler: nil)
         alertController.addAction(cancleAction)
         
-        if let window = self.view.window, let rootViewController = window.rootViewController {
-            rootViewController.present(alertController, animated: true, completion: nil)
+        if let topController = AppDelegate.topController() {
+            topController.present(alertController, animated: true, completion: nil)
         }
     }
     
@@ -164,17 +169,19 @@ class UserUpdateInfoViewController: UIViewController {
                     activityUploadUserFullname.startAnimating()
                     weak var _self = self
                     UserStore.uploadFullName(user, completionHandler: { (success, error) in
-                        
-                        _self?.imageViewUser.isHidden = false
-                        _self?.activityUploadUserFullname.stopAnimating()
-                        
-                        guard error == nil else {
-                            if let error = error as? ServerResponseError, let data = error.data,
-                                let reason: String = data[NSLocalizedFailureReasonErrorKey] as? String {
-                                self.showError(reason, animation: false)
+                        if let _self = _self {
+                            _self.imageViewUser.isHidden = false
+                            _self.activityUploadUserFullname.stopAnimating()
+                            
+                            guard error == nil else {
+                                if let error = error as? ServerResponseError, let data = error.data,
+                                    let reason: String = data[NSLocalizedFailureReasonErrorKey] as? String {
+                                    _self.showError(reason, animation: false)
+                                }
+                                return
                             }
-                            return
                         }
+                        
                     })
                 }
             }

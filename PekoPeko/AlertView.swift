@@ -56,7 +56,7 @@ class AlertView: UIView {
         UIView.animate(withDuration: 0.2, animations: {
             self.alpha = 0.0
         }) { _ in
-            if let submitAction = _self?.submitAction {
+            if let _self = _self, let submitAction = _self.submitAction {
                 submitAction()
             }
             _self?.removeFromSuperview()

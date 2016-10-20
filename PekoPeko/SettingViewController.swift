@@ -7,8 +7,9 @@
 //
 
 import UIKit
-import  NVActivityIndicatorView
+import NVActivityIndicatorView
 import Haneke
+import FBSDKLoginKit
 
 class SettingViewController: BaseViewController {
 
@@ -16,6 +17,7 @@ class SettingViewController: BaseViewController {
     @IBOutlet weak var buttonAvatar: Button!
     @IBOutlet weak var buttonTakePicture: Button!
     @IBOutlet weak var activityUploadData: NVActivityIndicatorView!
+    @IBOutlet weak var buttonConnectFacebook: Button!
     
     @IBOutlet weak var labelAppVersion: UILabel!
     @IBOutlet weak var labelAppLanguage: UILabel!
@@ -43,6 +45,11 @@ class SettingViewController: BaseViewController {
                             if let error = error as? ServerResponseError, let data = error.data {
                                 let messageView = MessageView(frame: _self.view.bounds)
                                 messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
+                                messageView.setButtonClose("Đóng", action: {
+                                    if !AuthenticationStore().isLogin {
+                                        HomeTabbarController.sharedInstance.logOut()
+                                    }
+                                })
                                 self.view.addFullView(view: messageView)
                             }
                             return
@@ -76,6 +83,17 @@ class SettingViewController: BaseViewController {
         }
     }
     
+    
+    var isFacebookConnected: Bool = false {
+        didSet {
+            if isFacebookConnected {
+                buttonConnectFacebook.setTitle("Đã kết nối với Facebook", for: .normal)
+            } else {
+                buttonConnectFacebook.setTitle("Kết nối với Facebook", for: .normal)
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -89,6 +107,9 @@ class SettingViewController: BaseViewController {
             scrollView.addSubview(refreshControl)
             scrollView.sendSubview(toBack: refreshControl)
         }
+        
+        isFacebookConnected = AuthenticationStore().isFacebookConnected
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -111,6 +132,11 @@ class SettingViewController: BaseViewController {
                     if let error = error as? ServerResponseError, let data = error.data {
                         let messageView = MessageView(frame: _self.view.bounds)
                         messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
+                        messageView.setButtonClose("Đóng", action: {
+                            if !AuthenticationStore().isLogin {
+                                HomeTabbarController.sharedInstance.logOut()
+                            }
+                        })
                         _self.view.addFullView(view: messageView)
                     }
                     return
@@ -128,10 +154,69 @@ class SettingViewController: BaseViewController {
     }
     
     @IBAction func buttonLogoutTapped(_ sender: AnyObject) {
-        AuthenticationStore().saveLoginValue(false)
-        let loginController = UIStoryboard(name: LoginViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: LoginViewController.identify)
-        if let window = self.view.window, let rootViewController = window.rootViewController {
-            rootViewController.present(loginController, animated: false, completion: nil)
+        let alertView = AlertView(frame: view.bounds)
+        alertView.message = "Xác nhận đăng xuất?"
+        alertView.setButtonSubmit("Đăng xuất", action: {
+            AuthenticationStore().saveLoginValue(false)
+            let loginController = UIStoryboard(name: LoginViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: LoginViewController.identify)
+            
+            if let topController = AppDelegate.topController() {
+                topController.present(loginController, animated: true, completion: nil)
+            }
+        })
+        view.addFullView(view: alertView)
+    }
+    
+    @IBAction func buttonConnectFacebookTapped(_ sender: AnyObject) {
+        if !isFacebookConnected {
+            let login = FBSDKLoginManager()
+            login.logOut()
+            weak var _self = self
+            
+            login.logIn(withReadPermissions: ["public_profile", "email"], from: self) { (loginResult, error) -> Void in
+                if let _self = _self {
+                    guard error == nil else {
+                        print("Process error")
+                        return
+                    }
+                    
+                    if let loginResult = loginResult {
+                        if loginResult.isCancelled {
+                            print("Cancelled")
+                        } else {
+                            
+                            let token = FBSDKAccessToken.current().tokenString
+                            
+                            UserStore.connectFacebook(facebookCredential: token ?? "", completionHandler: { (success, error) in
+                                guard error == nil else {
+                                    if let error = error as? ServerResponseError, let data = error.data {
+                                        let messageView = MessageView(frame: _self.view.bounds)
+                                        messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
+                                        messageView.setButtonClose("Đóng", action: {
+                                            if !AuthenticationStore().isLogin {
+                                                HomeTabbarController.sharedInstance.logOut()
+                                            }
+                                        })
+                                        _self.view.addFullView(view: messageView)
+                                    }
+                                    return
+                                }
+                                
+                                if success {
+                                    let messageView = MessageView(frame: _self.view.bounds)
+                                    messageView.message = "Đã kết nối Facebook thành công"
+                                    messageView.setButtonClose("Đóng", action: {
+                                        if !AuthenticationStore().isLogin {
+                                            HomeTabbarController.sharedInstance.logOut()
+                                        }
+                                    })
+                                    _self.view.addFullView(view: messageView)
+                                }
+                            })
+                        }
+                    }
+                }
+            }
         }
     }
     
@@ -140,14 +225,6 @@ class SettingViewController: BaseViewController {
     }
     
     @IBAction func buttonSendEmailTapped(_ sender: AnyObject) {
-        
-    }
-    
-    @IBAction func buttonChangePhoneNumberTapped(_ sender: AnyObject) {
-        
-    }
-    
-    @IBAction func buttonChangePasswordTapped(_ sender: AnyObject) {
         
     }
     
@@ -171,8 +248,8 @@ class SettingViewController: BaseViewController {
                 imagePicker.navigationBar.tintColor = UIColor.colorBrown
                 imagePicker.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.colorBrown]
                 
-                if let window = self.view.window, let rootViewController = window.rootViewController {
-                    rootViewController.present(imagePicker, animated: true, completion: nil)
+                if let topController = AppDelegate.topController() {
+                    topController.present(imagePicker, animated: true, completion: nil)
                 }
             }
             
@@ -198,8 +275,8 @@ class SettingViewController: BaseViewController {
                 imagePicker.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[view]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": view]))
                 imagePicker.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[view(==20)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": view]))
                 
-                if let window = self.view.window, let rootViewController = window.rootViewController {
-                    rootViewController.present(imagePicker, animated: true, completion: nil)
+                if let topController = AppDelegate.topController() {
+                    topController.present(imagePicker, animated: true, completion: nil)
                 }
             }
         }
@@ -208,8 +285,8 @@ class SettingViewController: BaseViewController {
         let cancleAction = UIAlertAction(title: "Huỷ", style: .cancel, handler: nil)
         alertController.addAction(cancleAction)
         
-        if let window = self.view.window, let rootViewController = window.rootViewController {
-            rootViewController.present(alertController, animated: true, completion: nil)
+        if let topController = AppDelegate.topController() {
+            topController.present(alertController, animated: true, completion: nil)
         }
     }
 }

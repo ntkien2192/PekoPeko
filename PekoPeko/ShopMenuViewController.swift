@@ -140,6 +140,11 @@ class ShopMenuViewController: BaseViewController {
                             if let error = error as? ServerResponseError, let data = error.data {
                                 let messageView = MessageView(frame: _self.view.bounds)
                                 messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
+                                messageView.setButtonClose("Đóng", action: {
+                                    if !AuthenticationStore().isLogin {
+                                        HomeTabbarController.sharedInstance.logOut()
+                                    }
+                                })
                                 _self.view.addFullView(view: messageView)
                             }
                             return
@@ -164,7 +169,7 @@ class ShopMenuViewController: BaseViewController {
             let appearance = SMSegmentAppearance()
             appearance.segmentOnSelectionColour = UIColor.clear
             appearance.segmentOffSelectionColour = UIColor.clear
-            appearance.contentVerticalMargin = 15.0
+            appearance.contentVerticalMargin = 10.0
             segmentControl = SMSegmentView(frame: segmentView.bounds, dividerColour: UIColor.clear, dividerWidth: 1.0, segmentAppearance: appearance)
         }
         

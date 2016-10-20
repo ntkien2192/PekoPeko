@@ -8,6 +8,7 @@
 
 import UIKit
 import MBProgressHUD
+import DZNEmptyDataSet
 
 protocol MyCardViewControllerDelegate: class {
     func buttonCardTapped(card: Card?)
@@ -41,7 +42,11 @@ class MyCardViewController: BaseViewController {
     override func viewConfig() {
         tableView.register(UINib(nibName: MyCardTableViewCell.identify, bundle: nil), forCellReuseIdentifier: MyCardTableViewCell.identify)
         tableView.register(UINib(nibName: MyCardRewardTableViewCell.identify, bundle: nil), forCellReuseIdentifier: MyCardRewardTableViewCell.identify)
+        
         tableView.tableFooterView = UIView()
+        tableView.emptyDataSetSource = self
+        tableView.emptyDataSetDelegate = self
+        
         refreshControl = UIRefreshControl()
         if let refreshControl = refreshControl {
             refreshControl.addTarget(self, action: #selector(MyCardViewController.reloadMyCard), for: .valueChanged)
@@ -66,6 +71,11 @@ class MyCardViewController: BaseViewController {
                     if let error = error as? ServerResponseError, let data = error.data {
                         let messageView = MessageView(frame: _self.view.bounds)
                         messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
+                        messageView.setButtonClose("Đóng", action: {
+                            if !AuthenticationStore().isLogin {
+                                HomeTabbarController.sharedInstance.logOut()
+                            }
+                        })
                         _self.view.addFullView(view: messageView)
                     }
                     return
@@ -143,6 +153,11 @@ extension MyCardViewController: MyCardTableViewCellDelegate, MyCardRewardTableVi
                                 if let error = error as? ServerResponseError, let data = error.data {
                                     let messageView = MessageView(frame: _self.view.bounds)
                                     messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
+                                    messageView.setButtonClose("Đóng", action: {
+                                        if !AuthenticationStore().isLogin {
+                                            HomeTabbarController.sharedInstance.logOut()
+                                        }
+                                    })
                                     _self.view.addFullView(view: messageView)
                                 }
                                 return
@@ -172,8 +187,33 @@ extension MyCardViewController: MyCardTableViewCellDelegate, MyCardRewardTableVi
         let cancleAction = UIAlertAction(title: "Huỷ", style: .cancel, handler: nil)
         alertController.addAction(cancleAction)
         
-        if let window = self.view.window, let rootViewController = window.rootViewController {
-            rootViewController.present(alertController, animated: true, completion: nil)
+        if let topController = AppDelegate.topController() {
+            topController.present(alertController, animated: true, completion: nil)
         }
+    }
+}
+
+extension MyCardViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
+    func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
+        return UIImage(named: "IconBearEmpty")
+    }
+    
+    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        let attributedText = NSMutableAttributedString()
+        let attribute1 = [NSFontAttributeName: UIFont.getBoldFont(14), NSForegroundColorAttributeName: UIColor.darkGray]
+        let variety1 = NSAttributedString(string: "Chưa có thẻ nào trong danh sách", attributes: attribute1)
+        attributedText.append(variety1)
+        
+        return attributedText
+    }
+    
+    func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        
+        let attributedText = NSMutableAttributedString()
+        let attribute1 = [NSFontAttributeName: UIFont.getBoldFont(12), NSForegroundColorAttributeName: UIColor.colorGray]
+        let variety1 = NSAttributedString(string: "Bạn có thể lưu các thẻ của\ncửa hàng để sử dụng!", attributes: attribute1)
+        attributedText.append(variety1)
+        
+        return attributedText
     }
 }

@@ -130,6 +130,11 @@ class CardDetailViewController: BaseViewController {
                         if let error = error as? ServerResponseError, let data = error.data {
                             let messageView = MessageView(frame: _self.view.bounds)
                             messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
+                            messageView.setButtonClose("Đóng", action: {
+                                if !AuthenticationStore().isLogin {
+                                    HomeTabbarController.sharedInstance.logOut()
+                                }
+                            })
                             _self.view.addFullView(view: messageView)
                         }
                         return
@@ -155,6 +160,11 @@ class CardDetailViewController: BaseViewController {
                         if let error = error as? ServerResponseError, let data = error.data {
                             let messageView = MessageView(frame: _self.view.bounds)
                             messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
+                            messageView.setButtonClose("Đóng", action: {
+                                if !AuthenticationStore().isLogin {
+                                    HomeTabbarController.sharedInstance.logOut()
+                                }
+                            })
                             _self.view.addFullView(view: messageView)
                         }
                         return
@@ -172,12 +182,24 @@ class CardDetailViewController: BaseViewController {
         if !isAdded {
             if let card = card, let cardID = card.shopID {
                 weak var _self = self
+                
+                let loadingNotification = MBProgressHUD.showAdded(to: view, animated: true)
+                loadingNotification.mode = MBProgressHUDMode.indeterminate
+                
                 CardStore.addCard(cardID: cardID, completionHandler: { (success, error) in
                     if let _self = _self {
+                        
+                        loadingNotification.hide(animated: false)
+                        
                         guard error == nil else {
                             if let error = error as? ServerResponseError, let data = error.data {
                                 let messageView = MessageView(frame: _self.view.bounds)
                                 messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
+                                messageView.setButtonClose("Đóng", action: {
+                                    if !AuthenticationStore().isLogin {
+                                        HomeTabbarController.sharedInstance.logOut()
+                                    }
+                                })
                                 self.view.addFullView(view: messageView)
                             }
                             return
@@ -249,8 +271,8 @@ extension CardDetailViewController: RewardTableViewCellDelegate, Reward10TableVi
         if let card = card {
             redeemViewController.card = card
         }
-        if let window = self.view.window, let rootViewController = window.rootViewController {
-            rootViewController.present(redeemViewController, animated: true, completion: nil)
+        if let topController = AppDelegate.topController() {
+            topController.present(redeemViewController, animated: true, completion: nil)
         }
     }
     
@@ -261,8 +283,9 @@ extension CardDetailViewController: RewardTableViewCellDelegate, Reward10TableVi
                 addPointViewController.card = card
                 addPointViewController.address = addresses.first
                 addPointViewController.delegate = self
-                if let window = self.view.window, let rootViewController = window.rootViewController {
-                    rootViewController.present(addPointViewController, animated: true, completion: nil)
+                
+                if let topController = AppDelegate.topController() {
+                    topController.present(addPointViewController, animated: true, completion: nil)
                 }
             } else if addresses.count > 1 {
                 let cardAddressView = CardAddressView(frame: view.bounds)
@@ -282,8 +305,8 @@ extension CardDetailViewController: CardAddressViewDelegate {
         addPointViewController.card = card
         addPointViewController.address = address
         addPointViewController.delegate = self
-        if let window = self.view.window, let rootViewController = window.rootViewController {
-            rootViewController.present(addPointViewController, animated: true, completion: nil)
+        if let topController = AppDelegate.topController() {
+            topController.present(addPointViewController, animated: true, completion: nil)
         }
     }
 }
@@ -299,6 +322,11 @@ extension CardDetailViewController: AddPointViewControllerDelegate {
                     messageView.message = "Bạn đã nhận được \(honeyPot) điểm"
                 }
             }
+            messageView.setButtonClose("Đóng", action: {
+                if !AuthenticationStore().isLogin {
+                    HomeTabbarController.sharedInstance.logOut()
+                }
+            })
             self.view.addFullView(view: messageView)
         }
     }
@@ -310,8 +338,8 @@ extension CardDetailViewController: DetailCardHeaderTableViewCellDelegate {
     func shopTapped(card: Card?) {
         let shopDetailController = UIStoryboard(name: ShopDetailViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: ShopDetailViewController.identify) as! ShopDetailViewController
         shopDetailController.card = card
-        if let window = self.view.window, let rootViewController = window.rootViewController {
-            rootViewController.present(shopDetailController, animated: true, completion: nil)
+        if let topController = AppDelegate.topController() {
+            topController.present(shopDetailController, animated: true, completion: nil)
         }
     }
 }

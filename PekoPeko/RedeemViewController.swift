@@ -82,6 +82,11 @@ class RedeemViewController: BaseViewController {
         if !error.isEmpty {
             let messageView = MessageView(frame: view.bounds)
             messageView.message = error
+            messageView.setButtonClose("Đóng", action: {
+                if !AuthenticationStore().isLogin {
+                    HomeTabbarController.sharedInstance.logOut()
+                }
+            })
             self.view.addFullView(view: messageView)
         } else {
             
@@ -97,6 +102,11 @@ class RedeemViewController: BaseViewController {
                                 if let error = error as? ServerResponseError, let data = error.data {
                                     let messageView = MessageView(frame: _self.view.bounds)
                                     messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
+                                    messageView.setButtonClose("Đóng", action: {
+                                        if !AuthenticationStore().isLogin {
+                                            HomeTabbarController.sharedInstance.logOut()
+                                        }
+                                    })
                                     _self.view.addFullView(view: messageView)
                                 }
                                 return

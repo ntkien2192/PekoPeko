@@ -1,5 +1,18 @@
 PODS:
   - Alamofire (4.0.1)
+  - Bolts (1.8.4):
+    - Bolts/AppLinks (= 1.8.4)
+    - Bolts/Tasks (= 1.8.4)
+  - Bolts/AppLinks (1.8.4):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.8.4)
+  - DZNEmptyDataSet (1.8.1)
+  - FBSDKCoreKit (4.16.0):
+    - Bolts (~> 1.7)
+  - FBSDKLoginKit (4.16.0):
+    - FBSDKCoreKit
+  - FBSDKShareKit (4.16.0):
+    - FBSDKCoreKit
   - HanekeSwift (0.10.1)
   - MBProgressHUD (1.0.0)
   - MTBBarcodeScanner (3.1.0)
@@ -16,6 +29,10 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (from `https://github.com/Homely/Alamofire.git`, branch `ios8`)
+  - DZNEmptyDataSet
+  - FBSDKCoreKit
+  - FBSDKLoginKit
+  - FBSDKShareKit
   - HanekeSwift (from `https://github.com/Haneke/HanekeSwift.git`, branch `feature/swift-3`)
   - MBProgressHUD (~> 1.0.0)
   - MTBBarcodeScanner
@@ -58,6 +75,11 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: d8ab1487ca8accacde5d0c65ae8144bdf9a264b8
+  Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  FBSDKCoreKit: 7a6baaed4a2b2a244ba253346713bdbc74df135b
+  FBSDKLoginKit: 9a514a55a7d05190f64d4ef09502737588b5b561
+  FBSDKShareKit: e81505de17fc0624cbaa87b83cccc9f2a786e6cb
   HanekeSwift: 4113367892828e7700d24a384027de6ebc79aad1
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MTBBarcodeScanner: 6d397077f1a4a886050df8e66584a59a1dc429e7
@@ -70,6 +92,6 @@ SPEC CHECKSUMS:
   TSCurrencyTextField: 03f9d4d263d617d1f0e034e4ace12febcfa6fe48
   UIResponder+KeyboardCache: dc1b7ff925c25ddb58b289bc71a3724c269767ef
 
-PODFILE CHECKSUM: 959609a5e5e5b5ca01b2f18525e59879423c4761
+PODFILE CHECKSUM: 2af617d9ad75b78fa7c029e6bfd1e859640e4c4e
 
 COCOAPODS: 1.0.1

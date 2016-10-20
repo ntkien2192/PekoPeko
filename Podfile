@@ -20,6 +20,7 @@ target 'PekoPeko' do
   pod 'FBSDKCoreKit'
   pod 'FBSDKShareKit'
   pod 'FBSDKLoginKit'
+  pod 'DZNEmptyDataSet'
   
   # Pods for PekoPeko
 

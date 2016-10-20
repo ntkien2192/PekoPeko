@@ -8,12 +8,14 @@
 
 import UIKit
 import Spring
-//import MBProgressHUD
 import NVActivityIndicatorView
 import CoreLocation
 
 class LoginPhoneViewController: UIViewController {
 
+    static let storyboardName = "Login"
+    static let identify = "LoginPhoneViewController"
+    
     // MARK: @IBOutlet
     
     @IBOutlet weak var constraintTop: NSLayoutConstraint!
@@ -30,9 +32,8 @@ class LoginPhoneViewController: UIViewController {
     
     @IBOutlet weak var buttonSubmit: Button!
     
-    var defaultConstraintValue: CGFloat?
-    
     let locationManager = CLLocationManager()
+    var defaultConstraintValue: CGFloat?
     var userLocation: Location?
     
     //MARK: View Life
@@ -60,6 +61,7 @@ class LoginPhoneViewController: UIViewController {
         locationManager.distanceFilter = kCLDistanceFilterNone
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
+        
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -161,7 +163,7 @@ class LoginPhoneViewController: UIViewController {
                 
                 if let loginResponse = loginResponse, let step = loginResponse.step {
                     if step == .verify {
-                        let confirmCodeViewController = UIStoryboard(name: ConfirmCodeViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: ConfirmCodeViewController.identify)
+                        let confirmCodeViewController = UIStoryboard(name: ConfirmCodeViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: ConfirmCodeViewController.identify) as! ConfirmCodeViewController
                         if let navigationController = _self?.navigationController {
                             navigationController.show(confirmCodeViewController, sender: nil)
                         }
@@ -175,7 +177,7 @@ class LoginPhoneViewController: UIViewController {
                     }
                     
                     if step == .update {
-                        let confirmCodeViewController = UIStoryboard(name: UserUpdateInfoViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: UserUpdateInfoViewController.identify)
+                        let confirmCodeViewController = UIStoryboard(name: UserUpdateInfoViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: UserUpdateInfoViewController.identify) as! UserUpdateInfoViewController
                         if let navigationController = _self?.navigationController {
                             navigationController.show(confirmCodeViewController, sender: nil)
                         }
@@ -253,8 +255,6 @@ class LoginPhoneViewController: UIViewController {
         buttonSubmit.animation = animation
         buttonSubmit.animate()
     }
-    
-
 }
 
 extension LoginPhoneViewController: CLLocationManagerDelegate {

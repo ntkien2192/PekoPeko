@@ -16,6 +16,7 @@ class AuthenticationStore {
     fileprivate let accessTokenKey = "pekopeko.accesstoken"
     fileprivate let isLoginKey = "pekopeko.isLoginKey"
     fileprivate let phoneNumberKey = "pekopeko.phoneNumber"
+    fileprivate let connectFacebookKey = "pekopeko.connectFacebook"
     
     fileprivate var defaults: UserDefaults = {
         
@@ -23,8 +24,6 @@ class AuthenticationStore {
     }()
     
     //MARK: LOGIN
-    
-    
     var isLogin: Bool {
         return defaults.value(forKey: isLoginKey) as? Bool ?? false
     }
@@ -80,6 +79,16 @@ class AuthenticationStore {
         defaults.removeObject(forKey: phoneNumberKey)
         defaults.synchronize()
     }
+
+    // ConnectFacebook
+    var isFacebookConnected: Bool {
+        return defaults.value(forKey: connectFacebookKey) as? Bool ?? false
+    }
+    
+    func saveFacebookConnectValue(_ isConnected: Bool) {
+        defaults.set(isConnected, forKey: connectFacebookKey)
+        defaults.synchronize()
+    }
     
     // Clear all data
     func clear() {
@@ -91,7 +100,25 @@ class AuthenticationStore {
     
     class func login(_ loginParameters: LoginParameter, completionHandler: @escaping (User?, Error?) -> Void) {
         let parameters = loginParameters.toJSON()
+        
         _ = Alamofire.request(Router.login(parameters as [String : AnyObject])).responseLogin({ (response) in
+            if let error = response.result.error {
+                completionHandler(nil, error)
+                return
+            }
+            guard let responseData = response.result.value else {
+                // TODO: Create error here
+                completionHandler(nil, nil)
+                return
+            }
+            completionHandler(responseData, nil)
+        })
+    }
+    
+    class func loginSocial(_ loginParameters: LoginParameter, completionHandler: @escaping (User?, Error?) -> Void) {
+        let parameters = loginParameters.toJSON()
+        
+        _ = Alamofire.request(Router.loginSocial(parameters as [String : AnyObject])).responseLogin({ (response) in
             if let error = response.result.error {
                 completionHandler(nil, error)
                 return
@@ -107,6 +134,7 @@ class AuthenticationStore {
     
     class func confirm(_ loginParameters: LoginParameter, completionHandler: @escaping (User?, Error?) -> Void) {
         let parameters = loginParameters.toJSON()
+        
         _ = Alamofire.request(Router.verifyPhoneNumber(parameters as [String : AnyObject])).responseLogin({ (response) in
             if let error = response.result.error {
                 completionHandler(nil, error)
@@ -182,6 +210,7 @@ extension Alamofire.DataRequest {
                     return .failure(error)
                 } else  {
                     let data = jsonObject["data"]
+                    
                     let user = User(json: data)
                     
                     let token = data["token"].stringValue
@@ -237,6 +266,7 @@ extension Alamofire.DataRequest {
                     return .failure(error)
                 } else  {
                     let data = jsonObject["data"]
+                    
                     let token = data["token"].stringValue
                     if !token.isEmpty {
                         AuthenticationStore().saveAcessToken(token)

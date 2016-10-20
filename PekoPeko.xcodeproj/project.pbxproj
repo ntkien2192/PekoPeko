@@ -29,6 +29,9 @@
 		E41DC09E1DB4D61A00411F55 /* ShopInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E41DC09C1DB4D61A00411F55 /* ShopInfoTableViewCell.xib */; };
 		E41DC0A71DB4D9CC00411F55 /* ShopAddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41DC0A51DB4D9CC00411F55 /* ShopAddressTableViewCell.swift */; };
 		E41DC0A81DB4D9CC00411F55 /* ShopAddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E41DC0A61DB4D9CC00411F55 /* ShopAddressTableViewCell.xib */; };
+		E42187AE1DB8713400EFC98C /* SocialConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42187AD1DB8713400EFC98C /* SocialConfirmViewController.swift */; };
+		E42187B61DB8A38B00EFC98C /* EmptyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42187B41DB8A38B00EFC98C /* EmptyTableViewCell.swift */; };
+		E42187B71DB8A38B00EFC98C /* EmptyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E42187B51DB8A38B00EFC98C /* EmptyTableViewCell.xib */; };
 		E423FB041DB337AF005C51BB /* CardAddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E423FB021DB337AF005C51BB /* CardAddressTableViewCell.swift */; };
 		E423FB051DB337AF005C51BB /* CardAddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E423FB031DB337AF005C51BB /* CardAddressTableViewCell.xib */; };
 		E423FB071DB34661005C51BB /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E423FB061DB34661005C51BB /* TableView.swift */; };
@@ -191,6 +194,9 @@
 		E41DC09C1DB4D61A00411F55 /* ShopInfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShopInfoTableViewCell.xib; sourceTree = "<group>"; };
 		E41DC0A51DB4D9CC00411F55 /* ShopAddressTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopAddressTableViewCell.swift; sourceTree = "<group>"; };
 		E41DC0A61DB4D9CC00411F55 /* ShopAddressTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShopAddressTableViewCell.xib; sourceTree = "<group>"; };
+		E42187AD1DB8713400EFC98C /* SocialConfirmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialConfirmViewController.swift; sourceTree = "<group>"; };
+		E42187B41DB8A38B00EFC98C /* EmptyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyTableViewCell.swift; sourceTree = "<group>"; };
+		E42187B51DB8A38B00EFC98C /* EmptyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptyTableViewCell.xib; sourceTree = "<group>"; };
 		E423FB021DB337AF005C51BB /* CardAddressTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardAddressTableViewCell.swift; sourceTree = "<group>"; };
 		E423FB031DB337AF005C51BB /* CardAddressTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardAddressTableViewCell.xib; sourceTree = "<group>"; };
 		E423FB061DB34661005C51BB /* TableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
@@ -354,6 +360,7 @@
 		E414485A1DB096AF006C70EF /* BaseView */ = {
 			isa = PBXGroup;
 			children = (
+				E42187B31DB8A36000EFC98C /* EmptyTableViewCell */,
 				E476B0201DA929AF007B1D62 /* CAPSPageMenu.swift */,
 				E451FFEE1DA8120B00B5A756 /* Textfield.swift */,
 				E451FFF01DA813B700B5A756 /* View.swift */,
@@ -439,6 +446,15 @@
 				E41DC0A61DB4D9CC00411F55 /* ShopAddressTableViewCell.xib */,
 			);
 			name = ShopAddressTableViewCell;
+			sourceTree = "<group>";
+		};
+		E42187B31DB8A36000EFC98C /* EmptyTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				E42187B41DB8A38B00EFC98C /* EmptyTableViewCell.swift */,
+				E42187B51DB8A38B00EFC98C /* EmptyTableViewCell.xib */,
+			);
+			name = EmptyTableViewCell;
 			sourceTree = "<group>";
 		};
 		E423FB011DB3378E005C51BB /* CardAddressTableViewCell */ = {
@@ -563,6 +579,7 @@
 			children = (
 				E43D2C811DA7F6C40019B2DD /* LoginViewController.swift */,
 				E43D2C831DA80DAE0019B2DD /* LoginPhoneViewController.swift */,
+				E42187AD1DB8713400EFC98C /* SocialConfirmViewController.swift */,
 				E42B6ADC1DAB36720091746F /* ConfirmCodeViewController.swift */,
 				E42B6AE41DAB966D0091746F /* UserUpdateInfoViewController.swift */,
 			);
@@ -986,6 +1003,7 @@
 				E4246A011DAE101C00D0A074 /* UTM Bebas.ttf in Resources */,
 				E416D0F81DB63368002BBA81 /* AlertView.xib in Resources */,
 				E4246A021DAE101C00D0A074 /* UVF ProximaNova-Regular.ttf in Resources */,
+				E42187B71DB8A38B00EFC98C /* EmptyTableViewCell.xib in Resources */,
 				E4246A031DAE101C00D0A074 /* VNF.ProximaNova-Regular.ttf in Resources */,
 				E49404A91DA6AD1B00918C75 /* LaunchScreen.storyboard in Resources */,
 				E42469E41DADF64E00D0A074 /* item_top_loyalty_cards.png in Resources */,
@@ -1164,6 +1182,7 @@
 				E42B6ADD1DAB36720091746F /* ConfirmCodeViewController.swift in Sources */,
 				E416D0F21DB605E7002BBA81 /* ShopCoverTableViewCell.swift in Sources */,
 				E45746DD1DB27F4400021604 /* Discount.swift in Sources */,
+				E42187AE1DB8713400EFC98C /* SocialConfirmViewController.swift in Sources */,
 				E4271BEF1DB4726E00B485B3 /* CardAddressView.swift in Sources */,
 				E451FFEF1DA8120B00B5A756 /* Textfield.swift in Sources */,
 				E424228E1DA8A10900F7D6FC /* Router.swift in Sources */,
@@ -1208,6 +1227,7 @@
 				E41448591DB08FD2006C70EF /* RedeemStore.swift in Sources */,
 				E46894EA1DB697060004B322 /* SMSegmentViewConstants.swift in Sources */,
 				E476B0281DA92AD6007B1D62 /* MyCardViewController.swift in Sources */,
+				E42187B61DB8A38B00EFC98C /* EmptyTableViewCell.swift in Sources */,
 				E427F8E81DAF790C0012F3F5 /* Reward10TableViewCell.swift in Sources */,
 				E42B6AE11DAB394B0091746F /* LoginParameter.swift in Sources */,
 				E4EC1D8B1DB5C517005CECB6 /* ShopMenuShowMoreTableViewCell.swift in Sources */,

@@ -167,13 +167,13 @@ open class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureRecogn
             .addBottomMenuHairline(false),
             .menuItemSeparatorWidth(1.0),
             .useMenuLikeSegmentedControl(true),
-            .menuHeight(44.0),
+            .menuHeight(50.0),
             .selectionIndicatorColor(UIColor.colorYellow),
             .unselectedMenuItemLabelColor(UIColor.lightGray),
-            .selectedMenuItemLabelColor(UIColor.colorBrown),
+            .selectedMenuItemLabelColor(UIColor.darkGray),
             .menuItemSeparatorColor(UIColor.lightGray),
-            .selectionIndicatorColor(UIColor.colorBrown),
-            .scrollMenuBackgroundColor(UIColor.RGB(250, green: 250, blue: 250)),
+            .selectionIndicatorColor(UIColor.darkGray),
+            .scrollMenuBackgroundColor(UIColor.RGB(245, green: 245, blue: 245)),
             .selectionIndicatorHeight(1.5),
             .menuItemFont(UIFont.getBoldFont(15))
         ]

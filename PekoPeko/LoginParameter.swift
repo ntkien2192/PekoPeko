@@ -21,6 +21,7 @@ enum LoginParameterFields: String {
     case Location = "location"
     case Code = "code"
     case LoginType = "type"
+    case SocialCredential = "social_credential"
 }
 
 class LoginParameter: Mappable {
@@ -30,6 +31,7 @@ class LoginParameter: Mappable {
     var location: Location?
     var code: String?
     var loginType: String?
+    var socialCredential: String?
     
     init(phone: String, password: String, location: Location) {
         self.phone = phone
@@ -40,13 +42,32 @@ class LoginParameter: Mappable {
         self.location = location
     }
     
-    init(phone: String, code: String, location: Location) {
+    init(phone: String, code: String, type: String, location: Location) {
         self.phone = phone
         self.code = code
         if let identifierForVendor = UIDevice.current.identifierForVendor {
             self.deviceId = identifierForVendor.uuidString
         }
-        self.loginType = "phone"
+        self.loginType = type
+        self.location = location
+    }
+    
+    init(socialCredential: String, location: Location) {
+        self.socialCredential = socialCredential
+        if let identifierForVendor = UIDevice.current.identifierForVendor {
+            self.deviceId = identifierForVendor.uuidString
+        }
+        self.loginType = "facebook"
+        self.location = location
+    }
+
+    init(phone: String, socialCredential: String, location: Location) {
+        self.phone = phone
+        self.socialCredential = socialCredential
+        if let identifierForVendor = UIDevice.current.identifierForVendor {
+            self.deviceId = identifierForVendor.uuidString
+        }
+        self.loginType = "facebook"
         self.location = location
     }
     
@@ -58,5 +79,6 @@ class LoginParameter: Mappable {
         location <- map[LoginParameterFields.Location.rawValue]
         code <- map[LoginParameterFields.Code.rawValue]
         loginType <- map[LoginParameterFields.LoginType.rawValue]
+        socialCredential <- map[LoginParameterFields.SocialCredential.rawValue]
     }
 }

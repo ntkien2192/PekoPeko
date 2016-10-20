@@ -380,6 +380,9 @@
                                                                 <real key="value" value="0.20000000000000001"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="buttonConnectFacebookTapped:" destination="VJY-rp-pNu" eventType="touchUpInside" id="X1V-Pp-LvM"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -588,7 +591,6 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
-                                                            <action selector="buttonChangePasswordTapped:" destination="VJY-rp-pNu" eventType="touchUpInside" id="SIG-gf-TlU"/>
                                                             <segue destination="GbB-vF-6Ai" kind="show" id="ntY-ks-Nus"/>
                                                         </connections>
                                                     </button>
@@ -715,6 +717,7 @@
                     <connections>
                         <outlet property="activityUploadData" destination="1Qb-aU-PF0" id="X0b-da-trc"/>
                         <outlet property="buttonAvatar" destination="ukN-LN-1vg" id="Ae8-D9-rC5"/>
+                        <outlet property="buttonConnectFacebook" destination="F9W-Sh-FKm" id="5ri-RC-8sx"/>
                         <outlet property="buttonTakePicture" destination="rrP-3h-6fA" id="KN5-n7-sg2"/>
                         <outlet property="labelAppLanguage" destination="rc8-cl-F7M" id="iPe-dP-yQQ"/>
                         <outlet property="labelAppVersion" destination="8EN-CT-Ubr" id="6a4-cB-yhR"/>

@@ -38,7 +38,7 @@ class CardViewController: UIViewController {
         
         if let pageMenu = pageMenu {
             pageMenu.delegate = self
-            pageMenu.view.backgroundColor = UIColor.RGB(230.0, green: 230.0, blue: 230.0)
+            pageMenu.view.backgroundColor = UIColor.colorLightGray
             view.addSubview(pageMenu.view)
         }
     }

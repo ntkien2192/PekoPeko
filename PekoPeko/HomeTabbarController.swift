@@ -10,6 +10,11 @@ import UIKit
 
 class HomeTabbarController: UITabBarController {
 
+    static let sharedInstance : HomeTabbarController = {
+        let instance = HomeTabbarController()
+        return instance
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,11 +36,15 @@ class HomeTabbarController: UITabBarController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if !AuthenticationStore().isLogin {
-            let loginController = UIStoryboard(name: LoginViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: LoginViewController.identify)
-            
-            if let window = self.view.window, let rootViewController = window.rootViewController {
-                rootViewController.present(loginController, animated: false, completion: nil)
-            }
+            logOut()
+        }
+    }
+    
+    func logOut() {
+        let loginController = UIStoryboard(name: LoginViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: LoginViewController.identify)
+        
+        if let topController = AppDelegate.topController() {
+            topController.present(loginController, animated: false, completion: nil)
         }
     }
     

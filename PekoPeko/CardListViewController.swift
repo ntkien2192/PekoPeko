@@ -47,6 +47,8 @@ class CardListViewController: BaseViewController {
     
     override func viewConfig() {
         
+        
+        tableView.register(UINib(nibName: EmptyTableViewCell.identify, bundle: nil), forCellReuseIdentifier: EmptyTableViewCell.identify)
         tableView.register(UINib(nibName: CardTableViewCell.identify, bundle: nil), forCellReuseIdentifier: CardTableViewCell.identify)
         tableView.tableFooterView = UIView()
         refreshControl = UIRefreshControl()
@@ -84,6 +86,11 @@ class CardListViewController: BaseViewController {
                     if let error = error as? ServerResponseError, let data = error.data {
                         let messageView = MessageView(frame: _self.view.bounds)
                         messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
+                        messageView.setButtonClose("Đóng", action: {
+                            if !AuthenticationStore().isLogin {
+                                HomeTabbarController.sharedInstance.logOut()
+                            }
+                        })
                         _self.view.addFullView(view: messageView)
                     }
                     return
@@ -98,7 +105,6 @@ class CardListViewController: BaseViewController {
                     }
                 }
             }
-
         }
     }
     
@@ -127,15 +133,18 @@ extension CardListViewController: UITableViewDataSource {
         if let cards = cards {
             return cards.count
         }
-        return 0
+        return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CardTableViewCell.identify, for: indexPath) as! CardTableViewCell
-        cell.delegate = self
         if let cards = cards {
+            let cell = tableView.dequeueReusableCell(withIdentifier: CardTableViewCell.identify, for: indexPath) as! CardTableViewCell
+            cell.delegate = self
             cell.card = cards[indexPath.row]
+            return cell
+            
         }
+        let cell = tableView.dequeueReusableCell(withIdentifier: EmptyTableViewCell.identify, for: indexPath) as! EmptyTableViewCell
         return cell
     }
 }

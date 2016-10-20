@@ -139,6 +139,11 @@ extension Alamofire.DataRequest {
                 let jsonObject = SwiftyJSON.JSON(value)
                 if jsonObject["code"].intValue != 1 {
                     if  jsonObject["code"].intValue != -4 {
+                        
+                        if jsonObject["code"].intValue == -11 {
+                            AuthenticationStore().saveLoginValue(false)
+                        }
+                        
                         let failureReason = jsonObject["message"].stringValue
                         let errorData = [NSLocalizedFailureReasonErrorKey: failureReason]
                         let error = ServerResponseError(data: errorData as [String : AnyObject], kind: .dataSerializationFailed)
@@ -191,6 +196,11 @@ extension Alamofire.DataRequest {
                 let jsonObject = SwiftyJSON.JSON(value)
                 if jsonObject["code"].intValue != 1 {
                     if  jsonObject["code"].intValue != -4 {
+                        
+                        if jsonObject["code"].intValue == -11 {
+                            AuthenticationStore().saveLoginValue(false)
+                        }
+                        
                         let failureReason = jsonObject["message"].stringValue
                         let errorData = [NSLocalizedFailureReasonErrorKey: failureReason]
                         let error = ServerResponseError(data: errorData as [String : AnyObject], kind: .dataSerializationFailed)
@@ -244,6 +254,11 @@ extension Alamofire.DataRequest {
                 let jsonObject = SwiftyJSON.JSON(value)
                 if jsonObject["code"].intValue != 1 {
                     if  jsonObject["code"].intValue != -4 {
+                        
+                        if jsonObject["code"].intValue == -11 {
+                            AuthenticationStore().saveLoginValue(false)
+                        }
+                        
                         let failureReason = jsonObject["message"].stringValue
                         let errorData = [NSLocalizedFailureReasonErrorKey: failureReason]
                         let error = ServerResponseError(data: errorData as [String : AnyObject], kind: .dataSerializationFailed)
@@ -295,6 +310,11 @@ extension Alamofire.DataRequest {
                 let jsonObject = SwiftyJSON.JSON(value)
                 if jsonObject["code"].intValue != 1 {
                     if  jsonObject["code"].intValue != -4 {
+                        
+                        if jsonObject["code"].intValue == -11 {
+                            AuthenticationStore().saveLoginValue(false)
+                        }
+                        
                         let failureReason = jsonObject["message"].stringValue
                         let errorData = [NSLocalizedFailureReasonErrorKey: failureReason]
                         let error = ServerResponseError(data: errorData as [String : AnyObject], kind: .dataSerializationFailed)

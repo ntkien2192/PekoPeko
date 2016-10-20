@@ -72,6 +72,9 @@ class User: Mappable {
     required init(json: JSON) {
         userID = json[UserFields.UserID.rawValue].string
         isFacebookConnected = json[UserFields.FacebookConnected.rawValue].boolValue
+        
+        AuthenticationStore().saveFacebookConnectValue(isFacebookConnected ?? false)
+        
         avatarUrl = json[UserFields.Avatar.rawValue].string
         let stepString = json[UserFields.Step.rawValue].stringValue
 
