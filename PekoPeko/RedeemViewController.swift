@@ -80,7 +80,7 @@ class RedeemViewController: BaseViewController {
         
         
         if !error.isEmpty {
-            let messageView = MessageView(frame: self.view.bounds)
+            let messageView = MessageView(frame: view.bounds)
             messageView.message = error
             self.view.addFullView(view: messageView)
         } else {
@@ -88,27 +88,31 @@ class RedeemViewController: BaseViewController {
             if let card = card , let reward = reward {
                 if let shopID = card.shopID, let rewardID = reward.rewardID, let code = NumberFormatter().number(from: pinCode){
                     let redeemRequest = RedeemRequest(shopID: shopID, redeemID: rewardID, pinCode: code.intValue)
+                    
+                    weak var _self = self
+                    
                     RedeemStore.redeem(redeemRequest: redeemRequest, completionHandler: { (success, error) in
-                        guard error == nil else {
-                            if let error = error as? ServerResponseError, let data = error.data {
-                                let messageView = MessageView(frame: self.view.bounds)
-                                messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
-                                self.view.addFullView(view: messageView)
+                        if let _self = _self {
+                            guard error == nil else {
+                                if let error = error as? ServerResponseError, let data = error.data {
+                                    let messageView = MessageView(frame: _self.view.bounds)
+                                    messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
+                                    _self.view.addFullView(view: messageView)
+                                }
+                                return
                             }
-                            return
-                        }
-                        
-                        if success {
-                            let popView = RedeemSuccessView(frame: self.view.bounds)
-                            popView.delegate = self
-                            popView.card = card
-                            popView.reward = reward
-                            self.view.addFullView(view: popView)
+                            
+                            if success {
+                                let popView = RedeemSuccessView(frame: _self.view.bounds)
+                                popView.delegate = self
+                                popView.card = card
+                                popView.reward = reward
+                                _self.view.addFullView(view: popView)
+                            }
                         }
                     })
                 }
             }
-            
         }
     }
     

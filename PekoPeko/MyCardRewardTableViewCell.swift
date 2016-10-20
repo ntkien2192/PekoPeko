@@ -1,23 +1,23 @@
 //
-//  MyCardTableViewCell.swift
+//  MyCardRewardTableViewCell.swift
 //  PekoPeko
 //
-//  Created by Nguyễn Trung Kiên on 12/10/2016.
+//  Created by Nguyễn Trung Kiên on 19/10/2016.
 //  Copyright © 2016 hungrybear. All rights reserved.
 //
 
 import UIKit
 import Haneke
 
-protocol MyCardTableViewCellDelegate: class {
+protocol MyCardRewardTableViewCellDelegate: class {
     func cellTapped(card: Card?)
     func moreTapped(card: Card?)
-//    func shopTapped(card: Card?)
+    //    func shopTapped(card: Card?)
 }
 
-class MyCardTableViewCell: UITableViewCell {
-
-    static let identify = "MyCardTableViewCell"
+class MyCardRewardTableViewCell: UITableViewCell {
+    
+    static let identify = "MyCardRewardTableViewCell"
     
     weak var delegate: MyCardTableViewCellDelegate?
     
@@ -25,10 +25,7 @@ class MyCardTableViewCell: UITableViewCell {
     @IBOutlet weak var imageViewAvatar: ImageView!
     @IBOutlet weak var labelName: UILabel!
     @IBOutlet weak var labelAddress: UILabel!
-    
-    @IBOutlet weak var labelHpCurrent: UILabel!
-    @IBOutlet weak var viewHoneyNumber: UIView!
-    @IBOutlet weak var labelHpMore: UILabel!
+    @IBOutlet weak var labelRewardName: UILabel!
     
     var card: Card? {
         didSet {
@@ -53,7 +50,7 @@ class MyCardTableViewCell: UITableViewCell {
                         _self?.imageViewAvatar.image = image.cropToBounds(width: image.size.height, height: image.size.height)
                     })
                 }
-
+                
                 if let cardAddress = card.cardAddress {
                     labelAddress.text = cardAddress
                 }
@@ -62,22 +59,21 @@ class MyCardTableViewCell: UITableViewCell {
                     labelName.text = shopName
                 }
                 
-                if let hpCurrent = card.hpCurrent, let hpRequire = card.hpRequire{
-                    labelHpCurrent.text = "\(hpCurrent)"
-                    labelHpMore.text = "\(hpRequire - hpCurrent)"
+                if let rewardTitle = card.rewardTitle {
+                    labelRewardName.text = rewardTitle
                 }
             }
         }
     }
     
-//    @IBAction func buttonShopTapped(_ sender: AnyObject) {
-//        delegate?.shopTapped(card: card)
-//    }
+    //    @IBAction func buttonShopTapped(_ sender: AnyObject) {
+    //        delegate?.shopTapped(card: card)
+    //    }
     
     @IBAction func buttonMoreTapped(_ sender: AnyObject) {
         delegate?.moreTapped(card: card)
     }
-
+    
     @IBAction func buttonCellTapped(_ sender: AnyObject) {
         delegate?.cellTapped(card: card)
     }

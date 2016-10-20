@@ -40,6 +40,7 @@ class MyCardViewController: BaseViewController {
 
     override func viewConfig() {
         tableView.register(UINib(nibName: MyCardTableViewCell.identify, bundle: nil), forCellReuseIdentifier: MyCardTableViewCell.identify)
+        tableView.register(UINib(nibName: MyCardRewardTableViewCell.identify, bundle: nil), forCellReuseIdentifier: MyCardRewardTableViewCell.identify)
         tableView.tableFooterView = UIView()
         refreshControl = UIRefreshControl()
         if let refreshControl = refreshControl {
@@ -57,26 +58,29 @@ class MyCardViewController: BaseViewController {
         let cardRequest = CardRequest(nextPage: nextPage ?? nil)
         weak var _self = self
         CardStore.getUserCard(cardRequest: cardRequest) { (cardResponse, error) in
-            if let refreshControl = _self?.refreshControl{
-                refreshControl.endRefreshing()
-            }
-            guard error == nil else {
-                if let error = error as? ServerResponseError, let data = error.data {
-                    let messageView = MessageView(frame: self.view.bounds)
-                    messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
-                    self.view.addFullView(view: messageView)
+            if let _self = _self {
+                if let refreshControl = _self.refreshControl{
+                    refreshControl.endRefreshing()
                 }
-                return
-            }
-            
-            if let cardResponse = cardResponse {
-                if let cards = cardResponse.cards {
-                    _self?.cards = cards
+                guard error == nil else {
+                    if let error = error as? ServerResponseError, let data = error.data {
+                        let messageView = MessageView(frame: _self.view.bounds)
+                        messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
+                        _self.view.addFullView(view: messageView)
+                    }
+                    return
                 }
-                if let pagination = cardResponse.pagination, let nextPage = pagination.nextPage {
-                    _self?.nextPage = nextPage
+                
+                if let cardResponse = cardResponse {
+                    if let cards = cardResponse.cards {
+                        _self.cards = cards
+                    }
+                    if let pagination = cardResponse.pagination, let nextPage = pagination.nextPage {
+                        _self.nextPage = nextPage
+                    }
                 }
             }
+
         }
     }
     
@@ -95,62 +99,73 @@ extension MyCardViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: MyCardTableViewCell.identify, for: indexPath) as! MyCardTableViewCell
-        
         if let cards = cards {
-            cell.delegate = self
-            cell.card = cards[indexPath.row]
+            let card = cards[indexPath.row]
+            if card.isReward() {
+                let cell = tableView.dequeueReusableCell(withIdentifier: MyCardRewardTableViewCell.identify, for: indexPath) as! MyCardRewardTableViewCell
+                cell.delegate = self
+                cell.card = card
+                return cell
+            } else {
+                let cell = tableView.dequeueReusableCell(withIdentifier: MyCardTableViewCell.identify, for: indexPath) as! MyCardTableViewCell
+                cell.delegate = self
+                cell.card = card
+                return cell
+            }
         }
-        return cell
+        return UITableViewCell()
     }
 }
 
-extension MyCardViewController: MyCardTableViewCellDelegate {
+extension MyCardViewController: MyCardTableViewCellDelegate, MyCardRewardTableViewCellDelegate {
     func cellTapped(card: Card?) {
         delegate?.buttonCardTapped(card: card)
     }
     
     func moreTapped(card: Card?) {
+        weak var _self = self
+        
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let deleteAction = UIAlertAction(title: "Xoá thẻ", style: .destructive) { (action) in
-            
-            let alertView = AlertView(frame: self.view.bounds)
-            alertView.message = "Xác nhận xoá thẻ?"
-            alertView.setButtonSubmit("Xoá", action: {
-                let loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: true)
-                loadingNotification.mode = MBProgressHUDMode.indeterminate
-                if let card = card, let cardID = card.shopID {
-                    weak var _self = self
-                    CardStore.deleteCard(cardID: cardID, completionHandler: { (success, error) in
-                        
-                        loadingNotification.hide(animated: true)
-                        
-                        guard error == nil else {
-                            if let error = error as? ServerResponseError, let data = error.data {
-                                let messageView = MessageView(frame: self.view.bounds)
-                                messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
-                                _self?.view.addFullView(view: messageView)
+            if let _self = _self {
+                let alertView = AlertView(frame: _self.view.bounds)
+                alertView.message = "Xác nhận xoá thẻ?"
+                alertView.setButtonSubmit("Xoá", action: {
+                    let loadingNotification = MBProgressHUD.showAdded(to: _self.view, animated: true)
+                    loadingNotification.mode = MBProgressHUDMode.indeterminate
+                    if let card = card, let cardID = card.shopID {
+                        CardStore.deleteCard(cardID: cardID, completionHandler: { (success, error) in
+                            
+                            loadingNotification.hide(animated: true)
+                            
+                            
+                            guard error == nil else {
+                                if let error = error as? ServerResponseError, let data = error.data {
+                                    let messageView = MessageView(frame: _self.view.bounds)
+                                    messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
+                                    _self.view.addFullView(view: messageView)
+                                }
+                                return
                             }
-                            return
-                        }
-                        
-                        if success {
-                            if let cards = _self?.cards {
-                                var tempCard: [Card] = [Card]()
-                                for mainCard in cards {
-                                    if let mainCardID = mainCard.shopID {
-                                        if mainCardID != cardID {
-                                            tempCard.append(mainCard)
+                            
+                            if success {
+                                if let cards = _self.cards {
+                                    var tempCard: [Card] = [Card]()
+                                    for mainCard in cards {
+                                        if let mainCardID = mainCard.shopID {
+                                            if mainCardID != cardID {
+                                                tempCard.append(mainCard)
+                                            }
                                         }
                                     }
+                                    _self.cards = tempCard
                                 }
-                                _self?.cards = tempCard
                             }
-                        }
-                    })
-                }
-            })
-            self.view.addFullView(view: alertView)
+                        })
+                    }
+                })
+                _self.view.addFullView(view: alertView)
+            }
         }
         alertController.addAction(deleteAction)
         

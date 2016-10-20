@@ -26,6 +26,13 @@ enum MenuItemFields: String {
     case FoodType = "food_type"
 }
 
+enum ItemType: Int {
+    case mainCourse = 1
+    case apertiser = 2
+    case dessers = 3
+    case drink = 4
+}
+
 class MenuItem: NSObject {
     var itemID: String?
     var name: String?
@@ -38,7 +45,7 @@ class MenuItem: NSObject {
     var isLiked: Bool?
     var categoryID: String?
     // get All Food
-    var foodType: Int?
+    var foodType: ItemType?
     
     required init(json: JSON) {
         itemID = json[MenuItemFields.ItemID.rawValue].string
@@ -50,8 +57,20 @@ class MenuItem: NSObject {
         totalReviews = json[MenuItemFields.TotalReviews.rawValue].int
         totalLikes = json[MenuItemFields.TotalLikes.rawValue].int
         isLiked = json[MenuItemFields.IsLiked.rawValue].bool
-        categoryID = json[MenuItemFields.IsLiked.rawValue].string
+        categoryID = json[MenuItemFields.Category.rawValue].string
         // get All Food
-        foodType = json[MenuItemFields.IsLiked.rawValue].int
+        let type = json[MenuItemFields.FoodType.rawValue].intValue
+        switch type {
+        case 1:
+            foodType = .mainCourse
+        case 2:
+            foodType = .apertiser
+        case 3:
+            foodType = .dessers
+        case 4:
+            foodType = .drink
+        default:
+            break
+        }
     }
 }

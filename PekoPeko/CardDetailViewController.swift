@@ -173,15 +173,18 @@ class CardDetailViewController: BaseViewController {
             if let card = card, let cardID = card.shopID {
                 weak var _self = self
                 CardStore.addCard(cardID: cardID, completionHandler: { (success, error) in
-                    guard error == nil else {
-                        if let error = error as? ServerResponseError, let data = error.data {
-                            let messageView = MessageView(frame: self.view.bounds)
-                            messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
-                            self.view.addFullView(view: messageView)
+                    if let _self = _self {
+                        guard error == nil else {
+                            if let error = error as? ServerResponseError, let data = error.data {
+                                let messageView = MessageView(frame: _self.view.bounds)
+                                messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
+                                self.view.addFullView(view: messageView)
+                            }
+                            return
                         }
-                        return
+                        _self.isAdded = success
                     }
-                    _self?.isAdded = success
+
                 })
             }
         }
@@ -288,7 +291,7 @@ extension CardDetailViewController: CardAddressViewDelegate {
 extension CardDetailViewController: AddPointViewControllerDelegate {
     func pointAdded(point: Point?) {
         if let point = point {
-            let messageView = MessageView(frame: self.view.bounds)
+            let messageView = MessageView(frame: view.bounds)
             if let honeyPot = point.honeyPot {
                 if honeyPot == 0 {
                     messageView.message = "Tổng hoá đơn của bạn không đủ lớn để nhận điểm"

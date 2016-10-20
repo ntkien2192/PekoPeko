@@ -114,6 +114,10 @@
 		E49D5A8F1DB1C62A001E19DD /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49D5A8E1DB1C62A001E19DD /* Point.swift */; };
 		E4CC4A671DAF3991003B8385 /* DiscountCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CC4A651DAF3991003B8385 /* DiscountCardTableViewCell.swift */; };
 		E4CC4A681DAF3991003B8385 /* DiscountCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4CC4A661DAF3991003B8385 /* DiscountCardTableViewCell.xib */; };
+		E4E0414C1DB74576001E0226 /* MyCardRewardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E0414A1DB74576001E0226 /* MyCardRewardTableViewCell.swift */; };
+		E4E0414D1DB74576001E0226 /* MyCardRewardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4E0414B1DB74576001E0226 /* MyCardRewardTableViewCell.xib */; };
+		E4E041511DB75054001E0226 /* ShopMenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E0414F1DB75054001E0226 /* ShopMenuCollectionViewCell.swift */; };
+		E4E041521DB75054001E0226 /* ShopMenuCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4E041501DB75054001E0226 /* ShopMenuCollectionViewCell.xib */; };
 		E4EC1D7B1DB5C30C005CECB6 /* ShopMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EC1D791DB5C30C005CECB6 /* ShopMenuTableViewCell.swift */; };
 		E4EC1D7C1DB5C30C005CECB6 /* ShopMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4EC1D7A1DB5C30C005CECB6 /* ShopMenuTableViewCell.xib */; };
 		E4EC1D7F1DB5C32C005CECB6 /* ShopMenu2TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EC1D7D1DB5C32C005CECB6 /* ShopMenu2TableViewCell.swift */; };
@@ -278,6 +282,10 @@
 		E49D5A8E1DB1C62A001E19DD /* Point.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
 		E4CC4A651DAF3991003B8385 /* DiscountCardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountCardTableViewCell.swift; sourceTree = "<group>"; };
 		E4CC4A661DAF3991003B8385 /* DiscountCardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiscountCardTableViewCell.xib; sourceTree = "<group>"; };
+		E4E0414A1DB74576001E0226 /* MyCardRewardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCardRewardTableViewCell.swift; sourceTree = "<group>"; };
+		E4E0414B1DB74576001E0226 /* MyCardRewardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCardRewardTableViewCell.xib; sourceTree = "<group>"; };
+		E4E0414F1DB75054001E0226 /* ShopMenuCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopMenuCollectionViewCell.swift; sourceTree = "<group>"; };
+		E4E041501DB75054001E0226 /* ShopMenuCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShopMenuCollectionViewCell.xib; sourceTree = "<group>"; };
 		E4EC1D791DB5C30C005CECB6 /* ShopMenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopMenuTableViewCell.swift; sourceTree = "<group>"; };
 		E4EC1D7A1DB5C30C005CECB6 /* ShopMenuTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShopMenuTableViewCell.xib; sourceTree = "<group>"; };
 		E4EC1D7D1DB5C32C005CECB6 /* ShopMenu2TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopMenu2TableViewCell.swift; sourceTree = "<group>"; };
@@ -397,6 +405,7 @@
 		E41DC0921DB4D31200411F55 /* ShopDetailTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				E4E0414E1DB75032001E0226 /* ShopMenuCollectionViewCell */,
 				E42D538A1DB5BFB200EA76A8 /* ShopMenuTableViewCell */,
 				E41DC0A31DB4D9A800411F55 /* ShopAddressTableViewCell */,
 				E41DC0981DB4D5D700411F55 /* ShopInfoTableViewCell */,
@@ -446,6 +455,8 @@
 			children = (
 				E42469DF1DADF55800D0A074 /* MyCardTableViewCell.swift */,
 				E42469E01DADF55800D0A074 /* MyCardTableViewCell.xib */,
+				E4E0414A1DB74576001E0226 /* MyCardRewardTableViewCell.swift */,
+				E4E0414B1DB74576001E0226 /* MyCardRewardTableViewCell.xib */,
 			);
 			name = MyCardTableViewCell;
 			sourceTree = "<group>";
@@ -799,6 +810,15 @@
 			name = DiscountCardTableViewCell;
 			sourceTree = "<group>";
 		};
+		E4E0414E1DB75032001E0226 /* ShopMenuCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				E4E0414F1DB75054001E0226 /* ShopMenuCollectionViewCell.swift */,
+				E4E041501DB75054001E0226 /* ShopMenuCollectionViewCell.xib */,
+			);
+			name = ShopMenuCollectionViewCell;
+			sourceTree = "<group>";
+		};
 		E4EC1D871DB5C4E9005CECB6 /* ShopMenuTitleTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -960,6 +980,7 @@
 				E42469FE1DAE101C00D0A074 /* ProximaNovaSoft-Regular.otf in Resources */,
 				E4246A001DAE101C00D0A074 /* ProximaNovaSoft-Semibold.otf in Resources */,
 				E4EC1D7C1DB5C30C005CECB6 /* ShopMenuTableViewCell.xib in Resources */,
+				E4E041521DB75054001E0226 /* ShopMenuCollectionViewCell.xib in Resources */,
 				E427F8E51DAF5F580012F3F5 /* RewardTableViewCell.xib in Resources */,
 				E414486C1DB0D79B006C70EF /* Shop.storyboard in Resources */,
 				E4246A011DAE101C00D0A074 /* UTM Bebas.ttf in Resources */,
@@ -975,6 +996,7 @@
 				E423FB051DB337AF005C51BB /* CardAddressTableViewCell.xib in Resources */,
 				E49404D81DA6B60800918C75 /* Home.storyboard in Resources */,
 				E414485F1DB09718006C70EF /* RedeemSuccessView.xib in Resources */,
+				E4E0414D1DB74576001E0226 /* MyCardRewardTableViewCell.xib in Resources */,
 				E434E6021DAF480D00AFC400 /* PointCardTableViewCell.xib in Resources */,
 				E476B0241DA92AB4007B1D62 /* Card.storyboard in Resources */,
 				E416D0F31DB605E7002BBA81 /* ShopCoverTableViewCell.xib in Resources */,
@@ -1190,6 +1212,7 @@
 				E42B6AE11DAB394B0091746F /* LoginParameter.swift in Sources */,
 				E4EC1D8B1DB5C517005CECB6 /* ShopMenuShowMoreTableViewCell.swift in Sources */,
 				E470CF651DAC99BA00434909 /* UserStore.swift in Sources */,
+				E4E041511DB75054001E0226 /* ShopMenuCollectionViewCell.swift in Sources */,
 				E43D2C7F1DA7F6840019B2DD /* HomeTabbarController.swift in Sources */,
 				E423FB071DB34661005C51BB /* TableView.swift in Sources */,
 				E42422921DA8A47900F7D6FC /* Authentication.swift in Sources */,
@@ -1201,6 +1224,7 @@
 				E46894E81DB697060004B322 /* SMSegmentAppearance.swift in Sources */,
 				E45746DB1DB27F1200021604 /* Reward.swift in Sources */,
 				E46CD5861DB4B25C001F37AF /* Shop.swift in Sources */,
+				E4E0414C1DB74576001E0226 /* MyCardRewardTableViewCell.swift in Sources */,
 				E41448571DB08EE2006C70EF /* RedeemRequest.swift in Sources */,
 				E46894E91DB697060004B322 /* SMSegmentView.swift in Sources */,
 				E427F8EC1DAF91280012F3F5 /* SettingViewController.swift in Sources */,

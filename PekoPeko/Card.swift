@@ -122,7 +122,7 @@ class Card: NSObject {
         addressID = json[CardFields.AddressID.rawValue].string
         hpRequire = json[CardFields.HPRequire.rawValue].int
         hpCurrent = json[CardFields.HPCurrent.rawValue].int
-        rewardTitle = json[CardFields.AddressID.rawValue].string
+        rewardTitle = json[CardFields.RewardTitle.rawValue].string
         
         // card detail
         shopPhone = json[CardFields.ShopPhone.rawValue].string
@@ -132,6 +132,17 @@ class Card: NSObject {
         isShopIpos = json[CardFields.ShopIpos.rawValue].bool
         rewards = json[CardFields.Rewards.rawValue].arrayValue.map({ AllReward(json: $0) })
         openingTime = WordTime(json: json[CardFields.ShopPhone.rawValue])
+    }
+    
+    func isReward() -> Bool {
+        if let hpCurrent = hpCurrent, let hpRequire = hpRequire {
+            if hpCurrent >= hpRequire {
+                return true
+            } else {
+                return false
+            }
+        }
+        return false
     }
 }
 

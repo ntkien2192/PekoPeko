@@ -17,6 +17,9 @@ target 'PekoPeko' do
   pod 'HanekeSwift', :git => 'https://github.com/Haneke/HanekeSwift.git', :branch => 'feature/swift-3'
   pod 'SwiftDate', '~> 4.0'
   pod 'TSCurrencyTextField', '~> 0.1.0'
+  pod 'FBSDKCoreKit'
+  pod 'FBSDKShareKit'
+  pod 'FBSDKLoginKit'
   
   # Pods for PekoPeko
 

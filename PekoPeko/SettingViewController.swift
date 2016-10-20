@@ -35,18 +35,20 @@ class SettingViewController: BaseViewController {
                 buttonAvatar.isHidden = true
                 weak var _self = self
                 UserStore.updateAvatar(avatar, completionHandler: { (imageUrl, error) in
-                    _self?.activityUploadData.stopAnimating()
-                    _self?.buttonTakePicture.isHidden = false
-                    _self?.buttonAvatar.isHidden = false
-                    guard error == nil else {
-                        if let error = error as? ServerResponseError, let data = error.data {
-                            let messageView = MessageView(frame: self.view.bounds)
-                            messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
-                            self.view.addFullView(view: messageView)
+                    if let _self = _self {
+                        _self.activityUploadData.stopAnimating()
+                        _self.buttonTakePicture.isHidden = false
+                        _self.buttonAvatar.isHidden = false
+                        guard error == nil else {
+                            if let error = error as? ServerResponseError, let data = error.data {
+                                let messageView = MessageView(frame: _self.view.bounds)
+                                messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
+                                self.view.addFullView(view: messageView)
+                            }
+                            return
                         }
-                        return
+                        _self.buttonAvatar.setImage(url: imageUrl ?? "")
                     }
-                    _self?.buttonAvatar.setImage(url: imageUrl ?? "")
                 })
             }
         }
@@ -101,19 +103,21 @@ class SettingViewController: BaseViewController {
     func getUserInfo() {
         weak var _self = self
         UserStore.getBaseUserInfo { (user, error) in
-            if let refreshControl = _self?.refreshControl {
-                refreshControl.endRefreshing()
-            }
-            guard error == nil else {
-                if let error = error as? ServerResponseError, let data = error.data {
-                    let messageView = MessageView(frame: self.view.bounds)
-                    messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
-                    self.view.addFullView(view: messageView)
+            if let _self = _self {
+                if let refreshControl = _self.refreshControl {
+                    refreshControl.endRefreshing()
                 }
-                return
-            }
-            if let user = user {
-                _self?.user = user
+                guard error == nil else {
+                    if let error = error as? ServerResponseError, let data = error.data {
+                        let messageView = MessageView(frame: _self.view.bounds)
+                        messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
+                        _self.view.addFullView(view: messageView)
+                    }
+                    return
+                }
+                if let user = user {
+                    _self.user = user
+                }
             }
         }
     }

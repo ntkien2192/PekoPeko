@@ -127,18 +127,20 @@ class AddPointViewController: BaseViewController {
             if let shopID = qrCode.shopID, let addressID = qrCode.addressID {
                 weak var _self = self
                 ShopStore.getShopInfo(shopID: shopID, addressID: addressID, completionHandler: { (shop, error) in
-                    guard error == nil else {
-                        if let error = error as? ServerResponseError, let data = error.data {
-                            let messageView = MessageView(frame: self.view.bounds)
-                            messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
-                            self.view.addFullView(view: messageView)
+                    if let _self = _self {
+                        guard error == nil else {
+                            if let error = error as? ServerResponseError, let data = error.data {
+                                let messageView = MessageView(frame: _self.view.bounds)
+                                messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
+                                self.view.addFullView(view: messageView)
+                            }
+                            return
                         }
-                        return
-                    }
-                    
-                    if let shop = shop {
-                        _self?.card = Card(shop: shop)
-                        _self?.loadRewardInfo()
+                        
+                        if let shop = shop {
+                            _self.card = Card(shop: shop)
+                            _self.loadRewardInfo()
+                        }
                     }
                 })
             }
@@ -170,7 +172,7 @@ class AddPointViewController: BaseViewController {
         }
         
         if !error.isEmpty {
-            let messageView = MessageView(frame: self.view.bounds)
+            let messageView = MessageView(frame: view.bounds)
             messageView.message = error
             self.view.addFullView(view: messageView)
         } else {
@@ -210,20 +212,23 @@ class AddPointViewController: BaseViewController {
             weak var _self = self
             
             RedeemStore.redeemPoint(point: point, completionHandler: { (point, error) in
-                guard error == nil else {
-                    if let error = error as? ServerResponseError, let data = error.data {
-                        let messageView = MessageView(frame: self.view.bounds)
-                        messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
-                        self.view.addFullView(view: messageView)
+                if let _self = _self {
+                    guard error == nil else {
+                        if let error = error as? ServerResponseError, let data = error.data {
+                            let messageView = MessageView(frame: _self.view.bounds)
+                            messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
+                            self.view.addFullView(view: messageView)
+                        }
+                        return
                     }
-                    return
+                    
+                    if let point = point {
+                        _self.dismiss(animated: true, completion: {
+                            _self.delegate?.pointAdded(point: point)
+                        })
+                    }
                 }
-                
-                if let point = point {
-                    _self?.dismiss(animated: true, completion: {
-                        _self?.delegate?.pointAdded(point: point)
-                    })
-                }
+
             })
         }
     }

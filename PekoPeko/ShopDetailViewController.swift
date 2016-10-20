@@ -46,6 +46,8 @@ class ShopDetailViewController: UIViewController {
     @IBOutlet weak var labelTitle: UILabel!
     @IBOutlet weak var navigationView: UIView!
     
+    var refreshControl: UIRefreshControl?
+    
     var rowDisplayType: [Int] = [Int]() {
         didSet {
             tableView.reloadData()
@@ -82,25 +84,16 @@ class ShopDetailViewController: UIViewController {
                         }
                         
                         if tempMenuItems.count > 1 {
-                            if tempMenuItems.count % 2 == 0 {
-                                for _ in 0..<Int(tempMenuItems.count / 2) {
-                                    let menuCellItem = MenuCellItem(item1: tempMenuItems[0], item2: tempMenuItems[1])
-                                    tempArr.append(menuCellItem)
-                                    type.append(index)
-                                    index = index + 1
-                                    tempMenuItems.remove(at: 0)
-                                    tempMenuItems.remove(at: 0)
-                                }
-                            } else {
-                                for _ in 0..<Int(tempMenuItems.count / 2) {
-                                    let menuCellItem = MenuCellItem(item1: tempMenuItems[0], item2: tempMenuItems[1])
-                                    tempArr.append(menuCellItem)
-                                    type.append(index)
-                                    index = index + 1
-                                    tempMenuItems.remove(at: 0)
-                                    tempMenuItems.remove(at: 0)
-                                }
-                                
+                            for _ in 0..<Int(tempMenuItems.count / 2) {
+                                let menuCellItem = MenuCellItem(item1: tempMenuItems[0], item2: tempMenuItems[1])
+                                tempArr.append(menuCellItem)
+                                type.append(index)
+                                index = index + 1
+                                tempMenuItems.remove(at: 0)
+                                tempMenuItems.remove(at: 0)
+                            }
+                            
+                            if tempMenuItems.count != 0 {
                                 let menuCellItem = MenuCellItem(item: tempMenuItems[0])
                                 tempArr.append(menuCellItem)
                                 type.append(index)
@@ -114,13 +107,23 @@ class ShopDetailViewController: UIViewController {
                     }
                 }
                 
-                self.rowDisplayType = type
+                rowDisplayType = type
+                isLoaded = true
             }
-            
         }
     }
     
     var menuItem: [MenuCellItem]?
+    
+    var isLoaded: Bool = false {
+        didSet {
+            if isLoaded {
+                UIView.animate(withDuration: 0.2, animations: { 
+                    self.navigationView.alpha = 0.0
+                })
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -139,6 +142,13 @@ class ShopDetailViewController: UIViewController {
         tableView.register(UINib(nibName: ShopMenuTableViewCell.identify, bundle: nil), forCellReuseIdentifier: ShopMenuTableViewCell.identify)
         tableView.register(UINib(nibName: ShopMenu2TableViewCell.identify, bundle: nil), forCellReuseIdentifier: ShopMenu2TableViewCell.identify)
         tableView.register(UINib(nibName: ShopMenuShowMoreTableViewCell.identify, bundle: nil), forCellReuseIdentifier: ShopMenuShowMoreTableViewCell.identify)
+        
+        refreshControl = UIRefreshControl()
+        if let refreshControl = refreshControl {
+            refreshControl.addTarget(self, action: #selector(ShopDetailViewController.reloadShopInfo), for: .valueChanged)
+            tableView.addSubview(refreshControl)
+            tableView.sendSubview(toBack: refreshControl)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -152,21 +162,55 @@ class ShopDetailViewController: UIViewController {
         UIApplication.shared.statusBarStyle = .default
     }
     
-    func getShopInfo() {
-        if let card = card {
-            if let shopID = card.shopID {
-                weak var _self = self
-                ShopStore.getShopFullInfo(shopID: shopID, completionHandler: { (shop, error) in
+    func reloadShopInfo() {
+        if let card = card, let shopID = card.shopID {
+            weak var _self = self
+            ShopStore.getShopFullInfo(shopID: shopID, completionHandler: { (shop, error) in
+                if let _self = _self {
+                    if let refreshControl = _self.refreshControl {
+                        refreshControl.endRefreshing()
+                    }
+                    
                     guard error == nil else {
                         if let error = error as? ServerResponseError, let data = error.data {
-                            let messageView = MessageView(frame: self.view.bounds)
+                            let messageView = MessageView(frame: _self.view.bounds)
                             messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
-                            self.view.addFullView(view: messageView)
+                            _self.view.addFullView(view: messageView)
                         }
                         return
                     }
                     if let shop = shop {
-                        _self?.shop = shop
+                        _self.shop = shop
+                    }
+                }
+            })
+        }
+    }
+    
+    func getShopInfo() {
+        if let card = card {
+            if let shopID = card.shopID {
+
+                let loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: true)
+                loadingNotification.mode = MBProgressHUDMode.indeterminate
+                
+                weak var _self = self
+                ShopStore.getShopFullInfo(shopID: shopID, completionHandler: { (shop, error) in
+                    if let _self = _self {
+                        
+                        loadingNotification.hide(animated: true)
+                        
+                        guard error == nil else {
+                            if let error = error as? ServerResponseError, let data = error.data {
+                                let messageView = MessageView(frame: _self.view.bounds)
+                                messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
+                                _self.view.addFullView(view: messageView)
+                            }
+                            return
+                        }
+                        if let shop = shop {
+                            _self.shop = shop
+                        }
                     }
                 })
             }
@@ -247,8 +291,10 @@ extension ShopDetailViewController: UITableViewDelegate {
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let value = scrollView.contentOffset.y > 100.0 ? 100.0 : scrollView.contentOffset.y
-        navigationView.alpha = value / 100.0
+        if isLoaded {
+            let value = scrollView.contentOffset.y > 100.0 ? 100.0 : scrollView.contentOffset.y
+            navigationView.alpha = value / 100.0
+        }
     }
 }
 
@@ -268,41 +314,52 @@ extension ShopDetailViewController: ShopInfoTableViewCellDelegate {
             if isFollowing {
                 let loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: true)
                 loadingNotification.mode = MBProgressHUDMode.indeterminate
+                
+                weak var _self = self
+                
                 UserStore.unFollow(followingID: shopID, completionHandler: { (success, error) in
-                    loadingNotification.hide(animated: true)
-                    guard error == nil else {
-                        if let error = error as? ServerResponseError, let data = error.data {
-                            let messageView = MessageView(frame: self.view.bounds)
-                            messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
-                            self.view.addFullView(view: messageView)
+                    if let _self = _self {
+                        loadingNotification.hide(animated: true)
+                        guard error == nil else {
+                            if let error = error as? ServerResponseError, let data = error.data {
+                                let messageView = MessageView(frame: _self.view.bounds)
+                                messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
+                                _self.view.addFullView(view: messageView)
+                            }
+                            return
                         }
-                        return
+                        
+                        if success {
+                            shop.isFollowing = false
+                            shop.followers = (shop.followers ?? 1) - 1
+                            _self.tableView.reloadRows(at: [IndexPath(item: 1, section: 0)], with: .automatic)
+                        }
                     }
-                    
-                    if success {
-                        shop.isFollowing = false
-                        shop.followers = (shop.followers ?? 1) - 1
-                        self.tableView.reloadRows(at: [IndexPath(item: 1, section: 0)], with: .automatic)
-                    }
+
                 })
             } else {
                 let loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: true)
                 loadingNotification.mode = MBProgressHUDMode.indeterminate
+                
+                weak var _self = self
+                
                 UserStore.follow(followingID: shopID, completionHandler: { (success, error) in
-                    loadingNotification.hide(animated: true)
-                    guard error == nil else {
-                        if let error = error as? ServerResponseError, let data = error.data {
-                            let messageView = MessageView(frame: self.view.bounds)
-                            messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
-                            self.view.addFullView(view: messageView)
+                    if let _self = _self {
+                        loadingNotification.hide(animated: true)
+                        guard error == nil else {
+                            if let error = error as? ServerResponseError, let data = error.data {
+                                let messageView = MessageView(frame: _self.view.bounds)
+                                messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
+                                _self.view.addFullView(view: messageView)
+                            }
+                            return
                         }
-                        return
-                    }
-                    
-                    if success {
-                        shop.isFollowing = true
-                        shop.followers = (shop.followers ?? 0) + 1
-                        self.tableView.reloadRows(at: [IndexPath(item: 1, section: 0)], with: .automatic)
+                        
+                        if success {
+                            shop.isFollowing = true
+                            shop.followers = (shop.followers ?? 0) + 1
+                            _self.tableView.reloadRows(at: [IndexPath(item: 1, section: 0)], with: .automatic)
+                        }
                     }
                 })
             }
@@ -312,7 +369,7 @@ extension ShopDetailViewController: ShopInfoTableViewCellDelegate {
 
 extension ShopDetailViewController: ShopAddressTableViewCellDelegate, CardAddressViewDelegate {
     func telephoneTapped(shop: Shop?, telephone: String) {
-        let alertView = AlertView(frame: self.view.bounds)
+        let alertView = AlertView(frame: view.bounds)
         alertView.message = telephone
         alertView.setButtonSubmit("Gọi", action: {
             if let url = URL(string: "tel://\(telephone)") {
@@ -335,7 +392,7 @@ extension ShopDetailViewController: ShopAddressTableViewCellDelegate, CardAddres
         if let address = address, let location = address.location {
             if let lat = location.latitude, let lon = location.longitude {
                 
-                let alertView = AlertView(frame: self.view.bounds)
+                let alertView = AlertView(frame: view.bounds)
                 alertView.message = "Chuyển sang ứng dụng bản đồ"
                 alertView.setButtonSubmit("Chuyển", action: {
                     if let url = URL(string: "http://maps.apple.com/?address=\(lat),\(lon)") {

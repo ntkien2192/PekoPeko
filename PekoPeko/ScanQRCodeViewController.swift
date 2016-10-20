@@ -85,7 +85,7 @@ class ScanQRCodeViewController: UIViewController {
 extension ScanQRCodeViewController: AddPointViewControllerDelegate {
     func pointAdded(point: Point?) {
         if let point = point {
-            let messageView = MessageView(frame: self.view.bounds)
+            let messageView = MessageView(frame: view.bounds)
             if let honeyPot = point.honeyPot {
                 if honeyPot == 0 {
                     messageView.message = "Tổng hoá đơn của bạn không đủ lớn để nhận điểm"

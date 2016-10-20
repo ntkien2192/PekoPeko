@@ -76,26 +76,29 @@ class CardListViewController: BaseViewController {
         let cardRequest = CardRequest(location: userLocation ?? nil, nextPage: nextPage ?? nil)
         weak var _self = self
         CardStore.getAllCard(cardRequest: cardRequest) { (cardResponse, error) in
-            if let refreshControl = _self?.refreshControl{
-                refreshControl.endRefreshing()
-            }
-            guard error == nil else {
-                if let error = error as? ServerResponseError, let data = error.data {
-                    let messageView = MessageView(frame: self.view.bounds)
-                    messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
-                    self.view.addFullView(view: messageView)
+            if let _self = _self {
+                if let refreshControl = _self.refreshControl {
+                    refreshControl.endRefreshing()
                 }
-                return
-            }
-            
-            if let cardResponse = cardResponse {
-                if let cards = cardResponse.cards {
-                    _self?.cards = cards
+                guard error == nil else {
+                    if let error = error as? ServerResponseError, let data = error.data {
+                        let messageView = MessageView(frame: _self.view.bounds)
+                        messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
+                        _self.view.addFullView(view: messageView)
+                    }
+                    return
                 }
-                if let pagination = cardResponse.pagination, let nextPage = pagination.nextPage {
-                    _self?.nextPage = nextPage
+                
+                if let cardResponse = cardResponse {
+                    if let cards = cardResponse.cards {
+                        _self.cards = cards
+                    }
+                    if let pagination = cardResponse.pagination, let nextPage = pagination.nextPage {
+                        _self.nextPage = nextPage
+                    }
                 }
             }
+
         }
     }
     
