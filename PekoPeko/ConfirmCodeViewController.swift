@@ -210,7 +210,7 @@ extension ConfirmCodeViewController: UITextFieldDelegate {
         textField.layer.borderWidth = 2.0
         
         
-        if let constraintValue = DeviceConfig.getConstraintValue(d35: -40, d40: -90, d50: -50, d55: 0) {
+        if let constraintValue = DeviceConfig.getConstraintValue(d35: -40, d40: -90, d50: -50, d55: -50) {
             if constraintTop.constant != constraintValue {
                 constraintTop.constant = constraintValue
                 view.setNeedsLayout()

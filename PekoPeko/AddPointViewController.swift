@@ -15,6 +15,7 @@ class AddPointViewController: BaseViewController {
     static let storyboardName = "Redeem"
     static let identify = "AddPointViewController"
     
+    @IBOutlet weak var constraintPinViewTop: NSLayoutConstraint!
     @IBOutlet weak var labelTitle: UILabel!
     @IBOutlet weak var labelName: UILabel!
     @IBOutlet weak var labelAddress: UILabel!
@@ -38,7 +39,11 @@ class AddPointViewController: BaseViewController {
     var address: Address?
     
     var isScan: Bool = false
-    
+    var isDiscount: Bool = false {
+        didSet {
+            constraintPinViewTop.constant = !isDiscount ? 20 : 90
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -90,6 +95,14 @@ class AddPointViewController: BaseViewController {
         }
         
         if let card = card {
+            if let discount = card.discount {
+                if discount.title != nil {
+                    isDiscount = true
+                } else {
+                    isDiscount = false
+                }
+            }
+            
             if let shopName = card.shopName {
                 labelTitle.text = shopName
                 labelName.text = shopName
@@ -287,10 +300,10 @@ class AddPointViewController: BaseViewController {
 extension AddPointViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.layer.borderWidth = 2.0
-        
-        if let constraintValue = DeviceConfig.getConstraintValue(d35: -40, d40: -200, d50: -65, d55: 0) {
-            if constraintTop.constant != constraintValue {
-                constraintTop.constant = constraintValue
+        let discountY: CGFloat = !isDiscount ? 90.0 : 0.0
+        if let constraintValue = DeviceConfig.getConstraintValue(d35: -40, d40: -200, d50: -70, d55: -70) {
+            if constraintTop.constant != constraintValue + discountY {
+                constraintTop.constant = constraintValue + discountY
                 view.setNeedsLayout()
                 weak var _self = self
                 UIView.animate(withDuration: 0.2, animations: {
@@ -306,13 +319,22 @@ extension AddPointViewController: UITextFieldDelegate {
         let tfs = [textfieldCode1, textfieldCode2, textfieldCode3, textfieldCode4, textfieldCode5, textfieldCode6]
         for i in 0..<tfs.count {
             if textField == tfs[i] {
-                if (i + 1) < tfs.count {
-                    if let textF = tfs[i + 1] {
-                        textF.becomeFirstResponder()
-                        return false
+                if string.isEmpty {
+                    if (i - 1) >= 0 {
+                        if let textF = tfs[i - 1] {
+                            textF.becomeFirstResponder()
+                            return false
+                        }
                     }
                 } else {
-                    hideKeyboard()
+                    if (i + 1) < tfs.count {
+                        if let textF = tfs[i + 1] {
+                            textF.becomeFirstResponder()
+                            return false
+                        }
+                    } else {
+                        hideKeyboard()
+                    }
                 }
                 break
             }

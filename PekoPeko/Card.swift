@@ -10,18 +10,6 @@ import UIKit
 import SwiftyJSON
 import CoreLocation
 
-enum PaginationFields: String {
-    case NextPage = "next"
-}
-
-class Pagination: NSObject {
-    var nextPage: String?
-    
-    required init(json: JSON) {
-        nextPage = json[PaginationFields.NextPage.rawValue].string
-    }
-}
-
 enum AllRewardFields: String {
     case Current = "current"
     case Rewards = "rewards"

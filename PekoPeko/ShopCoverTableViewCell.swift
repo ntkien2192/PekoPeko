@@ -23,7 +23,7 @@ class ShopCoverTableViewCell: UITableViewCell {
                 let fetcher = NetworkFetcher<UIImage>(URL: URL as URL)
                 weak var _self = self
                 _ = cache.fetch(fetcher: fetcher).onSuccess({ (image) in
-                    _self?.imageViewCover.image = image
+                    _self?.imageViewCover.image = image.cropToBounds(width: image.size.width, height: image.size.width * 200.0 / 320.0)
                 })
             }
         }

@@ -188,13 +188,22 @@ extension RedeemViewController: UITextFieldDelegate {
         let tfs = [textfieldCode1, textfieldCode2, textfieldCode3, textfieldCode4, textfieldCode5, textfieldCode6]
         for i in 0..<tfs.count {
             if textField == tfs[i] {
-                if (i + 1) < tfs.count {
-                    if let textF = tfs[i + 1] {
-                        textF.becomeFirstResponder()
-                        return false
+                if string.isEmpty {
+                    if (i - 1) >= 0 {
+                        if let textF = tfs[i - 1] {
+                            textF.becomeFirstResponder()
+                            return false
+                        }
                     }
                 } else {
-                    hideKeyboard()
+                    if (i + 1) < tfs.count {
+                        if let textF = tfs[i + 1] {
+                            textF.becomeFirstResponder()
+                            return false
+                        }
+                    } else {
+                        hideKeyboard()
+                    }
                 }
                 break
             }

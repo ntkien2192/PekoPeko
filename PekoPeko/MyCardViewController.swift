@@ -44,8 +44,6 @@ class MyCardViewController: BaseViewController {
         tableView.register(UINib(nibName: MyCardRewardTableViewCell.identify, bundle: nil), forCellReuseIdentifier: MyCardRewardTableViewCell.identify)
         
         tableView.tableFooterView = UIView()
-        tableView.emptyDataSetSource = self
-        tableView.emptyDataSetDelegate = self
         
         refreshControl = UIRefreshControl()
         if let refreshControl = refreshControl {

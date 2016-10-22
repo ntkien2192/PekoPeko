@@ -19,6 +19,10 @@ class HomeTabbarController: UITabBarController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        viewConfig()
+    }
+
+    func viewConfig() {
         if let items = tabBar.items {
             for item in items {
                 if let image = item.image {
@@ -31,14 +35,23 @@ class HomeTabbarController: UITabBarController {
             }
         }
         
+        view.isHidden = true
     }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         if !AuthenticationStore().isLogin {
             logOut()
         }
+        view.isHidden = false
     }
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        if !AuthenticationStore().isLogin {
+//            logOut()
+//        }
+//    }
     
     func logOut() {
         let loginController = UIStoryboard(name: LoginViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: LoginViewController.identify)

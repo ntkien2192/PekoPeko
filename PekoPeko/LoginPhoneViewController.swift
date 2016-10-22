@@ -279,7 +279,7 @@ extension LoginPhoneViewController: UITextFieldDelegate {
         }
         
         
-        if let constraintValue = DeviceConfig.getConstraintValue(d35: -40, d40: -90, d50: -65, d55: 0) {
+        if let constraintValue = DeviceConfig.getConstraintValue(d35: -40, d40: -90, d50: -65, d55: -65) {
             if constraintTop.constant != constraintValue {
                 constraintTop.constant = constraintValue
                 view.setNeedsLayout()

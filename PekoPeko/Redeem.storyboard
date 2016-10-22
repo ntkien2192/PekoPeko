@@ -879,7 +879,8 @@
                                     <constraint firstItem="XTj-35-Xyr" firstAttribute="leading" secondItem="gpx-BD-JGn" secondAttribute="trailing" constant="8" id="tnH-5e-ldm"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZVI-jD-XZY">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZVI-jD-XZY">
+                                <frame key="frameInset" minX="20" minY="1484" width="335" height="40"/>
                                 <connections>
                                     <action selector="buttonShopTapped:" destination="6Hc-eY-ThA" eventType="touchUpInside" id="4hF-kv-Dvn"/>
                                 </connections>
@@ -889,7 +890,6 @@
                         <constraints>
                             <constraint firstItem="oHM-oI-vC4" firstAttribute="leading" secondItem="Nps-fr-84P" secondAttribute="leading" id="2Fh-1t-2ho"/>
                             <constraint firstItem="FAj-BW-O1A" firstAttribute="top" secondItem="uJT-I1-TK0" secondAttribute="bottom" constant="20" id="2x0-zj-hpK"/>
-                            <constraint firstItem="uJT-I1-TK0" firstAttribute="top" secondItem="fG4-ka-dG1" secondAttribute="bottom" constant="20" id="3K4-nW-EeK"/>
                             <constraint firstItem="ZVI-jD-XZY" firstAttribute="leading" secondItem="1Uj-Gm-bRn" secondAttribute="leading" id="3gC-Sp-V9s"/>
                             <constraint firstItem="1Uj-Gm-bRn" firstAttribute="leading" secondItem="Nps-fr-84P" secondAttribute="leading" constant="20" id="4QG-Ag-ngT"/>
                             <constraint firstItem="7wO-uu-g3U" firstAttribute="leading" secondItem="91E-pd-SE7" secondAttribute="trailing" constant="6" id="6Qs-Fm-eMa"/>
@@ -912,6 +912,7 @@
                             <constraint firstItem="EgQ-sm-EFH" firstAttribute="leading" secondItem="Nps-fr-84P" secondAttribute="leading" id="XbG-tM-2n1"/>
                             <constraint firstItem="5Hd-sf-MhJ" firstAttribute="top" secondItem="FAj-BW-O1A" secondAttribute="bottom" constant="20" id="YGt-Gn-PDq"/>
                             <constraint firstItem="7wO-uu-g3U" firstAttribute="trailing" secondItem="ZVI-jD-XZY" secondAttribute="trailing" id="aAm-Nh-oQG"/>
+                            <constraint firstItem="uJT-I1-TK0" firstAttribute="top" secondItem="7wO-uu-g3U" secondAttribute="bottom" constant="20" id="bgZ-ZO-8FB"/>
                             <constraint firstItem="nCw-8m-hrL" firstAttribute="top" secondItem="1Uj-Gm-bRn" secondAttribute="top" id="bjh-Pp-dcX"/>
                             <constraint firstItem="91E-pd-SE7" firstAttribute="leading" secondItem="1Uj-Gm-bRn" secondAttribute="trailing" constant="15" id="c7Z-lI-mHe"/>
                             <constraint firstItem="FAj-BW-O1A" firstAttribute="centerX" secondItem="Nps-fr-84P" secondAttribute="centerX" id="cfZ-X2-tbA"/>
@@ -926,6 +927,7 @@
                     </view>
                     <connections>
                         <outlet property="buttonDiscount" destination="FfZ-HF-oS1" id="V09-Pn-fZa"/>
+                        <outlet property="constraintPinViewTop" destination="bgZ-ZO-8FB" id="XJm-bp-hLk"/>
                         <outlet property="constraintTop" destination="9l8-nU-KfJ" id="Qzh-Ty-RjX"/>
                         <outlet property="imageView" destination="1Uj-Gm-bRn" id="RgK-AT-Y17"/>
                         <outlet property="labelAddress" destination="7wO-uu-g3U" id="T06-hd-Q7s"/>

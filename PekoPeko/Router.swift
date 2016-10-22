@@ -22,6 +22,7 @@ enum Router: URLRequestConvertible {
     
     
     static let baseUploadFile = "https://files.hungrybear.vn/"
+//    static let baseUploadFile = "https://files.pekopeko.vn/"
     
     // Router
     case exchangeToken()

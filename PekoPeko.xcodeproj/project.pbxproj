@@ -134,6 +134,13 @@
 		E4EC1D8C1DB5C517005CECB6 /* ShopMenuShowMoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4EC1D8A1DB5C517005CECB6 /* ShopMenuShowMoreTableViewCell.xib */; };
 		E4EC1D8F1DB5DBB4005CECB6 /* WordTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EC1D8E1DB5DBB4005CECB6 /* WordTime.swift */; };
 		E4EC1D911DB5DBEB005CECB6 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EC1D901DB5DBEB005CECB6 /* Address.swift */; };
+		E4F601771DBB0C71006309A5 /* DealListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F601761DBB0C71006309A5 /* DealListViewController.swift */; };
+		E4F601791DBB13B0006309A5 /* DiscoverStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F601781DBB13AF006309A5 /* DiscoverStore.swift */; };
+		E4F6017B1DBB142C006309A5 /* DiscoverRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F6017A1DBB142C006309A5 /* DiscoverRequest.swift */; };
+		E4F6017D1DBB15F6006309A5 /* Discover.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F6017C1DBB15F6006309A5 /* Discover.swift */; };
+		E4F6017F1DBB1640006309A5 /* Pagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F6017E1DBB1640006309A5 /* Pagination.swift */; };
+		E4F601811DBB1751006309A5 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F601801DBB1751006309A5 /* Image.swift */; };
+		E4F601861DBB2BE1006309A5 /* PromoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F601851DBB2BE1006309A5 /* PromoViewController.swift */; };
 		E4FF02011DB11BBA00177F9F /* ScanQRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FF02001DB11BBA00177F9F /* ScanQRCodeViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -307,6 +314,13 @@
 		E4EC1D8A1DB5C517005CECB6 /* ShopMenuShowMoreTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShopMenuShowMoreTableViewCell.xib; sourceTree = "<group>"; };
 		E4EC1D8E1DB5DBB4005CECB6 /* WordTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordTime.swift; sourceTree = "<group>"; };
 		E4EC1D901DB5DBEB005CECB6 /* Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		E4F601761DBB0C71006309A5 /* DealListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealListViewController.swift; sourceTree = "<group>"; };
+		E4F601781DBB13AF006309A5 /* DiscoverStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverStore.swift; sourceTree = "<group>"; };
+		E4F6017A1DBB142C006309A5 /* DiscoverRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverRequest.swift; sourceTree = "<group>"; };
+		E4F6017C1DBB15F6006309A5 /* Discover.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Discover.swift; sourceTree = "<group>"; };
+		E4F6017E1DBB1640006309A5 /* Pagination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pagination.swift; sourceTree = "<group>"; };
+		E4F601801DBB1751006309A5 /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		E4F601851DBB2BE1006309A5 /* PromoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromoViewController.swift; sourceTree = "<group>"; };
 		E4FF02001DB11BBA00177F9F /* ScanQRCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanQRCodeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -715,6 +729,10 @@
 				E4EC1D851DB5C4BD005CECB6 /* MenuItem.swift */,
 				E4EC1D8E1DB5DBB4005CECB6 /* WordTime.swift */,
 				E4EC1D901DB5DBEB005CECB6 /* Address.swift */,
+				E4F6017C1DBB15F6006309A5 /* Discover.swift */,
+				E4F6017A1DBB142C006309A5 /* DiscoverRequest.swift */,
+				E4F6017E1DBB1640006309A5 /* Pagination.swift */,
+				E4F601801DBB1751006309A5 /* Image.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -731,6 +749,8 @@
 		E49404CE1DA6AE6B00918C75 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E4F601841DBB2BCA006309A5 /* PromoViewController */,
+				E4C33E7D1DBB0C2500F87862 /* DealViewController */,
 				E4FF01FF1DB11BA600177F9F /* ScanQRCodeViewController */,
 				E476B0361DA93F0D007B1D62 /* BaseViewController.swift */,
 				E43D2C7D1DA7F6490019B2DD /* HomeTabbarController */,
@@ -752,6 +772,7 @@
 				E4129A401DACE41200F78C79 /* CardStore.swift */,
 				E41448581DB08FD2006C70EF /* RedeemStore.swift */,
 				E46CD5821DB4B1E8001F37AF /* ShopStore.swift */,
+				E4F601781DBB13AF006309A5 /* DiscoverStore.swift */,
 			);
 			name = Stores;
 			sourceTree = "<group>";
@@ -832,6 +853,14 @@
 			name = Components;
 			sourceTree = "<group>";
 		};
+		E4C33E7D1DBB0C2500F87862 /* DealViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E4F601761DBB0C71006309A5 /* DealListViewController.swift */,
+			);
+			name = DealViewController;
+			sourceTree = "<group>";
+		};
 		E4CC4A641DAF3979003B8385 /* DiscountCardTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -866,6 +895,14 @@
 				E4EC1D8A1DB5C517005CECB6 /* ShopMenuShowMoreTableViewCell.xib */,
 			);
 			name = ShopMenuShowMoreTableViewCell;
+			sourceTree = "<group>";
+		};
+		E4F601841DBB2BCA006309A5 /* PromoViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E4F601851DBB2BE1006309A5 /* PromoViewController.swift */,
+			);
+			name = PromoViewController;
 			sourceTree = "<group>";
 		};
 		E4FF01FF1DB11BA600177F9F /* ScanQRCodeViewController */ = {
@@ -953,7 +990,7 @@
 				TargetAttributes = {
 					E494049A1DA6AD1B00918C75 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = QMPAK7CSJF;
+						DevelopmentTeam = GKP4HXN9YZ;
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
@@ -1195,6 +1232,7 @@
 				E42469E11DADF55800D0A074 /* MyCardTableViewCell.swift in Sources */,
 				E42B6AE51DAB966D0091746F /* UserUpdateInfoViewController.swift in Sources */,
 				E42B6ADD1DAB36720091746F /* ConfirmCodeViewController.swift in Sources */,
+				E4F6017B1DBB142C006309A5 /* DiscoverRequest.swift in Sources */,
 				E416D0F21DB605E7002BBA81 /* ShopCoverTableViewCell.swift in Sources */,
 				E45746DD1DB27F4400021604 /* Discount.swift in Sources */,
 				E42187AE1DB8713400EFC98C /* SocialConfirmViewController.swift in Sources */,
@@ -1209,11 +1247,13 @@
 				E42B6ADF1DAB37F20091746F /* Location.swift in Sources */,
 				E4129A3F1DACE25600F78C79 /* CardResponse.swift in Sources */,
 				E476B0211DA929AF007B1D62 /* CAPSPageMenu.swift in Sources */,
+				E4F6017F1DBB1640006309A5 /* Pagination.swift in Sources */,
 				E4246A0C1DAE411A00D0A074 /* DetailCardHeaderTableViewCell.swift in Sources */,
 				E4EC1D861DB5C4BD005CECB6 /* MenuItem.swift in Sources */,
 				E423FB041DB337AF005C51BB /* CardAddressTableViewCell.swift in Sources */,
 				E42422901DA8A14A00F7D6FC /* AuthenticationStore.swift in Sources */,
 				E41DC09D1DB4D61A00411F55 /* ShopInfoTableViewCell.swift in Sources */,
+				E4F601791DBB13B0006309A5 /* DiscoverStore.swift in Sources */,
 				E476B0191DA908FD007B1D62 /* CardViewController.swift in Sources */,
 				E43D2C841DA80DAE0019B2DD /* LoginPhoneViewController.swift in Sources */,
 				E494049F1DA6AD1B00918C75 /* AppDelegate.swift in Sources */,
@@ -1226,6 +1266,7 @@
 				E46894E71DB697060004B322 /* SMSegment.swift in Sources */,
 				E41448711DB0DA90006C70EF /* AddPointViewController.swift in Sources */,
 				E414485D1DB0970E006C70EF /* RedeemSuccessView.swift in Sources */,
+				E4F601861DBB2BE1006309A5 /* PromoViewController.swift in Sources */,
 				E47C3A871DB67D7B0057464F /* ShopMenuViewController.swift in Sources */,
 				E451FFF31DA813C800B5A756 /* ScrollView.swift in Sources */,
 				E476B0391DA9445E007B1D62 /* ImageView.swift in Sources */,
@@ -1234,10 +1275,12 @@
 				E476B0371DA93F0D007B1D62 /* BaseViewController.swift in Sources */,
 				E42435CA1DA8E0C700E6E5E7 /* Extensions.swift in Sources */,
 				E416D0F61DB63356002BBA81 /* AlertView.swift in Sources */,
+				E4F601811DBB1751006309A5 /* Image.swift in Sources */,
 				E4EC1D7B1DB5C30C005CECB6 /* ShopMenuTableViewCell.swift in Sources */,
 				E451FFF11DA813B700B5A756 /* View.swift in Sources */,
 				E46CD5831DB4B1E8001F37AF /* ShopStore.swift in Sources */,
 				E451FFF51DA813DA00B5A756 /* Button.swift in Sources */,
+				E4F6017D1DBB15F6006309A5 /* Discover.swift in Sources */,
 				E47CB7DC1DB4C71A0078279F /* ShopDetailViewController.swift in Sources */,
 				E4EC1D911DB5DBEB005CECB6 /* Address.swift in Sources */,
 				E41448591DB08FD2006C70EF /* RedeemStore.swift in Sources */,
@@ -1249,6 +1292,7 @@
 				E4EC1D8B1DB5C517005CECB6 /* ShopMenuShowMoreTableViewCell.swift in Sources */,
 				E470CF651DAC99BA00434909 /* UserStore.swift in Sources */,
 				E4E041511DB75054001E0226 /* ShopMenuCollectionViewCell.swift in Sources */,
+				E4F601771DBB0C71006309A5 /* DealListViewController.swift in Sources */,
 				E43D2C7F1DA7F6840019B2DD /* HomeTabbarController.swift in Sources */,
 				E423FB071DB34661005C51BB /* TableView.swift in Sources */,
 				E42422921DA8A47900F7D6FC /* Authentication.swift in Sources */,
@@ -1421,7 +1465,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = QMPAK7CSJF;
+				DEVELOPMENT_TEAM = GKP4HXN9YZ;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = PekoPeko/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1440,7 +1484,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = QMPAK7CSJF;
+				DEVELOPMENT_TEAM = GKP4HXN9YZ;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = PekoPeko/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
