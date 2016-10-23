@@ -15,13 +15,13 @@ enum DiscoverResponseFields: String {
 }
 
 class DiscoverResponse: NSObject {
-    var discover: [Discover]?
+    var discovers: [Discover]?
     var pagination: Pagination?
     
     override init() {}
     
     required init(json: JSON) {
-        discover = json[DiscoverResponseFields.Discover.rawValue].arrayValue.map({ Discover(json: $0) })
+        discovers = json[DiscoverResponseFields.Discover.rawValue].arrayValue.map({ Discover(json: $0) })
         pagination = Pagination(json: json[DiscoverResponseFields.Pagination.rawValue])
     }
 }

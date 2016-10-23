@@ -384,22 +384,7 @@
                     <view key="view" contentMode="scaleToFill" id="paz-D1-5z0">
                         <rect key="frame" x="0.0" y="64" width="384" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UxO-I9-F6g">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="3sB-Wa-SfF" id="4Ya-zN-bdi"/>
-                                    <outlet property="delegate" destination="3sB-Wa-SfF" id="O1D-XK-Hv4"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="PWm-vP-Pli" firstAttribute="top" secondItem="UxO-I9-F6g" secondAttribute="bottom" id="4Fu-KL-HvA"/>
-                            <constraint firstItem="UxO-I9-F6g" firstAttribute="leading" secondItem="paz-D1-5z0" secondAttribute="leading" id="7qn-h8-9qe"/>
-                            <constraint firstItem="UxO-I9-F6g" firstAttribute="top" secondItem="UhA-7b-c8o" secondAttribute="bottom" id="PfW-Ju-qw1"/>
-                            <constraint firstAttribute="trailing" secondItem="UxO-I9-F6g" secondAttribute="trailing" id="zEf-Wp-wDw"/>
-                        </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="plS-b5-d6P">
@@ -430,9 +415,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="tableView" destination="UxO-I9-F6g" id="uW8-VX-Clh"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m8B-vu-WCw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1023,6 +1005,6 @@
         <image name="logoBar.png" width="418" height="112"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="nf7-r9-BV1"/>
+        <segue reference="Fh8-I7-XBI"/>
     </inferredMetricsTieBreakers>
 </document>

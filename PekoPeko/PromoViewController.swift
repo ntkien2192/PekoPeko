@@ -20,8 +20,7 @@ class PromoViewController: UIViewController {
         didSet {
             if let user = user {
                 if let promoCode = user.promoCode {
-                    labelPromoCode.text = promoCode
-                    labelPromoCode.animate()
+                    self.promoCode = promoCode
                 }
                 
 //                let attributedText = NSMutableAttributedString()
@@ -36,6 +35,15 @@ class PromoViewController: UIViewController {
 //                attributedText.append(variety2)
                 
                 
+            }
+        }
+    }
+    
+    var promoCode: String? {
+        didSet {
+            if let promoCode = promoCode {
+                labelPromoCode.text = promoCode
+                labelPromoCode.animate()
             }
         }
     }
@@ -87,7 +95,10 @@ class PromoViewController: UIViewController {
     }
     
     @IBAction func buttonInviteTapped(_ sender: AnyObject) {
+        let shareView = ShareView(frame: view.bounds)
+        if let promoCode = promoCode {
+            shareView.prompCode = promoCode
+        }
+        addFullView(view: shareView)
     }
-    
-    
 }

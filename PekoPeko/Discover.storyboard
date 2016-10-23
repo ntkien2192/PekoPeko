@@ -17,12 +17,30 @@
                     <view key="view" contentMode="scaleToFill" id="pPZ-jM-rBv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JSf-Ib-eqx">
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="HaE-NM-1yh" id="VbM-4V-yj0"/>
+                                    <outlet property="delegate" destination="HaE-NM-1yh" id="Q0M-Tv-kpg"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="udh-UF-V8i" firstAttribute="top" secondItem="JSf-Ib-eqx" secondAttribute="bottom" id="9OS-DY-yp8"/>
+                            <constraint firstItem="JSf-Ib-eqx" firstAttribute="leading" secondItem="pPZ-jM-rBv" secondAttribute="leading" id="WrA-ie-OPm"/>
+                            <constraint firstItem="JSf-Ib-eqx" firstAttribute="top" secondItem="pPZ-jM-rBv" secondAttribute="top" id="bcI-SZ-fge"/>
+                            <constraint firstAttribute="trailing" secondItem="JSf-Ib-eqx" secondAttribute="trailing" id="o7E-ew-c4w"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="JSf-Ib-eqx" id="D9r-YW-bXf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BgU-1N-TCn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-153" y="178"/>
+            <point key="canvasLocation" x="-154.40000000000001" y="177.66116941529236"/>
         </scene>
         <!--My Deal View Controller-->
         <scene sceneID="G8C-Vt-jV1">

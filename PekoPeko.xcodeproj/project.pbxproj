@@ -89,6 +89,8 @@
 		E4364F131DBCA28100EFCF41 /* Discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4364F121DBCA28100EFCF41 /* Discover.storyboard */; };
 		E4364F151DBCA31E00EFCF41 /* DiscoverListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4364F141DBCA31E00EFCF41 /* DiscoverListViewController.swift */; };
 		E4364F171DBCA33C00EFCF41 /* MyDealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4364F161DBCA33C00EFCF41 /* MyDealViewController.swift */; };
+		E4364F1A1DBCA40400EFCF41 /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4364F191DBCA40400EFCF41 /* ShareView.swift */; };
+		E4364F1C1DBCA41000EFCF41 /* ShareView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4364F1B1DBCA41000EFCF41 /* ShareView.xib */; };
 		E43D2C7C1DA7F5570019B2DD /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E43D2C7B1DA7F5570019B2DD /* Login.storyboard */; };
 		E43D2C7F1DA7F6840019B2DD /* HomeTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43D2C7E1DA7F6840019B2DD /* HomeTabbarController.swift */; };
 		E43D2C821DA7F6C40019B2DD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43D2C811DA7F6C40019B2DD /* LoginViewController.swift */; };
@@ -129,6 +131,14 @@
 		E49404D81DA6B60800918C75 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E49404D71DA6B60800918C75 /* Home.storyboard */; };
 		E49404DA1DA6BB2100918C75 /* logoBar.png in Resources */ = {isa = PBXBuildFile; fileRef = E49404D91DA6BB2100918C75 /* logoBar.png */; };
 		E49D5A8F1DB1C62A001E19DD /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49D5A8E1DB1C62A001E19DD /* Point.swift */; };
+		E4C00C421DBCEAE800EE3CF4 /* Deal1ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C00C401DBCEAE800EE3CF4 /* Deal1ImageTableViewCell.swift */; };
+		E4C00C431DBCEAE800EE3CF4 /* Deal1ImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4C00C411DBCEAE800EE3CF4 /* Deal1ImageTableViewCell.xib */; };
+		E4C00C461DBCEAFC00EE3CF4 /* Deal2ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C00C441DBCEAFC00EE3CF4 /* Deal2ImageTableViewCell.swift */; };
+		E4C00C471DBCEAFC00EE3CF4 /* Deal2ImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4C00C451DBCEAFC00EE3CF4 /* Deal2ImageTableViewCell.xib */; };
+		E4C00C4A1DBCEB0800EE3CF4 /* Deal3ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C00C481DBCEB0800EE3CF4 /* Deal3ImageTableViewCell.swift */; };
+		E4C00C4B1DBCEB0800EE3CF4 /* Deal3ImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4C00C491DBCEB0800EE3CF4 /* Deal3ImageTableViewCell.xib */; };
+		E4C00C4F1DBCEB1C00EE3CF4 /* DealMoreImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C00C4D1DBCEB1C00EE3CF4 /* DealMoreImageTableViewCell.swift */; };
+		E4C00C501DBCEB1C00EE3CF4 /* DealMoreImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4C00C4E1DBCEB1C00EE3CF4 /* DealMoreImageTableViewCell.xib */; };
 		E4CC4A671DAF3991003B8385 /* DiscountCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CC4A651DAF3991003B8385 /* DiscountCardTableViewCell.swift */; };
 		E4CC4A681DAF3991003B8385 /* DiscountCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4CC4A661DAF3991003B8385 /* DiscountCardTableViewCell.xib */; };
 		E4E0414C1DB74576001E0226 /* MyCardRewardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E0414A1DB74576001E0226 /* MyCardRewardTableViewCell.swift */; };
@@ -275,6 +285,8 @@
 		E4364F121DBCA28100EFCF41 /* Discover.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Discover.storyboard; sourceTree = "<group>"; };
 		E4364F141DBCA31E00EFCF41 /* DiscoverListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverListViewController.swift; sourceTree = "<group>"; };
 		E4364F161DBCA33C00EFCF41 /* MyDealViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyDealViewController.swift; sourceTree = "<group>"; };
+		E4364F191DBCA40400EFCF41 /* ShareView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareView.swift; sourceTree = "<group>"; };
+		E4364F1B1DBCA41000EFCF41 /* ShareView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShareView.xib; sourceTree = "<group>"; };
 		E43D2C7B1DA7F5570019B2DD /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		E43D2C7E1DA7F6840019B2DD /* HomeTabbarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTabbarController.swift; sourceTree = "<group>"; };
 		E43D2C811DA7F6C40019B2DD /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -321,6 +333,14 @@
 		E49404D71DA6B60800918C75 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		E49404D91DA6BB2100918C75 /* logoBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoBar.png; sourceTree = "<group>"; };
 		E49D5A8E1DB1C62A001E19DD /* Point.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
+		E4C00C401DBCEAE800EE3CF4 /* Deal1ImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deal1ImageTableViewCell.swift; sourceTree = "<group>"; };
+		E4C00C411DBCEAE800EE3CF4 /* Deal1ImageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Deal1ImageTableViewCell.xib; sourceTree = "<group>"; };
+		E4C00C441DBCEAFC00EE3CF4 /* Deal2ImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deal2ImageTableViewCell.swift; sourceTree = "<group>"; };
+		E4C00C451DBCEAFC00EE3CF4 /* Deal2ImageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Deal2ImageTableViewCell.xib; sourceTree = "<group>"; };
+		E4C00C481DBCEB0800EE3CF4 /* Deal3ImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deal3ImageTableViewCell.swift; sourceTree = "<group>"; };
+		E4C00C491DBCEB0800EE3CF4 /* Deal3ImageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Deal3ImageTableViewCell.xib; sourceTree = "<group>"; };
+		E4C00C4D1DBCEB1C00EE3CF4 /* DealMoreImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealMoreImageTableViewCell.swift; sourceTree = "<group>"; };
+		E4C00C4E1DBCEB1C00EE3CF4 /* DealMoreImageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DealMoreImageTableViewCell.xib; sourceTree = "<group>"; };
 		E4CC4A651DAF3991003B8385 /* DiscountCardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountCardTableViewCell.swift; sourceTree = "<group>"; };
 		E4CC4A661DAF3991003B8385 /* DiscountCardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiscountCardTableViewCell.xib; sourceTree = "<group>"; };
 		E4E0414A1DB74576001E0226 /* MyCardRewardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCardRewardTableViewCell.swift; sourceTree = "<group>"; };
@@ -646,6 +666,15 @@
 			name = Discover;
 			sourceTree = "<group>";
 		};
+		E4364F181DBCA3EB00EFCF41 /* ShareView */ = {
+			isa = PBXGroup;
+			children = (
+				E4364F191DBCA40400EFCF41 /* ShareView.swift */,
+				E4364F1B1DBCA41000EFCF41 /* ShareView.xib */,
+			);
+			name = ShareView;
+			sourceTree = "<group>";
+		};
 		E43D2C7D1DA7F6490019B2DD /* HomeTabbarController */ = {
 			isa = PBXGroup;
 			children = (
@@ -893,6 +922,8 @@
 		E49404D61DA6AEEA00918C75 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				E4C00C3E1DBCE62B00EE3CF4 /* DiscoverTableViewCell */,
+				E4364F181DBCA3EB00EFCF41 /* ShareView */,
 				E4336D751DBC839E002E9F5C /* VoucherTableViewCell */,
 				E4346EC21DB91AC3000566EE /* AddPointSuccessView */,
 				E46894E21DB696FA0004B322 /* SegmentView */,
@@ -908,6 +939,29 @@
 				E476B0291DA9379E007B1D62 /* CardTableViewCell */,
 			);
 			name = Components;
+			sourceTree = "<group>";
+		};
+		E4C00C3E1DBCE62B00EE3CF4 /* DiscoverTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				E4C00C3F1DBCE63600EE3CF4 /* DealTableViewCell */,
+			);
+			name = DiscoverTableViewCell;
+			sourceTree = "<group>";
+		};
+		E4C00C3F1DBCE63600EE3CF4 /* DealTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				E4C00C401DBCEAE800EE3CF4 /* Deal1ImageTableViewCell.swift */,
+				E4C00C411DBCEAE800EE3CF4 /* Deal1ImageTableViewCell.xib */,
+				E4C00C441DBCEAFC00EE3CF4 /* Deal2ImageTableViewCell.swift */,
+				E4C00C451DBCEAFC00EE3CF4 /* Deal2ImageTableViewCell.xib */,
+				E4C00C481DBCEB0800EE3CF4 /* Deal3ImageTableViewCell.swift */,
+				E4C00C491DBCEB0800EE3CF4 /* Deal3ImageTableViewCell.xib */,
+				E4C00C4D1DBCEB1C00EE3CF4 /* DealMoreImageTableViewCell.swift */,
+				E4C00C4E1DBCEB1C00EE3CF4 /* DealMoreImageTableViewCell.xib */,
+			);
+			name = DealTableViewCell;
 			sourceTree = "<group>";
 		};
 		E4C33E7D1DBB0C2500F87862 /* DiscoverViewController */ = {
@@ -1095,6 +1149,8 @@
 			files = (
 				E42469F51DAE101C00D0A074 /* BEBAS___.ttf in Resources */,
 				E41DC09E1DB4D61A00411F55 /* ShopInfoTableViewCell.xib in Resources */,
+				E4C00C501DBCEB1C00EE3CF4 /* DealMoreImageTableViewCell.xib in Resources */,
+				E4C00C471DBCEAFC00EE3CF4 /* Deal2ImageTableViewCell.xib in Resources */,
 				E42469F61DAE101C00D0A074 /* BebasNeue-webfont.ttf in Resources */,
 				E4EC1D801DB5C32C005CECB6 /* ShopMenu2TableViewCell.xib in Resources */,
 				E4346EC61DB91AEF000566EE /* AddPointSuccessView.xib in Resources */,
@@ -1106,6 +1162,7 @@
 				E42469FA1DAE101C00D0A074 /* ProximaNovaSoft-Bold.otf in Resources */,
 				E41DC0A81DB4D9CC00411F55 /* ShopAddressTableViewCell.xib in Resources */,
 				E42469FC1DAE101C00D0A074 /* ProximaNovaSoft-Medium.otf in Resources */,
+				E4C00C431DBCEAE800EE3CF4 /* Deal1ImageTableViewCell.xib in Resources */,
 				E42469FE1DAE101C00D0A074 /* ProximaNovaSoft-Regular.otf in Resources */,
 				E4246A001DAE101C00D0A074 /* ProximaNovaSoft-Semibold.otf in Resources */,
 				E4EC1D7C1DB5C30C005CECB6 /* ShopMenuTableViewCell.xib in Resources */,
@@ -1116,6 +1173,7 @@
 				E416D0F81DB63368002BBA81 /* AlertView.xib in Resources */,
 				E4246A021DAE101C00D0A074 /* UVF ProximaNova-Regular.ttf in Resources */,
 				E42187B71DB8A38B00EFC98C /* EmptyTableViewCell.xib in Resources */,
+				E4364F1C1DBCA41000EFCF41 /* ShareView.xib in Resources */,
 				E4246A031DAE101C00D0A074 /* VNF.ProximaNova-Regular.ttf in Resources */,
 				E49404A91DA6AD1B00918C75 /* LaunchScreen.storyboard in Resources */,
 				E4336D791DBC83BB002E9F5C /* VoucherTableViewCell.xib in Resources */,
@@ -1137,6 +1195,7 @@
 				E4364F131DBCA28100EFCF41 /* Discover.storyboard in Resources */,
 				E4EC1D841DB5C352005CECB6 /* ShopMenuTitleTableViewCell.xib in Resources */,
 				E4271BF11DB4727900B485B3 /* CardAddressView.xib in Resources */,
+				E4C00C4B1DBCEB0800EE3CF4 /* Deal3ImageTableViewCell.xib in Resources */,
 				E427F8E91DAF790C0012F3F5 /* Reward10TableViewCell.xib in Resources */,
 				E49404DA1DA6BB2100918C75 /* logoBar.png in Resources */,
 				E41448691DB0BE87006C70EF /* MessageView.xib in Resources */,
@@ -1309,6 +1368,7 @@
 				E4336D711DBC7438002E9F5C /* Voucher.swift in Sources */,
 				E424228E1DA8A10900F7D6FC /* Router.swift in Sources */,
 				E42B6AE31DAB3BCE0091746F /* User.swift in Sources */,
+				E4C00C4A1DBCEB0800EE3CF4 /* Deal3ImageTableViewCell.swift in Sources */,
 				E4129A3D1DACDC6400F78C79 /* Card.swift in Sources */,
 				E42422941DA8A64D00F7D6FC /* ServerResponseError.swift in Sources */,
 				E476B0171DA8FB74007B1D62 /* Label.swift in Sources */,
@@ -1324,7 +1384,9 @@
 				E4F601791DBB13B0006309A5 /* DiscoverStore.swift in Sources */,
 				E476B0191DA908FD007B1D62 /* CardViewController.swift in Sources */,
 				E43D2C841DA80DAE0019B2DD /* LoginPhoneViewController.swift in Sources */,
+				E4C00C461DBCEAFC00EE3CF4 /* Deal2ImageTableViewCell.swift in Sources */,
 				E494049F1DA6AD1B00918C75 /* AppDelegate.swift in Sources */,
+				E4C00C421DBCEAE800EE3CF4 /* Deal1ImageTableViewCell.swift in Sources */,
 				E41448671DB0BE7E006C70EF /* MessageView.swift in Sources */,
 				E4129A411DACE41200F78C79 /* CardStore.swift in Sources */,
 				E4246A051DAE245A00D0A074 /* CardDetailViewController.swift in Sources */,
@@ -1343,6 +1405,7 @@
 				E45746DF1DB27FB100021604 /* QRCode.swift in Sources */,
 				E476B02C1DA937C1007B1D62 /* CardTableViewCell.swift in Sources */,
 				E476B0371DA93F0D007B1D62 /* BaseViewController.swift in Sources */,
+				E4364F1A1DBCA40400EFCF41 /* ShareView.swift in Sources */,
 				E42435CA1DA8E0C700E6E5E7 /* Extensions.swift in Sources */,
 				E416D0F61DB63356002BBA81 /* AlertView.swift in Sources */,
 				E4F601811DBB1751006309A5 /* Image.swift in Sources */,
@@ -1352,6 +1415,7 @@
 				E451FFF51DA813DA00B5A756 /* Button.swift in Sources */,
 				E4F6017D1DBB15F6006309A5 /* Discover.swift in Sources */,
 				E47CB7DC1DB4C71A0078279F /* ShopDetailViewController.swift in Sources */,
+				E4C00C4F1DBCEB1C00EE3CF4 /* DealMoreImageTableViewCell.swift in Sources */,
 				E4EC1D911DB5DBEB005CECB6 /* Address.swift in Sources */,
 				E41448591DB08FD2006C70EF /* RedeemStore.swift in Sources */,
 				E46894EA1DB697060004B322 /* SMSegmentViewConstants.swift in Sources */,
