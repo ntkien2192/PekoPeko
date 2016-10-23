@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -82,7 +83,7 @@
         <!--Promo View Controller-->
         <scene sceneID="syg-Os-pkS">
             <objects>
-                <viewController id="tpf-9J-0g4" customClass="PromoViewController" customModule="PekoPeko" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PromoViewController" id="tpf-9J-0g4" customClass="PromoViewController" customModule="PekoPeko" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rjZ-jb-p1T"/>
                         <viewControllerLayoutGuide type="bottom" id="kWq-1U-qD8"/>
@@ -108,11 +109,162 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="10a-K1-yLH" customClass="Label" customModule="PekoPeko" customModuleProvider="target">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="osy-52-N0p"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="29"/>
+                                <color key="textColor" red="0.12549019607843137" green="0.62745098039215685" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="fadeInLeft"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="force">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="delay">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p4w-lk-9vg" customClass="View" customModule="PekoPeko" customModuleProvider="target">
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qF0-ok-Obf" customClass="Label" customModule="PekoPeko" customModuleProvider="target">
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="animation" value="fadeInLeft"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="force">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="delay">
+                                                <real key="value" value="0.20000000000000001"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="qF0-ok-Obf" secondAttribute="bottom" id="4cm-Lm-raB"/>
+                                    <constraint firstItem="qF0-ok-Obf" firstAttribute="leading" secondItem="p4w-lk-9vg" secondAttribute="leading" constant="8" id="IzO-dP-pUf"/>
+                                    <constraint firstItem="qF0-ok-Obf" firstAttribute="top" secondItem="p4w-lk-9vg" secondAttribute="top" id="UDB-Nc-F6f"/>
+                                    <constraint firstAttribute="trailing" secondItem="qF0-ok-Obf" secondAttribute="trailing" constant="8" id="oWt-0i-W7p"/>
+                                    <constraint firstAttribute="height" constant="40" id="qtO-ap-DNc"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="fadeInLeft"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="force">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="delay">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0mS-Yr-6Ca" customClass="Button" customModule="PekoPeko" customModuleProvider="target">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="JtJ-wg-lHV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
+                                <state key="normal" title="Mời thêm bạn mới">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="fadeInLeft"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="force">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="delay">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="buttonInviteTapped:" destination="tpf-9J-0g4" eventType="touchUpInside" id="1yH-MG-5Kz"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ButtonGift" translatesAutoresizingMaskIntoConstraints="NO" id="CDw-kn-lwK" customClass="ImageView" customModule="PekoPeko" customModuleProvider="target">
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="CDw-kn-lwK" secondAttribute="height" multiplier="500:197" id="JgC-Sf-mpW"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="fadeInLeft"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="force">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="delay">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ĐỔI QUÀ TẶNG" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bxK-iH-tgp" customClass="Label" customModule="PekoPeko" customModuleProvider="target">
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="19"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="fadeInLeft"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="force">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="delay">
+                                        <real key="value" value="0.20000000000000001"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hoặc" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Du4-PQ-BFe" customClass="Label" customModule="PekoPeko" customModuleProvider="target">
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="13"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="fadeInLeft"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="force">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="delay">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OOu-4n-1LI">
+                                <connections>
+                                    <action selector="buttonGiftTapped:" destination="tpf-9J-0g4" eventType="touchUpInside" id="yE5-Ov-LMp"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.97672003510000005" green="0.83731091020000004" blue="0.020159324629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.99215686274509807" green="0.84313725490196079" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="0mS-Yr-6Ca" firstAttribute="leading" secondItem="Em9-7c-yRX" secondAttribute="leading" id="1VM-eH-ouU"/>
+                            <constraint firstItem="CDw-kn-lwK" firstAttribute="width" secondItem="p4w-lk-9vg" secondAttribute="width" id="8lO-Hh-bFN"/>
+                            <constraint firstItem="OOu-4n-1LI" firstAttribute="trailing" secondItem="CDw-kn-lwK" secondAttribute="trailing" id="A3C-b2-1qH"/>
                             <constraint firstItem="tXH-0H-OZt" firstAttribute="centerX" secondItem="Em9-7c-yRX" secondAttribute="centerX" id="BhM-zO-anO"/>
-                            <constraint firstItem="tXH-0H-OZt" firstAttribute="top" secondItem="rjZ-jb-p1T" secondAttribute="bottom" constant="50" id="ibf-Ct-RtP"/>
+                            <constraint firstItem="p4w-lk-9vg" firstAttribute="top" secondItem="10a-K1-yLH" secondAttribute="bottom" constant="15" id="Lgf-9w-fQH"/>
+                            <constraint firstItem="kWq-1U-qD8" firstAttribute="top" secondItem="0mS-Yr-6Ca" secondAttribute="bottom" id="Po3-4L-Cb7"/>
+                            <constraint firstItem="Du4-PQ-BFe" firstAttribute="centerX" secondItem="Em9-7c-yRX" secondAttribute="centerX" id="Rcn-Fe-dUr"/>
+                            <constraint firstItem="10a-K1-yLH" firstAttribute="top" secondItem="tXH-0H-OZt" secondAttribute="bottom" constant="8" id="SZ5-rf-p3c"/>
+                            <constraint firstItem="bxK-iH-tgp" firstAttribute="centerY" secondItem="CDw-kn-lwK" secondAttribute="centerY" id="Uos-xX-Pbb"/>
+                            <constraint firstItem="CDw-kn-lwK" firstAttribute="top" secondItem="p4w-lk-9vg" secondAttribute="bottom" constant="15" id="YBj-74-4Jp"/>
+                            <constraint firstItem="bxK-iH-tgp" firstAttribute="centerX" secondItem="CDw-kn-lwK" secondAttribute="centerX" multiplier="1.4" id="acl-eP-GL6"/>
+                            <constraint firstAttribute="trailing" secondItem="0mS-Yr-6Ca" secondAttribute="trailing" id="clh-6F-UFU"/>
+                            <constraint firstItem="Du4-PQ-BFe" firstAttribute="top" secondItem="CDw-kn-lwK" secondAttribute="bottom" constant="-12" id="fIf-MN-3SF"/>
+                            <constraint firstItem="p4w-lk-9vg" firstAttribute="width" secondItem="Em9-7c-yRX" secondAttribute="width" multiplier="9:10" id="fLR-l0-bAp"/>
+                            <constraint firstItem="OOu-4n-1LI" firstAttribute="bottom" secondItem="CDw-kn-lwK" secondAttribute="bottom" id="h3O-nE-wF5"/>
+                            <constraint firstItem="OOu-4n-1LI" firstAttribute="leading" secondItem="CDw-kn-lwK" secondAttribute="leading" id="iGS-DM-dv7"/>
+                            <constraint firstItem="tXH-0H-OZt" firstAttribute="top" secondItem="rjZ-jb-p1T" secondAttribute="bottom" id="ibf-Ct-RtP"/>
+                            <constraint firstItem="CDw-kn-lwK" firstAttribute="centerX" secondItem="Em9-7c-yRX" secondAttribute="centerX" id="o70-co-vIA"/>
+                            <constraint firstItem="p4w-lk-9vg" firstAttribute="centerX" secondItem="Em9-7c-yRX" secondAttribute="centerX" id="sQ6-fS-mRN"/>
+                            <constraint firstAttribute="trailing" secondItem="10a-K1-yLH" secondAttribute="trailing" constant="20" id="vBz-KW-qGr"/>
+                            <constraint firstItem="10a-K1-yLH" firstAttribute="leading" secondItem="Em9-7c-yRX" secondAttribute="leading" constant="20" id="vQp-1B-kjS"/>
+                            <constraint firstItem="0mS-Yr-6Ca" firstAttribute="top" secondItem="Du4-PQ-BFe" secondAttribute="bottom" constant="8" id="vYB-Gb-QPQ"/>
+                            <constraint firstItem="OOu-4n-1LI" firstAttribute="top" secondItem="CDw-kn-lwK" secondAttribute="top" id="xik-ch-KKy"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="bo2-4L-yeG">
@@ -121,23 +273,13 @@
                         <view key="titleView" contentMode="scaleToFill" id="Vuk-Fi-uDQ">
                             <rect key="frame" x="117" y="2" width="150" height="40"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoBar.png" translatesAutoresizingMaskIntoConstraints="NO" id="8Oj-Wm-ZPw">
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="40" id="VbM-1a-F71"/>
-                                        <constraint firstAttribute="width" constant="150" id="ieV-af-CsG"/>
-                                    </constraints>
-                                </imageView>
-                            </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <constraints>
-                                <constraint firstAttribute="bottom" secondItem="8Oj-Wm-ZPw" secondAttribute="bottom" id="7h6-cJ-kAV"/>
-                                <constraint firstAttribute="trailing" secondItem="8Oj-Wm-ZPw" secondAttribute="trailing" id="REB-he-mJA"/>
-                                <constraint firstItem="8Oj-Wm-ZPw" firstAttribute="top" secondItem="Vuk-Fi-uDQ" secondAttribute="top" id="UlH-8k-9qV"/>
-                                <constraint firstItem="8Oj-Wm-ZPw" firstAttribute="leading" secondItem="Vuk-Fi-uDQ" secondAttribute="leading" id="nD1-fs-AOD"/>
-                            </constraints>
                         </view>
                     </navigationItem>
+                    <connections>
+                        <outlet property="labelInviteNumber" destination="qF0-ok-Obf" id="xgC-US-9IC"/>
+                        <outlet property="labelPromoCode" destination="10a-K1-yLH" id="SfD-Gh-q6u"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hbU-eh-97G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -205,7 +347,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e0M-lB-SR5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-636" y="-576"/>
+            <point key="canvasLocation" x="107" y="-664"/>
         </scene>
         <!--Home Tabbar Controller-->
         <scene sceneID="zbB-hH-MbK">
@@ -229,25 +371,25 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="thr-qk-3M8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="122" y="-576"/>
+            <point key="canvasLocation" x="922" y="-664"/>
         </scene>
-        <!--Deal List View Controller-->
+        <!--Discover View Controller-->
         <scene sceneID="BEd-JR-3qV">
             <objects>
-                <viewController storyboardIdentifier="DealListViewController" id="3sB-Wa-SfF" customClass="DealListViewController" customModule="PekoPeko" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DiscoverViewController" id="3sB-Wa-SfF" customClass="DiscoverViewController" customModule="PekoPeko" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UhA-7b-c8o"/>
                         <viewControllerLayoutGuide type="bottom" id="PWm-vP-Pli"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="paz-D1-5z0">
-                        <rect key="frame" x="0.0" y="64" width="384" height="554"/>
+                        <rect key="frame" x="0.0" y="64" width="384" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UxO-I9-F6g">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <outlet property="dataSource" destination="3sB-Wa-SfF" id="46W-Up-VZK"/>
-                                    <outlet property="delegate" destination="3sB-Wa-SfF" id="EQq-1l-eAJ"/>
+                                    <outlet property="dataSource" destination="3sB-Wa-SfF" id="4Ya-zN-bdi"/>
+                                    <outlet property="delegate" destination="3sB-Wa-SfF" id="O1D-XK-Hv4"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -259,6 +401,7 @@
                             <constraint firstAttribute="trailing" secondItem="UxO-I9-F6g" secondAttribute="trailing" id="zEf-Wp-wDw"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="plS-b5-d6P">
                         <nil key="title"/>
                         <view key="titleView" contentMode="scaleToFill" id="sYP-mk-qF7">
@@ -280,7 +423,13 @@
                                 <constraint firstItem="0Y4-kN-cqC" firstAttribute="leading" secondItem="sYP-mk-qF7" secondAttribute="leading" id="gnm-BU-IVD"/>
                             </constraints>
                         </view>
+                        <barButtonItem key="rightBarButtonItem" image="IconSettings" id="7rW-WY-aS2">
+                            <connections>
+                                <segue destination="VJY-rp-pNu" kind="show" id="Fh8-I7-XBI"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="UxO-I9-F6g" id="uW8-VX-Clh"/>
                     </connections>
@@ -809,7 +958,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z0S-we-cfF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="974" y="1954"/>
+            <point key="canvasLocation" x="531" y="2047"/>
         </scene>
         <!--Đổi mật khẩu-->
         <scene sceneID="pnp-kw-9Ua">
@@ -832,7 +981,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xan-Mb-GMN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1846" y="1954"/>
+            <point key="canvasLocation" x="1358" y="1912"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="G6k-Zf-DUe">
@@ -843,7 +992,8 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Gcv-YG-MNr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.97672003510000005" green="0.83731091020000004" blue="0.020159324629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.99265462159999995" green="0.84121900800000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -858,6 +1008,7 @@
     <resources>
         <image name="ButtonCard" width="25" height="25"/>
         <image name="ButtonCardTapped" width="27" height="27"/>
+        <image name="ButtonGift" width="500" height="197"/>
         <image name="ButtonHome" width="25" height="24"/>
         <image name="ButtonHomeTapped" width="27" height="27"/>
         <image name="ButtonPromoCode" width="25" height="25"/>

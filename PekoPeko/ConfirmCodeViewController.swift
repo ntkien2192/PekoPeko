@@ -47,6 +47,9 @@ class ConfirmCodeViewController: UIViewController {
     }
     
     func viewConfig() {
+        if let top = DeviceConfig.getConstraintValue(d35: 40, d40: 50, d50: 50, d55: 50) {
+            constraintTop.constant = top
+        }
         defaultConstraintValue = constraintTop.constant
         
         locationManager.delegate = self
@@ -63,6 +66,15 @@ class ConfirmCodeViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func buttonResetCodeTapped(_ sender: AnyObject) {
+        let tfs = [textfieldCode1, textfieldCode2, textfieldCode3, textfieldCode4]
+        for i in 0..<tfs.count {
+            if let tf = tfs[i] {
+                tf.text = ""
+            }
+        }
     }
     
     @IBAction func buttonBackTapped(_ sender: AnyObject) {
@@ -210,7 +222,7 @@ extension ConfirmCodeViewController: UITextFieldDelegate {
         textField.layer.borderWidth = 2.0
         
         
-        if let constraintValue = DeviceConfig.getConstraintValue(d35: -40, d40: -90, d50: -50, d55: -50) {
+        if let constraintValue = DeviceConfig.getConstraintValue(d35: -110, d40: -90, d50: -50, d55: -50) {
             if constraintTop.constant != constraintValue {
                 constraintTop.constant = constraintValue
                 view.setNeedsLayout()
@@ -231,13 +243,22 @@ extension ConfirmCodeViewController: UITextFieldDelegate {
         let tfs = [textfieldCode1, textfieldCode2, textfieldCode3, textfieldCode4]
         for i in 0..<tfs.count {
             if textField == tfs[i] {
-                if (i + 1) < tfs.count {
-                    if let textF = tfs[i + 1] {
-                        textF.becomeFirstResponder()
-                        return false
+                if string.isEmpty {
+                    if (i - 1) >= 0 {
+                        if let textF = tfs[i - 1] {
+                            textF.becomeFirstResponder()
+                            return false
+                        }
                     }
                 } else {
-                    self.confirm()
+                    if (i + 1) < tfs.count {
+                        if let textF = tfs[i + 1] {
+                            textF.becomeFirstResponder()
+                            return false
+                        }
+                    } else {
+                        confirm()
+                    }
                 }
                 break
             }

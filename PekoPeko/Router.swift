@@ -13,6 +13,7 @@ enum ApiVersion: String {
     case V110 = "1.1.0"
     case V100 = "1.0.0"
     case V200 = "2.0.0"
+    case V210 = "2.1.0"
 }
 
 enum Router: URLRequestConvertible {
@@ -52,6 +53,10 @@ enum Router: URLRequestConvertible {
     
     case follow([String: AnyObject])
     case unFollow([String: AnyObject])
+    
+    case getAllVoucher([String: AnyObject])
+    
+    case getAllDiscover([String: AnyObject])
     
     var method: HTTPMethod {
         switch self {
@@ -117,6 +122,12 @@ enum Router: URLRequestConvertible {
             
         case .unFollow:
             return .put
+            
+        case .getAllVoucher:
+            return .get
+            
+        case .getAllDiscover:
+            return .get
         }
     }
     
@@ -184,6 +195,12 @@ enum Router: URLRequestConvertible {
             
         case .unFollow:
             return "user/unfollow"
+            
+        case .getAllVoucher:
+            return "voucher"
+            
+        case .getAllDiscover:
+            return "discover"
         }
     }
     
@@ -251,6 +268,12 @@ enum Router: URLRequestConvertible {
         
         case .unFollow:
             return ApiVersion.V100.rawValue
+            
+        case .getAllVoucher:
+            return ApiVersion.V210.rawValue
+            
+        case .getAllDiscover:
+            return ApiVersion.V210.rawValue
         }
     }
     
@@ -321,6 +344,12 @@ enum Router: URLRequestConvertible {
             
         case .unFollow(let parameters):
             urlRequest = try JSONEncoding.default.encode(urlRequest, with: parameters)
+            
+        case .getAllVoucher(let parameters):
+            urlRequest = try URLEncoding.default.encode(urlRequest, with: parameters)
+            
+        case .getAllDiscover(let parameters):
+            urlRequest = try URLEncoding.default.encode(urlRequest, with: parameters)
             
         default:
             break

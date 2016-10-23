@@ -50,6 +50,9 @@ class LoginPhoneViewController: UIViewController {
     }
     
     func viewConfig() {
+        if let top = DeviceConfig.getConstraintValue(d35: 40, d40: 50, d50: 50, d55: 50) {
+            constraintTop.constant = top
+        }
         defaultConstraintValue = constraintTop.constant
         
         locationManager.delegate = self
@@ -279,7 +282,7 @@ extension LoginPhoneViewController: UITextFieldDelegate {
         }
         
         
-        if let constraintValue = DeviceConfig.getConstraintValue(d35: -40, d40: -90, d50: -65, d55: -65) {
+        if let constraintValue = DeviceConfig.getConstraintValue(d35: -110, d40: -90, d50: -65, d55: -65) {
             if constraintTop.constant != constraintValue {
                 constraintTop.constant = constraintValue
                 view.setNeedsLayout()

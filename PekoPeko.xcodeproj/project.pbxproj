@@ -73,10 +73,22 @@
 		E42B6AE11DAB394B0091746F /* LoginParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42B6AE01DAB394B0091746F /* LoginParameter.swift */; };
 		E42B6AE31DAB3BCE0091746F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42B6AE21DAB3BCE0091746F /* User.swift */; };
 		E42B6AE51DAB966D0091746F /* UserUpdateInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42B6AE41DAB966D0091746F /* UserUpdateInfoViewController.swift */; };
+		E4336D691DBC713C002E9F5C /* Voucher.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4336D681DBC713C002E9F5C /* Voucher.storyboard */; };
+		E4336D6B1DBC7151002E9F5C /* VoucherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4336D6A1DBC7151002E9F5C /* VoucherViewController.swift */; };
+		E4336D6D1DBC737A002E9F5C /* VoucherStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4336D6C1DBC737A002E9F5C /* VoucherStore.swift */; };
+		E4336D6F1DBC73B2002E9F5C /* VoucherRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4336D6E1DBC73B2002E9F5C /* VoucherRequest.swift */; };
+		E4336D711DBC7438002E9F5C /* Voucher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4336D701DBC7438002E9F5C /* Voucher.swift */; };
+		E4336D741DBC7563002E9F5C /* VoucherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4336D731DBC7563002E9F5C /* VoucherResponse.swift */; };
+		E4336D781DBC83BB002E9F5C /* VoucherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4336D761DBC83BB002E9F5C /* VoucherTableViewCell.swift */; };
+		E4336D791DBC83BB002E9F5C /* VoucherTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4336D771DBC83BB002E9F5C /* VoucherTableViewCell.xib */; };
 		E4346EC41DB91AE1000566EE /* AddPointSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4346EC31DB91AE1000566EE /* AddPointSuccessView.swift */; };
 		E4346EC61DB91AEF000566EE /* AddPointSuccessView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4346EC51DB91AEF000566EE /* AddPointSuccessView.xib */; };
 		E434E6011DAF480D00AFC400 /* PointCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E434E5FF1DAF480D00AFC400 /* PointCardTableViewCell.swift */; };
 		E434E6021DAF480D00AFC400 /* PointCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E434E6001DAF480D00AFC400 /* PointCardTableViewCell.xib */; };
+		E4364F111DBC9ABB00EFCF41 /* DiscoverResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4364F101DBC9ABB00EFCF41 /* DiscoverResponse.swift */; };
+		E4364F131DBCA28100EFCF41 /* Discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4364F121DBCA28100EFCF41 /* Discover.storyboard */; };
+		E4364F151DBCA31E00EFCF41 /* DiscoverListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4364F141DBCA31E00EFCF41 /* DiscoverListViewController.swift */; };
+		E4364F171DBCA33C00EFCF41 /* MyDealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4364F161DBCA33C00EFCF41 /* MyDealViewController.swift */; };
 		E43D2C7C1DA7F5570019B2DD /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E43D2C7B1DA7F5570019B2DD /* Login.storyboard */; };
 		E43D2C7F1DA7F6840019B2DD /* HomeTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43D2C7E1DA7F6840019B2DD /* HomeTabbarController.swift */; };
 		E43D2C821DA7F6C40019B2DD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43D2C811DA7F6C40019B2DD /* LoginViewController.swift */; };
@@ -134,7 +146,7 @@
 		E4EC1D8C1DB5C517005CECB6 /* ShopMenuShowMoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4EC1D8A1DB5C517005CECB6 /* ShopMenuShowMoreTableViewCell.xib */; };
 		E4EC1D8F1DB5DBB4005CECB6 /* WordTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EC1D8E1DB5DBB4005CECB6 /* WordTime.swift */; };
 		E4EC1D911DB5DBEB005CECB6 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EC1D901DB5DBEB005CECB6 /* Address.swift */; };
-		E4F601771DBB0C71006309A5 /* DealListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F601761DBB0C71006309A5 /* DealListViewController.swift */; };
+		E4F601771DBB0C71006309A5 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F601761DBB0C71006309A5 /* DiscoverViewController.swift */; };
 		E4F601791DBB13B0006309A5 /* DiscoverStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F601781DBB13AF006309A5 /* DiscoverStore.swift */; };
 		E4F6017B1DBB142C006309A5 /* DiscoverRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F6017A1DBB142C006309A5 /* DiscoverRequest.swift */; };
 		E4F6017D1DBB15F6006309A5 /* Discover.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F6017C1DBB15F6006309A5 /* Discover.swift */; };
@@ -247,10 +259,22 @@
 		E42B6AE01DAB394B0091746F /* LoginParameter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginParameter.swift; sourceTree = "<group>"; };
 		E42B6AE21DAB3BCE0091746F /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E42B6AE41DAB966D0091746F /* UserUpdateInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserUpdateInfoViewController.swift; sourceTree = "<group>"; };
+		E4336D681DBC713C002E9F5C /* Voucher.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Voucher.storyboard; sourceTree = "<group>"; };
+		E4336D6A1DBC7151002E9F5C /* VoucherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoucherViewController.swift; sourceTree = "<group>"; };
+		E4336D6C1DBC737A002E9F5C /* VoucherStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoucherStore.swift; sourceTree = "<group>"; };
+		E4336D6E1DBC73B2002E9F5C /* VoucherRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoucherRequest.swift; sourceTree = "<group>"; };
+		E4336D701DBC7438002E9F5C /* Voucher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Voucher.swift; sourceTree = "<group>"; };
+		E4336D731DBC7563002E9F5C /* VoucherResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoucherResponse.swift; sourceTree = "<group>"; };
+		E4336D761DBC83BB002E9F5C /* VoucherTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoucherTableViewCell.swift; sourceTree = "<group>"; };
+		E4336D771DBC83BB002E9F5C /* VoucherTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VoucherTableViewCell.xib; sourceTree = "<group>"; };
 		E4346EC31DB91AE1000566EE /* AddPointSuccessView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPointSuccessView.swift; sourceTree = "<group>"; };
 		E4346EC51DB91AEF000566EE /* AddPointSuccessView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddPointSuccessView.xib; sourceTree = "<group>"; };
 		E434E5FF1DAF480D00AFC400 /* PointCardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointCardTableViewCell.swift; sourceTree = "<group>"; };
 		E434E6001DAF480D00AFC400 /* PointCardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PointCardTableViewCell.xib; sourceTree = "<group>"; };
+		E4364F101DBC9ABB00EFCF41 /* DiscoverResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverResponse.swift; sourceTree = "<group>"; };
+		E4364F121DBCA28100EFCF41 /* Discover.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Discover.storyboard; sourceTree = "<group>"; };
+		E4364F141DBCA31E00EFCF41 /* DiscoverListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverListViewController.swift; sourceTree = "<group>"; };
+		E4364F161DBCA33C00EFCF41 /* MyDealViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyDealViewController.swift; sourceTree = "<group>"; };
 		E43D2C7B1DA7F5570019B2DD /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		E43D2C7E1DA7F6840019B2DD /* HomeTabbarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTabbarController.swift; sourceTree = "<group>"; };
 		E43D2C811DA7F6C40019B2DD /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -314,7 +338,7 @@
 		E4EC1D8A1DB5C517005CECB6 /* ShopMenuShowMoreTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShopMenuShowMoreTableViewCell.xib; sourceTree = "<group>"; };
 		E4EC1D8E1DB5DBB4005CECB6 /* WordTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordTime.swift; sourceTree = "<group>"; };
 		E4EC1D901DB5DBEB005CECB6 /* Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
-		E4F601761DBB0C71006309A5 /* DealListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealListViewController.swift; sourceTree = "<group>"; };
+		E4F601761DBB0C71006309A5 /* DiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		E4F601781DBB13AF006309A5 /* DiscoverStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverStore.swift; sourceTree = "<group>"; };
 		E4F6017A1DBB142C006309A5 /* DiscoverRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverRequest.swift; sourceTree = "<group>"; };
 		E4F6017C1DBB15F6006309A5 /* Discover.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Discover.swift; sourceTree = "<group>"; };
@@ -575,6 +599,25 @@
 			name = ShopMenuTableViewCell;
 			sourceTree = "<group>";
 		};
+		E4336D721DBC7550002E9F5C /* Voucher */ = {
+			isa = PBXGroup;
+			children = (
+				E4336D701DBC7438002E9F5C /* Voucher.swift */,
+				E4336D6E1DBC73B2002E9F5C /* VoucherRequest.swift */,
+				E4336D731DBC7563002E9F5C /* VoucherResponse.swift */,
+			);
+			name = Voucher;
+			sourceTree = "<group>";
+		};
+		E4336D751DBC839E002E9F5C /* VoucherTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				E4336D761DBC83BB002E9F5C /* VoucherTableViewCell.swift */,
+				E4336D771DBC83BB002E9F5C /* VoucherTableViewCell.xib */,
+			);
+			name = VoucherTableViewCell;
+			sourceTree = "<group>";
+		};
 		E4346EC21DB91AC3000566EE /* AddPointSuccessView */ = {
 			isa = PBXGroup;
 			children = (
@@ -591,6 +634,16 @@
 				E434E6001DAF480D00AFC400 /* PointCardTableViewCell.xib */,
 			);
 			name = PointCardTableViewCell;
+			sourceTree = "<group>";
+		};
+		E4364F0F1DBC9A9C00EFCF41 /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				E4F6017C1DBB15F6006309A5 /* Discover.swift */,
+				E4F6017A1DBB142C006309A5 /* DiscoverRequest.swift */,
+				E4364F101DBC9ABB00EFCF41 /* DiscoverResponse.swift */,
+			);
+			name = Discover;
 			sourceTree = "<group>";
 		};
 		E43D2C7D1DA7F6490019B2DD /* HomeTabbarController */ = {
@@ -712,6 +765,8 @@
 		E49404CC1DA6AE5F00918C75 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E4364F0F1DBC9A9C00EFCF41 /* Discover */,
+				E4336D721DBC7550002E9F5C /* Voucher */,
 				E42422911DA8A47900F7D6FC /* Authentication.swift */,
 				E42422931DA8A64D00F7D6FC /* ServerResponseError.swift */,
 				E42B6ADE1DAB37F20091746F /* Location.swift */,
@@ -729,8 +784,6 @@
 				E4EC1D851DB5C4BD005CECB6 /* MenuItem.swift */,
 				E4EC1D8E1DB5DBB4005CECB6 /* WordTime.swift */,
 				E4EC1D901DB5DBEB005CECB6 /* Address.swift */,
-				E4F6017C1DBB15F6006309A5 /* Discover.swift */,
-				E4F6017A1DBB142C006309A5 /* DiscoverRequest.swift */,
 				E4F6017E1DBB1640006309A5 /* Pagination.swift */,
 				E4F601801DBB1751006309A5 /* Image.swift */,
 			);
@@ -750,7 +803,7 @@
 			isa = PBXGroup;
 			children = (
 				E4F601841DBB2BCA006309A5 /* PromoViewController */,
-				E4C33E7D1DBB0C2500F87862 /* DealViewController */,
+				E4C33E7D1DBB0C2500F87862 /* DiscoverViewController */,
 				E4FF01FF1DB11BA600177F9F /* ScanQRCodeViewController */,
 				E476B0361DA93F0D007B1D62 /* BaseViewController.swift */,
 				E43D2C7D1DA7F6490019B2DD /* HomeTabbarController */,
@@ -773,6 +826,7 @@
 				E41448581DB08FD2006C70EF /* RedeemStore.swift */,
 				E46CD5821DB4B1E8001F37AF /* ShopStore.swift */,
 				E4F601781DBB13AF006309A5 /* DiscoverStore.swift */,
+				E4336D6C1DBC737A002E9F5C /* VoucherStore.swift */,
 			);
 			name = Stores;
 			sourceTree = "<group>";
@@ -830,6 +884,8 @@
 				E476B0231DA92AB4007B1D62 /* Card.storyboard */,
 				E45086E31DAFD9140090ACB5 /* Redeem.storyboard */,
 				E414486B1DB0D79B006C70EF /* Shop.storyboard */,
+				E4336D681DBC713C002E9F5C /* Voucher.storyboard */,
+				E4364F121DBCA28100EFCF41 /* Discover.storyboard */,
 			);
 			name = Storyboard;
 			sourceTree = "<group>";
@@ -837,6 +893,7 @@
 		E49404D61DA6AEEA00918C75 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				E4336D751DBC839E002E9F5C /* VoucherTableViewCell */,
 				E4346EC21DB91AC3000566EE /* AddPointSuccessView */,
 				E46894E21DB696FA0004B322 /* SegmentView */,
 				E416D0F41DB6333E002BBA81 /* AlertView */,
@@ -853,12 +910,14 @@
 			name = Components;
 			sourceTree = "<group>";
 		};
-		E4C33E7D1DBB0C2500F87862 /* DealViewController */ = {
+		E4C33E7D1DBB0C2500F87862 /* DiscoverViewController */ = {
 			isa = PBXGroup;
 			children = (
-				E4F601761DBB0C71006309A5 /* DealListViewController.swift */,
+				E4F601761DBB0C71006309A5 /* DiscoverViewController.swift */,
+				E4364F141DBCA31E00EFCF41 /* DiscoverListViewController.swift */,
+				E4364F161DBCA33C00EFCF41 /* MyDealViewController.swift */,
 			);
-			name = DealViewController;
+			name = DiscoverViewController;
 			sourceTree = "<group>";
 		};
 		E4CC4A641DAF3979003B8385 /* DiscountCardTableViewCell */ = {
@@ -901,6 +960,7 @@
 			isa = PBXGroup;
 			children = (
 				E4F601851DBB2BE1006309A5 /* PromoViewController.swift */,
+				E4336D6A1DBC7151002E9F5C /* VoucherViewController.swift */,
 			);
 			name = PromoViewController;
 			sourceTree = "<group>";
@@ -1058,12 +1118,14 @@
 				E42187B71DB8A38B00EFC98C /* EmptyTableViewCell.xib in Resources */,
 				E4246A031DAE101C00D0A074 /* VNF.ProximaNova-Regular.ttf in Resources */,
 				E49404A91DA6AD1B00918C75 /* LaunchScreen.storyboard in Resources */,
+				E4336D791DBC83BB002E9F5C /* VoucherTableViewCell.xib in Resources */,
 				E42469E41DADF64E00D0A074 /* item_top_loyalty_cards.png in Resources */,
 				E49404A61DA6AD1B00918C75 /* Assets.xcassets in Resources */,
 				E42469E21DADF55800D0A074 /* MyCardTableViewCell.xib in Resources */,
 				E43D2C7C1DA7F5570019B2DD /* Login.storyboard in Resources */,
 				E49404A41DA6AD1B00918C75 /* Main.storyboard in Resources */,
 				E423FB051DB337AF005C51BB /* CardAddressTableViewCell.xib in Resources */,
+				E4336D691DBC713C002E9F5C /* Voucher.storyboard in Resources */,
 				E49404D81DA6B60800918C75 /* Home.storyboard in Resources */,
 				E414485F1DB09718006C70EF /* RedeemSuccessView.xib in Resources */,
 				E4E0414D1DB74576001E0226 /* MyCardRewardTableViewCell.xib in Resources */,
@@ -1072,6 +1134,7 @@
 				E416D0F31DB605E7002BBA81 /* ShopCoverTableViewCell.xib in Resources */,
 				E45086E41DAFD9140090ACB5 /* Redeem.storyboard in Resources */,
 				E4246A0D1DAE411A00D0A074 /* DetailCardHeaderTableViewCell.xib in Resources */,
+				E4364F131DBCA28100EFCF41 /* Discover.storyboard in Resources */,
 				E4EC1D841DB5C352005CECB6 /* ShopMenuTitleTableViewCell.xib in Resources */,
 				E4271BF11DB4727900B485B3 /* CardAddressView.xib in Resources */,
 				E427F8E91DAF790C0012F3F5 /* Reward10TableViewCell.xib in Resources */,
@@ -1225,20 +1288,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4336D6D1DBC737A002E9F5C /* VoucherStore.swift in Sources */,
 				E43D2C821DA7F6C40019B2DD /* LoginViewController.swift in Sources */,
 				E42469DD1DADE79100D0A074 /* CardRequest.swift in Sources */,
+				E4364F111DBC9ABB00EFCF41 /* DiscoverResponse.swift in Sources */,
 				E4EC1D7F1DB5C32C005CECB6 /* ShopMenu2TableViewCell.swift in Sources */,
 				E42422971DA8C2A100F7D6FC /* DeviceConfig.swift in Sources */,
 				E42469E11DADF55800D0A074 /* MyCardTableViewCell.swift in Sources */,
 				E42B6AE51DAB966D0091746F /* UserUpdateInfoViewController.swift in Sources */,
 				E42B6ADD1DAB36720091746F /* ConfirmCodeViewController.swift in Sources */,
+				E4336D6B1DBC7151002E9F5C /* VoucherViewController.swift in Sources */,
 				E4F6017B1DBB142C006309A5 /* DiscoverRequest.swift in Sources */,
 				E416D0F21DB605E7002BBA81 /* ShopCoverTableViewCell.swift in Sources */,
 				E45746DD1DB27F4400021604 /* Discount.swift in Sources */,
+				E4336D6F1DBC73B2002E9F5C /* VoucherRequest.swift in Sources */,
 				E42187AE1DB8713400EFC98C /* SocialConfirmViewController.swift in Sources */,
 				E4271BEF1DB4726E00B485B3 /* CardAddressView.swift in Sources */,
 				E4346EC41DB91AE1000566EE /* AddPointSuccessView.swift in Sources */,
 				E451FFEF1DA8120B00B5A756 /* Textfield.swift in Sources */,
+				E4336D711DBC7438002E9F5C /* Voucher.swift in Sources */,
 				E424228E1DA8A10900F7D6FC /* Router.swift in Sources */,
 				E42B6AE31DAB3BCE0091746F /* User.swift in Sources */,
 				E4129A3D1DACDC6400F78C79 /* Card.swift in Sources */,
@@ -1266,8 +1334,10 @@
 				E46894E71DB697060004B322 /* SMSegment.swift in Sources */,
 				E41448711DB0DA90006C70EF /* AddPointViewController.swift in Sources */,
 				E414485D1DB0970E006C70EF /* RedeemSuccessView.swift in Sources */,
+				E4336D781DBC83BB002E9F5C /* VoucherTableViewCell.swift in Sources */,
 				E4F601861DBB2BE1006309A5 /* PromoViewController.swift in Sources */,
 				E47C3A871DB67D7B0057464F /* ShopMenuViewController.swift in Sources */,
+				E4364F151DBCA31E00EFCF41 /* DiscoverListViewController.swift in Sources */,
 				E451FFF31DA813C800B5A756 /* ScrollView.swift in Sources */,
 				E476B0391DA9445E007B1D62 /* ImageView.swift in Sources */,
 				E45746DF1DB27FB100021604 /* QRCode.swift in Sources */,
@@ -1290,9 +1360,10 @@
 				E427F8E81DAF790C0012F3F5 /* Reward10TableViewCell.swift in Sources */,
 				E42B6AE11DAB394B0091746F /* LoginParameter.swift in Sources */,
 				E4EC1D8B1DB5C517005CECB6 /* ShopMenuShowMoreTableViewCell.swift in Sources */,
+				E4336D741DBC7563002E9F5C /* VoucherResponse.swift in Sources */,
 				E470CF651DAC99BA00434909 /* UserStore.swift in Sources */,
 				E4E041511DB75054001E0226 /* ShopMenuCollectionViewCell.swift in Sources */,
-				E4F601771DBB0C71006309A5 /* DealListViewController.swift in Sources */,
+				E4F601771DBB0C71006309A5 /* DiscoverViewController.swift in Sources */,
 				E43D2C7F1DA7F6840019B2DD /* HomeTabbarController.swift in Sources */,
 				E423FB071DB34661005C51BB /* TableView.swift in Sources */,
 				E42422921DA8A47900F7D6FC /* Authentication.swift in Sources */,
@@ -1303,6 +1374,7 @@
 				E41DC0A71DB4D9CC00411F55 /* ShopAddressTableViewCell.swift in Sources */,
 				E46894E81DB697060004B322 /* SMSegmentAppearance.swift in Sources */,
 				E45746DB1DB27F1200021604 /* Reward.swift in Sources */,
+				E4364F171DBCA33C00EFCF41 /* MyDealViewController.swift in Sources */,
 				E46CD5861DB4B25C001F37AF /* Shop.swift in Sources */,
 				E4E0414C1DB74576001E0226 /* MyCardRewardTableViewCell.swift in Sources */,
 				E41448571DB08EE2006C70EF /* RedeemRequest.swift in Sources */,

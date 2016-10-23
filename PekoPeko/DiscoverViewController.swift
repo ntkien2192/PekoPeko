@@ -8,9 +8,20 @@
 
 import UIKit
 
-class DealListViewController: BaseViewController {
+class DiscoverViewController: BaseViewController {
 
+    static let storyboardName = "Home"
+    static let identify = "DiscoverViewController"
+    
     @IBOutlet weak var tableView: UITableView!
+    
+    var pageMenu: CAPSPageMenu?
+    
+    var storyList: CardListViewController?
+    var myCardList: MyCardViewController?
+    
+    var currnetPage: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,7 +40,7 @@ class DealListViewController: BaseViewController {
     }
 }
 
-extension DealListViewController: UITableViewDataSource {
+extension DiscoverViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 0
     }

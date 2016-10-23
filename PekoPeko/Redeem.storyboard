@@ -879,8 +879,7 @@
                                     <constraint firstItem="XTj-35-Xyr" firstAttribute="leading" secondItem="gpx-BD-JGn" secondAttribute="trailing" constant="8" id="tnH-5e-ldm"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZVI-jD-XZY">
-                                <frame key="frameInset" minX="20" minY="1484" width="335" height="40"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZVI-jD-XZY">
                                 <connections>
                                     <action selector="buttonShopTapped:" destination="6Hc-eY-ThA" eventType="touchUpInside" id="4hF-kv-Dvn"/>
                                 </connections>

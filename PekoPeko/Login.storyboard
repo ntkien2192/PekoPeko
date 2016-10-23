@@ -39,6 +39,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0zA-Gj-Q2w" customClass="Button" customModule="PekoPeko" customModuleProvider="target">
+                                <color key="backgroundColor" red="0.22548452019691467" green="0.34771811962127686" blue="0.57596451044082642" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
                                 <inset key="titleEdgeInsets" minX="80" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="Bắt đầu với Facebook" backgroundImage="ButtonLoginFacebook">
@@ -747,6 +748,9 @@
                                         <real key="value" value="0.20000000000000001"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="buttonResetCodeTapped:" destination="sCP-Kx-29X" eventType="touchUpInside" id="v3G-Py-6Yt"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1026,7 +1030,7 @@
                                     <action selector="buttonTakePicturesTapped:" destination="7Fe-Os-Gy4" eventType="touchUpInside" id="wYa-Il-NKW"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tên hiển thị cùng với một hình ảnh đẹp sẽ khiến bạn nổi bật hơn" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9mw-lM-9ir" customClass="Label" customModule="PekoPeko" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tên hiển thị cùng với một hình ảnh đẹp sẽ giúp bạn nổi bật hơn" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9mw-lM-9ir" customClass="Label" customModule="PekoPeko" customModuleProvider="target">
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="fCY-b3-D3b"/>
                                 </constraints>
@@ -1085,6 +1089,7 @@
                             <constraint firstItem="Qrq-cK-69v" firstAttribute="centerX" secondItem="mQi-1I-uDS" secondAttribute="centerX" id="M1O-2K-dCI"/>
                             <constraint firstItem="ruM-30-ZLf" firstAttribute="top" secondItem="c22-ht-KPe" secondAttribute="bottom" constant="50" id="PUY-hZ-HPY"/>
                             <constraint firstItem="Qrq-cK-69v" firstAttribute="centerY" secondItem="mQi-1I-uDS" secondAttribute="centerY" id="QFJ-eY-6oX"/>
+                            <constraint firstAttribute="trailing" secondItem="9mw-lM-9ir" secondAttribute="trailing" constant="50" id="QJR-8p-igy"/>
                             <constraint firstItem="oer-Po-COg" firstAttribute="top" secondItem="MKo-qK-avv" secondAttribute="bottom" constant="20" id="QjG-Ch-kS5"/>
                             <constraint firstItem="TGd-32-PBa" firstAttribute="leading" secondItem="mQi-1I-uDS" secondAttribute="leading" id="R2b-Dh-EBN"/>
                             <constraint firstAttribute="trailing" secondItem="dbv-3g-0T6" secondAttribute="trailing" id="RXq-07-GTe"/>
@@ -1092,7 +1097,7 @@
                             <constraint firstItem="jIj-iE-pGr" firstAttribute="centerX" secondItem="dbv-3g-0T6" secondAttribute="centerX" id="VOn-uO-hVu"/>
                             <constraint firstItem="ruM-30-ZLf" firstAttribute="centerX" secondItem="dbv-3g-0T6" secondAttribute="centerX" id="ZGh-Ky-Avu"/>
                             <constraint firstItem="jIj-iE-pGr" firstAttribute="width" secondItem="mQi-1I-uDS" secondAttribute="width" multiplier="9:10" id="aKm-Mm-QDK"/>
-                            <constraint firstItem="jIj-iE-pGr" firstAttribute="top" secondItem="9mw-lM-9ir" secondAttribute="bottom" constant="20" id="bFW-sW-Vs2"/>
+                            <constraint firstItem="jIj-iE-pGr" firstAttribute="top" secondItem="9mw-lM-9ir" secondAttribute="bottom" constant="15" id="bFW-sW-Vs2"/>
                             <constraint firstItem="oer-Po-COg" firstAttribute="centerX" secondItem="dbv-3g-0T6" secondAttribute="centerX" id="cCQ-hv-u73"/>
                             <constraint firstItem="MKo-qK-avv" firstAttribute="width" secondItem="MKo-qK-avv" secondAttribute="height" multiplier="332:50" id="coH-fN-Zqh"/>
                             <constraint firstItem="dbv-3g-0T6" firstAttribute="top" secondItem="mQi-1I-uDS" secondAttribute="top" id="eWz-vm-S5a"/>
@@ -1101,10 +1106,10 @@
                             <constraint firstItem="I3Z-I9-rvq" firstAttribute="trailing" secondItem="ruM-30-ZLf" secondAttribute="trailing" id="jhD-sO-Stn"/>
                             <constraint firstItem="zd0-2E-A79" firstAttribute="centerX" secondItem="k61-cq-ved" secondAttribute="centerX" id="m1I-4V-npW"/>
                             <constraint firstItem="9mw-lM-9ir" firstAttribute="centerX" secondItem="dbv-3g-0T6" secondAttribute="centerX" id="o4V-OH-BAk"/>
-                            <constraint firstItem="9mw-lM-9ir" firstAttribute="width" secondItem="jIj-iE-pGr" secondAttribute="width" id="oSU-4j-MHh"/>
                             <constraint firstItem="PV1-9A-szb" firstAttribute="top" secondItem="dbv-3g-0T6" secondAttribute="bottom" id="rVt-47-9vy"/>
                             <constraint firstItem="9mw-lM-9ir" firstAttribute="top" secondItem="ruM-30-ZLf" secondAttribute="bottom" constant="20" id="rho-Xw-RXs"/>
                             <constraint firstItem="Hh5-pw-B2a" firstAttribute="centerY" secondItem="ruM-30-ZLf" secondAttribute="centerY" id="ucH-wt-bG5"/>
+                            <constraint firstItem="9mw-lM-9ir" firstAttribute="leading" secondItem="mQi-1I-uDS" secondAttribute="leading" constant="50" id="uyV-e0-bVR"/>
                         </constraints>
                     </view>
                     <connections>
@@ -1127,7 +1132,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uzy-cJ-Z7V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3295" y="72"/>
+            <point key="canvasLocation" x="3293.5999999999999" y="71.514242878560722"/>
         </scene>
         <!--Social Confirm View Controller-->
         <scene sceneID="wPi-cs-fKF">

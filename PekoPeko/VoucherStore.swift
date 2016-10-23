@@ -1,8 +1,8 @@
 //
-//  DiscoverStore.swift
+//  Voucher.swift
 //  PekoPeko
 //
-//  Created by Nguyễn Trung Kiên on 22/10/2016.
+//  Created by Nguyễn Trung Kiên on 23/10/2016.
 //  Copyright © 2016 hungrybear. All rights reserved.
 //
 
@@ -11,12 +11,11 @@ import Alamofire
 import SwiftyJSON
 import ObjectMapper
 
-class DiscoverStore {
-    class func getAllDiscover(discoverRequest: DiscoverRequest, completionHandler: @escaping (DiscoverResponse?, Error?) -> Void) {
+class VoucherStore {
+    class func getAllVoucher(voucherRequest: VoucherRequest, completionHandler: @escaping (VoucherResponse?, Error?) -> Void) {
+        let parameters = voucherRequest.toJSON()
         
-        let parameters = discoverRequest.toJSON()
-        
-        _ = Alamofire.request(Router.getAllDiscover(parameters as [String : AnyObject])).responseAllDiscover({ (response) in
+        _ = Alamofire.request(Router.getAllVoucher(parameters as [String : AnyObject])).responseAllVoucher({ (response) in
             if let error = response.result.error {
                 completionHandler(nil, error)
                 return
@@ -31,8 +30,8 @@ class DiscoverStore {
     }
 }
 extension Alamofire.DataRequest {
-    func responseAllDiscover(_ completionHandler: @escaping (DataResponse<DiscoverResponse?>) -> Void) -> Self {
-        let responseSerializer = DataResponseSerializer<DiscoverResponse?> { request, response, data, error in
+    func responseAllVoucher(_ completionHandler: @escaping (DataResponse<VoucherResponse?>) -> Void) -> Self {
+        let responseSerializer = DataResponseSerializer<VoucherResponse?> { request, response, data, error in
             guard error == nil else {
                 return .failure(error!)
             }
@@ -77,8 +76,8 @@ extension Alamofire.DataRequest {
                         return .success(nil)
                     }
                 } else {
-                    let shop = DiscoverResponse(json: jsonObject)
-                    return .success(shop)
+                    let voucherResponse = VoucherResponse(json: jsonObject)
+                    return .success(voucherResponse)
                 }
                 
             case .failure(let error):

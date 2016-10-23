@@ -93,7 +93,7 @@ extension CardViewController: CAPSPageMenuDelegate {
     }
 }
 
-extension CardViewController: CardListViewControllerDelegate, MyCardViewControllerDelegate{
+extension CardViewController: CardListViewControllerDelegate, MyCardViewControllerDelegate {
     func buttonCardTapped(card: Card?) {
         present(card: card)
     }
