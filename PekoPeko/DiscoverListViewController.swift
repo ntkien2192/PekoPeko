@@ -15,9 +15,11 @@ class DiscoverListViewController: BaseViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    var refreshControl: UIRefreshControl?
+    
     var discovers: [Discover]? {
         didSet {
-            if let discovers = discovers {
+            if discovers != nil {
                  tableView.reloadData()
             }
         }
@@ -35,8 +37,18 @@ class DiscoverListViewController: BaseViewController {
         super.viewConfig()
         
         tableView.tableFooterView = UIView()
-        
+        tableView.register(UINib(nibName: EmptyTableViewCell.identify, bundle: nil), forCellReuseIdentifier: EmptyTableViewCell.identify)
+        tableView.register(UINib(nibName: Deal1ImageTableViewCell.identify, bundle: nil), forCellReuseIdentifier: Deal1ImageTableViewCell.identify)
+        tableView.register(UINib(nibName: Deal2ImageTableViewCell.identify, bundle: nil), forCellReuseIdentifier: Deal2ImageTableViewCell.identify)
+        tableView.register(UINib(nibName: Deal3ImageTableViewCell.identify, bundle: nil), forCellReuseIdentifier: Deal3ImageTableViewCell.identify)
         tableView.register(UINib(nibName: DealMoreImageTableViewCell.identify, bundle: nil), forCellReuseIdentifier: DealMoreImageTableViewCell.identify)
+        
+        refreshControl = UIRefreshControl()
+        if let refreshControl = refreshControl {
+            refreshControl.addTarget(self, action: #selector(DiscoverListViewController.reloadAllDiscover), for: .valueChanged)
+            tableView.addSubview(refreshControl)
+            tableView.sendSubview(toBack: refreshControl)
+        }
     }
     
     func reloadAllDiscover() {
@@ -49,6 +61,11 @@ class DiscoverListViewController: BaseViewController {
         weak var _self = self
         DiscoverStore.getAllDiscover(discoverRequest: discoverRequest) { (discoverResponse, error) in
             if let _self = _self {
+                
+                if let refreshControl = _self.refreshControl {
+                    refreshControl.endRefreshing()
+                }
+                
                 guard error == nil else {
                     if let error = error as? ServerResponseError, let data = error.data {
                         let messageView = MessageView(frame: _self.view.bounds)
@@ -86,18 +103,37 @@ extension DiscoverListViewController: UITableViewDataSource {
         if let discovers = discovers {
             return discovers.count
         }
-        return 10
+        return 4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: DealMoreImageTableViewCell.identify, for: indexPath) as! DealMoreImageTableViewCell
         if let discovers = discovers {
-            cell.discover = discovers[indexPath.row]
-            
-            
-            cell.isLast = indexPath.row == 9 ? true : false
+            let discover = discovers[indexPath.row]
+            switch discover.imageCount() {
+            case 1:
+                let cell = tableView.dequeueReusableCell(withIdentifier: Deal1ImageTableViewCell.identify, for: indexPath) as! Deal1ImageTableViewCell
+                cell.discover = discover
+                cell.isLast = indexPath.row == (discovers.count - 1) ? true : false
+                return cell
+            case 2:
+                let cell = tableView.dequeueReusableCell(withIdentifier: Deal2ImageTableViewCell.identify, for: indexPath) as! Deal2ImageTableViewCell
+                cell.discover = discover
+                cell.isLast = indexPath.row == (discovers.count - 1) ? true : false
+                return cell
+            case 3:
+                let cell = tableView.dequeueReusableCell(withIdentifier: Deal3ImageTableViewCell.identify, for: indexPath) as! Deal3ImageTableViewCell
+                cell.discover = discover
+                cell.isLast = indexPath.row == (discovers.count - 1) ? true : false
+                return cell
+            default:
+                let cell = tableView.dequeueReusableCell(withIdentifier: DealMoreImageTableViewCell.identify, for: indexPath) as! DealMoreImageTableViewCell
+                cell.discover = discover
+                cell.isLast = indexPath.row == (discovers.count - 1) ? true : false
+                return cell
+            }
         }
         
+        let cell = tableView.dequeueReusableCell(withIdentifier: EmptyTableViewCell.identify, for: indexPath) as! EmptyTableViewCell
         return cell
     }
 }

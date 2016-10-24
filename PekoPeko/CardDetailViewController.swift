@@ -13,6 +13,7 @@ enum RowDisplayType: Int {
     case header = -10
     case discount = -9
     case hpRate = -8
+    case vipMember = -7
 }
 
 class CardDetailViewController: BaseViewController {
@@ -39,6 +40,8 @@ class CardDetailViewController: BaseViewController {
                 
                 var type: [Int] = [Int]()
                 type.append(RowDisplayType.header.rawValue)
+                
+                type.append(RowDisplayType.vipMember.rawValue)
                 
                 if card.discount != nil {
                     type.append(RowDisplayType.discount.rawValue)
@@ -92,7 +95,9 @@ class CardDetailViewController: BaseViewController {
     override func viewConfig() {
         super.viewConfig()
         tableView.tableFooterView = UIView()
+        
         tableView.register(UINib(nibName: DetailCardHeaderTableViewCell.identify, bundle: nil), forCellReuseIdentifier: DetailCardHeaderTableViewCell.identify)
+        tableView.register(UINib(nibName: VipTableViewCell.identify, bundle: nil), forCellReuseIdentifier: VipTableViewCell.identify)
         tableView.register(UINib(nibName: DiscountCardTableViewCell.identify, bundle: nil), forCellReuseIdentifier: DiscountCardTableViewCell.identify)
         tableView.register(UINib(nibName: PointCardTableViewCell.identify, bundle: nil), forCellReuseIdentifier: PointCardTableViewCell.identify)
         tableView.register(UINib(nibName: RewardTableViewCell.identify, bundle: nil), forCellReuseIdentifier: RewardTableViewCell.identify)
@@ -250,6 +255,11 @@ extension CardDetailViewController: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: PointCardTableViewCell.identify, for: indexPath) as! PointCardTableViewCell
             cell.card = card
             return cell
+        case -7:
+            let cell = tableView.dequeueReusableCell(withIdentifier: VipTableViewCell.identify, for: indexPath) as! VipTableViewCell
+            cell.card = card
+            cell.delegate = self
+            return cell
         default:
             if let rewards = rewards {
                 let reward = rewards[cellType]
@@ -325,6 +335,17 @@ extension CardDetailViewController: DetailCardHeaderTableViewCellDelegate {
         shopDetailController.card = card
         if let topController = AppDelegate.topController() {
             topController.present(shopDetailController, animated: true, completion: nil)
+        }
+    }
+}
+
+
+extension CardDetailViewController: VipTableViewCellDelegate {
+    func vipCellTapped(card: Card?) {
+        if let controller = AppDelegate.topController() {
+            let vipCardView = VipCardView(frame: controller.view.bounds)
+            vipCardView.vipCards = [VipCard(), VipCard(), VipCard()]
+            addFullView(view: vipCardView)
         }
     }
 }

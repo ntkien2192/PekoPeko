@@ -1390,7 +1390,7 @@
         <image name="BackgroundLoginPhone" width="360" height="640"/>
         <image name="ButtonLoginFacebook" width="294" height="50"/>
         <image name="ButtonLoginPhone" width="294" height="50"/>
-        <image name="IconAppName" width="89" height="16"/>
+        <image name="IconAppName" width="160" height="28"/>
         <image name="IconHide" width="22" height="22"/>
         <image name="IconKey" width="22" height="22"/>
         <image name="IconLeft" width="44" height="44"/>

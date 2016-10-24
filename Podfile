@@ -21,6 +21,7 @@ target 'PekoPeko' do
   pod 'FBSDKShareKit'
   pod 'FBSDKLoginKit'
   pod 'DZNEmptyDataSet'
+  pod 'iCarousel'
   
   # Pods for PekoPeko
 

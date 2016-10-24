@@ -389,6 +389,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="plS-b5-d6P">
                         <nil key="title"/>
+                        <barButtonItem key="backBarButtonItem" title=" " id="zi8-n7-Cf2"/>
                         <view key="titleView" contentMode="scaleToFill" id="sYP-mk-qF7">
                             <rect key="frame" x="117" y="2" width="150" height="40"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

@@ -134,7 +134,9 @@ class Reward10TableViewCell: UITableViewCell {
     }
     
     @IBAction func buttonExchangeTapped(_ sender: AnyObject) {
-        delegate?.buttonExchangeTapped(reward: reward)
+        if isCanExchange {
+            delegate?.buttonExchangeTapped(reward: reward)
+        }
     }
     
     @IBAction func buttonPointTapped(_ sender: AnyObject) {

@@ -95,6 +95,10 @@
 		E43D2C7F1DA7F6840019B2DD /* HomeTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43D2C7E1DA7F6840019B2DD /* HomeTabbarController.swift */; };
 		E43D2C821DA7F6C40019B2DD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43D2C811DA7F6C40019B2DD /* LoginViewController.swift */; };
 		E43D2C841DA80DAE0019B2DD /* LoginPhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43D2C831DA80DAE0019B2DD /* LoginPhoneViewController.swift */; };
+		E441E5DF1DBDF17F0016B87E /* CardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E441E5DE1DBDF17F0016B87E /* CardView.xib */; };
+		E441E5E11DBDF18C0016B87E /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E441E5E01DBDF18C0016B87E /* CardView.swift */; };
+		E441E5E31DBDF1B80016B87E /* VipCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E441E5E21DBDF1B80016B87E /* VipCard.swift */; };
+		E44B27B01DBDE341006FB81D /* VipCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E44B27AF1DBDE341006FB81D /* VipCardView.xib */; };
 		E45086E41DAFD9140090ACB5 /* Redeem.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E45086E31DAFD9140090ACB5 /* Redeem.storyboard */; };
 		E45086E71DAFDA5A0090ACB5 /* RedeemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45086E61DAFDA5A0090ACB5 /* RedeemViewController.swift */; };
 		E451FFEF1DA8120B00B5A756 /* Textfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = E451FFEE1DA8120B00B5A756 /* Textfield.swift */; };
@@ -106,6 +110,10 @@
 		E45746DF1DB27FB100021604 /* QRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45746DE1DB27FB100021604 /* QRCode.swift */; };
 		E462CA701DBDBD11001D5D5A /* Deal2ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E462CA6E1DBDBD11001D5D5A /* Deal2ImageTableViewCell.swift */; };
 		E462CA751DBDBE0F001D5D5A /* Deal2ImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E462CA741DBDBE0F001D5D5A /* Deal2ImageTableViewCell.xib */; };
+		E462CA771DBDC527001D5D5A /* DealDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E462CA761DBDC527001D5D5A /* DealDetailViewController.swift */; };
+		E462CA7B1DBDCDFF001D5D5A /* VipTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E462CA791DBDCDFF001D5D5A /* VipTableViewCell.swift */; };
+		E462CA7C1DBDCDFF001D5D5A /* VipTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E462CA7A1DBDCDFF001D5D5A /* VipTableViewCell.xib */; };
+		E462CA7F1DBDE03E001D5D5A /* VipCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E462CA7E1DBDE03E001D5D5A /* VipCardView.swift */; };
 		E46894E71DB697060004B322 /* SMSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46894E31DB697060004B322 /* SMSegment.swift */; };
 		E46894E81DB697060004B322 /* SMSegmentAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46894E41DB697060004B322 /* SMSegmentAppearance.swift */; };
 		E46894E91DB697060004B322 /* SMSegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46894E51DB697060004B322 /* SMSegmentView.swift */; };
@@ -291,6 +299,10 @@
 		E43D2C7E1DA7F6840019B2DD /* HomeTabbarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTabbarController.swift; sourceTree = "<group>"; };
 		E43D2C811DA7F6C40019B2DD /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E43D2C831DA80DAE0019B2DD /* LoginPhoneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPhoneViewController.swift; sourceTree = "<group>"; };
+		E441E5DE1DBDF17F0016B87E /* CardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardView.xib; sourceTree = "<group>"; };
+		E441E5E01DBDF18C0016B87E /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		E441E5E21DBDF1B80016B87E /* VipCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VipCard.swift; sourceTree = "<group>"; };
+		E44B27AF1DBDE341006FB81D /* VipCardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VipCardView.xib; sourceTree = "<group>"; };
 		E45086E31DAFD9140090ACB5 /* Redeem.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Redeem.storyboard; sourceTree = "<group>"; };
 		E45086E61DAFDA5A0090ACB5 /* RedeemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedeemViewController.swift; sourceTree = "<group>"; };
 		E451FFEE1DA8120B00B5A756 /* Textfield.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Textfield.swift; sourceTree = "<group>"; };
@@ -302,6 +314,10 @@
 		E45746DE1DB27FB100021604 /* QRCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCode.swift; sourceTree = "<group>"; };
 		E462CA6E1DBDBD11001D5D5A /* Deal2ImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deal2ImageTableViewCell.swift; sourceTree = "<group>"; };
 		E462CA741DBDBE0F001D5D5A /* Deal2ImageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Deal2ImageTableViewCell.xib; sourceTree = "<group>"; };
+		E462CA761DBDC527001D5D5A /* DealDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealDetailViewController.swift; sourceTree = "<group>"; };
+		E462CA791DBDCDFF001D5D5A /* VipTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VipTableViewCell.swift; sourceTree = "<group>"; };
+		E462CA7A1DBDCDFF001D5D5A /* VipTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VipTableViewCell.xib; sourceTree = "<group>"; };
+		E462CA7E1DBDE03E001D5D5A /* VipCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VipCardView.swift; sourceTree = "<group>"; };
 		E46894E31DB697060004B322 /* SMSegment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMSegment.swift; sourceTree = "<group>"; };
 		E46894E41DB697060004B322 /* SMSegmentAppearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMSegmentAppearance.swift; sourceTree = "<group>"; };
 		E46894E51DB697060004B322 /* SMSegmentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMSegmentView.swift; sourceTree = "<group>"; };
@@ -558,15 +574,16 @@
 			name = Font;
 			sourceTree = "<group>";
 		};
-		E4246A081DAE40E100D0A074 /* DetailCardTableViewCell */ = {
+		E4246A081DAE40E100D0A074 /* CardDetailTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				E462CA781DBDCDE0001D5D5A /* VipTableViewCell */,
 				E4246A091DAE40FB00D0A074 /* DetailCardHeaderTableViewCell */,
 				E427F8E11DAF5F420012F3F5 /* RewardTableViewCell */,
 				E434E5FE1DAF47E400AFC400 /* PointCardTableViewCell */,
 				E4CC4A641DAF3979003B8385 /* DiscountCardTableViewCell */,
 			);
-			name = DetailCardTableViewCell;
+			name = CardDetailTableViewCell;
 			sourceTree = "<group>";
 		};
 		E4246A091DAE40FB00D0A074 /* DetailCardHeaderTableViewCell */ = {
@@ -711,6 +728,26 @@
 			name = DiscoverDetailTableViewCell;
 			sourceTree = "<group>";
 		};
+		E462CA781DBDCDE0001D5D5A /* VipTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				E462CA791DBDCDFF001D5D5A /* VipTableViewCell.swift */,
+				E462CA7A1DBDCDFF001D5D5A /* VipTableViewCell.xib */,
+			);
+			name = VipTableViewCell;
+			sourceTree = "<group>";
+		};
+		E462CA7D1DBDE02A001D5D5A /* VipCardView */ = {
+			isa = PBXGroup;
+			children = (
+				E462CA7E1DBDE03E001D5D5A /* VipCardView.swift */,
+				E44B27AF1DBDE341006FB81D /* VipCardView.xib */,
+				E441E5E01DBDF18C0016B87E /* CardView.swift */,
+				E441E5DE1DBDF17F0016B87E /* CardView.xib */,
+			);
+			name = VipCardView;
+			sourceTree = "<group>";
+		};
 		E46894E21DB696FA0004B322 /* SegmentView */ = {
 			isa = PBXGroup;
 			children = (
@@ -822,6 +859,7 @@
 				E4EC1D901DB5DBEB005CECB6 /* Address.swift */,
 				E4F6017E1DBB1640006309A5 /* Pagination.swift */,
 				E4F601801DBB1751006309A5 /* Image.swift */,
+				E441E5E21DBDF1B80016B87E /* VipCard.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -929,6 +967,7 @@
 		E49404D61DA6AEEA00918C75 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				E462CA7D1DBDE02A001D5D5A /* VipCardView */,
 				E4C00C3E1DBCE62B00EE3CF4 /* DiscoverTableViewCell */,
 				E4364F181DBCA3EB00EFCF41 /* ShareView */,
 				E4336D751DBC839E002E9F5C /* VoucherTableViewCell */,
@@ -941,7 +980,7 @@
 				E414485B1DB096C1006C70EF /* RedeemSuccessView */,
 				E414485A1DB096AF006C70EF /* BaseView */,
 				E41DC0921DB4D31200411F55 /* ShopDetailTableViewCell */,
-				E4246A081DAE40E100D0A074 /* DetailCardTableViewCell */,
+				E4246A081DAE40E100D0A074 /* CardDetailTableViewCell */,
 				E42469DE1DADF54100D0A074 /* MyCardTableViewCell */,
 				E476B0291DA9379E007B1D62 /* CardTableViewCell */,
 			);
@@ -978,6 +1017,7 @@
 				E4F601761DBB0C71006309A5 /* DiscoverViewController.swift */,
 				E4364F141DBCA31E00EFCF41 /* DiscoverListViewController.swift */,
 				E4364F161DBCA33C00EFCF41 /* MyDealViewController.swift */,
+				E462CA761DBDC527001D5D5A /* DealDetailViewController.swift */,
 			);
 			name = DiscoverViewController;
 			sourceTree = "<group>";
@@ -1165,6 +1205,7 @@
 				E42469F71DAE101C00D0A074 /* ProximaNova-Bold.otf in Resources */,
 				E42469F81DAE101C00D0A074 /* ProximaNova-Regular.otf in Resources */,
 				E4CC4A681DAF3991003B8385 /* DiscountCardTableViewCell.xib in Resources */,
+				E441E5DF1DBDF17F0016B87E /* CardView.xib in Resources */,
 				E42469F91DAE101C00D0A074 /* ProximaNova-Semibold.otf in Resources */,
 				E4EC1D8C1DB5C517005CECB6 /* ShopMenuShowMoreTableViewCell.xib in Resources */,
 				E42469FA1DAE101C00D0A074 /* ProximaNovaSoft-Bold.otf in Resources */,
@@ -1178,6 +1219,7 @@
 				E427F8E51DAF5F580012F3F5 /* RewardTableViewCell.xib in Resources */,
 				E414486C1DB0D79B006C70EF /* Shop.storyboard in Resources */,
 				E4246A011DAE101C00D0A074 /* UTM Bebas.ttf in Resources */,
+				E462CA7C1DBDCDFF001D5D5A /* VipTableViewCell.xib in Resources */,
 				E416D0F81DB63368002BBA81 /* AlertView.xib in Resources */,
 				E4246A021DAE101C00D0A074 /* UVF ProximaNova-Regular.ttf in Resources */,
 				E42187B71DB8A38B00EFC98C /* EmptyTableViewCell.xib in Resources */,
@@ -1192,6 +1234,7 @@
 				E49404A41DA6AD1B00918C75 /* Main.storyboard in Resources */,
 				E423FB051DB337AF005C51BB /* CardAddressTableViewCell.xib in Resources */,
 				E4336D691DBC713C002E9F5C /* Voucher.storyboard in Resources */,
+				E44B27B01DBDE341006FB81D /* VipCardView.xib in Resources */,
 				E49404D81DA6B60800918C75 /* Home.storyboard in Resources */,
 				E414485F1DB09718006C70EF /* RedeemSuccessView.xib in Resources */,
 				E4E0414D1DB74576001E0226 /* MyCardRewardTableViewCell.xib in Resources */,
@@ -1372,7 +1415,9 @@
 				E42187AE1DB8713400EFC98C /* SocialConfirmViewController.swift in Sources */,
 				E4271BEF1DB4726E00B485B3 /* CardAddressView.swift in Sources */,
 				E4346EC41DB91AE1000566EE /* AddPointSuccessView.swift in Sources */,
+				E441E5E31DBDF1B80016B87E /* VipCard.swift in Sources */,
 				E451FFEF1DA8120B00B5A756 /* Textfield.swift in Sources */,
+				E462CA7F1DBDE03E001D5D5A /* VipCardView.swift in Sources */,
 				E4336D711DBC7438002E9F5C /* Voucher.swift in Sources */,
 				E424228E1DA8A10900F7D6FC /* Router.swift in Sources */,
 				E42B6AE31DAB3BCE0091746F /* User.swift in Sources */,
@@ -1388,10 +1433,12 @@
 				E4EC1D861DB5C4BD005CECB6 /* MenuItem.swift in Sources */,
 				E423FB041DB337AF005C51BB /* CardAddressTableViewCell.swift in Sources */,
 				E42422901DA8A14A00F7D6FC /* AuthenticationStore.swift in Sources */,
+				E441E5E11DBDF18C0016B87E /* CardView.swift in Sources */,
 				E41DC09D1DB4D61A00411F55 /* ShopInfoTableViewCell.swift in Sources */,
 				E4F601791DBB13B0006309A5 /* DiscoverStore.swift in Sources */,
 				E476B0191DA908FD007B1D62 /* CardViewController.swift in Sources */,
 				E462CA701DBDBD11001D5D5A /* Deal2ImageTableViewCell.swift in Sources */,
+				E462CA771DBDC527001D5D5A /* DealDetailViewController.swift in Sources */,
 				E43D2C841DA80DAE0019B2DD /* LoginPhoneViewController.swift in Sources */,
 				E494049F1DA6AD1B00918C75 /* AppDelegate.swift in Sources */,
 				E4C00C421DBCEAE800EE3CF4 /* Deal1ImageTableViewCell.swift in Sources */,
@@ -1403,6 +1450,7 @@
 				E427F8E41DAF5F580012F3F5 /* RewardTableViewCell.swift in Sources */,
 				E46894E71DB697060004B322 /* SMSegment.swift in Sources */,
 				E41448711DB0DA90006C70EF /* AddPointViewController.swift in Sources */,
+				E462CA7B1DBDCDFF001D5D5A /* VipTableViewCell.swift in Sources */,
 				E414485D1DB0970E006C70EF /* RedeemSuccessView.swift in Sources */,
 				E4336D781DBC83BB002E9F5C /* VoucherTableViewCell.swift in Sources */,
 				E4F601861DBB2BE1006309A5 /* PromoViewController.swift in Sources */,

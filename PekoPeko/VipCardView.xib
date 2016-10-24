@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VipCardView" customModule="PekoPeko" customModuleProvider="target">
+            <connections>
+                <outlet property="cardView" destination="yTd-i3-7f9" id="RoE-Xq-t4m"/>
+                <outlet property="pageControl" destination="gVZ-Un-aku" id="zH4-SZ-ax0"/>
+                <outlet property="view" destination="iN0-l3-epB" id="OpO-Gs-Qct"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gbg-jA-Icf">
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Glt-dq-gst">
+                        <frame key="frameInset"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yTd-i3-7f9" customClass="iCarousel">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="-1" id="mc0-vT-pFQ"/>
+                                    <outlet property="delegate" destination="-1" id="RDn-rR-FD5"/>
+                                </connections>
+                            </view>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="gVZ-Un-aku">
+                                <color key="pageIndicatorTintColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="currentPageIndicatorTintColor" red="0.96078431369999995" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </pageControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="34b-mm-bDW">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Bx5-TQ-1yw"/>
+                                    <constraint firstAttribute="width" constant="44" id="SvK-Ak-WxI"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                <state key="normal" image="IconLeft"/>
+                                <connections>
+                                    <action selector="buttonBackTapped:" destination="-1" eventType="touchUpInside" id="bRA-mX-Hwy"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VIP Card" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1DG-K0-9ql">
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="34b-mm-bDW" firstAttribute="leading" secondItem="Glt-dq-gst" secondAttribute="leading" id="4F7-Zf-UlX"/>
+                            <constraint firstItem="yTd-i3-7f9" firstAttribute="top" secondItem="Glt-dq-gst" secondAttribute="top" constant="64" id="4OP-EC-Tn4"/>
+                            <constraint firstItem="gVZ-Un-aku" firstAttribute="top" secondItem="yTd-i3-7f9" secondAttribute="bottom" id="8yV-9U-GXz"/>
+                            <constraint firstItem="1DG-K0-9ql" firstAttribute="centerY" secondItem="34b-mm-bDW" secondAttribute="centerY" id="D6z-lv-Yrc"/>
+                            <constraint firstItem="yTd-i3-7f9" firstAttribute="leading" secondItem="Glt-dq-gst" secondAttribute="leading" id="M5v-XB-vbJ"/>
+                            <constraint firstAttribute="trailing" secondItem="yTd-i3-7f9" secondAttribute="trailing" id="SDW-im-GqN"/>
+                            <constraint firstItem="gVZ-Un-aku" firstAttribute="centerX" secondItem="Glt-dq-gst" secondAttribute="centerX" id="UxA-EP-f2T"/>
+                            <constraint firstAttribute="bottom" secondItem="yTd-i3-7f9" secondAttribute="bottom" constant="60" id="bAC-tK-cLb"/>
+                            <constraint firstAttribute="trailing" secondItem="1DG-K0-9ql" secondAttribute="trailing" constant="52" id="eyt-Bl-2r0"/>
+                            <constraint firstAttribute="bottom" secondItem="gVZ-Un-aku" secondAttribute="bottom" id="n3X-7v-REk"/>
+                            <constraint firstItem="yTd-i3-7f9" firstAttribute="top" secondItem="34b-mm-bDW" secondAttribute="bottom" id="thi-mP-ir6"/>
+                            <constraint firstItem="1DG-K0-9ql" firstAttribute="leading" secondItem="34b-mm-bDW" secondAttribute="trailing" constant="8" id="xH4-3D-xEP"/>
+                        </constraints>
+                    </view>
+                    <blurEffect style="dark"/>
+                </visualEffectView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="gbg-jA-Icf" secondAttribute="bottom" id="3UX-rO-0aO"/>
+                <constraint firstAttribute="trailing" secondItem="gbg-jA-Icf" secondAttribute="trailing" id="3aR-xO-gUX"/>
+                <constraint firstItem="gbg-jA-Icf" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="onA-9R-bck"/>
+                <constraint firstItem="gbg-jA-Icf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="x1p-mv-fJ0"/>
+            </constraints>
+            <point key="canvasLocation" x="34.5" y="54.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="IconLeft" width="44" height="44"/>
+    </resources>
+</document>

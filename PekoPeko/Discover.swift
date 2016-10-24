@@ -52,7 +52,7 @@ class Discover: NSObject {
     var totalLikes: Int?
     var totalComments: Int?
     var isLiked: Bool?
-    var imageUrl: String?
+    var image: Image?
     
     required init(json: JSON) {
         discoverID = json[DiscoverFields.DiscoverID.rawValue].string
@@ -83,6 +83,13 @@ class Discover: NSObject {
         totalLikes = json[DiscoverFields.TotalLikes.rawValue].int
         totalComments = json[DiscoverFields.TotalComments.rawValue].int
         isLiked = json[DiscoverFields.Liked.rawValue].bool
-        imageUrl = json[DiscoverFields.Image.rawValue].string
+        image = Image(json: json[DiscoverFields.Image.rawValue])
+    }
+    
+    func imageCount() -> Int {
+        if let image = image, let urls = image.urls{
+            return urls.count
+        }
+        return 0
     }
 }

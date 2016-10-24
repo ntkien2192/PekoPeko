@@ -60,5 +60,23 @@
             </objects>
             <point key="canvasLocation" x="540" y="178"/>
         </scene>
+        <!--Deal Detail View Controller-->
+        <scene sceneID="AWC-la-Sr3">
+            <objects>
+                <viewController id="XXf-yC-L4f" customClass="DealDetailViewController" customModule="PekoPeko" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="weZ-y3-NV3"/>
+                        <viewControllerLayoutGuide type="bottom" id="rnm-0X-QXI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4Qr-ag-QKX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rDs-RH-Rh8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1286" y="178"/>
+        </scene>
     </scenes>
 </document>
