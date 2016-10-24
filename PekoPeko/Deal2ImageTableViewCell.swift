@@ -2,7 +2,7 @@
 //  Deal2ImageTableViewCell.swift
 //  PekoPeko
 //
-//  Created by Nguyễn Trung Kiên on 23/10/2016.
+//  Created by Nguyễn Trung Kiên on 24/10/2016.
 //  Copyright © 2016 hungrybear. All rights reserved.
 //
 
@@ -12,11 +12,12 @@ protocol Deal2ImageTableViewCellDelegate: class {
     func shareDiscoverTapped(discover: Discover?)
     func saveDiscoverTapped(discover: Discover?)
     func discovertapped(discover: Discover?)
+    func likeDiscoverTapped(discover: Discover?)
 }
 
 class Deal2ImageTableViewCell: UITableViewCell {
     
-    static let identify = "Deal2ImageTableViewCell"
+    static let identify = "Deal3ImageTableViewCell"
     
     weak var delegate: Deal2ImageTableViewCellDelegate?
     
@@ -39,6 +40,9 @@ class Deal2ImageTableViewCell: UITableViewCell {
     @IBOutlet weak var labelMinute1: Label!
     @IBOutlet weak var laberMinute2: Label!
     
+    @IBOutlet weak var imageViewLike: ImageView!
+    @IBOutlet weak var labelLike: UILabel!
+    
     var isLast: Bool = false {
         didSet {
             if isLast {
@@ -49,12 +53,30 @@ class Deal2ImageTableViewCell: UITableViewCell {
         }
     }
     
+    var isLiked: Bool = false {
+        didSet {
+            if isLiked {
+                imageViewLike.image = UIImage(named: "IconLiked")
+            } else {
+                imageViewLike.image = UIImage(named: "IconLike")
+                
+            }
+            imageViewLike.animation = "zoomIn"
+            imageViewLike.animate()
+        }
+    }
+    
     var discover: Discover? {
         didSet {
             if let discover = discover {
                 
             }
         }
+    }
+    
+    @IBAction func buttonLikeTapped(_ sender: AnyObject) {
+        isLiked = !isLiked
+        delegate?.likeDiscoverTapped(discover: discover)
     }
     
     @IBAction func buttonShareTapped(_ sender: AnyObject) {

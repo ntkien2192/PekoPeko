@@ -12,6 +12,7 @@ protocol DealMoreImageTableViewCellDelegate: class {
     func shareDiscoverTapped(discover: Discover?)
     func saveDiscoverTapped(discover: Discover?)
     func discovertapped(discover: Discover?)
+    func likeDiscoverTapped(discover: Discover?)
 }
 
 class DealMoreImageTableViewCell: UITableViewCell {
@@ -40,6 +41,9 @@ class DealMoreImageTableViewCell: UITableViewCell {
     @IBOutlet weak var labelMinute1: Label!
     @IBOutlet weak var laberMinute2: Label!
     
+    @IBOutlet weak var imageViewLike: ImageView!
+    @IBOutlet weak var labelLike: UILabel!
+    
     var isLast: Bool = false {
         didSet {
             if isLast {
@@ -50,12 +54,30 @@ class DealMoreImageTableViewCell: UITableViewCell {
         }
     }
     
+    var isLiked: Bool = false {
+        didSet {
+            if isLiked {
+                imageViewLike.image = UIImage(named: "IconLiked")
+            } else {
+                imageViewLike.image = UIImage(named: "IconLike")
+                
+            }
+            imageViewLike.animation = "zoomIn"
+            imageViewLike.animate()
+        }
+    }
+    
     var discover: Discover? {
         didSet {
             if let discover = discover {
                 
             }
         }
+    }
+    
+    @IBAction func buttonLikeTapped(_ sender: AnyObject) {
+        isLiked = !isLiked
+        delegate?.likeDiscoverTapped(discover: discover)
     }
     
     @IBAction func buttonShareTapped(_ sender: AnyObject) {

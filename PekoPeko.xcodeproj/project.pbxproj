@@ -104,6 +104,8 @@
 		E45746DB1DB27F1200021604 /* Reward.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45746DA1DB27F1200021604 /* Reward.swift */; };
 		E45746DD1DB27F4400021604 /* Discount.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45746DC1DB27F4400021604 /* Discount.swift */; };
 		E45746DF1DB27FB100021604 /* QRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45746DE1DB27FB100021604 /* QRCode.swift */; };
+		E462CA701DBDBD11001D5D5A /* Deal2ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E462CA6E1DBDBD11001D5D5A /* Deal2ImageTableViewCell.swift */; };
+		E462CA751DBDBE0F001D5D5A /* Deal2ImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E462CA741DBDBE0F001D5D5A /* Deal2ImageTableViewCell.xib */; };
 		E46894E71DB697060004B322 /* SMSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46894E31DB697060004B322 /* SMSegment.swift */; };
 		E46894E81DB697060004B322 /* SMSegmentAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46894E41DB697060004B322 /* SMSegmentAppearance.swift */; };
 		E46894E91DB697060004B322 /* SMSegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46894E51DB697060004B322 /* SMSegmentView.swift */; };
@@ -133,8 +135,6 @@
 		E49D5A8F1DB1C62A001E19DD /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49D5A8E1DB1C62A001E19DD /* Point.swift */; };
 		E4C00C421DBCEAE800EE3CF4 /* Deal1ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C00C401DBCEAE800EE3CF4 /* Deal1ImageTableViewCell.swift */; };
 		E4C00C431DBCEAE800EE3CF4 /* Deal1ImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4C00C411DBCEAE800EE3CF4 /* Deal1ImageTableViewCell.xib */; };
-		E4C00C461DBCEAFC00EE3CF4 /* Deal2ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C00C441DBCEAFC00EE3CF4 /* Deal2ImageTableViewCell.swift */; };
-		E4C00C471DBCEAFC00EE3CF4 /* Deal2ImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4C00C451DBCEAFC00EE3CF4 /* Deal2ImageTableViewCell.xib */; };
 		E4C00C4A1DBCEB0800EE3CF4 /* Deal3ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C00C481DBCEB0800EE3CF4 /* Deal3ImageTableViewCell.swift */; };
 		E4C00C4B1DBCEB0800EE3CF4 /* Deal3ImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4C00C491DBCEB0800EE3CF4 /* Deal3ImageTableViewCell.xib */; };
 		E4C00C4F1DBCEB1C00EE3CF4 /* DealMoreImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C00C4D1DBCEB1C00EE3CF4 /* DealMoreImageTableViewCell.swift */; };
@@ -300,6 +300,8 @@
 		E45746DA1DB27F1200021604 /* Reward.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reward.swift; sourceTree = "<group>"; };
 		E45746DC1DB27F4400021604 /* Discount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Discount.swift; sourceTree = "<group>"; };
 		E45746DE1DB27FB100021604 /* QRCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCode.swift; sourceTree = "<group>"; };
+		E462CA6E1DBDBD11001D5D5A /* Deal2ImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deal2ImageTableViewCell.swift; sourceTree = "<group>"; };
+		E462CA741DBDBE0F001D5D5A /* Deal2ImageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Deal2ImageTableViewCell.xib; sourceTree = "<group>"; };
 		E46894E31DB697060004B322 /* SMSegment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMSegment.swift; sourceTree = "<group>"; };
 		E46894E41DB697060004B322 /* SMSegmentAppearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMSegmentAppearance.swift; sourceTree = "<group>"; };
 		E46894E51DB697060004B322 /* SMSegmentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMSegmentView.swift; sourceTree = "<group>"; };
@@ -335,8 +337,6 @@
 		E49D5A8E1DB1C62A001E19DD /* Point.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
 		E4C00C401DBCEAE800EE3CF4 /* Deal1ImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deal1ImageTableViewCell.swift; sourceTree = "<group>"; };
 		E4C00C411DBCEAE800EE3CF4 /* Deal1ImageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Deal1ImageTableViewCell.xib; sourceTree = "<group>"; };
-		E4C00C441DBCEAFC00EE3CF4 /* Deal2ImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deal2ImageTableViewCell.swift; sourceTree = "<group>"; };
-		E4C00C451DBCEAFC00EE3CF4 /* Deal2ImageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Deal2ImageTableViewCell.xib; sourceTree = "<group>"; };
 		E4C00C481DBCEB0800EE3CF4 /* Deal3ImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deal3ImageTableViewCell.swift; sourceTree = "<group>"; };
 		E4C00C491DBCEB0800EE3CF4 /* Deal3ImageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Deal3ImageTableViewCell.xib; sourceTree = "<group>"; };
 		E4C00C4D1DBCEB1C00EE3CF4 /* DealMoreImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealMoreImageTableViewCell.swift; sourceTree = "<group>"; };
@@ -704,6 +704,13 @@
 			name = RedeemViewController;
 			sourceTree = "<group>";
 		};
+		E462CA6B1DBDAD4F001D5D5A /* DiscoverDetailTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = DiscoverDetailTableViewCell;
+			sourceTree = "<group>";
+		};
 		E46894E21DB696FA0004B322 /* SegmentView */ = {
 			isa = PBXGroup;
 			children = (
@@ -944,6 +951,7 @@
 		E4C00C3E1DBCE62B00EE3CF4 /* DiscoverTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				E462CA6B1DBDAD4F001D5D5A /* DiscoverDetailTableViewCell */,
 				E4C00C3F1DBCE63600EE3CF4 /* DealTableViewCell */,
 			);
 			name = DiscoverTableViewCell;
@@ -954,8 +962,8 @@
 			children = (
 				E4C00C401DBCEAE800EE3CF4 /* Deal1ImageTableViewCell.swift */,
 				E4C00C411DBCEAE800EE3CF4 /* Deal1ImageTableViewCell.xib */,
-				E4C00C441DBCEAFC00EE3CF4 /* Deal2ImageTableViewCell.swift */,
-				E4C00C451DBCEAFC00EE3CF4 /* Deal2ImageTableViewCell.xib */,
+				E462CA6E1DBDBD11001D5D5A /* Deal2ImageTableViewCell.swift */,
+				E462CA741DBDBE0F001D5D5A /* Deal2ImageTableViewCell.xib */,
 				E4C00C481DBCEB0800EE3CF4 /* Deal3ImageTableViewCell.swift */,
 				E4C00C491DBCEB0800EE3CF4 /* Deal3ImageTableViewCell.xib */,
 				E4C00C4D1DBCEB1C00EE3CF4 /* DealMoreImageTableViewCell.swift */,
@@ -1147,10 +1155,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E462CA751DBDBE0F001D5D5A /* Deal2ImageTableViewCell.xib in Resources */,
 				E42469F51DAE101C00D0A074 /* BEBAS___.ttf in Resources */,
 				E41DC09E1DB4D61A00411F55 /* ShopInfoTableViewCell.xib in Resources */,
 				E4C00C501DBCEB1C00EE3CF4 /* DealMoreImageTableViewCell.xib in Resources */,
-				E4C00C471DBCEAFC00EE3CF4 /* Deal2ImageTableViewCell.xib in Resources */,
 				E42469F61DAE101C00D0A074 /* BebasNeue-webfont.ttf in Resources */,
 				E4EC1D801DB5C32C005CECB6 /* ShopMenu2TableViewCell.xib in Resources */,
 				E4346EC61DB91AEF000566EE /* AddPointSuccessView.xib in Resources */,
@@ -1383,8 +1391,8 @@
 				E41DC09D1DB4D61A00411F55 /* ShopInfoTableViewCell.swift in Sources */,
 				E4F601791DBB13B0006309A5 /* DiscoverStore.swift in Sources */,
 				E476B0191DA908FD007B1D62 /* CardViewController.swift in Sources */,
+				E462CA701DBDBD11001D5D5A /* Deal2ImageTableViewCell.swift in Sources */,
 				E43D2C841DA80DAE0019B2DD /* LoginPhoneViewController.swift in Sources */,
-				E4C00C461DBCEAFC00EE3CF4 /* Deal2ImageTableViewCell.swift in Sources */,
 				E494049F1DA6AD1B00918C75 /* AppDelegate.swift in Sources */,
 				E4C00C421DBCEAE800EE3CF4 /* Deal1ImageTableViewCell.swift in Sources */,
 				E41448671DB0BE7E006C70EF /* MessageView.swift in Sources */,

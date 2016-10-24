@@ -11,7 +11,8 @@ import UIKit
 protocol Deal1ImageTableViewCellDelegate: class {
     func shareDiscoverTapped(discover: Discover?)
     func saveDiscoverTapped(discover: Discover?)
-    func discovertapped(discover: Discover?)
+    func discoverTapped(discover: Discover?)
+    func likeDiscoverTapped(discover: Discover?)
 }
 
 class Deal1ImageTableViewCell: UITableViewCell {
@@ -38,6 +39,9 @@ class Deal1ImageTableViewCell: UITableViewCell {
     @IBOutlet weak var labelMinute1: Label!
     @IBOutlet weak var laberMinute2: Label!
     
+    @IBOutlet weak var imageViewLike: ImageView!
+    @IBOutlet weak var labelLike: UILabel!
+    
     var isLast: Bool = false {
         didSet {
             if isLast {
@@ -45,6 +49,19 @@ class Deal1ImageTableViewCell: UITableViewCell {
             } else {
                 constraintLineBottonHeight.constant = 20.0
             }
+        }
+    }
+    
+    var isLiked: Bool = false {
+        didSet {
+            if isLiked {
+                imageViewLike.image = UIImage(named: "IconLiked")
+            } else {
+                imageViewLike.image = UIImage(named: "IconLike")
+                
+            }
+            imageViewLike.animation = "zoomIn"
+            imageViewLike.animate()
         }
     }
     
@@ -56,6 +73,11 @@ class Deal1ImageTableViewCell: UITableViewCell {
         }
     }
     
+    @IBAction func buttonLikeTapped(_ sender: AnyObject) {
+        isLiked = !isLiked
+        delegate?.likeDiscoverTapped(discover: discover)
+    }
+    
     @IBAction func buttonShareTapped(_ sender: AnyObject) {
         delegate?.shareDiscoverTapped(discover: discover)
     }
@@ -65,6 +87,6 @@ class Deal1ImageTableViewCell: UITableViewCell {
     }
     
     @IBAction func buttonCellTapped(_ sender: AnyObject) {
-        delegate?.discovertapped(discover: discover)
+        delegate?.discoverTapped(discover: discover)
     }
 }
