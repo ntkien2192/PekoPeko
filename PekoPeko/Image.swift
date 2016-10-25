@@ -20,6 +20,6 @@ class Image: NSObject {
     
     required init(json: JSON) {
         extant = json[ImageFields.Extant.rawValue].int
-        urls = json[ImageFields.Extant.rawValue].arrayValue.map({ $0.stringValue })
+        urls = json[ImageFields.Urls.rawValue].arrayValue.map({ $0.stringValue })
     }
 }

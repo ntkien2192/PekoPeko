@@ -41,7 +41,11 @@ class CardDetailViewController: BaseViewController {
                 var type: [Int] = [Int]()
                 type.append(RowDisplayType.header.rawValue)
                 
-                type.append(RowDisplayType.vipMember.rawValue)
+                if let vipCards = card.vipCards {
+                    if vipCards.count != 0 {
+                        type.append(RowDisplayType.vipMember.rawValue)
+                    }
+                }
                 
                 if card.discount != nil {
                     type.append(RowDisplayType.discount.rawValue)
@@ -344,7 +348,9 @@ extension CardDetailViewController: VipTableViewCellDelegate {
     func vipCellTapped(card: Card?) {
         if let controller = AppDelegate.topController() {
             let vipCardView = VipCardView(frame: controller.view.bounds)
-            vipCardView.vipCards = [VipCard(), VipCard(), VipCard()]
+            if let card = card, let vipCards = card.vipCards{
+                vipCardView.vipCards = vipCards
+            }
             addFullView(view: vipCardView)
         }
     }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Haneke
 
 class CardView: UIView {
 
@@ -17,7 +18,18 @@ class CardView: UIView {
     var vipCard: VipCard? {
         didSet {
             if let vipCard = vipCard {
-                
+                if let imageUrl = vipCard.imageUrl {
+                    let cache = Shared.imageCache
+                    let URL = NSURL(string: imageUrl)!
+                    let fetcher = NetworkFetcher<UIImage>(URL: URL as URL)
+                    weak var _self = self
+                    _ = cache.fetch(fetcher: fetcher).onSuccess({ (image) in
+                        _self?.imageView.image = image
+                    })
+                }
+                if let benefit = vipCard.benefit {
+                    textView.text = benefit
+                }
             }
         }
     }

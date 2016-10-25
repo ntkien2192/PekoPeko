@@ -30,8 +30,9 @@ class DealMoreImageTableViewCell: UITableViewCell {
     @IBOutlet weak var labelShopName: UILabel!
     @IBOutlet weak var labelShopAddress: UILabel!
     @IBOutlet weak var labelPrice: UILabel!
+    @IBOutlet weak var labelDiscount: UILabel!
     @IBOutlet weak var labelDescription: UILabel!
-    @IBOutlet weak var labelUserSaved: UILabel!
+    @IBOutlet weak var labelUserSaved: Label!
     @IBOutlet weak var buttonSave: UIButton!
     
     @IBOutlet weak var labelDate1: Label!

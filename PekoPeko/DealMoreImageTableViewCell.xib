@@ -129,6 +129,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WPL-el-6o7">
+                                <frame key="frameInset" minY="8" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -136,10 +142,13 @@
                             <constraint firstItem="SNr-Uo-DEZ" firstAttribute="centerY" secondItem="bqO-M6-nj6" secondAttribute="centerY" multiplier="1.1" id="Dke-ot-50C"/>
                             <constraint firstAttribute="bottom" secondItem="bqO-M6-nj6" secondAttribute="bottom" constant="8" id="FLP-Xf-h2z"/>
                             <constraint firstAttribute="height" constant="60" id="G5f-ea-0tc"/>
+                            <constraint firstItem="WPL-el-6o7" firstAttribute="top" secondItem="WW4-4X-ZXw" secondAttribute="top" constant="4" id="LIQ-nb-LCx"/>
+                            <constraint firstItem="WPL-el-6o7" firstAttribute="trailing" secondItem="bqO-M6-nj6" secondAttribute="trailing" id="M5G-DK-Dow"/>
                             <constraint firstItem="SNr-Uo-DEZ" firstAttribute="leading" secondItem="bqO-M6-nj6" secondAttribute="trailing" constant="8" id="VhP-oa-mlT"/>
                             <constraint firstAttribute="trailing" secondItem="SNr-Uo-DEZ" secondAttribute="trailing" constant="8" id="Xxy-q0-bx5"/>
                             <constraint firstAttribute="width" priority="250" constant="320" id="hmC-5V-C5Z"/>
                             <constraint firstItem="bqO-M6-nj6" firstAttribute="top" secondItem="WW4-4X-ZXw" secondAttribute="top" id="moy-fN-EiB"/>
+                            <constraint firstItem="WPL-el-6o7" firstAttribute="leading" secondItem="bqO-M6-nj6" secondAttribute="leading" id="yvF-5V-dYn"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h7g-Hn-xVj">
@@ -390,7 +399,7 @@
                             <constraint firstAttribute="height" constant="0.5" id="gVn-oj-UuB"/>
                         </constraints>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3wi-IB-X8Y">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3wi-IB-X8Y" customClass="Label" customModule="PekoPeko" customModuleProvider="target">
                         <constraints>
                             <constraint firstAttribute="width" constant="60" id="hK1-6h-17v"/>
                             <constraint firstAttribute="height" constant="50" id="rHf-hz-kTB"/>
@@ -428,7 +437,8 @@
                         <color key="textColor" red="0.96078431369999995" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vYj-fa-EAa">
+                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vYj-fa-EAa">
+                        <frame key="frameInset" minY="3888" width="320" height="561.5"/>
                         <connections>
                             <action selector="buttonCellTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="duQ-Da-58B"/>
                         </connections>
@@ -543,6 +553,7 @@
                 <outlet property="labelDate1" destination="FrK-la-6Ma" id="Gsr-4t-0HA"/>
                 <outlet property="labelDate2" destination="qbA-0g-oWV" id="8xH-5Z-fU2"/>
                 <outlet property="labelDescription" destination="mZF-PG-zbb" id="NgT-s4-uZv"/>
+                <outlet property="labelDiscount" destination="WPL-el-6o7" id="yYq-jp-sbf"/>
                 <outlet property="labelHour1" destination="aab-IR-pJo" id="eSx-mn-nhb"/>
                 <outlet property="labelHour2" destination="tqp-cY-jZh" id="tFQ-ah-6ce"/>
                 <outlet property="labelLike" destination="cpQ-Ci-6kH" id="BJM-Wf-8xw"/>

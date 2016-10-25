@@ -18,7 +18,6 @@ enum ApiVersion: String {
 
 enum Router: URLRequestConvertible {
     static let baseURLString = "https://api.hungrybear.vn/"
-//    static let baseURLString = "192.168.0.104:8000"
 //    static let baseURLString = "https://api.pekopeko.vn/"
     
     
@@ -46,6 +45,7 @@ enum Router: URLRequestConvertible {
     case deleteCard(String)
     case redeemAward([String: AnyObject])
     case redeemPoint([String: AnyObject])
+    case redeemVoucher(String, [String: AnyObject])
     
     case getShopInfo(String, [String: AnyObject])
     case getShopFullInfo(String)
@@ -57,6 +57,10 @@ enum Router: URLRequestConvertible {
     case getAllVoucher([String: AnyObject])
     
     case getAllDiscover([String: AnyObject])
+    case likeDeal(String)
+    case unlikeDeal(String)
+    case saveDeal(String)
+    case unsaveDeal(String)
     
     var method: HTTPMethod {
         switch self {
@@ -108,6 +112,9 @@ enum Router: URLRequestConvertible {
         case .redeemPoint:
             return .post
             
+        case .redeemVoucher:
+            return .post
+            
         case .getShopInfo:
             return .get
             
@@ -128,6 +135,18 @@ enum Router: URLRequestConvertible {
             
         case .getAllDiscover:
             return .get
+            
+        case .likeDeal:
+            return .post
+            
+        case .unlikeDeal:
+            return .delete
+            
+        case .saveDeal:
+            return .post
+            
+        case .unsaveDeal:
+            return .delete
         }
     }
     
@@ -181,6 +200,9 @@ enum Router: URLRequestConvertible {
         case .redeemPoint:
             return "card/scan"
             
+        case .redeemVoucher(let shopID, _):
+            return "voucher/\(shopID)"
+            
         case .getShopInfo(let shopID, _):
             return "shop/\(shopID)"
             
@@ -201,6 +223,18 @@ enum Router: URLRequestConvertible {
             
         case .getAllDiscover:
             return "discover"
+            
+        case .likeDeal(let dealID):
+            return "deal/\(dealID)/like"
+            
+        case .unlikeDeal(let dealID):
+            return "deal/\(dealID)/like"
+            
+        case .saveDeal(let dealID):
+            return "deal/\(dealID)/save"
+            
+        case .unsaveDeal(let dealID):
+            return "deal/\(dealID)/save"
         }
     }
     
@@ -253,6 +287,9 @@ enum Router: URLRequestConvertible {
         
         case .redeemPoint:
             return ApiVersion.V200.rawValue
+            
+        case .redeemVoucher:
+            return ApiVersion.V210.rawValue
         
         case .getShopInfo:
             return ApiVersion.V200.rawValue
@@ -273,6 +310,18 @@ enum Router: URLRequestConvertible {
             return ApiVersion.V210.rawValue
             
         case .getAllDiscover:
+            return ApiVersion.V210.rawValue
+            
+        case .likeDeal:
+            return ApiVersion.V210.rawValue
+            
+        case .unlikeDeal:
+            return ApiVersion.V210.rawValue
+            
+        case .saveDeal:
+            return ApiVersion.V210.rawValue
+            
+        case .unsaveDeal:
             return ApiVersion.V210.rawValue
         }
     }
@@ -350,6 +399,9 @@ enum Router: URLRequestConvertible {
             
         case .getAllDiscover(let parameters):
             urlRequest = try URLEncoding.default.encode(urlRequest, with: parameters)
+
+        case .redeemVoucher(_, let parameters):
+            urlRequest = try JSONEncoding.default.encode(urlRequest, with: parameters)
             
         default:
             break

@@ -61,6 +61,7 @@
 		E4246A071DAE27F800D0A074 /* CardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4246A061DAE27F800D0A074 /* CardListViewController.swift */; };
 		E4246A0C1DAE411A00D0A074 /* DetailCardHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4246A0A1DAE411A00D0A074 /* DetailCardHeaderTableViewCell.swift */; };
 		E4246A0D1DAE411A00D0A074 /* DetailCardHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4246A0B1DAE411A00D0A074 /* DetailCardHeaderTableViewCell.xib */; };
+		E42474C01DBF788300720C99 /* DealStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42474BF1DBF788300720C99 /* DealStep.swift */; };
 		E4271BEF1DB4726E00B485B3 /* CardAddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4271BEE1DB4726E00B485B3 /* CardAddressView.swift */; };
 		E4271BF11DB4727900B485B3 /* CardAddressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4271BF01DB4727900B485B3 /* CardAddressView.xib */; };
 		E427F8E41DAF5F580012F3F5 /* RewardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E427F8E21DAF5F580012F3F5 /* RewardTableViewCell.swift */; };
@@ -265,6 +266,7 @@
 		E4246A061DAE27F800D0A074 /* CardListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardListViewController.swift; sourceTree = "<group>"; };
 		E4246A0A1DAE411A00D0A074 /* DetailCardHeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailCardHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		E4246A0B1DAE411A00D0A074 /* DetailCardHeaderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailCardHeaderTableViewCell.xib; sourceTree = "<group>"; };
+		E42474BF1DBF788300720C99 /* DealStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealStep.swift; sourceTree = "<group>"; };
 		E4271BEE1DB4726E00B485B3 /* CardAddressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardAddressView.swift; sourceTree = "<group>"; };
 		E4271BF01DB4727900B485B3 /* CardAddressView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardAddressView.xib; sourceTree = "<group>"; };
 		E427F8E21DAF5F580012F3F5 /* RewardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RewardTableViewCell.swift; sourceTree = "<group>"; };
@@ -679,6 +681,7 @@
 				E4F6017C1DBB15F6006309A5 /* Discover.swift */,
 				E4F6017A1DBB142C006309A5 /* DiscoverRequest.swift */,
 				E4364F101DBC9ABB00EFCF41 /* DiscoverResponse.swift */,
+				E42474BF1DBF788300720C99 /* DealStep.swift */,
 			);
 			name = Discover;
 			sourceTree = "<group>";
@@ -1441,6 +1444,7 @@
 				E462CA771DBDC527001D5D5A /* DealDetailViewController.swift in Sources */,
 				E43D2C841DA80DAE0019B2DD /* LoginPhoneViewController.swift in Sources */,
 				E494049F1DA6AD1B00918C75 /* AppDelegate.swift in Sources */,
+				E42474C01DBF788300720C99 /* DealStep.swift in Sources */,
 				E4C00C421DBCEAE800EE3CF4 /* Deal1ImageTableViewCell.swift in Sources */,
 				E41448671DB0BE7E006C70EF /* MessageView.swift in Sources */,
 				E4129A411DACE41200F78C79 /* CardStore.swift in Sources */,

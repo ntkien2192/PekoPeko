@@ -114,14 +114,23 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tU1-tZ-WyR">
+                                <frame key="frameInset" minY="7" width="39" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="tU1-tZ-WyR" firstAttribute="trailing" secondItem="OHU-9S-2Ng" secondAttribute="trailing" id="675-8o-tZm"/>
+                            <constraint firstItem="tU1-tZ-WyR" firstAttribute="leading" secondItem="OHU-9S-2Ng" secondAttribute="leading" id="BLL-iG-qJj"/>
                             <constraint firstAttribute="trailing" secondItem="kr0-Fl-Q5q" secondAttribute="trailing" constant="8" id="CGD-R0-qc2"/>
                             <constraint firstItem="OHU-9S-2Ng" firstAttribute="leading" secondItem="e3i-de-1He" secondAttribute="leading" id="CvL-mI-BvS"/>
                             <constraint firstItem="kr0-Fl-Q5q" firstAttribute="centerY" secondItem="OHU-9S-2Ng" secondAttribute="centerY" multiplier="1.1" id="DVZ-3J-zf2"/>
                             <constraint firstAttribute="bottom" secondItem="OHU-9S-2Ng" secondAttribute="bottom" constant="8" id="FAm-PG-JMJ"/>
                             <constraint firstItem="kr0-Fl-Q5q" firstAttribute="leading" secondItem="OHU-9S-2Ng" secondAttribute="trailing" constant="8" id="KLs-HY-vId"/>
+                            <constraint firstItem="tU1-tZ-WyR" firstAttribute="top" secondItem="e3i-de-1He" secondAttribute="top" constant="4" id="PaG-Zn-vf8"/>
                             <constraint firstAttribute="width" priority="250" constant="320" id="ZMW-ZY-Gpp"/>
                             <constraint firstItem="OHU-9S-2Ng" firstAttribute="top" secondItem="e3i-de-1He" secondAttribute="top" id="elb-g5-Wbq"/>
                             <constraint firstAttribute="height" constant="60" id="j2F-o4-sIE"/>
@@ -375,7 +384,7 @@
                             <constraint firstAttribute="height" constant="0.5" id="L1g-9t-xQC"/>
                         </constraints>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eVs-7X-F9U">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eVs-7X-F9U" customClass="Label" customModule="PekoPeko" customModuleProvider="target">
                         <constraints>
                             <constraint firstAttribute="height" constant="50" id="gZu-Kb-f0d"/>
                             <constraint firstAttribute="width" constant="60" id="mGe-ka-Btg"/>
@@ -413,7 +422,8 @@
                         <color key="textColor" red="0.96078431369999995" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ymp-hO-EyZ">
+                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ymp-hO-EyZ">
+                        <frame key="frameInset" minY="1230" width="320" height="561.5"/>
                         <connections>
                             <action selector="buttonCellTapped:" destination="cnG-NT-Ugb" eventType="touchUpInside" id="3jf-tx-dCF"/>
                         </connections>
@@ -524,6 +534,7 @@
                 <outlet property="labelDate1" destination="Nd3-mU-P3K" id="JHk-Xt-4A7"/>
                 <outlet property="labelDate2" destination="R7m-58-LTx" id="eVB-d7-5s5"/>
                 <outlet property="labelDescription" destination="kti-Gb-UTm" id="WXv-iB-UmN"/>
+                <outlet property="labelDiscount" destination="tU1-tZ-WyR" id="J9f-Bf-Nae"/>
                 <outlet property="labelHour1" destination="qIO-gU-7vl" id="xOp-7o-RId"/>
                 <outlet property="labelHour2" destination="zre-BA-eKr" id="pW6-dF-1h3"/>
                 <outlet property="labelLike" destination="2ro-wv-ddF" id="eT2-R7-Xw8"/>

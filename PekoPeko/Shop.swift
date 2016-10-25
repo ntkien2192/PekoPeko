@@ -19,6 +19,7 @@ enum ShopFields: String {
     case Followers = "followers"
     case CanDiscount = "can_buy1get1"
     case Addresses = "addresses"
+    case Address = "address"
     
     // full info
     case CardIcon = "card_icon"
@@ -41,6 +42,7 @@ class Shop: NSObject {
     var rating: Float?
     var followers: Int?
     var canDiscount: Bool?
+    var address: String?
     var addresses: [Address]?
     
     // full info
@@ -63,6 +65,7 @@ class Shop: NSObject {
         rating = json[ShopFields.Rating.rawValue].float
         followers = json[ShopFields.Followers.rawValue].int
         canDiscount = json[ShopFields.CanDiscount.rawValue].bool
+        address = json[ShopFields.Address.rawValue].string
         addresses = json[ShopFields.Addresses.rawValue].arrayValue.map({ Address(json: $0) })
         
         // full info

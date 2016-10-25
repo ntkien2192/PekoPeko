@@ -217,3 +217,9 @@ extension UIFont {
         return UIFont(name: "AvenirNext-Bold", size: size)!
     }
 }
+
+extension Int {
+    func secondsToDayHoursMinutes() -> (Int, Int, Int) {
+        return (self / 86400, (self % 86400) / 3600, (self % 3600) / 60)
+    }
+}

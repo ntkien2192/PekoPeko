@@ -52,6 +52,10 @@ enum CardFields: String {
     case ShopIpos = "shop_ipos"
     case Rewards = "rewards"
     case OpeningTime = "opening_time"
+    
+    // v210
+    case VipCard = "vipcard"
+    case TotalHP = "total_hp"
 }
 
 class Card: NSObject {
@@ -84,6 +88,9 @@ class Card: NSObject {
     
     // List address
     var addressList: [Address]?
+    
+    var vipCards: [VipCard]?
+    var totalHp: Int?
     
     init(shop: Shop) {
         self.shopName = shop.fullName
@@ -120,6 +127,9 @@ class Card: NSObject {
         isShopIpos = json[CardFields.ShopIpos.rawValue].bool
         rewards = json[CardFields.Rewards.rawValue].arrayValue.map({ AllReward(json: $0) })
         openingTime = WordTime(json: json[CardFields.ShopPhone.rawValue])
+        
+        vipCards = json[CardFields.VipCard.rawValue].arrayValue.map({ VipCard(json: $0) })
+        totalHp = json[CardFields.TotalHP.rawValue].int
     }
     
     func isReward() -> Bool {

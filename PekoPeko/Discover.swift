@@ -32,7 +32,9 @@ enum DiscoverFields: String {
     case TotalLikes = "total_likes"
     case TotalComments = "total_comments"
     case Liked = "liked"
-    case Image = "image"
+    case Image = "images"
+    case Steps = "steps"
+    
 }
 
 class Discover: NSObject {
@@ -53,6 +55,8 @@ class Discover: NSObject {
     var totalComments: Int?
     var isLiked: Bool?
     var image: Image?
+    
+    var steps: [DealStep]?
     
     required init(json: JSON) {
         discoverID = json[DiscoverFields.DiscoverID.rawValue].string
@@ -84,6 +88,8 @@ class Discover: NSObject {
         totalComments = json[DiscoverFields.TotalComments.rawValue].int
         isLiked = json[DiscoverFields.Liked.rawValue].bool
         image = Image(json: json[DiscoverFields.Image.rawValue])
+        
+        steps = json[DiscoverFields.Steps.rawValue].arrayValue.map({ DealStep(json: $0) })
     }
     
     func imageCount() -> Int {
@@ -91,5 +97,30 @@ class Discover: NSObject {
             return urls.count
         }
         return 0
+    }
+    
+    func currentStep() -> DealStep? {
+        if let steps = steps {
+            var tempCurrentStep = DealStep()
+            for step in steps {
+                if let saveRequire = step.saveRequire, let totalSaves = totalSaves {
+                    if totalSaves > saveRequire {
+                        tempCurrentStep = step
+                    }
+                }
+            }
+            return tempCurrentStep
+        }
+        return nil
+    }
+    
+    func firstStep() -> DealStep? {
+        if let steps = steps {
+            if let step = steps.first {
+                return step
+            }
+            
+        }
+        return nil
     }
 }

@@ -28,20 +28,20 @@ class DiscoverViewController: BaseViewController {
         // Do any additional setup after loading the view.
     }
 
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//        if let pageMenu = pageMenu, let discoverList = discoverList, let myDealList = myDealList {
-//            switch pageMenu.currentPageIndex {
-//            case 0:
-//                discoverList.reloadAllDiscover()
-//            case 1:
-//                //                    myCardList.reloadMyCard()
-//                break
-//            default:
-//                break
-//            }
-//        }
-//    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if let pageMenu = pageMenu, let discoverList = discoverList, let myDealList = myDealList {
+            switch pageMenu.currentPageIndex {
+            case 0:
+                discoverList.reloadAllDiscover()
+            case 1:
+                //                    myCardList.reloadMyCard()
+                break
+            default:
+                break
+            }
+        }
+    }
     
     override func viewConfig() {
         super.viewConfig()

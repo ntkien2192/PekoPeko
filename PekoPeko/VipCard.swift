@@ -12,14 +12,22 @@ import SwiftyJSON
 enum VipCardFields: String {
     case HPRequire = "hp_require"
     case Image = "image"
+    case Benefit = "benefit"
 }
 
 class VipCard: NSObject {
-//    var extant: Int?
-//    var urls: [String]?
-//    
-//    required init(json: JSON) {
-//        extant = json[ImageFields.Extant.rawValue].int
-//        urls = json[ImageFields.Extant.rawValue].arrayValue.map({ $0.stringValue })
-//    }
+    var hpRequire: Int?
+    var imageUrl: String?
+    var benefit: String?
+    var isCurrent: Bool = false
+    
+    override init() {
+        
+    }
+    
+    required init(json: JSON) {
+        hpRequire = json[VipCardFields.HPRequire.rawValue].int
+        imageUrl = json[VipCardFields.Image.rawValue].string
+        benefit = json[VipCardFields.Benefit.rawValue].string
+    }
 }

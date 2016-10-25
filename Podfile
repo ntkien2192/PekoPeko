@@ -22,6 +22,7 @@ target 'PekoPeko' do
   pod 'FBSDKLoginKit'
   pod 'DZNEmptyDataSet'
   pod 'iCarousel'
+  pod 'SwiftDate', '~> 4.0'
   
   # Pods for PekoPeko
 

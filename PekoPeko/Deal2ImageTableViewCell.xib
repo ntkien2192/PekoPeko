@@ -100,15 +100,23 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B8F-Bo-8kz">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="VfL-11-4Sz" secondAttribute="trailing" constant="8" id="0F8-Nz-QmH"/>
+                            <constraint firstItem="B8F-Bo-8kz" firstAttribute="trailing" secondItem="PX9-Ob-Rad" secondAttribute="trailing" id="7BK-FH-5KE"/>
                             <constraint firstAttribute="height" constant="60" id="CSt-gV-t6a"/>
                             <constraint firstItem="VfL-11-4Sz" firstAttribute="centerY" secondItem="PX9-Ob-Rad" secondAttribute="centerY" multiplier="1.1" id="Mzc-NZ-vo3"/>
+                            <constraint firstItem="B8F-Bo-8kz" firstAttribute="leading" secondItem="PX9-Ob-Rad" secondAttribute="leading" id="Y6j-4u-iSB"/>
                             <constraint firstItem="VfL-11-4Sz" firstAttribute="leading" secondItem="PX9-Ob-Rad" secondAttribute="trailing" constant="8" id="Z4s-Po-jKB"/>
                             <constraint firstItem="PX9-Ob-Rad" firstAttribute="leading" secondItem="CUI-Yv-0VJ" secondAttribute="leading" id="axP-ME-qT7"/>
                             <constraint firstItem="PX9-Ob-Rad" firstAttribute="top" secondItem="CUI-Yv-0VJ" secondAttribute="top" id="fs1-zm-4yx"/>
+                            <constraint firstItem="B8F-Bo-8kz" firstAttribute="top" secondItem="CUI-Yv-0VJ" secondAttribute="top" constant="4" id="mVd-iu-KVf"/>
                             <constraint firstAttribute="bottom" secondItem="PX9-Ob-Rad" secondAttribute="bottom" constant="8" id="sTb-pH-8Dy"/>
                             <constraint firstAttribute="width" priority="250" constant="320" id="uOs-0l-tkw"/>
                         </constraints>
@@ -361,7 +369,7 @@
                             <constraint firstAttribute="height" constant="0.5" id="Lqo-lE-XfP"/>
                         </constraints>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yvf-zv-Gku">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yvf-zv-Gku" customClass="Label" customModule="PekoPeko" customModuleProvider="target">
                         <constraints>
                             <constraint firstAttribute="height" constant="50" id="9yM-nF-h4w"/>
                             <constraint firstAttribute="width" constant="60" id="TtW-3X-nsL"/>
@@ -506,6 +514,7 @@
                 <outlet property="labelDate1" destination="Cd9-z6-JZu" id="l5h-6d-SiD"/>
                 <outlet property="labelDate2" destination="1q7-gI-z2Z" id="v89-dI-kaV"/>
                 <outlet property="labelDescription" destination="ad5-nT-QET" id="g4W-CF-CQh"/>
+                <outlet property="labelDiscount" destination="B8F-Bo-8kz" id="bml-8G-8V2"/>
                 <outlet property="labelHour1" destination="sb3-bZ-xkC" id="Xfl-Le-3C4"/>
                 <outlet property="labelHour2" destination="mwE-ZH-rD9" id="4qN-lN-aOm"/>
                 <outlet property="labelLike" destination="WKl-Vt-rZU" id="H2j-vn-7O5"/>
