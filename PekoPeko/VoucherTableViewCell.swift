@@ -9,9 +9,15 @@
 import UIKit
 import Haneke
 
+protocol VoucherTableViewCellDelegate: class {
+    func voucherTapped(voucher: Voucher?)
+}
+
 class VoucherTableViewCell: UITableViewCell {
 
     static let identify = "VoucherTableViewCell"
+    
+    weak var delegate: VoucherTableViewCellDelegate?
     
     @IBOutlet weak var viewContent: View!
     @IBOutlet weak var imageViewAvatar: ImageView!
@@ -66,13 +72,9 @@ class VoucherTableViewCell: UITableViewCell {
                         let variety3 = NSAttributedString(string: " xuất", attributes: attribute1)
                         attributedText.append(variety3)
                         
-                        labelUser.attributedText = attributedText
-                        
-                        
+                        labelExtant.attributedText = attributedText
                     }
                 }
-                
-                
                 
                 if let shop = voucher.shop {
                     if let avatarUrl = shop.avatarUrl {
@@ -89,14 +91,8 @@ class VoucherTableViewCell: UITableViewCell {
                         labelShopName.text = fullName
                     }
                     
-                    if let addresses = shop.addresses {
-                        if addresses.count != 0 {
-                            if let address = addresses.first {
-                                if let addressContent = address.addressContent {
-                                    labelShopAddress.text = addressContent
-                                }
-                            }
-                        }
+                    if let address = shop.address {
+                        labelShopAddress.text = address
                     }
                 }
             }
@@ -126,5 +122,9 @@ class VoucherTableViewCell: UITableViewCell {
         super.didMoveToSuperview()
         setNeedsLayout()
         layoutIfNeeded()
+    }
+    
+    @IBAction func buttonCellTapped(_ sender: AnyObject) {
+        delegate?.voucherTapped(voucher: voucher)
     }
 }

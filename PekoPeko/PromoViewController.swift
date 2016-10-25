@@ -23,18 +23,27 @@ class PromoViewController: UIViewController {
                     self.promoCode = promoCode
                 }
                 
-//                let attributedText = NSMutableAttributedString()
-//                let attribute1 = [NSFontAttributeName: UIFont.getBoldFont(10), NSForegroundColorAttributeName: UIColor.gray]
-//                let variety1 = NSAttributedString(string: "Kết thúc vào\n", attributes: attribute1)
-//                attributedText.append(variety1)
-//                
-//                
-//                
-//                let attribute2 = [NSFontAttributeName: UIFont.getFont(12), NSForegroundColorAttributeName: UIColor.gray]
-//                let variety2 = NSAttributedString(string: "\(endedAt.string(custom: "dd/MM/yyyy"))", attributes: attribute2)
-//                attributedText.append(variety2)
-                
-                
+                if let point = user.points {
+                    if point == 0 {
+                        let attributedText = NSMutableAttributedString()
+                        let attribute1 = [NSFontAttributeName: UIFont.getFont(16), NSForegroundColorAttributeName: UIColor.gray]
+                        let variety1 = NSAttributedString(string: "Bạn chưa mời được người nào", attributes: attribute1)
+                        attributedText.append(variety1)
+                        
+                        labelInviteNumber.attributedText = attributedText
+                    } else {
+                        let attributedText = NSMutableAttributedString()
+                        let attribute1 = [NSFontAttributeName: UIFont.getFont(16), NSForegroundColorAttributeName: UIColor.gray]
+                        let variety1 = NSAttributedString(string: "Bạn đã mời: ", attributes: attribute1)
+                        attributedText.append(variety1)
+                        
+                        let attribute2 = [NSFontAttributeName: UIFont.getBoldFont(16), NSForegroundColorAttributeName: UIColor.colorOrange]
+                        let variety2 = NSAttributedString(string: "\(point) người", attributes: attribute2)
+                        attributedText.append(variety2)
+                        
+                        labelInviteNumber.attributedText = attributedText
+                    }
+                }
             }
         }
     }
@@ -88,7 +97,12 @@ class PromoViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     @IBAction func buttonGiftTapped(_ sender: AnyObject) {
-        let voucherViewController = UIStoryboard(name: VoucherViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: VoucherViewController.identify)
+        let voucherViewController = UIStoryboard(name: VoucherViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: VoucherViewController.identify) as! VoucherViewController
+        
+        if let user = user {
+            voucherViewController.user = user
+        }
+        
         if let navigationController = navigationController {
             navigationController.show(voucherViewController, sender: nil)
         }

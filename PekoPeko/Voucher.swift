@@ -10,6 +10,7 @@ import UIKit
 import SwiftyJSON
 
 enum VoucherFields: String {
+    case VoucherID = "_id"
     case Title = "title"
     case Image = "image"
     case TotalUses = "total_uses"
@@ -19,6 +20,7 @@ enum VoucherFields: String {
 }
 
 class Voucher: NSObject {
+    var voucherID: String?
     var title: String?
     var image: String?
     var totalUses: Int?
@@ -27,6 +29,7 @@ class Voucher: NSObject {
     var shop: Shop?
     
     required init(json: JSON) {
+        voucherID = json[VoucherFields.VoucherID.rawValue].string
         title = json[VoucherFields.Title.rawValue].string
         image = json[VoucherFields.Image.rawValue].string
         totalUses = json[VoucherFields.TotalUses.rawValue].int

@@ -57,6 +57,7 @@ class VoucherViewController: BaseViewController {
     
     func reloadVoucher() {
         getVoucher()
+        loadUserInfo()
     }
     
     func getVoucher() {
@@ -93,6 +94,18 @@ class VoucherViewController: BaseViewController {
         }
     }
     
+    func loadUserInfo() {
+        if let user = user {
+            if let point = user.points {
+                if point < 9 {
+                    labelInfo.text = "Bạn cần mời ít nhất 10 người để sử dụng các phiếu giám giá"
+                } else {
+                    labelInfo.text = "Bạn đã sử dụng..."
+                }
+            }
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -111,8 +124,40 @@ extension VoucherViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: VoucherTableViewCell.identify, for: indexPath) as! VoucherTableViewCell
         if let vouchers = vouchers {
             cell.voucher = vouchers[indexPath.row]
+            cell.delegate = self
         }
         return cell
+    }
+}
+
+extension VoucherViewController: VoucherTableViewCellDelegate {
+    func voucherTapped(voucher: Voucher?) {
+        if let user = user, let point = user.points {
+            if point > 9 {
+                let redeemViewController = UIStoryboard(name: RedeemViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: RedeemViewController.identify) as! RedeemViewController
+                
+                if let voucher = voucher {
+                    redeemViewController.voucher = voucher
+                }
+                if let topController = AppDelegate.topController() {
+                    topController.present(redeemViewController, animated: true, completion: nil)
+                }
+            } else {
+                weak var _self = self
+                let alertView = AlertView(frame: view.bounds)
+                alertView.message = "Bạn chưa mời đủ số người yêu cầu để sử dụng chức năng này."
+                alertView.setButtonSubmit("Mời bạn", action: { 
+                    if let _self = _self {
+                        let shareView = ShareView(frame: _self.view.bounds)
+                        if let user = _self.user, let promoCode = user.promoCode {
+                            shareView.prompCode = promoCode
+                        }
+                        _self.addFullView(view: shareView)
+                    }
+                })
+                addFullView(view: alertView)
+            }
+        }
     }
 }
 

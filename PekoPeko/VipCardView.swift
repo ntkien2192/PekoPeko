@@ -18,6 +18,10 @@ class VipCardView: UIView {
     var vipCards: [VipCard]? {
         didSet {
             if let vipCards = vipCards {
+                if vipCards.count <= 1 {
+                    cardView.isScrollEnabled = false
+                }
+                
                 var tempViewCard = [CardView]()
                 for card in vipCards {
                     let view = CardView(frame: CGRect(x: 0, y: 0, width: cardView.bounds.width - 40, height: cardView.bounds.height))

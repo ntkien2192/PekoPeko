@@ -12,9 +12,9 @@ import SwiftyJSON
 import ObjectMapper
 
 class RedeemStore {
-    class func redeem(redeemRequest: RedeemRequest, completionHandler: @escaping (Bool, Error?) -> Void) {
+    class func redeemAward(redeemRequest: RedeemRequest, completionHandler: @escaping (Bool, Error?) -> Void) {
         let parameters = redeemRequest.toJSON()
-        _ = Alamofire.request(Router.redeemAward(parameters as [String : AnyObject])).responseRedeemAward({ (response) in
+        _ = Alamofire.request(Router.redeemAward(parameters as [String : AnyObject])).responseRedeem({ (response) in
             if let error = response.result.error {
                 completionHandler(false, error)
                 return
@@ -43,10 +43,26 @@ class RedeemStore {
             completionHandler(response.result.value ?? nil, nil)
         })
     }
+    
+    class func redeemVoucher(shopID: String, redeemRequest: RedeemRequest, completionHandler: @escaping (Bool, Error?) -> Void) {
+        let parameters = redeemRequest.toJSON()
+        _ = Alamofire.request(Router.redeemVoucher(shopID, parameters as [String : AnyObject])).responseRedeem({ (response) in
+            if let error = response.result.error {
+                completionHandler(false, error)
+                return
+            }
+            guard response.result.value != nil else {
+                // TODO: Create error here
+                completionHandler(false, nil)
+                return
+            }
+            completionHandler(response.result.value ?? false, nil)
+        })
+    }
 }
 extension Alamofire.DataRequest {
     
-    func responseRedeemAward(_ completionHandler: @escaping (DataResponse<Bool>) -> Void) -> Self {
+    func responseRedeem(_ completionHandler: @escaping (DataResponse<Bool>) -> Void) -> Self {
         let responseSerializer = DataResponseSerializer<Bool> { request, response, data, error in
             guard error == nil else {
                 return .failure(error!)

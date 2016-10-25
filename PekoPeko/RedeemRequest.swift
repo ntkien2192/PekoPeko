@@ -26,6 +26,10 @@ class RedeemRequest: Mappable {
         self.pinCode = pinCode
     }
     
+    required init(pinCode: Int) {
+        self.pinCode = pinCode
+    }
+    
     required init?(map: Map) {}
     func mapping(map: Map) {
         shopID <- map[RedeemRequestFields.ShopID.rawValue]
