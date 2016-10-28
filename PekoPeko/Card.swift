@@ -93,6 +93,7 @@ class Card: NSObject {
     var totalHp: Int?
     
     init(shop: Shop) {
+        self.shopID = shop.shopID
         self.shopName = shop.fullName
         self.addressList = shop.addresses
         self.shopAvatarUrl = shop.avatarUrl

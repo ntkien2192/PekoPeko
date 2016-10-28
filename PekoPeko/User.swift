@@ -17,19 +17,6 @@ enum LoginStep: String {
     case verify = "verify"
 }
 
-//"email": "vng_tun@hotmail.com",
-//"username": "",
-//"gender": "1",
-//"avatar": "users/57105c43a2b7a7480141ddcc/avatar.jpg",
-//"cover": "users/57105c43a2b7a7480141ddcc/cover.jpg",
-//"promo_code": "6DQJRK",
-//"birthday": "436936387667",
-//"type": 1,
-//"phone": "",
-//"points": "0",
-//"followers": "67",
-//"followings": "298"
-
 enum UserFields: String {
     case UserID = "_id"
     case FacebookConnected = "facebook_connected"
@@ -38,7 +25,7 @@ enum UserFields: String {
     case Step = "step"
     case LoginType = "type"
     case FullName = "full_name"
-    
+    case UserName = "username"
     // Base Data
     case Email = "email"
     case Gender = "gender"
@@ -48,6 +35,14 @@ enum UserFields: String {
     case Points = "points"
     case Followers = "followers"
     case Followings = "followings"
+    
+    case Vouchers = "vouchers"
+    case Require = "require"
+    case Invited = "invited"
+    case Rank = "rank"
+    
+    case CurrentPassword = "current_password"
+    case NewPassword = "new_password"
 }
 
 class User: Mappable {
@@ -59,6 +54,7 @@ class User: Mappable {
     var step: LoginStep?
     var type: String?
     var fullName: String?
+    var userName: String?
     
     // Base Data
     var email: String?
@@ -68,6 +64,14 @@ class User: Mappable {
     var points: Int?
     var followers: Int?
     var followings: Int?
+    
+    var vouchers: Int?
+    var require: Int?
+    var invited: Int?
+    var rank: Rank?
+    
+    var currentPassword: String?
+    var newPassword: String?
     
     required init(json: JSON) {
         userID = json[UserFields.UserID.rawValue].string
@@ -90,6 +94,7 @@ class User: Mappable {
         
         type = json[UserFields.UserID.rawValue].string
         fullName = json[UserFields.FullName.rawValue].string
+        userName = json[UserFields.UserName.rawValue].string
         
         // Base Data
         email = json[UserFields.Email.rawValue].string
@@ -102,10 +107,23 @@ class User: Mappable {
         points = json[UserFields.Points.rawValue].int
         followers = json[UserFields.Followers.rawValue].int
         followings = json[UserFields.Followings.rawValue].int
+        
+        vouchers = json[UserFields.Vouchers.rawValue].int
+        require = json[UserFields.Require.rawValue].int
+        invited = json[UserFields.Invited.rawValue].int
+        rank = Rank(json: json[UserFields.Rank.rawValue])
     }
 
+    init(currentPassword: String, newPassword: String) {
+        self.currentPassword = currentPassword
+        self.newPassword = newPassword
+    }
+    
     required init?(map: Map) {}
     func mapping(map: Map) {
         fullName <- map[UserFields.FullName.rawValue]
+        
+        currentPassword <- map[UserFields.CurrentPassword.rawValue]
+        newPassword <- map[UserFields.NewPassword.rawValue]
     }
 }

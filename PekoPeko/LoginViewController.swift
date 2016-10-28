@@ -148,7 +148,7 @@ class LoginViewController: UIViewController {
                                 
                                 if step == .verify {
                                     let confirmCodeViewController = UIStoryboard(name: ConfirmCodeViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: ConfirmCodeViewController.identify) as! ConfirmCodeViewController
-                                    confirmCodeViewController.loginType = "facebook"
+                                        confirmCodeViewController.loginType = "social"
                                     if let navigationController = _self.navigationController {
                                         navigationController.show(confirmCodeViewController, sender: nil)
                                     }

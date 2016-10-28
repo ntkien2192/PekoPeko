@@ -110,12 +110,16 @@ class AddPointViewController: BaseViewController {
             
             
             if let shopAvatarUrl = card.shopAvatarUrl {
+                imageView.contentMode = .scaleAspectFill
+                imageView.clipsToBounds = false
+                imageView.layer.masksToBounds = true
+                
                 let cache = Shared.imageCache
                 let URL = NSURL(string: shopAvatarUrl)!
                 let fetcher = NetworkFetcher<UIImage>(URL: URL as URL)
                 weak var _self = self
                 _ = cache.fetch(fetcher: fetcher).onSuccess({ (image) in
-                    _self?.imageView.image = image.cropToBounds(width: image.size.height, height: image.size.height)
+                    _self?.imageView.image = image.resizeImage(targetSize: CGSize(width: 80, height: 80))
                 })
             }
             
@@ -186,11 +190,6 @@ class AddPointViewController: BaseViewController {
         if !error.isEmpty {
             let messageView = MessageView(frame: view.bounds)
             messageView.message = error
-            messageView.setButtonClose("Đóng", action: {
-                if !AuthenticationStore().isLogin {
-                    HomeTabbarController.sharedInstance.logOut()
-                }
-            })
             addFullView(view: messageView)
         } else {
             

@@ -23,6 +23,7 @@ target 'PekoPeko' do
   pod 'DZNEmptyDataSet'
   pod 'iCarousel'
   pod 'SwiftDate', '~> 4.0'
+  pod 'LDProgressView', '>= 1.1'
   
   # Pods for PekoPeko
 

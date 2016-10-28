@@ -32,6 +32,8 @@ class CardDetailViewController: BaseViewController {
         }
     }
     
+    var user: User?
+    
     var cardID: String?
     
     var card: Card? {
@@ -113,7 +115,6 @@ class CardDetailViewController: BaseViewController {
             tableView.addSubview(refreshControl)
             tableView.sendSubview(toBack: refreshControl)
         }
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -124,6 +125,36 @@ class CardDetailViewController: BaseViewController {
     func reloadCardInfo() {
         getCardInfo()
         getCardAddress()
+        getUserInfo()
+    }
+    
+    func getUserInfo() {
+        weak var _self = self
+        UserStore.getBaseUserInfo { (user, error) in
+            if let _self = _self {
+                if let refreshControl = _self.refreshControl {
+                    refreshControl.endRefreshing()
+                }
+                
+                guard error == nil else {
+                    if let error = error as? ServerResponseError, let data = error.data {
+                        let messageView = MessageView(frame: _self.view.bounds)
+                        messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
+                        messageView.setButtonClose("Đóng", action: {
+                            if !AuthenticationStore().isLogin {
+                                HomeTabbarController.sharedInstance.logOut()
+                            }
+                        })
+                        _self.addFullView(view: messageView)
+                    }
+                    return
+                }
+                
+                if let user = user {
+                    _self.user = user
+                }
+            }
+        }
     }
     
     func getCardInfo() {
@@ -348,7 +379,8 @@ extension CardDetailViewController: VipTableViewCellDelegate {
     func vipCellTapped(card: Card?) {
         if let controller = AppDelegate.topController() {
             let vipCardView = VipCardView(frame: controller.view.bounds)
-            if let card = card, let vipCards = card.vipCards{
+            if let card = card, let vipCards = card.vipCards, let user = user {
+                vipCardView.user = user
                 vipCardView.vipCards = vipCards
             }
             addFullView(view: vipCardView)

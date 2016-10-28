@@ -9,24 +9,32 @@
 import UIKit
 import MBProgressHUD
 
+protocol DiscoverListViewControllerDelegate: class {
+    func discoverTapped(discover: Discover?)
+}
+
 class DiscoverListViewController: BaseViewController {
     
     static let storyboardName = "Discover"
     static let identify = "DiscoverListViewController"
     
+    weak var delegate: DiscoverListViewControllerDelegate?
+    
     @IBOutlet weak var tableView: UITableView!
     
     var refreshControl: UIRefreshControl?
     
-    var discovers: [Discover]? {
+    var discovers: [Discover] = [Discover]() {
         didSet {
-            if discovers != nil {
-                 tableView.reloadData()
-            }
+            tableView.reloadData()
         }
     }
     
-    var nextPage: String = "0"
+    
+    var isNext: Bool = false
+    var preID: [String]?
+    var lastTime: Double?
+    var isReload: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,10 +47,7 @@ class DiscoverListViewController: BaseViewController {
         
         tableView.tableFooterView = UIView()
         tableView.register(UINib(nibName: EmptyTableViewCell.identify, bundle: nil), forCellReuseIdentifier: EmptyTableViewCell.identify)
-        tableView.register(UINib(nibName: Deal1ImageTableViewCell.identify, bundle: nil), forCellReuseIdentifier: Deal1ImageTableViewCell.identify)
-        tableView.register(UINib(nibName: Deal2ImageTableViewCell.identify, bundle: nil), forCellReuseIdentifier: Deal2ImageTableViewCell.identify)
-        tableView.register(UINib(nibName: Deal3ImageTableViewCell.identify, bundle: nil), forCellReuseIdentifier: Deal3ImageTableViewCell.identify)
-        tableView.register(UINib(nibName: DealMoreImageTableViewCell.identify, bundle: nil), forCellReuseIdentifier: DealMoreImageTableViewCell.identify)
+        tableView.register(UINib(nibName: DealTableViewCell.identify, bundle: nil), forCellReuseIdentifier: DealTableViewCell.identify)
         
         refreshControl = UIRefreshControl()
         if let refreshControl = refreshControl {
@@ -53,12 +58,14 @@ class DiscoverListViewController: BaseViewController {
     }
     
     func reloadAllDiscover() {
-        nextPage = "0"
+        isReload = true
+        preID = nil
+        lastTime = nil
         getAllDiscover()
     }
     
     func getAllDiscover() {
-        let discoverRequest = DiscoverRequest(preID: nil, lastTime: nil)
+        let discoverRequest = DiscoverRequest(preID: preID, lastTime: lastTime)
         weak var _self = self
         DiscoverStore.getAllDiscover(discoverRequest: discoverRequest) { (discoverResponse, error) in
             if let _self = _self {
@@ -81,14 +88,23 @@ class DiscoverListViewController: BaseViewController {
                     return
                 }
                 
+                if _self.isReload {
+                    _self.isReload = false
+                    _self.discovers.removeAll()
+                }
+                
                 if let discoverResponse = discoverResponse {
                     if let discovers = discoverResponse.discovers {
-                        _self.discovers = discovers
+                        if discovers.count != 0 {
+                            _self.discovers.append(contentsOf: discovers)
+                            _self.isNext = true
+                        } else {
+                            _self.isNext = false
+                        }
                     }
-//                    if let pagination = cardResponse.pagination, let nextPage = pagination.nextPage {
-//                        _self.nextPage = nextPage
-//                    }
                 }
+                
+                _self.tableView.tag = 0
             }
         }
     }
@@ -101,47 +117,32 @@ class DiscoverListViewController: BaseViewController {
 
 extension DiscoverListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let discovers = discovers {
-            return discovers.count
-        }
-        return 4
+        return discovers.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let discovers = discovers {
-            let discover = discovers[indexPath.row]
-            switch discover.imageCount() {
-            case 1:
-                let cell = tableView.dequeueReusableCell(withIdentifier: Deal1ImageTableViewCell.identify, for: indexPath) as! Deal1ImageTableViewCell
-                cell.discover = discover
-                cell.isLast = indexPath.row == (discovers.count - 1) ? true : false
-                cell.delegate = self
-                return cell
-            case 2:
-                let cell = tableView.dequeueReusableCell(withIdentifier: Deal2ImageTableViewCell.identify, for: indexPath) as! Deal2ImageTableViewCell
-                cell.discover = discover
-                cell.isLast = indexPath.row == (discovers.count - 1) ? true : false
-                
-                return cell
-            case 3:
-                let cell = tableView.dequeueReusableCell(withIdentifier: Deal3ImageTableViewCell.identify, for: indexPath) as! Deal3ImageTableViewCell
-                cell.discover = discover
-                cell.isLast = indexPath.row == (discovers.count - 1) ? true : false
-                return cell
-            default:
-                let cell = tableView.dequeueReusableCell(withIdentifier: DealMoreImageTableViewCell.identify, for: indexPath) as! DealMoreImageTableViewCell
-                cell.discover = discover
-                cell.isLast = indexPath.row == (discovers.count - 1) ? true : false
-                return cell
-            }
+        let cell = tableView.dequeueReusableCell(withIdentifier: DealTableViewCell.identify, for: indexPath) as! DealTableViewCell
+        cell.layer.shouldRasterize = true
+        cell.layer.rasterizationScale = UIScreen.main.scale
+        
+        let discover = discovers[indexPath.row]
+        cell.discover = discover
+        cell.isLast = indexPath.row == (discovers.count - 1) ? true : false
+        cell.delegate = self
+        
+        if isNext && self.tableView.tag == 0 && indexPath.row == discovers.count - 1 {
+            
+            preID = [discover.discoverID ?? ""]
+            lastTime = discover.createdAt
+            self.tableView.tag = 1
+            getAllDiscover()
         }
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: EmptyTableViewCell.identify, for: indexPath) as! EmptyTableViewCell
         return cell
     }
 }
 
-extension DiscoverListViewController: Deal1ImageTableViewCellDelegate {
+extension DiscoverListViewController: DealTableViewCellDelegate {
     func shareDiscoverTapped(discover: Discover?) {
         
     }
@@ -205,7 +206,7 @@ extension DiscoverListViewController: Deal1ImageTableViewCellDelegate {
     }
     
     func discoverTapped(discover: Discover?) {
-        
+        delegate?.discoverTapped(discover: discover)
     }
     
     func likeDiscoverTapped(discover: Discover?, isLiked: Bool, completionHandler: @escaping (Bool) -> Void) {

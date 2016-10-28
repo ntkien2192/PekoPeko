@@ -35,22 +35,30 @@ class MyCardTableViewCell: UITableViewCell {
             if let card = card {
                 
                 if let shopCoverUrl = card.shopCoverUrl {
+                    imageViewCover.contentMode = .scaleAspectFill
+                    imageViewCover.clipsToBounds = false
+                    imageViewCover.layer.masksToBounds = true
+                    
                     let cache = Shared.imageCache
                     let URL = NSURL(string: shopCoverUrl)!
                     let fetcher = NetworkFetcher<UIImage>(URL: URL as URL)
                     weak var _self = self
                     _ = cache.fetch(fetcher: fetcher).onSuccess({ (image) in
-                        _self?.imageViewCover.image = image.cropToBounds(width: image.size.width, height: image.size.width * 1.8 / 3.0)
+                        _self?.imageViewCover.image = image
                     })
                 }
                 
                 if let shopAvatarUrl = card.shopAvatarUrl {
+                    imageViewAvatar.contentMode = .scaleAspectFill
+                    imageViewAvatar.clipsToBounds = false
+                    imageViewAvatar.layer.masksToBounds = true
+                    
                     let cache = Shared.imageCache
                     let URL = NSURL(string: shopAvatarUrl)!
                     let fetcher = NetworkFetcher<UIImage>(URL: URL as URL)
                     weak var _self = self
                     _ = cache.fetch(fetcher: fetcher).onSuccess({ (image) in
-                        _self?.imageViewAvatar.image = image.cropToBounds(width: image.size.height, height: image.size.height)
+                        _self?.imageViewAvatar.image = image.resizeImage(targetSize: CGSize(width: 80, height: 80))
                     })
                 }
 

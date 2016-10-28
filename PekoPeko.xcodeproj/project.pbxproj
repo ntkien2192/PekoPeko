@@ -25,6 +25,18 @@
 		E416D0F31DB605E7002BBA81 /* ShopCoverTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E416D0F11DB605E7002BBA81 /* ShopCoverTableViewCell.xib */; };
 		E416D0F61DB63356002BBA81 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E416D0F51DB63356002BBA81 /* AlertView.swift */; };
 		E416D0F81DB63368002BBA81 /* AlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E416D0F71DB63368002BBA81 /* AlertView.xib */; };
+		E41B7F701DC060020036DFAE /* DiscoverShopDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41B7F6E1DC060020036DFAE /* DiscoverShopDetailTableViewCell.swift */; };
+		E41B7F711DC060020036DFAE /* DiscoverShopDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E41B7F6F1DC060020036DFAE /* DiscoverShopDetailTableViewCell.xib */; };
+		E41B7F761DC06A5B0036DFAE /* DealTimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41B7F741DC06A5B0036DFAE /* DealTimeTableViewCell.swift */; };
+		E41B7F771DC06A5B0036DFAE /* DealTimeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E41B7F751DC06A5B0036DFAE /* DealTimeTableViewCell.xib */; };
+		E41B7F7A1DC07A1E0036DFAE /* DealImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41B7F781DC07A1E0036DFAE /* DealImageTableViewCell.swift */; };
+		E41B7F7B1DC07A1E0036DFAE /* DealImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E41B7F791DC07A1E0036DFAE /* DealImageTableViewCell.xib */; };
+		E41B7F7F1DC07AD50036DFAE /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41B7F7D1DC07AD50036DFAE /* ImageCollectionViewCell.swift */; };
+		E41B7F801DC07AD50036DFAE /* ImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E41B7F7E1DC07AD50036DFAE /* ImageCollectionViewCell.xib */; };
+		E41B7F831DC088350036DFAE /* DealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41B7F811DC088350036DFAE /* DealTableViewCell.swift */; };
+		E41B7F841DC088350036DFAE /* DealTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E41B7F821DC088350036DFAE /* DealTableViewCell.xib */; };
+		E41B7F881DC090270036DFAE /* ImageMoreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41B7F861DC090260036DFAE /* ImageMoreCollectionViewCell.swift */; };
+		E41B7F891DC090270036DFAE /* ImageMoreCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E41B7F871DC090260036DFAE /* ImageMoreCollectionViewCell.xib */; };
 		E41DC09D1DB4D61A00411F55 /* ShopInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41DC09B1DB4D61A00411F55 /* ShopInfoTableViewCell.swift */; };
 		E41DC09E1DB4D61A00411F55 /* ShopInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E41DC09C1DB4D61A00411F55 /* ShopInfoTableViewCell.xib */; };
 		E41DC0A71DB4D9CC00411F55 /* ShopAddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41DC0A51DB4D9CC00411F55 /* ShopAddressTableViewCell.swift */; };
@@ -102,6 +114,9 @@
 		E44B27B01DBDE341006FB81D /* VipCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E44B27AF1DBDE341006FB81D /* VipCardView.xib */; };
 		E45086E41DAFD9140090ACB5 /* Redeem.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E45086E31DAFD9140090ACB5 /* Redeem.storyboard */; };
 		E45086E71DAFDA5A0090ACB5 /* RedeemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45086E61DAFDA5A0090ACB5 /* RedeemViewController.swift */; };
+		E450F3891DC1CD0900640A4A /* DealMultiPriceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E450F3871DC1CD0900640A4A /* DealMultiPriceCollectionViewCell.swift */; };
+		E450F38A1DC1CD0900640A4A /* DealMultiPriceCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E450F3881DC1CD0900640A4A /* DealMultiPriceCollectionViewCell.xib */; };
+		E450F38C1DC1DD1700640A4A /* Rank.swift in Sources */ = {isa = PBXBuildFile; fileRef = E450F38B1DC1DD1700640A4A /* Rank.swift */; };
 		E451FFEF1DA8120B00B5A756 /* Textfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = E451FFEE1DA8120B00B5A756 /* Textfield.swift */; };
 		E451FFF11DA813B700B5A756 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = E451FFF01DA813B700B5A756 /* View.swift */; };
 		E451FFF31DA813C800B5A756 /* ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E451FFF21DA813C800B5A756 /* ScrollView.swift */; };
@@ -109,8 +124,6 @@
 		E45746DB1DB27F1200021604 /* Reward.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45746DA1DB27F1200021604 /* Reward.swift */; };
 		E45746DD1DB27F4400021604 /* Discount.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45746DC1DB27F4400021604 /* Discount.swift */; };
 		E45746DF1DB27FB100021604 /* QRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45746DE1DB27FB100021604 /* QRCode.swift */; };
-		E462CA701DBDBD11001D5D5A /* Deal2ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E462CA6E1DBDBD11001D5D5A /* Deal2ImageTableViewCell.swift */; };
-		E462CA751DBDBE0F001D5D5A /* Deal2ImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E462CA741DBDBE0F001D5D5A /* Deal2ImageTableViewCell.xib */; };
 		E462CA771DBDC527001D5D5A /* DealDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E462CA761DBDC527001D5D5A /* DealDetailViewController.swift */; };
 		E462CA7B1DBDCDFF001D5D5A /* VipTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E462CA791DBDCDFF001D5D5A /* VipTableViewCell.swift */; };
 		E462CA7C1DBDCDFF001D5D5A /* VipTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E462CA7A1DBDCDFF001D5D5A /* VipTableViewCell.xib */; };
@@ -133,6 +146,16 @@
 		E476B0391DA9445E007B1D62 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E476B0381DA9445E007B1D62 /* ImageView.swift */; };
 		E47C3A871DB67D7B0057464F /* ShopMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47C3A861DB67D7B0057464F /* ShopMenuViewController.swift */; };
 		E47CB7DC1DB4C71A0078279F /* ShopDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47CB7DB1DB4C71A0078279F /* ShopDetailViewController.swift */; };
+		E47E58781DC0A86C001400E0 /* DealPriceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47E58761DC0A86C001400E0 /* DealPriceTableViewCell.swift */; };
+		E47E58791DC0A86C001400E0 /* DealPriceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E47E58771DC0A86C001400E0 /* DealPriceTableViewCell.xib */; };
+		E47E587D1DC0A8A5001400E0 /* DealMultiPriceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47E587B1DC0A8A5001400E0 /* DealMultiPriceTableViewCell.swift */; };
+		E47E587E1DC0A8A5001400E0 /* DealMultiPriceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E47E587C1DC0A8A5001400E0 /* DealMultiPriceTableViewCell.xib */; };
+		E47E58821DC0ABE3001400E0 /* DealControlTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47E58801DC0ABE3001400E0 /* DealControlTableViewCell.swift */; };
+		E47E58831DC0ABE3001400E0 /* DealControlTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E47E58811DC0ABE3001400E0 /* DealControlTableViewCell.xib */; };
+		E47E58861DC0B691001400E0 /* DealImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47E58851DC0B691001400E0 /* DealImageView.swift */; };
+		E47E58881DC0B699001400E0 /* DealImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E47E58871DC0B699001400E0 /* DealImageView.xib */; };
+		E47E588C1DC0BD27001400E0 /* DealDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47E588A1DC0BD27001400E0 /* DealDescriptionTableViewCell.swift */; };
+		E47E588D1DC0BD27001400E0 /* DealDescriptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E47E588B1DC0BD27001400E0 /* DealDescriptionTableViewCell.xib */; };
 		E494049F1DA6AD1B00918C75 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E494049E1DA6AD1B00918C75 /* AppDelegate.swift */; };
 		E49404A41DA6AD1B00918C75 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E49404A21DA6AD1B00918C75 /* Main.storyboard */; };
 		E49404A61DA6AD1B00918C75 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E49404A51DA6AD1B00918C75 /* Assets.xcassets */; };
@@ -142,12 +165,6 @@
 		E49404D81DA6B60800918C75 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E49404D71DA6B60800918C75 /* Home.storyboard */; };
 		E49404DA1DA6BB2100918C75 /* logoBar.png in Resources */ = {isa = PBXBuildFile; fileRef = E49404D91DA6BB2100918C75 /* logoBar.png */; };
 		E49D5A8F1DB1C62A001E19DD /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49D5A8E1DB1C62A001E19DD /* Point.swift */; };
-		E4C00C421DBCEAE800EE3CF4 /* Deal1ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C00C401DBCEAE800EE3CF4 /* Deal1ImageTableViewCell.swift */; };
-		E4C00C431DBCEAE800EE3CF4 /* Deal1ImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4C00C411DBCEAE800EE3CF4 /* Deal1ImageTableViewCell.xib */; };
-		E4C00C4A1DBCEB0800EE3CF4 /* Deal3ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C00C481DBCEB0800EE3CF4 /* Deal3ImageTableViewCell.swift */; };
-		E4C00C4B1DBCEB0800EE3CF4 /* Deal3ImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4C00C491DBCEB0800EE3CF4 /* Deal3ImageTableViewCell.xib */; };
-		E4C00C4F1DBCEB1C00EE3CF4 /* DealMoreImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C00C4D1DBCEB1C00EE3CF4 /* DealMoreImageTableViewCell.swift */; };
-		E4C00C501DBCEB1C00EE3CF4 /* DealMoreImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4C00C4E1DBCEB1C00EE3CF4 /* DealMoreImageTableViewCell.xib */; };
 		E4CC4A671DAF3991003B8385 /* DiscountCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CC4A651DAF3991003B8385 /* DiscountCardTableViewCell.swift */; };
 		E4CC4A681DAF3991003B8385 /* DiscountCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4CC4A661DAF3991003B8385 /* DiscountCardTableViewCell.xib */; };
 		E4E0414C1DB74576001E0226 /* MyCardRewardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E0414A1DB74576001E0226 /* MyCardRewardTableViewCell.swift */; };
@@ -165,6 +182,7 @@
 		E4EC1D8C1DB5C517005CECB6 /* ShopMenuShowMoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4EC1D8A1DB5C517005CECB6 /* ShopMenuShowMoreTableViewCell.xib */; };
 		E4EC1D8F1DB5DBB4005CECB6 /* WordTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EC1D8E1DB5DBB4005CECB6 /* WordTime.swift */; };
 		E4EC1D911DB5DBEB005CECB6 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EC1D901DB5DBEB005CECB6 /* Address.swift */; };
+		E4F5BB991DC33B0800C3FB59 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F5BB981DC33B0800C3FB59 /* ForgotPasswordViewController.swift */; };
 		E4F601771DBB0C71006309A5 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F601761DBB0C71006309A5 /* DiscoverViewController.swift */; };
 		E4F601791DBB13B0006309A5 /* DiscoverStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F601781DBB13AF006309A5 /* DiscoverStore.swift */; };
 		E4F6017B1DBB142C006309A5 /* DiscoverRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F6017A1DBB142C006309A5 /* DiscoverRequest.swift */; };
@@ -230,6 +248,18 @@
 		E416D0F11DB605E7002BBA81 /* ShopCoverTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShopCoverTableViewCell.xib; sourceTree = "<group>"; };
 		E416D0F51DB63356002BBA81 /* AlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		E416D0F71DB63368002BBA81 /* AlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlertView.xib; sourceTree = "<group>"; };
+		E41B7F6E1DC060020036DFAE /* DiscoverShopDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverShopDetailTableViewCell.swift; sourceTree = "<group>"; };
+		E41B7F6F1DC060020036DFAE /* DiscoverShopDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiscoverShopDetailTableViewCell.xib; sourceTree = "<group>"; };
+		E41B7F741DC06A5B0036DFAE /* DealTimeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealTimeTableViewCell.swift; sourceTree = "<group>"; };
+		E41B7F751DC06A5B0036DFAE /* DealTimeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DealTimeTableViewCell.xib; sourceTree = "<group>"; };
+		E41B7F781DC07A1E0036DFAE /* DealImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealImageTableViewCell.swift; sourceTree = "<group>"; };
+		E41B7F791DC07A1E0036DFAE /* DealImageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DealImageTableViewCell.xib; sourceTree = "<group>"; };
+		E41B7F7D1DC07AD50036DFAE /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		E41B7F7E1DC07AD50036DFAE /* ImageCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageCollectionViewCell.xib; sourceTree = "<group>"; };
+		E41B7F811DC088350036DFAE /* DealTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealTableViewCell.swift; sourceTree = "<group>"; };
+		E41B7F821DC088350036DFAE /* DealTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DealTableViewCell.xib; sourceTree = "<group>"; };
+		E41B7F861DC090260036DFAE /* ImageMoreCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageMoreCollectionViewCell.swift; sourceTree = "<group>"; };
+		E41B7F871DC090260036DFAE /* ImageMoreCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageMoreCollectionViewCell.xib; sourceTree = "<group>"; };
 		E41DC09B1DB4D61A00411F55 /* ShopInfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopInfoTableViewCell.swift; sourceTree = "<group>"; };
 		E41DC09C1DB4D61A00411F55 /* ShopInfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShopInfoTableViewCell.xib; sourceTree = "<group>"; };
 		E41DC0A51DB4D9CC00411F55 /* ShopAddressTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopAddressTableViewCell.swift; sourceTree = "<group>"; };
@@ -307,6 +337,9 @@
 		E44B27AF1DBDE341006FB81D /* VipCardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VipCardView.xib; sourceTree = "<group>"; };
 		E45086E31DAFD9140090ACB5 /* Redeem.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Redeem.storyboard; sourceTree = "<group>"; };
 		E45086E61DAFDA5A0090ACB5 /* RedeemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedeemViewController.swift; sourceTree = "<group>"; };
+		E450F3871DC1CD0900640A4A /* DealMultiPriceCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealMultiPriceCollectionViewCell.swift; sourceTree = "<group>"; };
+		E450F3881DC1CD0900640A4A /* DealMultiPriceCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DealMultiPriceCollectionViewCell.xib; sourceTree = "<group>"; };
+		E450F38B1DC1DD1700640A4A /* Rank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rank.swift; sourceTree = "<group>"; };
 		E451FFEE1DA8120B00B5A756 /* Textfield.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Textfield.swift; sourceTree = "<group>"; };
 		E451FFF01DA813B700B5A756 /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		E451FFF21DA813C800B5A756 /* ScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollView.swift; sourceTree = "<group>"; };
@@ -314,8 +347,6 @@
 		E45746DA1DB27F1200021604 /* Reward.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reward.swift; sourceTree = "<group>"; };
 		E45746DC1DB27F4400021604 /* Discount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Discount.swift; sourceTree = "<group>"; };
 		E45746DE1DB27FB100021604 /* QRCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCode.swift; sourceTree = "<group>"; };
-		E462CA6E1DBDBD11001D5D5A /* Deal2ImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deal2ImageTableViewCell.swift; sourceTree = "<group>"; };
-		E462CA741DBDBE0F001D5D5A /* Deal2ImageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Deal2ImageTableViewCell.xib; sourceTree = "<group>"; };
 		E462CA761DBDC527001D5D5A /* DealDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealDetailViewController.swift; sourceTree = "<group>"; };
 		E462CA791DBDCDFF001D5D5A /* VipTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VipTableViewCell.swift; sourceTree = "<group>"; };
 		E462CA7A1DBDCDFF001D5D5A /* VipTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VipTableViewCell.xib; sourceTree = "<group>"; };
@@ -338,6 +369,16 @@
 		E476B0381DA9445E007B1D62 /* ImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		E47C3A861DB67D7B0057464F /* ShopMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopMenuViewController.swift; sourceTree = "<group>"; };
 		E47CB7DB1DB4C71A0078279F /* ShopDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopDetailViewController.swift; sourceTree = "<group>"; };
+		E47E58761DC0A86C001400E0 /* DealPriceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealPriceTableViewCell.swift; sourceTree = "<group>"; };
+		E47E58771DC0A86C001400E0 /* DealPriceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DealPriceTableViewCell.xib; sourceTree = "<group>"; };
+		E47E587B1DC0A8A5001400E0 /* DealMultiPriceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealMultiPriceTableViewCell.swift; sourceTree = "<group>"; };
+		E47E587C1DC0A8A5001400E0 /* DealMultiPriceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DealMultiPriceTableViewCell.xib; sourceTree = "<group>"; };
+		E47E58801DC0ABE3001400E0 /* DealControlTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealControlTableViewCell.swift; sourceTree = "<group>"; };
+		E47E58811DC0ABE3001400E0 /* DealControlTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DealControlTableViewCell.xib; sourceTree = "<group>"; };
+		E47E58851DC0B691001400E0 /* DealImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealImageView.swift; sourceTree = "<group>"; };
+		E47E58871DC0B699001400E0 /* DealImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DealImageView.xib; sourceTree = "<group>"; };
+		E47E588A1DC0BD27001400E0 /* DealDescriptionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealDescriptionTableViewCell.swift; sourceTree = "<group>"; };
+		E47E588B1DC0BD27001400E0 /* DealDescriptionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DealDescriptionTableViewCell.xib; sourceTree = "<group>"; };
 		E494049B1DA6AD1B00918C75 /* PekoPeko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PekoPeko.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E494049E1DA6AD1B00918C75 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E49404A31DA6AD1B00918C75 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -353,12 +394,6 @@
 		E49404D71DA6B60800918C75 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		E49404D91DA6BB2100918C75 /* logoBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoBar.png; sourceTree = "<group>"; };
 		E49D5A8E1DB1C62A001E19DD /* Point.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
-		E4C00C401DBCEAE800EE3CF4 /* Deal1ImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deal1ImageTableViewCell.swift; sourceTree = "<group>"; };
-		E4C00C411DBCEAE800EE3CF4 /* Deal1ImageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Deal1ImageTableViewCell.xib; sourceTree = "<group>"; };
-		E4C00C481DBCEB0800EE3CF4 /* Deal3ImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deal3ImageTableViewCell.swift; sourceTree = "<group>"; };
-		E4C00C491DBCEB0800EE3CF4 /* Deal3ImageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Deal3ImageTableViewCell.xib; sourceTree = "<group>"; };
-		E4C00C4D1DBCEB1C00EE3CF4 /* DealMoreImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealMoreImageTableViewCell.swift; sourceTree = "<group>"; };
-		E4C00C4E1DBCEB1C00EE3CF4 /* DealMoreImageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DealMoreImageTableViewCell.xib; sourceTree = "<group>"; };
 		E4CC4A651DAF3991003B8385 /* DiscountCardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountCardTableViewCell.swift; sourceTree = "<group>"; };
 		E4CC4A661DAF3991003B8385 /* DiscountCardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiscountCardTableViewCell.xib; sourceTree = "<group>"; };
 		E4E0414A1DB74576001E0226 /* MyCardRewardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCardRewardTableViewCell.swift; sourceTree = "<group>"; };
@@ -376,6 +411,7 @@
 		E4EC1D8A1DB5C517005CECB6 /* ShopMenuShowMoreTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShopMenuShowMoreTableViewCell.xib; sourceTree = "<group>"; };
 		E4EC1D8E1DB5DBB4005CECB6 /* WordTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordTime.swift; sourceTree = "<group>"; };
 		E4EC1D901DB5DBEB005CECB6 /* Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		E4F5BB981DC33B0800C3FB59 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		E4F601761DBB0C71006309A5 /* DiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		E4F601781DBB13AF006309A5 /* DiscoverStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverStore.swift; sourceTree = "<group>"; };
 		E4F6017A1DBB142C006309A5 /* DiscoverRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverRequest.swift; sourceTree = "<group>"; };
@@ -487,6 +523,45 @@
 				E416D0F71DB63368002BBA81 /* AlertView.xib */,
 			);
 			name = AlertView;
+			sourceTree = "<group>";
+		};
+		E41B7F6D1DC05FE70036DFAE /* DiscoverShopDetailTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				E41B7F6E1DC060020036DFAE /* DiscoverShopDetailTableViewCell.swift */,
+				E41B7F6F1DC060020036DFAE /* DiscoverShopDetailTableViewCell.xib */,
+			);
+			name = DiscoverShopDetailTableViewCell;
+			sourceTree = "<group>";
+		};
+		E41B7F721DC06A340036DFAE /* DealTimeTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				E41B7F741DC06A5B0036DFAE /* DealTimeTableViewCell.swift */,
+				E41B7F751DC06A5B0036DFAE /* DealTimeTableViewCell.xib */,
+			);
+			name = DealTimeTableViewCell;
+			sourceTree = "<group>";
+		};
+		E41B7F7C1DC07A300036DFAE /* DealImageTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				E47E58841DC0B680001400E0 /* DealImageView */,
+				E41B7F781DC07A1E0036DFAE /* DealImageTableViewCell.swift */,
+				E41B7F791DC07A1E0036DFAE /* DealImageTableViewCell.xib */,
+			);
+			name = DealImageTableViewCell;
+			sourceTree = "<group>";
+		};
+		E41B7F851DC08F1A0036DFAE /* ImageCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				E41B7F7D1DC07AD50036DFAE /* ImageCollectionViewCell.swift */,
+				E41B7F7E1DC07AD50036DFAE /* ImageCollectionViewCell.xib */,
+				E41B7F861DC090260036DFAE /* ImageMoreCollectionViewCell.swift */,
+				E41B7F871DC090260036DFAE /* ImageMoreCollectionViewCell.xib */,
+			);
+			name = ImageCollectionViewCell;
 			sourceTree = "<group>";
 		};
 		E41DC0921DB4D31200411F55 /* ShopDetailTableViewCell */ = {
@@ -621,6 +696,7 @@
 			isa = PBXGroup;
 			children = (
 				E427F8EB1DAF91280012F3F5 /* SettingViewController.swift */,
+				E4F5BB981DC33B0800C3FB59 /* ForgotPasswordViewController.swift */,
 			);
 			name = Setting;
 			sourceTree = "<group>";
@@ -724,9 +800,25 @@
 			name = RedeemViewController;
 			sourceTree = "<group>";
 		};
+		E450F3861DC1CCF200640A4A /* DealMultiPriceCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				E450F3871DC1CD0900640A4A /* DealMultiPriceCollectionViewCell.swift */,
+				E450F3881DC1CD0900640A4A /* DealMultiPriceCollectionViewCell.xib */,
+			);
+			name = DealMultiPriceCollectionViewCell;
+			sourceTree = "<group>";
+		};
 		E462CA6B1DBDAD4F001D5D5A /* DiscoverDetailTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				E47E58891DC0BCF5001400E0 /* DealDescriptionTableViewCell */,
+				E47E587F1DC0ABC1001400E0 /* DealControlTableViewCell */,
+				E47E587A1DC0A874001400E0 /* DealMultiPriceTableViewCell */,
+				E47E58751DC0A83C001400E0 /* DealPriceTableViewCell */,
+				E41B7F7C1DC07A300036DFAE /* DealImageTableViewCell */,
+				E41B7F721DC06A340036DFAE /* DealTimeTableViewCell */,
+				E41B7F6D1DC05FE70036DFAE /* DiscoverShopDetailTableViewCell */,
 			);
 			name = DiscoverDetailTableViewCell;
 			sourceTree = "<group>";
@@ -780,6 +872,52 @@
 				E476B02B1DA937C1007B1D62 /* CardTableViewCell.xib */,
 			);
 			name = CardTableViewCell;
+			sourceTree = "<group>";
+		};
+		E47E58751DC0A83C001400E0 /* DealPriceTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				E47E58761DC0A86C001400E0 /* DealPriceTableViewCell.swift */,
+				E47E58771DC0A86C001400E0 /* DealPriceTableViewCell.xib */,
+			);
+			name = DealPriceTableViewCell;
+			sourceTree = "<group>";
+		};
+		E47E587A1DC0A874001400E0 /* DealMultiPriceTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				E450F3861DC1CCF200640A4A /* DealMultiPriceCollectionViewCell */,
+				E47E587B1DC0A8A5001400E0 /* DealMultiPriceTableViewCell.swift */,
+				E47E587C1DC0A8A5001400E0 /* DealMultiPriceTableViewCell.xib */,
+			);
+			name = DealMultiPriceTableViewCell;
+			sourceTree = "<group>";
+		};
+		E47E587F1DC0ABC1001400E0 /* DealControlTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				E47E58801DC0ABE3001400E0 /* DealControlTableViewCell.swift */,
+				E47E58811DC0ABE3001400E0 /* DealControlTableViewCell.xib */,
+			);
+			name = DealControlTableViewCell;
+			sourceTree = "<group>";
+		};
+		E47E58841DC0B680001400E0 /* DealImageView */ = {
+			isa = PBXGroup;
+			children = (
+				E47E58851DC0B691001400E0 /* DealImageView.swift */,
+				E47E58871DC0B699001400E0 /* DealImageView.xib */,
+			);
+			name = DealImageView;
+			sourceTree = "<group>";
+		};
+		E47E58891DC0BCF5001400E0 /* DealDescriptionTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				E47E588A1DC0BD27001400E0 /* DealDescriptionTableViewCell.swift */,
+				E47E588B1DC0BD27001400E0 /* DealDescriptionTableViewCell.xib */,
+			);
+			name = DealDescriptionTableViewCell;
 			sourceTree = "<group>";
 		};
 		E49404921DA6AD1B00918C75 = {
@@ -848,6 +986,7 @@
 				E42B6ADE1DAB37F20091746F /* Location.swift */,
 				E42B6AE01DAB394B0091746F /* LoginParameter.swift */,
 				E42B6AE21DAB3BCE0091746F /* User.swift */,
+				E450F38B1DC1DD1700640A4A /* Rank.swift */,
 				E4129A3C1DACDC6400F78C79 /* Card.swift */,
 				E4129A3E1DACE25600F78C79 /* CardResponse.swift */,
 				E42469DC1DADE79100D0A074 /* CardRequest.swift */,
@@ -993,6 +1132,7 @@
 		E4C00C3E1DBCE62B00EE3CF4 /* DiscoverTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				E41B7F851DC08F1A0036DFAE /* ImageCollectionViewCell */,
 				E462CA6B1DBDAD4F001D5D5A /* DiscoverDetailTableViewCell */,
 				E4C00C3F1DBCE63600EE3CF4 /* DealTableViewCell */,
 			);
@@ -1002,14 +1142,8 @@
 		E4C00C3F1DBCE63600EE3CF4 /* DealTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				E4C00C401DBCEAE800EE3CF4 /* Deal1ImageTableViewCell.swift */,
-				E4C00C411DBCEAE800EE3CF4 /* Deal1ImageTableViewCell.xib */,
-				E462CA6E1DBDBD11001D5D5A /* Deal2ImageTableViewCell.swift */,
-				E462CA741DBDBE0F001D5D5A /* Deal2ImageTableViewCell.xib */,
-				E4C00C481DBCEB0800EE3CF4 /* Deal3ImageTableViewCell.swift */,
-				E4C00C491DBCEB0800EE3CF4 /* Deal3ImageTableViewCell.xib */,
-				E4C00C4D1DBCEB1C00EE3CF4 /* DealMoreImageTableViewCell.swift */,
-				E4C00C4E1DBCEB1C00EE3CF4 /* DealMoreImageTableViewCell.xib */,
+				E41B7F811DC088350036DFAE /* DealTableViewCell.swift */,
+				E41B7F821DC088350036DFAE /* DealTableViewCell.xib */,
 			);
 			name = DealTableViewCell;
 			sourceTree = "<group>";
@@ -1198,29 +1332,32 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E462CA751DBDBE0F001D5D5A /* Deal2ImageTableViewCell.xib in Resources */,
 				E42469F51DAE101C00D0A074 /* BEBAS___.ttf in Resources */,
 				E41DC09E1DB4D61A00411F55 /* ShopInfoTableViewCell.xib in Resources */,
-				E4C00C501DBCEB1C00EE3CF4 /* DealMoreImageTableViewCell.xib in Resources */,
+				E47E58791DC0A86C001400E0 /* DealPriceTableViewCell.xib in Resources */,
 				E42469F61DAE101C00D0A074 /* BebasNeue-webfont.ttf in Resources */,
 				E4EC1D801DB5C32C005CECB6 /* ShopMenu2TableViewCell.xib in Resources */,
 				E4346EC61DB91AEF000566EE /* AddPointSuccessView.xib in Resources */,
 				E42469F71DAE101C00D0A074 /* ProximaNova-Bold.otf in Resources */,
 				E42469F81DAE101C00D0A074 /* ProximaNova-Regular.otf in Resources */,
+				E47E58831DC0ABE3001400E0 /* DealControlTableViewCell.xib in Resources */,
 				E4CC4A681DAF3991003B8385 /* DiscountCardTableViewCell.xib in Resources */,
 				E441E5DF1DBDF17F0016B87E /* CardView.xib in Resources */,
 				E42469F91DAE101C00D0A074 /* ProximaNova-Semibold.otf in Resources */,
+				E41B7F7B1DC07A1E0036DFAE /* DealImageTableViewCell.xib in Resources */,
 				E4EC1D8C1DB5C517005CECB6 /* ShopMenuShowMoreTableViewCell.xib in Resources */,
 				E42469FA1DAE101C00D0A074 /* ProximaNovaSoft-Bold.otf in Resources */,
 				E41DC0A81DB4D9CC00411F55 /* ShopAddressTableViewCell.xib in Resources */,
 				E42469FC1DAE101C00D0A074 /* ProximaNovaSoft-Medium.otf in Resources */,
-				E4C00C431DBCEAE800EE3CF4 /* Deal1ImageTableViewCell.xib in Resources */,
+				E41B7F891DC090270036DFAE /* ImageMoreCollectionViewCell.xib in Resources */,
 				E42469FE1DAE101C00D0A074 /* ProximaNovaSoft-Regular.otf in Resources */,
 				E4246A001DAE101C00D0A074 /* ProximaNovaSoft-Semibold.otf in Resources */,
 				E4EC1D7C1DB5C30C005CECB6 /* ShopMenuTableViewCell.xib in Resources */,
 				E4E041521DB75054001E0226 /* ShopMenuCollectionViewCell.xib in Resources */,
+				E47E58881DC0B699001400E0 /* DealImageView.xib in Resources */,
 				E427F8E51DAF5F580012F3F5 /* RewardTableViewCell.xib in Resources */,
 				E414486C1DB0D79B006C70EF /* Shop.storyboard in Resources */,
+				E41B7F711DC060020036DFAE /* DiscoverShopDetailTableViewCell.xib in Resources */,
 				E4246A011DAE101C00D0A074 /* UTM Bebas.ttf in Resources */,
 				E462CA7C1DBDCDFF001D5D5A /* VipTableViewCell.xib in Resources */,
 				E416D0F81DB63368002BBA81 /* AlertView.xib in Resources */,
@@ -1230,6 +1367,7 @@
 				E4246A031DAE101C00D0A074 /* VNF.ProximaNova-Regular.ttf in Resources */,
 				E49404A91DA6AD1B00918C75 /* LaunchScreen.storyboard in Resources */,
 				E4336D791DBC83BB002E9F5C /* VoucherTableViewCell.xib in Resources */,
+				E41B7F801DC07AD50036DFAE /* ImageCollectionViewCell.xib in Resources */,
 				E42469E41DADF64E00D0A074 /* item_top_loyalty_cards.png in Resources */,
 				E49404A61DA6AD1B00918C75 /* Assets.xcassets in Resources */,
 				E42469E21DADF55800D0A074 /* MyCardTableViewCell.xib in Resources */,
@@ -1240,20 +1378,24 @@
 				E44B27B01DBDE341006FB81D /* VipCardView.xib in Resources */,
 				E49404D81DA6B60800918C75 /* Home.storyboard in Resources */,
 				E414485F1DB09718006C70EF /* RedeemSuccessView.xib in Resources */,
+				E47E588D1DC0BD27001400E0 /* DealDescriptionTableViewCell.xib in Resources */,
 				E4E0414D1DB74576001E0226 /* MyCardRewardTableViewCell.xib in Resources */,
+				E450F38A1DC1CD0900640A4A /* DealMultiPriceCollectionViewCell.xib in Resources */,
 				E434E6021DAF480D00AFC400 /* PointCardTableViewCell.xib in Resources */,
+				E41B7F841DC088350036DFAE /* DealTableViewCell.xib in Resources */,
 				E476B0241DA92AB4007B1D62 /* Card.storyboard in Resources */,
 				E416D0F31DB605E7002BBA81 /* ShopCoverTableViewCell.xib in Resources */,
 				E45086E41DAFD9140090ACB5 /* Redeem.storyboard in Resources */,
 				E4246A0D1DAE411A00D0A074 /* DetailCardHeaderTableViewCell.xib in Resources */,
 				E4364F131DBCA28100EFCF41 /* Discover.storyboard in Resources */,
+				E41B7F771DC06A5B0036DFAE /* DealTimeTableViewCell.xib in Resources */,
 				E4EC1D841DB5C352005CECB6 /* ShopMenuTitleTableViewCell.xib in Resources */,
 				E4271BF11DB4727900B485B3 /* CardAddressView.xib in Resources */,
-				E4C00C4B1DBCEB0800EE3CF4 /* Deal3ImageTableViewCell.xib in Resources */,
 				E427F8E91DAF790C0012F3F5 /* Reward10TableViewCell.xib in Resources */,
 				E49404DA1DA6BB2100918C75 /* logoBar.png in Resources */,
 				E41448691DB0BE87006C70EF /* MessageView.xib in Resources */,
 				E476B02D1DA937C1007B1D62 /* CardTableViewCell.xib in Resources */,
+				E47E587E1DC0A8A5001400E0 /* DealMultiPriceTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1402,6 +1544,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4336D6D1DBC737A002E9F5C /* VoucherStore.swift in Sources */,
+				E4F5BB991DC33B0800C3FB59 /* ForgotPasswordViewController.swift in Sources */,
 				E43D2C821DA7F6C40019B2DD /* LoginViewController.swift in Sources */,
 				E42469DD1DADE79100D0A074 /* CardRequest.swift in Sources */,
 				E4364F111DBC9ABB00EFCF41 /* DiscoverResponse.swift in Sources */,
@@ -1416,6 +1559,7 @@
 				E45746DD1DB27F4400021604 /* Discount.swift in Sources */,
 				E4336D6F1DBC73B2002E9F5C /* VoucherRequest.swift in Sources */,
 				E42187AE1DB8713400EFC98C /* SocialConfirmViewController.swift in Sources */,
+				E47E58781DC0A86C001400E0 /* DealPriceTableViewCell.swift in Sources */,
 				E4271BEF1DB4726E00B485B3 /* CardAddressView.swift in Sources */,
 				E4346EC41DB91AE1000566EE /* AddPointSuccessView.swift in Sources */,
 				E441E5E31DBDF1B80016B87E /* VipCard.swift in Sources */,
@@ -1424,7 +1568,6 @@
 				E4336D711DBC7438002E9F5C /* Voucher.swift in Sources */,
 				E424228E1DA8A10900F7D6FC /* Router.swift in Sources */,
 				E42B6AE31DAB3BCE0091746F /* User.swift in Sources */,
-				E4C00C4A1DBCEB0800EE3CF4 /* Deal3ImageTableViewCell.swift in Sources */,
 				E4129A3D1DACDC6400F78C79 /* Card.swift in Sources */,
 				E42422941DA8A64D00F7D6FC /* ServerResponseError.swift in Sources */,
 				E476B0171DA8FB74007B1D62 /* Label.swift in Sources */,
@@ -1432,6 +1575,7 @@
 				E4129A3F1DACE25600F78C79 /* CardResponse.swift in Sources */,
 				E476B0211DA929AF007B1D62 /* CAPSPageMenu.swift in Sources */,
 				E4F6017F1DBB1640006309A5 /* Pagination.swift in Sources */,
+				E41B7F7A1DC07A1E0036DFAE /* DealImageTableViewCell.swift in Sources */,
 				E4246A0C1DAE411A00D0A074 /* DetailCardHeaderTableViewCell.swift in Sources */,
 				E4EC1D861DB5C4BD005CECB6 /* MenuItem.swift in Sources */,
 				E423FB041DB337AF005C51BB /* CardAddressTableViewCell.swift in Sources */,
@@ -1440,12 +1584,11 @@
 				E41DC09D1DB4D61A00411F55 /* ShopInfoTableViewCell.swift in Sources */,
 				E4F601791DBB13B0006309A5 /* DiscoverStore.swift in Sources */,
 				E476B0191DA908FD007B1D62 /* CardViewController.swift in Sources */,
-				E462CA701DBDBD11001D5D5A /* Deal2ImageTableViewCell.swift in Sources */,
 				E462CA771DBDC527001D5D5A /* DealDetailViewController.swift in Sources */,
 				E43D2C841DA80DAE0019B2DD /* LoginPhoneViewController.swift in Sources */,
 				E494049F1DA6AD1B00918C75 /* AppDelegate.swift in Sources */,
 				E42474C01DBF788300720C99 /* DealStep.swift in Sources */,
-				E4C00C421DBCEAE800EE3CF4 /* Deal1ImageTableViewCell.swift in Sources */,
+				E47E587D1DC0A8A5001400E0 /* DealMultiPriceTableViewCell.swift in Sources */,
 				E41448671DB0BE7E006C70EF /* MessageView.swift in Sources */,
 				E4129A411DACE41200F78C79 /* CardStore.swift in Sources */,
 				E4246A051DAE245A00D0A074 /* CardDetailViewController.swift in Sources */,
@@ -1455,7 +1598,10 @@
 				E46894E71DB697060004B322 /* SMSegment.swift in Sources */,
 				E41448711DB0DA90006C70EF /* AddPointViewController.swift in Sources */,
 				E462CA7B1DBDCDFF001D5D5A /* VipTableViewCell.swift in Sources */,
+				E41B7F761DC06A5B0036DFAE /* DealTimeTableViewCell.swift in Sources */,
 				E414485D1DB0970E006C70EF /* RedeemSuccessView.swift in Sources */,
+				E41B7F701DC060020036DFAE /* DiscoverShopDetailTableViewCell.swift in Sources */,
+				E450F38C1DC1DD1700640A4A /* Rank.swift in Sources */,
 				E4336D781DBC83BB002E9F5C /* VoucherTableViewCell.swift in Sources */,
 				E4F601861DBB2BE1006309A5 /* PromoViewController.swift in Sources */,
 				E47C3A871DB67D7B0057464F /* ShopMenuViewController.swift in Sources */,
@@ -1475,7 +1621,8 @@
 				E451FFF51DA813DA00B5A756 /* Button.swift in Sources */,
 				E4F6017D1DBB15F6006309A5 /* Discover.swift in Sources */,
 				E47CB7DC1DB4C71A0078279F /* ShopDetailViewController.swift in Sources */,
-				E4C00C4F1DBCEB1C00EE3CF4 /* DealMoreImageTableViewCell.swift in Sources */,
+				E41B7F881DC090270036DFAE /* ImageMoreCollectionViewCell.swift in Sources */,
+				E41B7F7F1DC07AD50036DFAE /* ImageCollectionViewCell.swift in Sources */,
 				E4EC1D911DB5DBEB005CECB6 /* Address.swift in Sources */,
 				E41448591DB08FD2006C70EF /* RedeemStore.swift in Sources */,
 				E46894EA1DB697060004B322 /* SMSegmentViewConstants.swift in Sources */,
@@ -1484,16 +1631,20 @@
 				E427F8E81DAF790C0012F3F5 /* Reward10TableViewCell.swift in Sources */,
 				E42B6AE11DAB394B0091746F /* LoginParameter.swift in Sources */,
 				E4EC1D8B1DB5C517005CECB6 /* ShopMenuShowMoreTableViewCell.swift in Sources */,
+				E41B7F831DC088350036DFAE /* DealTableViewCell.swift in Sources */,
 				E4336D741DBC7563002E9F5C /* VoucherResponse.swift in Sources */,
 				E470CF651DAC99BA00434909 /* UserStore.swift in Sources */,
 				E4E041511DB75054001E0226 /* ShopMenuCollectionViewCell.swift in Sources */,
 				E4F601771DBB0C71006309A5 /* DiscoverViewController.swift in Sources */,
 				E43D2C7F1DA7F6840019B2DD /* HomeTabbarController.swift in Sources */,
 				E423FB071DB34661005C51BB /* TableView.swift in Sources */,
+				E47E58821DC0ABE3001400E0 /* DealControlTableViewCell.swift in Sources */,
 				E42422921DA8A47900F7D6FC /* Authentication.swift in Sources */,
 				E49D5A8F1DB1C62A001E19DD /* Point.swift in Sources */,
 				E4FF02011DB11BBA00177F9F /* ScanQRCodeViewController.swift in Sources */,
+				E450F3891DC1CD0900640A4A /* DealMultiPriceCollectionViewCell.swift in Sources */,
 				E4EC1D8F1DB5DBB4005CECB6 /* WordTime.swift in Sources */,
+				E47E588C1DC0BD27001400E0 /* DealDescriptionTableViewCell.swift in Sources */,
 				E4CC4A671DAF3991003B8385 /* DiscountCardTableViewCell.swift in Sources */,
 				E41DC0A71DB4D9CC00411F55 /* ShopAddressTableViewCell.swift in Sources */,
 				E46894E81DB697060004B322 /* SMSegmentAppearance.swift in Sources */,
@@ -1503,6 +1654,7 @@
 				E4E0414C1DB74576001E0226 /* MyCardRewardTableViewCell.swift in Sources */,
 				E41448571DB08EE2006C70EF /* RedeemRequest.swift in Sources */,
 				E46894E91DB697060004B322 /* SMSegmentView.swift in Sources */,
+				E47E58861DC0B691001400E0 /* DealImageView.swift in Sources */,
 				E427F8EC1DAF91280012F3F5 /* SettingViewController.swift in Sources */,
 				E434E6011DAF480D00AFC400 /* PointCardTableViewCell.swift in Sources */,
 				E4246A071DAE27F800D0A074 /* CardListViewController.swift in Sources */,
@@ -1582,9 +1734,11 @@
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Alvin Koh (GKP4HXN9YZ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Alvin Koh (GKP4HXN9YZ)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = GKP4HXN9YZ;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1633,9 +1787,11 @@
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Alvin Koh (GKP4HXN9YZ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Alvin Koh (GKP4HXN9YZ)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = GKP4HXN9YZ;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1661,12 +1817,14 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = GKP4HXN9YZ;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = PekoPeko/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = hungrybear.co.pekopeko.vn;
+				PRODUCT_BUNDLE_IDENTIFIER = hungrybear.PekoPeko;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
@@ -1680,12 +1838,14 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = GKP4HXN9YZ;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = PekoPeko/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = hungrybear.co.pekopeko.vn;
+				PRODUCT_BUNDLE_IDENTIFIER = hungrybear.PekoPeko;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;

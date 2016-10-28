@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nk4-RR-g8b">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nk4-RR-g8b">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -25,7 +25,7 @@
                                     <constraint firstAttribute="width" secondItem="WMy-ez-few" secondAttribute="height" multiplier="1080:1920" id="rT4-UB-L11"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xcu-qb-Zaf" customClass="Button" customModule="PekoPeko" customModuleProvider="target">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xcu-qb-Zaf" customClass="Button" customModule="PekoPeko" customModuleProvider="target">
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="xcu-qb-Zaf" secondAttribute="height" multiplier="174:25" id="dNn-a2-E2b"/>
                                 </constraints>
@@ -38,7 +38,7 @@
                                     <action selector="buttonLoginTapped:" destination="RyG-3a-5rd" eventType="touchUpInside" id="tkj-9R-fEV"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0zA-Gj-Q2w" customClass="Button" customModule="PekoPeko" customModuleProvider="target">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0zA-Gj-Q2w" customClass="Button" customModule="PekoPeko" customModuleProvider="target">
                                 <color key="backgroundColor" red="0.22548452019691467" green="0.34771811962127686" blue="0.57596451044082642" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
                                 <inset key="titleEdgeInsets" minX="80" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -972,18 +972,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TGd-32-PBa">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="44" id="MKk-7E-5es"/>
-                                    <constraint firstAttribute="height" constant="44" id="oPM-ae-MCC"/>
-                                </constraints>
-                                <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
-                                <state key="normal" image="IconLeft"/>
-                                <connections>
-                                    <action selector="buttonBackTapped:" destination="7Fe-Os-Gy4" eventType="touchUpInside" id="iVD-uf-OFj"/>
-                                    <action selector="buttonBackTapped:" destination="sCP-Kx-29X" eventType="touchUpInside" id="kHx-dp-KsZ"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ruM-30-ZLf" customClass="Button" customModule="PekoPeko" customModuleProvider="target">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -1081,7 +1069,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Hh5-pw-B2a" firstAttribute="centerX" secondItem="ruM-30-ZLf" secondAttribute="centerX" id="0Xe-nx-Pz0"/>
-                            <constraint firstItem="TGd-32-PBa" firstAttribute="top" secondItem="c22-ht-KPe" secondAttribute="bottom" id="5kt-zf-mwV"/>
                             <constraint firstItem="MKo-qK-avv" firstAttribute="top" secondItem="jIj-iE-pGr" secondAttribute="bottom" constant="20" id="9ab-8b-GBn"/>
                             <constraint firstItem="I3Z-I9-rvq" firstAttribute="bottom" secondItem="ruM-30-ZLf" secondAttribute="bottom" id="9tu-2A-vqE"/>
                             <constraint firstItem="jIj-iE-pGr" firstAttribute="width" secondItem="jIj-iE-pGr" secondAttribute="height" multiplier="332:50" id="Ge5-gd-1L6"/>
@@ -1091,7 +1078,6 @@
                             <constraint firstItem="Qrq-cK-69v" firstAttribute="centerY" secondItem="mQi-1I-uDS" secondAttribute="centerY" id="QFJ-eY-6oX"/>
                             <constraint firstAttribute="trailing" secondItem="9mw-lM-9ir" secondAttribute="trailing" constant="50" id="QJR-8p-igy"/>
                             <constraint firstItem="oer-Po-COg" firstAttribute="top" secondItem="MKo-qK-avv" secondAttribute="bottom" constant="20" id="QjG-Ch-kS5"/>
-                            <constraint firstItem="TGd-32-PBa" firstAttribute="leading" secondItem="mQi-1I-uDS" secondAttribute="leading" id="R2b-Dh-EBN"/>
                             <constraint firstAttribute="trailing" secondItem="dbv-3g-0T6" secondAttribute="trailing" id="RXq-07-GTe"/>
                             <constraint firstItem="dbv-3g-0T6" firstAttribute="leading" secondItem="mQi-1I-uDS" secondAttribute="leading" id="Sil-3l-679"/>
                             <constraint firstItem="jIj-iE-pGr" firstAttribute="centerX" secondItem="dbv-3g-0T6" secondAttribute="centerX" id="VOn-uO-hVu"/>

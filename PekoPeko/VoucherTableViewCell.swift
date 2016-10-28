@@ -91,8 +91,8 @@ class VoucherTableViewCell: UITableViewCell {
                         labelShopName.text = fullName
                     }
                     
-                    if let address = shop.address {
-                        labelShopAddress.text = address
+                    if let address = shop.address, let addressContent = address.addressContent {
+                        labelShopAddress.text = addressContent
                     }
                 }
             }
@@ -107,21 +107,16 @@ class VoucherTableViewCell: UITableViewCell {
     func setupBorder() {
         border.strokeColor = UIColor.colorOrange.cgColor
         border.fillColor = nil
-        border.lineDashPattern = [6, 5]
+        border.lineDashPattern = [5, 5]
         viewContent.layer.addSublayer(border)
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        border.path = UIBezierPath(roundedRect: viewContent.bounds, cornerRadius:10).cgPath
-        border.frame = viewContent.bounds
-    }
-    
-    override func didMoveToSuperview() {
-        super.didMoveToSuperview()
-        setNeedsLayout()
-        layoutIfNeeded()
+        let bounds = CGRect(x: 0, y: 0, width: self.bounds.width - 16, height: self.bounds.height - 8)
+        border.path = UIBezierPath(roundedRect: bounds, cornerRadius:10).cgPath
+        border.frame = bounds
     }
     
     @IBAction func buttonCellTapped(_ sender: AnyObject) {

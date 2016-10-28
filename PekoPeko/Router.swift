@@ -36,6 +36,7 @@ enum Router: URLRequestConvertible {
     
     case uploadUserAvatar()
     case uploadUserFullname([String: AnyObject])
+    case uploadUserPassword([String: AnyObject])
     
     case getAllcard([String: AnyObject])
     case getUserCard([String: AnyObject])
@@ -57,10 +58,14 @@ enum Router: URLRequestConvertible {
     case getAllVoucher([String: AnyObject])
     
     case getAllDiscover([String: AnyObject])
+    case getMyDeal([String: AnyObject])
     case likeDeal(String)
     case unlikeDeal(String)
     case saveDeal(String)
     case unsaveDeal(String)
+    case getDealInfo(String)
+    
+    case getPromoCodeData()
     
     var method: HTTPMethod {
         switch self {
@@ -86,6 +91,9 @@ enum Router: URLRequestConvertible {
             return .post
             
         case .uploadUserFullname:
+            return .put
+            
+        case .uploadUserPassword:
             return .put
             
         case .getAllcard:
@@ -136,6 +144,9 @@ enum Router: URLRequestConvertible {
         case .getAllDiscover:
             return .get
             
+        case .getMyDeal:
+            return .get
+            
         case .likeDeal:
             return .post
             
@@ -147,6 +158,12 @@ enum Router: URLRequestConvertible {
             
         case .unsaveDeal:
             return .delete
+            
+        case .getDealInfo:
+            return .get
+            
+        case .getPromoCodeData:
+            return .get
         }
     }
     
@@ -174,6 +191,9 @@ enum Router: URLRequestConvertible {
             return "user/avatar"
             
         case .uploadUserFullname:
+            return "user/basic"
+            
+        case .uploadUserPassword:
             return "user/basic"
             
         case .getAllcard:
@@ -224,6 +244,9 @@ enum Router: URLRequestConvertible {
         case .getAllDiscover:
             return "discover"
             
+        case .getMyDeal:
+            return "user/deal"
+            
         case .likeDeal(let dealID):
             return "deal/\(dealID)/like"
             
@@ -235,6 +258,12 @@ enum Router: URLRequestConvertible {
             
         case .unsaveDeal(let dealID):
             return "deal/\(dealID)/save"
+            
+        case .getDealInfo(let dealID):
+            return "deal/\(dealID)"
+            
+        case .getPromoCodeData:
+            return "user/base-panel"
         }
     }
     
@@ -264,6 +293,9 @@ enum Router: URLRequestConvertible {
         case .uploadUserFullname:
             return ApiVersion.V200.rawValue
             
+        case .uploadUserPassword:
+            return ApiVersion.V210.rawValue
+            
         case .getAllcard:
             return ApiVersion.V200.rawValue
             
@@ -274,7 +306,7 @@ enum Router: URLRequestConvertible {
             return ApiVersion.V200.rawValue
         
         case .getCardInfo:
-            return ApiVersion.V200.rawValue
+            return ApiVersion.V210.rawValue
 
         case .getCardAddresss:
             return ApiVersion.V100.rawValue
@@ -312,6 +344,9 @@ enum Router: URLRequestConvertible {
         case .getAllDiscover:
             return ApiVersion.V210.rawValue
             
+        case .getMyDeal:
+            return ApiVersion.V210.rawValue
+            
         case .likeDeal:
             return ApiVersion.V210.rawValue
             
@@ -322,6 +357,12 @@ enum Router: URLRequestConvertible {
             return ApiVersion.V210.rawValue
             
         case .unsaveDeal:
+            return ApiVersion.V210.rawValue
+            
+        case .getDealInfo:
+            return ApiVersion.V210.rawValue
+            
+        case .getPromoCodeData:
             return ApiVersion.V210.rawValue
         }
     }
@@ -373,6 +414,9 @@ enum Router: URLRequestConvertible {
         case .uploadUserFullname(let parameters):
             urlRequest = try JSONEncoding.default.encode(urlRequest, with: parameters)
             
+        case .uploadUserPassword(let parameters):
+            urlRequest = try JSONEncoding.default.encode(urlRequest, with: parameters)
+            
         case .getAllcard(let parameters):
             urlRequest = try URLEncoding.default.encode(urlRequest, with: parameters)
             
@@ -400,6 +444,9 @@ enum Router: URLRequestConvertible {
         case .getAllDiscover(let parameters):
             urlRequest = try URLEncoding.default.encode(urlRequest, with: parameters)
 
+        case .getMyDeal(let parameters):
+            urlRequest = try URLEncoding.default.encode(urlRequest, with: parameters)
+            
         case .redeemVoucher(_, let parameters):
             urlRequest = try JSONEncoding.default.encode(urlRequest, with: parameters)
             

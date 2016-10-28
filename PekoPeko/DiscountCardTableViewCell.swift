@@ -37,8 +37,8 @@ class DiscountCardTableViewCell: UITableViewCell {
                     labelTitle.text = title
                 }
                 
-                if let total = discount.total {
-                    labelTotal.text = "x\(total)"
+                if let total = discount.total, let usesNumber = discount.usesNumber {
+                    labelTotal.text = "x\(total - usesNumber)"
                 }
                 if let isNeverEnd = discount.isNeverEnd {
                     if isNeverEnd {
@@ -62,6 +62,8 @@ class DiscountCardTableViewCell: UITableViewCell {
                 }
             }
         }
+    }
+    @IBAction func buttonCellTapped(_ sender: AnyObject) {
     }
     
 }

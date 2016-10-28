@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -272,6 +272,7 @@
                     <constraint firstItem="XKU-BP-b1y" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="4wL-ET-JSQ"/>
                     <constraint firstItem="b6O-2A-ccP" firstAttribute="leading" secondItem="EgE-h6-o8X" secondAttribute="trailing" constant="8" id="7ho-84-4Sh"/>
                     <constraint firstItem="XKU-BP-b1y" firstAttribute="top" secondItem="EgE-h6-o8X" secondAttribute="bottom" constant="5" id="8fM-4j-bpQ"/>
+                    <constraint firstItem="9VS-Qx-akd" firstAttribute="width" secondItem="gbQ-3M-CXj" secondAttribute="width" id="9x9-33-WEH"/>
                     <constraint firstItem="gbQ-3M-CXj" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="H28-hZ-0LK"/>
                     <constraint firstItem="gbQ-3M-CXj" firstAttribute="top" secondItem="XKU-BP-b1y" secondAttribute="bottom" constant="5" id="JOr-MI-fi2"/>
                     <constraint firstAttribute="trailing" secondItem="XKU-BP-b1y" secondAttribute="trailing" constant="10" id="Nr9-De-p37"/>
@@ -281,14 +282,13 @@
                     <constraint firstItem="9VS-Qx-akd" firstAttribute="top" secondItem="OHo-jp-hDF" secondAttribute="bottom" constant="10" id="YLN-LY-Dpm"/>
                     <constraint firstItem="b6O-2A-ccP" firstAttribute="trailing" secondItem="Jkn-3D-nhe" secondAttribute="trailing" constant="-20" id="ZY7-hA-qsS"/>
                     <constraint firstAttribute="bottom" secondItem="9VS-Qx-akd" secondAttribute="bottom" constant="20" id="bTl-yE-9UY"/>
-                    <constraint firstAttribute="trailing" secondItem="9VS-Qx-akd" secondAttribute="trailing" constant="10" id="dc5-fH-Avc"/>
                     <constraint firstItem="EgE-h6-o8X" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="eGK-Ne-O4j"/>
                     <constraint firstItem="OHo-jp-hDF" firstAttribute="top" secondItem="gbQ-3M-CXj" secondAttribute="bottom" constant="8" id="fUc-j4-w2r"/>
                     <constraint firstItem="OHo-jp-hDF" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="hoj-fV-i69"/>
                     <constraint firstItem="EgE-h6-o8X" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="ix6-qu-iXQ"/>
                     <constraint firstItem="Jkn-3D-nhe" firstAttribute="centerY" secondItem="EgE-h6-o8X" secondAttribute="centerY" id="lBM-Sy-5zx"/>
+                    <constraint firstItem="9VS-Qx-akd" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="oc2-4k-xR2"/>
                     <constraint firstItem="b6O-2A-ccP" firstAttribute="centerY" secondItem="Jkn-3D-nhe" secondAttribute="centerY" id="t8o-dE-bOZ"/>
-                    <constraint firstItem="9VS-Qx-akd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="xyB-aa-Z6S"/>
                     <constraint firstAttribute="trailing" secondItem="Jlm-3r-QXX" secondAttribute="trailing" constant="30" id="zLS-cY-IqD"/>
                 </constraints>
             </tableViewCellContentView>

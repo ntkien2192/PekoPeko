@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -42,7 +42,7 @@
             </objects>
             <point key="canvasLocation" x="-154.40000000000001" y="177.66116941529236"/>
         </scene>
-        <!--My Deal View Controller-->
+        <!--Empty Data Set Delegate-->
         <scene sceneID="G8C-Vt-jV1">
             <objects>
                 <viewController storyboardIdentifier="MyDealViewController" id="hCm-Oz-wOJ" customClass="MyDealViewController" customModule="PekoPeko" customModuleProvider="target" sceneMemberID="viewController">
@@ -53,17 +53,37 @@
                     <view key="view" contentMode="scaleToFill" id="E5y-gJ-m1c">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cna-zx-vhK">
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="hCm-Oz-wOJ" id="7F8-iM-CtJ"/>
+                                    <outlet property="delegate" destination="hCm-Oz-wOJ" id="nDt-Ry-3Hx"/>
+                                    <outlet property="emptyDataSetDelegate" destination="hCm-Oz-wOJ" id="hrS-2H-JWl"/>
+                                    <outlet property="emptyDataSetSource" destination="hCm-Oz-wOJ" id="eyM-xt-iCT"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="CAg-SL-Ra8" firstAttribute="top" secondItem="cna-zx-vhK" secondAttribute="bottom" id="1I0-3b-5me"/>
+                            <constraint firstAttribute="trailing" secondItem="cna-zx-vhK" secondAttribute="trailing" id="35G-10-IX7"/>
+                            <constraint firstItem="cna-zx-vhK" firstAttribute="top" secondItem="E5y-gJ-m1c" secondAttribute="top" id="OaR-gf-j6k"/>
+                            <constraint firstItem="cna-zx-vhK" firstAttribute="leading" secondItem="E5y-gJ-m1c" secondAttribute="leading" id="Pno-S8-QZ2"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="cna-zx-vhK" id="YEP-Uu-Tk9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xt5-fU-WzJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="540" y="178"/>
+            <point key="canvasLocation" x="540" y="177.66116941529236"/>
         </scene>
-        <!--Deal Detail View Controller-->
+        <!--Thông tin chi tiết-->
         <scene sceneID="AWC-la-Sr3">
             <objects>
-                <viewController id="XXf-yC-L4f" customClass="DealDetailViewController" customModule="PekoPeko" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DealDetailViewController" automaticallyAdjustsScrollViewInsets="NO" id="XXf-yC-L4f" customClass="DealDetailViewController" customModule="PekoPeko" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="weZ-y3-NV3"/>
                         <viewControllerLayoutGuide type="bottom" id="rnm-0X-QXI"/>
@@ -71,12 +91,33 @@
                     <view key="view" contentMode="scaleToFill" id="4Qr-ag-QKX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Qj5-WT-A1L">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="XXf-yC-L4f" id="UqH-DO-V3q"/>
+                                    <outlet property="delegate" destination="XXf-yC-L4f" id="uEJ-qc-iW6"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Qj5-WT-A1L" firstAttribute="leading" secondItem="4Qr-ag-QKX" secondAttribute="leading" id="Hnh-S4-87d"/>
+                            <constraint firstAttribute="trailing" secondItem="Qj5-WT-A1L" secondAttribute="trailing" id="V7Q-gT-ff8"/>
+                            <constraint firstItem="Qj5-WT-A1L" firstAttribute="top" secondItem="weZ-y3-NV3" secondAttribute="bottom" id="hJc-5m-oho"/>
+                            <constraint firstItem="rnm-0X-QXI" firstAttribute="top" secondItem="Qj5-WT-A1L" secondAttribute="bottom" id="jZO-gx-3To"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Thông tin chi tiết" id="2gm-XM-MB0"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="Qj5-WT-A1L" id="EQC-8R-HTl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rDs-RH-Rh8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1286" y="178"/>
+            <point key="canvasLocation" x="1285.5999999999999" y="177.66116941529236"/>
         </scene>
     </scenes>
 </document>

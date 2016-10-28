@@ -85,8 +85,12 @@ class MyCardViewController: BaseViewController {
                     }
                     if let pagination = cardResponse.pagination, let nextPage = pagination.nextPage {
                         _self.nextPage = nextPage
+                    } else {
+                        _self.nextPage = "NO"
                     }
                 }
+                
+                _self.tableView.tag = 0
             }
 
         }
@@ -113,11 +117,23 @@ extension MyCardViewController: UITableViewDataSource {
                 let cell = tableView.dequeueReusableCell(withIdentifier: MyCardRewardTableViewCell.identify, for: indexPath) as! MyCardRewardTableViewCell
                 cell.delegate = self
                 cell.card = card
+                
+                if nextPage != "NO" && self.tableView.tag == 0 && indexPath.row == cards.count - 1 {
+                    self.tableView.tag = 1
+                    getMyCard()
+                }
+                
                 return cell
             } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: MyCardTableViewCell.identify, for: indexPath) as! MyCardTableViewCell
                 cell.delegate = self
                 cell.card = card
+                
+                if nextPage != "NO" && self.tableView.tag == 0 && indexPath.row == cards.count - 1 {
+                    self.tableView.tag = 1
+                    getMyCard()
+                }
+                
                 return cell
             }
         }

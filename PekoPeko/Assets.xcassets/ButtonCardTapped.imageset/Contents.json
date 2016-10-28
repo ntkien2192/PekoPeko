@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "ButtonCardTapped~universal@1x.png",
+      "filename" : "honey2~universal@1x.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "ButtonCardTapped~universal@2x.png",
+      "filename" : "honey2~universal@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "ButtonCardTapped~universal@3x.png",
+      "filename" : "honey2~universal@3x.png",
       "scale" : "3x"
     }
   ],

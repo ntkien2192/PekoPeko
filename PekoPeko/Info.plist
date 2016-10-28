@@ -17,7 +17,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>2.1</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -28,7 +28,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>4</string>
 	<key>FacebookAppID</key>
 	<string>1827985354115567</string>
 	<key>FacebookDisplayName</key>
@@ -48,11 +48,11 @@
 		<true/>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string></string>
+	<string>Cho phép Peko Peko sử dụng máy ảnh trên thiết bị của bạn</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string>Cho phép Peko Peko sử dụng vị trí của bạn cho các công đoạn tìm kiếm các thông tin mới</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string></string>
+	<string>Cho phép Peko Peko truy cập vào thư viện ảnh trên thiết bị của bạn</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>VNF.ProximaNova-Regular.ttf</string>

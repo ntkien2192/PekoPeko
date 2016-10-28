@@ -8,12 +8,22 @@
 
 import UIKit
 
+protocol ShareViewDelegate: class {
+    func prompCodeTapped(promoCode: String?)
+    func facebookTapped(promoCode: String?)
+    func googlePlusTapped(promoCode: String?)
+    func mailTapped(promoCode: String?)
+    func smsTapped(promoCode: String?)
+}
+
 class ShareView: UIView {
 
-    @IBOutlet weak var view: UIView!
-    @IBOutlet weak var labelPromoCode: Label!
+    weak var delegate: ShareViewDelegate?
     
-    var prompCode: String?
+    @IBOutlet weak var view: UIView!
+    @IBOutlet weak var labelPromoCode: Button!
+    
+    var promoCode: String?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -27,8 +37,8 @@ class ShareView: UIView {
     
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
-        if let prompCode = prompCode {
-            labelPromoCode.text = prompCode
+        if let promoCode = promoCode {
+            labelPromoCode.setTitle(promoCode, for: .normal)
         }
     }
     
@@ -44,4 +54,25 @@ class ShareView: UIView {
             _self?.removeFromSuperview()
         }
     }
+    
+    @IBAction func buttonCodeTapped(_ sender: AnyObject) {
+        delegate?.prompCodeTapped(promoCode: promoCode)
+    }
+    
+    @IBAction func buttonFacebookTapped(_ sender: AnyObject) {
+        delegate?.facebookTapped(promoCode: promoCode)
+    }
+    
+    @IBAction func buttonGoogleTapped(_ sender: AnyObject) {
+        delegate?.googlePlusTapped(promoCode: promoCode)
+    }
+    
+    @IBAction func buttonMailTapped(_ sender: AnyObject) {
+        delegate?.mailTapped(promoCode: promoCode)
+    }
+    
+    @IBAction func buttonSMSTapped(_ sender: AnyObject) {
+        delegate?.smsTapped(promoCode: promoCode)
+    }
+    
 }

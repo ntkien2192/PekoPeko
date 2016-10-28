@@ -54,6 +54,21 @@ class UserStore {
         })
     }
     
+    class func uploadPassword(_ user: User, completionHandler: @escaping (Bool, Error?) -> Void) {
+        let parameters = user.toJSON()
+        _ = Alamofire.request(Router.uploadUserPassword(parameters as [String : AnyObject])).responseUploadInfo({ (response) in
+            if let error = response.result.error {
+                completionHandler(false, error)
+                return
+            }
+            guard response.result.value != nil else {
+                // TODO: Create error here
+                completionHandler(false, nil)
+                return
+            }
+            completionHandler(true, nil)
+        })
+    }
     
     class func getBaseUserInfo(completionHandler: @escaping (User?, Error?) -> Void) {
         _ = Alamofire.request(Router.getBaseUserInfo()).responseUser({ (response) in
@@ -115,6 +130,21 @@ class UserStore {
                 return
             }
             completionHandler(true, nil)
+        })
+    }
+    
+    class func getPromoCodeInfo(completionHandler: @escaping (User?, Error?) -> Void) {
+        _ = Alamofire.request(Router.getPromoCodeData()).responseUser({ (response) in
+            if let error = response.result.error {
+                completionHandler(nil, error)
+                return
+            }
+            guard response.result.value != nil else {
+                // TODO: Create error here
+                completionHandler(nil, nil)
+                return
+            }
+            completionHandler(response.result.value ?? nil, nil)
         })
     }
 }

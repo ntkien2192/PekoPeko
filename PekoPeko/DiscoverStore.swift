@@ -30,6 +30,25 @@ class DiscoverStore {
         })
     }
     
+    
+    class func getMyDeal(discoverRequest: DiscoverRequest, completionHandler: @escaping (DiscoverResponse?, Error?) -> Void) {
+        
+        let parameters = discoverRequest.toJSON()
+        
+        _ = Alamofire.request(Router.getMyDeal(parameters as [String : AnyObject])).responseAllDiscover({ (response) in
+            if let error = response.result.error {
+                completionHandler(nil, error)
+                return
+            }
+            guard response.result.value != nil else {
+                // TODO: Create error here
+                completionHandler(nil, nil)
+                return
+            }
+            completionHandler(response.result.value ?? nil, nil)
+        })
+    }
+    
     class func likeDeal(dealID: String, completionHandler: @escaping (Bool, Error?) -> Void) {
         _ = Alamofire.request(Router.likeDeal(dealID)).responseUploadDiscoverInfo({ (response) in
             if let error = response.result.error {
@@ -89,8 +108,88 @@ class DiscoverStore {
             completionHandler(response.result.value ?? false, nil)
         })
     }
+    
+    class func getDealInfo(dealID: String, completionHandler: @escaping (Discover?, Error?) -> Void) {
+        _ = Alamofire.request(Router.getDealInfo(dealID)).responseDiscoverInfo({ (response) in
+            if let error = response.result.error {
+                completionHandler(nil, error)
+                return
+            }
+            guard response.result.value != nil else {
+                // TODO: Create error here
+                completionHandler(nil, nil)
+                return
+            }
+            completionHandler(response.result.value ?? nil, nil)
+        })
+    }
 }
 extension Alamofire.DataRequest {
+    
+    func responseDiscoverInfo(_ completionHandler: @escaping (DataResponse<Discover?>) -> Void) -> Self {
+        let responseSerializer = DataResponseSerializer<Discover?> { request, response, data, error in
+            guard error == nil else {
+                return .failure(error!)
+            }
+            
+            guard let responseData = data else {
+                let error = ServerResponseError(data: nil, kind: .dataSerializationFailed)
+                return .failure(error)
+            }
+            
+            let JSONResponseSerializer = DataRequest.jsonResponseSerializer(options: .allowFragments)
+            let result = JSONResponseSerializer.serializeResponse(request, response, responseData, error)
+            
+            guard response?.statusCode == 200 else {
+                switch result {
+                case .success(let value):
+                    let json = SwiftyJSON.JSON(value)
+                    let failureReason = json["message"].stringValue
+                    let errorData = [NSLocalizedFailureReasonErrorKey: failureReason]
+                    let error = ServerResponseError(data: errorData as [String : AnyObject], kind: .dataSerializationFailed)
+                    
+                    return .failure(error)
+                case .failure(let error):
+                    return .failure(error)
+                }
+            }
+            
+            switch result {
+            case .success(let value):
+                let jsonObject = SwiftyJSON.JSON(value)
+                if jsonObject["code"].intValue != 1 {
+                    if  jsonObject["code"].intValue != -4 {
+                        
+                        if jsonObject["code"].intValue == -11 {
+                            AuthenticationStore().saveLoginValue(false)
+                        }
+                        
+                        let failureReason = jsonObject["message"].stringValue
+                        let errorData = [NSLocalizedFailureReasonErrorKey: failureReason]
+                        let error = ServerResponseError(data: errorData as [String : AnyObject], kind: .dataSerializationFailed)
+                        return .failure(error)
+                    } else {
+                        return .success(nil)
+                    }
+                } else {
+                    let json = jsonObject["data"]
+                    let discover = Discover(json: json["deal"])
+                    
+                    let shopData = json["shop"]
+                    discover.shop = Shop(json: shopData)
+
+                    discover.images = json["images"].arrayValue.map({ Image(json: $0) })
+                    
+                    return .success(discover)
+                }
+                
+            case .failure(let error):
+                return .failure(error)
+            }
+        }
+        return response(responseSerializer: responseSerializer, completionHandler: completionHandler)
+    }
+    
     func responseAllDiscover(_ completionHandler: @escaping (DataResponse<DiscoverResponse?>) -> Void) -> Self {
         let responseSerializer = DataResponseSerializer<DiscoverResponse?> { request, response, data, error in
             guard error == nil else {

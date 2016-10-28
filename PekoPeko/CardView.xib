@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -10,6 +10,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CardView" customModule="PekoPeko" customModuleProvider="target">
             <connections>
                 <outlet property="imageView" destination="EcW-U6-zqR" id="eNg-CM-lQr"/>
+                <outlet property="labelName" destination="Q9W-Lg-ebO" id="Ep4-6Q-yYR"/>
                 <outlet property="textView" destination="eoq-90-PkI" id="iUI-bv-oic"/>
                 <outlet property="view" destination="iN0-l3-epB" id="3vj-Yf-ak3"/>
             </connections>
@@ -54,6 +55,11 @@
                         <constraint firstAttribute="height" constant="20" id="UUr-nC-sgL"/>
                     </constraints>
                 </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q9W-Lg-ebO">
+                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
@@ -64,7 +70,9 @@
                 <constraint firstItem="nvt-hW-nbq" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="JUy-Gw-sr3"/>
                 <constraint firstItem="eoq-90-PkI" firstAttribute="top" secondItem="xFa-id-ggM" secondAttribute="bottom" constant="8" id="Jks-Pa-JtV"/>
                 <constraint firstAttribute="trailing" secondItem="xFa-id-ggM" secondAttribute="trailing" constant="20" symbolic="YES" id="N8c-iZ-do7"/>
+                <constraint firstItem="Q9W-Lg-ebO" firstAttribute="leading" secondItem="EcW-U6-zqR" secondAttribute="leading" constant="10" id="R5e-sG-VsZ"/>
                 <constraint firstItem="EcW-U6-zqR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="U29-1E-2H6"/>
+                <constraint firstItem="Q9W-Lg-ebO" firstAttribute="bottom" secondItem="EcW-U6-zqR" secondAttribute="bottom" constant="-10" id="a9p-z2-fKj"/>
                 <constraint firstAttribute="trailing" secondItem="EcW-U6-zqR" secondAttribute="trailing" constant="10" id="mZD-cj-jeU"/>
                 <constraint firstItem="eoq-90-PkI" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="rYW-xv-ehv"/>
                 <constraint firstItem="xFa-id-ggM" firstAttribute="top" secondItem="EcW-U6-zqR" secondAttribute="bottom" constant="20" id="tNK-zK-mEp"/>

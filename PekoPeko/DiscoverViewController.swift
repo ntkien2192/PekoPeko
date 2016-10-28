@@ -30,15 +30,22 @@ class DiscoverViewController: BaseViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if let pageMenu = pageMenu, let discoverList = discoverList, let myDealList = myDealList {
-            switch pageMenu.currentPageIndex {
-            case 0:
-                discoverList.reloadAllDiscover()
-            case 1:
-                //                    myCardList.reloadMyCard()
-                break
-            default:
-                break
+        
+        if AuthenticationStore().isLogin {
+            if let pageMenu = pageMenu, let discoverList = discoverList, let myDealList = myDealList {
+                switch pageMenu.currentPageIndex {
+                case 0:
+                    if discoverList.discovers.count == 0 {
+                        discoverList.reloadAllDiscover()
+                    }
+                case 1:
+                    if myDealList.discovers.count == 0 {
+                        myDealList.reloadMyDeal()
+                    }
+                    break
+                default:
+                    break
+                }
             }
         }
     }
@@ -51,11 +58,11 @@ class DiscoverViewController: BaseViewController {
         myDealList = UIStoryboard(name: MyDealViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: MyDealViewController.identify) as? MyDealViewController
         
         if let discoverList = discoverList, let myDealList = myDealList {
-            discoverList.title = "Khám phá"
-//            discoverList.delegate = self
+            discoverList.title = "Deals"
+            discoverList.delegate = self
             
             myDealList.title = "Deal của tôi"
-//            myDealList.delegate = self
+            myDealList.delegate = self
             
             pageMenu = CAPSPageMenu(viewControllers: [discoverList, myDealList], frame: view.bounds, pageMenuOptions: CAPSPageMenu.setting())
         }
@@ -64,6 +71,17 @@ class DiscoverViewController: BaseViewController {
             pageMenu.delegate = self
             pageMenu.view.backgroundColor = UIColor.colorLightGray
             view.addSubview(pageMenu.view)
+        }
+    }
+    
+    func present(discover: Discover?) {
+        if let discover = discover, let discoverID = discover.discoverID {
+            let cardDetailViewController = UIStoryboard(name: DealDetailViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: DealDetailViewController.identify) as! DealDetailViewController
+            cardDetailViewController.discoverID = discoverID
+            
+            if let navigationController = navigationController {
+                navigationController.show(cardDetailViewController, sender: nil)
+            }
         }
     }
     
@@ -82,12 +100,20 @@ extension DiscoverViewController: CAPSPageMenuDelegate {
                 case 0:
                     discoverList.reloadAllDiscover()
                 case 1:
-//                    myCardList.reloadMyCard()
+                    myDealList.reloadMyDeal()
                     break
                 default:
                     break
                 }
             }
+        }
+    }
+}
+
+extension DiscoverViewController: DiscoverListViewControllerDelegate, MyDealViewControllerDelegate {
+    func discoverTapped(discover: Discover?) {
+        if let discover = discover {
+            present(discover: discover)
         }
     }
 }

@@ -86,6 +86,7 @@ class UserUpdateInfoViewController: UIViewController {
     }
     
     @IBAction func buttonStartTapped(_ sender: AnyObject) {
+        AuthenticationStore().saveLoginValue(true)
         if let navigationController = navigationController {
             navigationController.dismiss(animated: true, completion: nil)
         }
@@ -153,13 +154,6 @@ class UserUpdateInfoViewController: UIViewController {
         }
     }
     
-    @IBAction func buttonBackTapped(_ sender: AnyObject) {
-        AuthenticationStore().saveLoginValue(true)
-        if let navigationController = self.navigationController {
-            navigationController.dismiss(animated: true, completion: nil)
-        }
-    }
-    
     @IBAction func buttonHideKeyboardTapped(_ sender: AnyObject) {
         slideDownView()
     }
@@ -184,7 +178,6 @@ class UserUpdateInfoViewController: UIViewController {
                                 return
                             }
                         }
-                        
                     })
                 }
             }

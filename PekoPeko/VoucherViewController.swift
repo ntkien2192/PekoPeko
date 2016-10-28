@@ -95,13 +95,20 @@ class VoucherViewController: BaseViewController {
     }
     
     func loadUserInfo() {
-        if let user = user {
-            if let point = user.points {
-                if point < 9 {
-                    labelInfo.text = "Bạn cần mời ít nhất 10 người để sử dụng các phiếu giám giá"
-                } else {
-                    labelInfo.text = "Bạn đã sử dụng..."
+        if let user = user, let invited = user.invited, let require = user.require {
+            if invited >= require {
+                if let vouchers = user.vouchers {
+                    labelInfo.text = "Bạn có thể sử dụng \(vouchers) phiếu giảm giá"
                 }
+                
+            } else {
+                
+                if invited != 0 {
+                    labelInfo.text = "Bạn cần mời ít nhất \(require) người để sử dụng các phiếu giám giá"
+                } else {
+                    labelInfo.text = "Bạn cần mời thêm \(require - invited) người để sử dụng các phiếu giám giá"
+                }
+                
             }
         }
     }
@@ -132,8 +139,8 @@ extension VoucherViewController: UITableViewDataSource {
 
 extension VoucherViewController: VoucherTableViewCellDelegate {
     func voucherTapped(voucher: Voucher?) {
-        if let user = user, let point = user.points {
-            if point > 9 {
+        if let user = user, let invited = user.invited, let require = user.require {
+            if invited >= require {
                 let redeemViewController = UIStoryboard(name: RedeemViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: RedeemViewController.identify) as! RedeemViewController
                 
                 if let voucher = voucher {
@@ -150,7 +157,8 @@ extension VoucherViewController: VoucherTableViewCellDelegate {
                     if let _self = _self {
                         let shareView = ShareView(frame: _self.view.bounds)
                         if let user = _self.user, let promoCode = user.promoCode {
-                            shareView.prompCode = promoCode
+                            shareView.promoCode = promoCode
+                            shareView.delegate = self
                         }
                         _self.addFullView(view: shareView)
                     }
@@ -176,12 +184,44 @@ extension VoucherViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate 
     }
     
     func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-        
         let attributedText = NSMutableAttributedString()
         let attribute1 = [NSFontAttributeName: UIFont.getBoldFont(12), NSForegroundColorAttributeName: UIColor.colorGray]
         let variety1 = NSAttributedString(string: "Hãy mời thêm nhiều bạn mới để sử dụng\ncác món quà không giới hạn", attributes: attribute1)
         attributedText.append(variety1)
         
         return attributedText
+    }
+}
+
+extension VoucherViewController: ShareViewDelegate {
+    func prompCodeTapped(promoCode: String?) {
+        UIPasteboard.general.string = promoCode
+        let messageView = MessageView(frame: view.bounds)
+        messageView.message = "Đã sao chép mã vào bộ nhớ"
+        addFullView(view: messageView)
+    }
+    
+    func facebookTapped(promoCode: String?) {
+        let messageView = MessageView(frame: view.bounds)
+        messageView.message = "Chức năng này đang được phát triển"
+        addFullView(view: messageView)
+    }
+    
+    func googlePlusTapped(promoCode: String?) {
+        let messageView = MessageView(frame: view.bounds)
+        messageView.message = "Chức năng này đang được phát triển"
+        addFullView(view: messageView)
+    }
+    
+    func mailTapped(promoCode: String?) {
+        let messageView = MessageView(frame: view.bounds)
+        messageView.message = "Chức năng này đang được phát triển"
+        addFullView(view: messageView)
+    }
+    
+    func smsTapped(promoCode: String?) {
+        let messageView = MessageView(frame: view.bounds)
+        messageView.message = "Chức năng này đang được phát triển"
+        addFullView(view: messageView)
     }
 }

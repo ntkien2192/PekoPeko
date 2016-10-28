@@ -22,7 +22,6 @@ class ConfirmCodeViewController: UIViewController {
     @IBOutlet weak var buttonResetCode: Button!
     @IBOutlet weak var confirmActivity: NVActivityIndicatorView!
     
-    
     @IBOutlet weak var textfieldCode1: Textfield!
     @IBOutlet weak var textfieldCode2: Textfield!
     @IBOutlet weak var textfieldCode3: Textfield!
@@ -112,32 +111,35 @@ class ConfirmCodeViewController: UIViewController {
                 let loginParameter = LoginParameter(phone: phoneNumber, code: code, type: loginType, location: userLocation ?? Location(latitude: 0.0, longitude: 0.0))
                 weak var _self = self
                 AuthenticationStore.confirm(loginParameter, completionHandler: { (loginResponse, error) in
-                    
-                    guard error == nil else {
-                        if let error = error as? ServerResponseError, let data = error.data,
-                            let reason: String = data[NSLocalizedFailureReasonErrorKey] as? String {
-                            _self?.showError(reason, animation: false)
-                            _self?.confirmActivity.stopAnimating()
-                            _self?.showConfirmField()
-                        }
-                        return
-                    }
-                    
-                    if let loginResponse = loginResponse, let step = loginResponse.step {
-                        if step == .ready {
-                            AuthenticationStore().saveLoginValue(true)
-                            if let navigationController = _self?.navigationController {
-                                navigationController.dismiss(animated: true, completion: nil)
+                    if let _self = _self {
+                        _self.confirmActivity.stopAnimating()
+                        
+                        guard error == nil else {
+                            if let error = error as? ServerResponseError, let data = error.data,
+                                let reason: String = data[NSLocalizedFailureReasonErrorKey] as? String {
+                                _self.showError(reason, animation: false)
+                                _self.showConfirmField()
                             }
+                            return
                         }
                         
-                        if step == .update {
-                            let confirmCodeViewController = UIStoryboard(name: UserUpdateInfoViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: UserUpdateInfoViewController.identify)
-                            if let navigationController = _self?.navigationController {
-                                navigationController.show(confirmCodeViewController, sender: nil)
+                        if let loginResponse = loginResponse, let step = loginResponse.step {
+                            if step == .ready {
+                                AuthenticationStore().saveLoginValue(true)
+                                if let navigationController = _self.navigationController {
+                                    navigationController.dismiss(animated: true, completion: nil)
+                                }
+                            }
+                            
+                            if step == .update {
+                                let confirmCodeViewController = UIStoryboard(name: UserUpdateInfoViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: UserUpdateInfoViewController.identify)
+                                if let navigationController = _self.navigationController {
+                                    navigationController.show(confirmCodeViewController, sender: nil)
+                                }
                             }
                         }
                     }
+
                 })
             }
         }

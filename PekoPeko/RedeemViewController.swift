@@ -56,6 +56,8 @@ class RedeemViewController: BaseViewController {
         super.viewConfig()
         NotificationCenter.default.addObserver(self, selector: #selector(RedeemViewController.keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(RedeemViewController.keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+        
     }
     
     
@@ -97,11 +99,6 @@ class RedeemViewController: BaseViewController {
         if !error.isEmpty {
             let messageView = MessageView(frame: view.bounds)
             messageView.message = error
-            messageView.setButtonClose("Đóng", action: {
-                if !AuthenticationStore().isLogin {
-                    HomeTabbarController.sharedInstance.logOut()
-                }
-            })
             addFullView(view: messageView)
         } else {
             

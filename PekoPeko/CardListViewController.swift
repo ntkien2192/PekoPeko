@@ -46,8 +46,6 @@ class CardListViewController: BaseViewController {
     }
     
     override func viewConfig() {
-        
-        
         tableView.register(UINib(nibName: EmptyTableViewCell.identify, bundle: nil), forCellReuseIdentifier: EmptyTableViewCell.identify)
         tableView.register(UINib(nibName: CardTableViewCell.identify, bundle: nil), forCellReuseIdentifier: CardTableViewCell.identify)
         tableView.tableFooterView = UIView()
@@ -102,8 +100,12 @@ class CardListViewController: BaseViewController {
                     }
                     if let pagination = cardResponse.pagination, let nextPage = pagination.nextPage {
                         _self.nextPage = nextPage
+                    } else {
+                        _self.nextPage = "NO"
                     }
                 }
+                
+                _self.tableView.tag = 0
             }
         }
     }
@@ -141,6 +143,12 @@ extension CardListViewController: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: CardTableViewCell.identify, for: indexPath) as! CardTableViewCell
             cell.delegate = self
             cell.card = cards[indexPath.row]
+            
+            if nextPage != "NO" && self.tableView.tag == 0 && indexPath.row == cards.count - 1 {
+                self.tableView.tag = 1
+                getAllCard()
+            }
+            
             return cell
             
         }

@@ -15,6 +15,7 @@ PODS:
     - FBSDKCoreKit
   - HanekeSwift (0.10.1)
   - iCarousel (1.8.2)
+  - LDProgressView (1.2.1)
   - MBProgressHUD (1.0.0)
   - MTBBarcodeScanner (3.1.0)
   - NVActivityIndicatorView (3.0)
@@ -36,6 +37,7 @@ DEPENDENCIES:
   - FBSDKShareKit
   - HanekeSwift (from `https://github.com/Haneke/HanekeSwift.git`, branch `feature/swift-3`)
   - iCarousel
+  - LDProgressView (>= 1.1)
   - MBProgressHUD (~> 1.0.0)
   - MTBBarcodeScanner
   - NVActivityIndicatorView
@@ -84,6 +86,7 @@ SPEC CHECKSUMS:
   FBSDKShareKit: e81505de17fc0624cbaa87b83cccc9f2a786e6cb
   HanekeSwift: 4113367892828e7700d24a384027de6ebc79aad1
   iCarousel: 67c8a43da5a46795b56aadfc96cd36a16f6149b2
+  LDProgressView: f6afc7c30d2a9edf33001515f3189338567a32d2
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MTBBarcodeScanner: 6d397077f1a4a886050df8e66584a59a1dc429e7
   NVActivityIndicatorView: 81953b5e65093ba79edf4fe7268e002039ca5268
@@ -95,6 +98,6 @@ SPEC CHECKSUMS:
   TSCurrencyTextField: 03f9d4d263d617d1f0e034e4ace12febcfa6fe48
   UIResponder+KeyboardCache: dc1b7ff925c25ddb58b289bc71a3724c269767ef
 
-PODFILE CHECKSUM: 78d5c35dcdfc594dd0a6559ea685a649a6cf6f15
+PODFILE CHECKSUM: bc4876b0e9ceec3a216c84e059324d418007337c
 
 COCOAPODS: 1.0.1

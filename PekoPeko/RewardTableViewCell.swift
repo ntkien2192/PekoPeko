@@ -72,7 +72,7 @@ class RewardTableViewCell: UITableViewCell {
                     }
                 }
                 
-                if  let hpRequire = reward.hpRequire, let hpCurrent = reward.hpCurrent {
+                if let hpRequire = reward.hpRequire, let hpCurrent = reward.hpCurrent {
 
                     let view = [viewHoney1, viewHoney2, viewHoney3, viewHoney4, viewHoney5]
                     let imageView = [imageViewHoney1, imageViewHoney2, imageViewHoney3, imageViewHoney4, imageViewHoney5]
@@ -116,7 +116,17 @@ class RewardTableViewCell: UITableViewCell {
             if isCanExchange {
                 buttonExchange.setBackgroundImage(UIImage(named: "ButtonExchangeON"), for: .normal)
             } else {
+                
                 buttonExchange.setBackgroundImage(UIImage(named: "ButtonExchangeOFF"), for: .normal)
+                
+//                if let reward = reward, let hpRequire = reward.hpRequire, let hpCurrent = reward.hpCurrent {
+//                    if hpRequire > hpCurrent {
+//                         buttonExchange.setBackgroundImage(UIImage(named: "ButtonExchangeOFF"), for: .normal)
+//                    } else {
+//                         buttonExchange.setBackgroundImage(UIImage(named: "ButtonExchangeOFF"), for: .normal)
+//                    }
+//                }
+               
             }
         }
     }

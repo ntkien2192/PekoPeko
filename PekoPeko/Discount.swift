@@ -16,24 +16,22 @@ enum DiscountFields: String {
     // card detail
     case Title = "title"
     case EndedAt = "ended_at"
-    case Use = "use"
     case Total = "total"
     case Cover = "cover"
 }
 
 class Discount: NSObject {
-    var userNumber: Int?
+    var usesNumber: Int?
     var isVisible: Bool?
     
     var title: String?
     var endedAt: Date?
     var isNeverEnd:Bool?
-    var use: Int?
     var total: Int?
     var coverUrl: String?
     
     required init(json: JSON) {
-        userNumber = json[DiscountFields.Uses.rawValue].int
+        usesNumber = json[DiscountFields.Uses.rawValue].int
         isVisible = json[DiscountFields.Visible.rawValue].bool
         
         title = json[DiscountFields.Title.rawValue].string
@@ -46,7 +44,6 @@ class Discount: NSObject {
                 endedAt = Date(timeIntervalSince1970: time)
             }
         }
-        use = json[DiscountFields.Use.rawValue].int
         total = json[DiscountFields.Total.rawValue].int
         coverUrl = json[DiscountFields.Cover.rawValue].string
     }

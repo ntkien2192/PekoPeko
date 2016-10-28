@@ -15,6 +15,8 @@ class VipCardView: UIView {
     @IBOutlet weak var cardView: iCarousel!
     @IBOutlet weak var pageControl: UIPageControl!
     
+    var user: User?
+    
     var vipCards: [VipCard]? {
         didSet {
             if let vipCards = vipCards {
@@ -26,6 +28,7 @@ class VipCardView: UIView {
                 for card in vipCards {
                     let view = CardView(frame: CGRect(x: 0, y: 0, width: cardView.bounds.width - 40, height: cardView.bounds.height))
                     view.vipCard = card
+                    view.user = user
                     tempViewCard.append(view)
                 }
                 viewCard = tempViewCard

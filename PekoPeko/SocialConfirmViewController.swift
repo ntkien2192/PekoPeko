@@ -133,7 +133,7 @@ class SocialConfirmViewController: UIViewController {
                     if let loginResponse = loginResponse, let step = loginResponse.step {
                         if step == .verify {
                             let confirmCodeViewController = UIStoryboard(name: ConfirmCodeViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: ConfirmCodeViewController.identify) as! ConfirmCodeViewController
-                            confirmCodeViewController.loginType = "facebook"
+                            confirmCodeViewController.loginType = "social"
                             if let navigationController = _self.navigationController {
                                 navigationController.show(confirmCodeViewController, sender: nil)
                             }

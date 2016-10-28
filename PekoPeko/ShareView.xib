@@ -8,7 +8,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ShareView" customModule="PekoPeko" customModuleProvider="target">
             <connections>
-                <outlet property="labelPromoCode" destination="6hC-rT-lkQ" id="YaL-zN-cGh"/>
+                <outlet property="labelPromoCode" destination="tLl-5V-e8G" id="flP-Ml-foq"/>
                 <outlet property="view" destination="iN0-l3-epB" id="Rwk-ni-e1o"/>
             </connections>
         </placeholder>
@@ -65,6 +65,9 @@
                             <state key="normal" title="Mời bạn bè qua Facebook">
                                 <color key="titleColor" red="0.22548452020000001" green="0.34771811959999999" blue="0.57596451039999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
+                            <connections>
+                                <action selector="buttonFacebookTapped:" destination="-1" eventType="touchUpInside" id="F7H-Qh-3Ph"/>
+                            </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ICW-ew-ABN">
                             <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -72,7 +75,13 @@
                                 <constraint firstAttribute="height" constant="0.5" id="KTE-75-Asd"/>
                             </constraints>
                         </view>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconFacebook" translatesAutoresizingMaskIntoConstraints="NO" id="Y5g-Bi-SkN">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f3n-kl-7Ad">
+                            <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="0.5" id="NqW-Hd-SxZ"/>
+                            </constraints>
+                        </view>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconGooglePlus" translatesAutoresizingMaskIntoConstraints="NO" id="Y5g-Bi-SkN">
                             <constraints>
                                 <constraint firstAttribute="height" constant="36" id="eD3-Ur-HHc"/>
                                 <constraint firstAttribute="width" constant="36" id="vya-oa-Aua"/>
@@ -83,25 +92,87 @@
                                 <constraint firstAttribute="height" constant="60" id="0hh-C6-zJt"/>
                             </constraints>
                             <inset key="titleEdgeInsets" minX="66" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            <state key="normal" title="Mời bạn bè qua Facebook">
-                                <color key="titleColor" red="0.22548452020000001" green="0.34771811959999999" blue="0.57596451039999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <state key="normal" title="Mời bạn bè qua Google Plus">
+                                <color key="titleColor" red="0.80076676607131958" green="0.21746534109115601" blue="0.18595138192176819" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
+                            <connections>
+                                <action selector="buttonGoogleTapped:" destination="-1" eventType="touchUpInside" id="mcY-2X-5Ev"/>
+                            </connections>
+                        </button>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconMessage" translatesAutoresizingMaskIntoConstraints="NO" id="qHM-rv-RjN">
+                            <constraints>
+                                <constraint firstAttribute="height" constant="36" id="fNZ-Na-UaX"/>
+                                <constraint firstAttribute="width" constant="36" id="qKe-E3-GSb"/>
+                            </constraints>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Mo-Aq-Nhv">
+                            <constraints>
+                                <constraint firstAttribute="height" constant="60" id="t01-Oo-vcw"/>
+                            </constraints>
+                            <inset key="titleEdgeInsets" minX="66" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="Mời bạn bè qua Mail">
+                                <color key="titleColor" red="0.15086382627487183" green="0.6632462739944458" blue="0.87986880540847778" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="buttonMailTapped:" destination="-1" eventType="touchUpInside" id="ibG-Yi-bfW"/>
+                            </connections>
+                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WxD-G8-Olc">
+                            <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="0.5" id="k3P-UD-00W"/>
+                            </constraints>
+                        </view>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconSMS" translatesAutoresizingMaskIntoConstraints="NO" id="Yy5-8i-Ppx">
+                            <constraints>
+                                <constraint firstAttribute="width" constant="36" id="KMY-9Y-438"/>
+                                <constraint firstAttribute="height" constant="36" id="b6X-bS-VDE"/>
+                            </constraints>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qWe-WS-L7F">
+                            <constraints>
+                                <constraint firstAttribute="height" constant="60" id="4ph-bZ-ERe"/>
+                            </constraints>
+                            <inset key="titleEdgeInsets" minX="66" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="Mời bạn bè qua SMS">
+                                <color key="titleColor" red="0.25490196079999999" green="0.1137254902" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="buttonSMSTapped:" destination="-1" eventType="touchUpInside" id="URy-e6-bQU"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstItem="qWe-WS-L7F" firstAttribute="leading" secondItem="7JS-fx-1Bn" secondAttribute="leading" id="2PA-GU-oTr"/>
+                        <constraint firstItem="qHM-rv-RjN" firstAttribute="leading" secondItem="7JS-fx-1Bn" secondAttribute="leading" constant="15" id="FAn-Ur-WwT"/>
+                        <constraint firstItem="WxD-G8-Olc" firstAttribute="top" secondItem="1Mo-Aq-Nhv" secondAttribute="bottom" id="G0Y-Ym-Tmz"/>
                         <constraint firstItem="Y5g-Bi-SkN" firstAttribute="top" secondItem="ICW-ew-ABN" secondAttribute="bottom" constant="12" id="IGJ-3Q-5Ig"/>
+                        <constraint firstItem="f3n-kl-7Ad" firstAttribute="leading" secondItem="7JS-fx-1Bn" secondAttribute="leading" constant="20" id="IbJ-7p-giu"/>
+                        <constraint firstAttribute="bottom" secondItem="qWe-WS-L7F" secondAttribute="bottom" id="JTX-xe-8to"/>
+                        <constraint firstItem="qHM-rv-RjN" firstAttribute="top" secondItem="f3n-kl-7Ad" secondAttribute="bottom" constant="12" id="KWJ-d7-kVf"/>
                         <constraint firstItem="SZ0-bV-klW" firstAttribute="leading" secondItem="7JS-fx-1Bn" secondAttribute="leading" id="Mb6-f1-35h"/>
-                        <constraint firstAttribute="height" constant="243" id="Nee-d9-etk"/>
+                        <constraint firstAttribute="height" priority="250" constant="243" id="Nee-d9-etk"/>
                         <constraint firstItem="SZ0-bV-klW" firstAttribute="top" secondItem="ICW-ew-ABN" secondAttribute="bottom" id="PcJ-R0-qjD"/>
+                        <constraint firstItem="1Mo-Aq-Nhv" firstAttribute="top" secondItem="f3n-kl-7Ad" secondAttribute="bottom" id="S4M-Ml-zei"/>
+                        <constraint firstAttribute="trailing" secondItem="1Mo-Aq-Nhv" secondAttribute="trailing" id="TCa-NZ-orj"/>
+                        <constraint firstAttribute="trailing" secondItem="WxD-G8-Olc" secondAttribute="trailing" id="TWi-1M-bz5"/>
+                        <constraint firstItem="WxD-G8-Olc" firstAttribute="leading" secondItem="7JS-fx-1Bn" secondAttribute="leading" constant="20" id="VXL-WB-mD4"/>
                         <constraint firstItem="227-xT-nDw" firstAttribute="top" secondItem="7JS-fx-1Bn" secondAttribute="top" constant="12" id="XiV-a7-gtT"/>
                         <constraint firstItem="ICW-ew-ABN" firstAttribute="leading" secondItem="7JS-fx-1Bn" secondAttribute="leading" constant="20" id="XlH-h5-Yik"/>
+                        <constraint firstItem="Yy5-8i-Ppx" firstAttribute="leading" secondItem="7JS-fx-1Bn" secondAttribute="leading" constant="15" id="YHE-ZV-SRV"/>
+                        <constraint firstItem="1Mo-Aq-Nhv" firstAttribute="leading" secondItem="7JS-fx-1Bn" secondAttribute="leading" id="cPJ-jZ-saj"/>
+                        <constraint firstItem="qWe-WS-L7F" firstAttribute="top" secondItem="WxD-G8-Olc" secondAttribute="bottom" id="d8m-yn-COp"/>
+                        <constraint firstItem="Yy5-8i-Ppx" firstAttribute="top" secondItem="WxD-G8-Olc" secondAttribute="bottom" constant="12" id="e2f-Ig-eE8"/>
+                        <constraint firstAttribute="trailing" secondItem="qWe-WS-L7F" secondAttribute="trailing" id="fow-kR-vtg"/>
                         <constraint firstAttribute="trailing" secondItem="SZ0-bV-klW" secondAttribute="trailing" id="jmc-Mw-jhS"/>
+                        <constraint firstItem="f3n-kl-7Ad" firstAttribute="top" secondItem="SZ0-bV-klW" secondAttribute="bottom" id="ktv-V0-cyN"/>
                         <constraint firstItem="227-xT-nDw" firstAttribute="leading" secondItem="7JS-fx-1Bn" secondAttribute="leading" constant="15" id="lSy-V4-Rfx"/>
                         <constraint firstAttribute="trailing" secondItem="ICW-ew-ABN" secondAttribute="trailing" id="qgZ-Dk-rDH"/>
                         <constraint firstItem="ICW-ew-ABN" firstAttribute="top" secondItem="jmj-sT-x35" secondAttribute="bottom" id="uQM-Vh-S8e"/>
                         <constraint firstAttribute="trailing" secondItem="jmj-sT-x35" secondAttribute="trailing" id="umd-ZV-jRB"/>
                         <constraint firstItem="Y5g-Bi-SkN" firstAttribute="leading" secondItem="7JS-fx-1Bn" secondAttribute="leading" constant="15" id="w9G-4y-OK7"/>
+                        <constraint firstAttribute="trailing" secondItem="f3n-kl-7Ad" secondAttribute="trailing" id="xsS-of-MXc"/>
                         <constraint firstItem="jmj-sT-x35" firstAttribute="leading" secondItem="7JS-fx-1Bn" secondAttribute="leading" id="zBN-J5-ngk"/>
                         <constraint firstItem="jmj-sT-x35" firstAttribute="top" secondItem="7JS-fx-1Bn" secondAttribute="top" id="zZG-V9-vqu"/>
                     </constraints>
@@ -113,14 +184,15 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6hC-rT-lkQ" customClass="Label" customModule="PekoPeko" customModuleProvider="target">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tLl-5V-e8G" customClass="Button" customModule="PekoPeko" customModuleProvider="target">
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="60" id="Oz9-uN-UpX"/>
+                        <constraint firstAttribute="height" constant="60" id="aJd-qC-x4p"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="29"/>
-                    <color key="textColor" red="0.12549019610000001" green="0.62745098040000002" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
+                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="28"/>
+                    <state key="normal">
+                        <color key="titleColor" red="0.12549019610000001" green="0.62745098040000002" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
                         <userDefinedRuntimeAttribute type="string" keyPath="animation" value="fadeInUp"/>
@@ -128,13 +200,15 @@
                             <real key="value" value="1"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
-                </label>
+                    <connections>
+                        <action selector="buttonCodeTapped:" destination="-1" eventType="touchUpInside" id="1iX-ce-eSF"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="7JS-fx-1Bn" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="0Q2-gq-Wlb"/>
                 <constraint firstItem="91a-ha-uNb" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="1ob-bd-jfI"/>
-                <constraint firstItem="6hC-rT-lkQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="3S0-kn-dFK"/>
                 <constraint firstAttribute="bottom" secondItem="91a-ha-uNb" secondAttribute="bottom" id="9pY-hL-SHx"/>
                 <constraint firstItem="H0I-1y-ptH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Dtj-2r-1h8"/>
                 <constraint firstItem="BBg-n2-g9d" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Dzi-r7-xmA"/>
@@ -142,18 +216,22 @@
                 <constraint firstAttribute="bottom" secondItem="BBg-n2-g9d" secondAttribute="bottom" id="Lgi-Vt-5ik"/>
                 <constraint firstAttribute="bottom" secondItem="H0I-1y-ptH" secondAttribute="bottom" id="QLf-gg-dgV"/>
                 <constraint firstAttribute="trailing" secondItem="7JS-fx-1Bn" secondAttribute="trailing" id="S9b-iX-MW4"/>
+                <constraint firstItem="tLl-5V-e8G" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="T1S-uu-NXI"/>
+                <constraint firstItem="7JS-fx-1Bn" firstAttribute="top" secondItem="tLl-5V-e8G" secondAttribute="bottom" constant="20" id="X1z-4I-yyg"/>
                 <constraint firstAttribute="trailing" secondItem="H0I-1y-ptH" secondAttribute="trailing" id="Yut-gA-heT"/>
-                <constraint firstAttribute="trailing" secondItem="6hC-rT-lkQ" secondAttribute="trailing" id="ZVO-cs-0Ex"/>
                 <constraint firstItem="91a-ha-uNb" firstAttribute="top" secondItem="7JS-fx-1Bn" secondAttribute="bottom" constant="20" id="ZxV-KD-48m"/>
                 <constraint firstAttribute="trailing" secondItem="BBg-n2-g9d" secondAttribute="trailing" id="ask-i7-E9U"/>
                 <constraint firstItem="BBg-n2-g9d" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="brB-I4-yTJ"/>
+                <constraint firstAttribute="trailing" secondItem="tLl-5V-e8G" secondAttribute="trailing" id="dVK-fI-sOT"/>
                 <constraint firstAttribute="trailing" secondItem="91a-ha-uNb" secondAttribute="trailing" id="uzb-Zh-1Kn"/>
-                <constraint firstItem="7JS-fx-1Bn" firstAttribute="top" secondItem="6hC-rT-lkQ" secondAttribute="bottom" constant="20" id="zeq-6M-Yu6"/>
             </constraints>
             <point key="canvasLocation" x="24.5" y="51.5"/>
         </view>
     </objects>
     <resources>
         <image name="IconFacebook" width="44" height="44"/>
+        <image name="IconGooglePlus" width="44" height="44"/>
+        <image name="IconMessage" width="44" height="44"/>
+        <image name="IconSMS" width="44" height="44"/>
     </resources>
 </document>

@@ -18,11 +18,7 @@ class VipTableViewCell: UITableViewCell {
     
     weak var delegate: VipTableViewCellDelegate?
     
-    var card: Card? {
-        didSet {
-        
-        }
-    }
+    var card: Card?
     
     @IBAction func buttonVipTapped(_ sender: AnyObject) {
         delegate?.vipCellTapped(card: card)

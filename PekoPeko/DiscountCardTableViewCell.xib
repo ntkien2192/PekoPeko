@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -128,11 +128,20 @@
                             <constraint firstItem="yXB-6P-tNU" firstAttribute="leading" secondItem="bCq-kj-am7" secondAttribute="leading" constant="135" id="waf-P6-Mk8"/>
                         </constraints>
                     </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7yS-dk-bHn">
+                        <connections>
+                            <action selector="buttonCellTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="26e-SN-f3r"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="gzZ-id-Xj1" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="2Pw-bR-5b3"/>
+                    <constraint firstItem="7yS-dk-bHn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="3nD-JL-40k"/>
+                    <constraint firstAttribute="trailing" secondItem="7yS-dk-bHn" secondAttribute="trailing" id="JCA-V1-Z2t"/>
                     <constraint firstItem="gzZ-id-Xj1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="26" id="UV3-cr-was"/>
                     <constraint firstItem="gzZ-id-Xj1" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="V5f-FA-658"/>
+                    <constraint firstAttribute="bottom" secondItem="7yS-dk-bHn" secondAttribute="bottom" id="oFY-UZ-tY3"/>
+                    <constraint firstItem="7yS-dk-bHn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="sZk-kt-Hxh"/>
                     <constraint firstAttribute="bottom" secondItem="gzZ-id-Xj1" secondAttribute="bottom" constant="26" id="tFU-oi-u8I"/>
                 </constraints>
             </tableViewCellContentView>

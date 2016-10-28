@@ -42,7 +42,7 @@ class Shop: NSObject {
     var rating: Float?
     var followers: Int?
     var canDiscount: Bool?
-    var address: String?
+    var address: Address?
     var addresses: [Address]?
     
     // full info
@@ -65,7 +65,7 @@ class Shop: NSObject {
         rating = json[ShopFields.Rating.rawValue].float
         followers = json[ShopFields.Followers.rawValue].int
         canDiscount = json[ShopFields.CanDiscount.rawValue].bool
-        address = json[ShopFields.Address.rawValue].string
+        address = Address(json: json[ShopFields.Address.rawValue])
         addresses = json[ShopFields.Addresses.rawValue].arrayValue.map({ Address(json: $0) })
         
         // full info

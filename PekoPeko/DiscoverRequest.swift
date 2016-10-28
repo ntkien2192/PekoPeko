@@ -16,12 +16,12 @@ enum DiscoverRequestFields: String {
 
 class DiscoverRequest: Mappable {
     var preID: [String]?
-    var lastTime: String?
+    var lastTime: Double?
     var preIDList: String?
     
     init() {}
     
-    required init(preID: [String]?, lastTime: String?) {
+    required init(preID: [String]?, lastTime: Double?) {
         self.preID = preID
         self.lastTime = lastTime
         if let preID = preID {

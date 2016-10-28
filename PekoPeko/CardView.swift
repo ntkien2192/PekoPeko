@@ -14,6 +14,7 @@ class CardView: UIView {
     @IBOutlet weak var view: UIView!
     @IBOutlet weak var imageView: ImageView!
     @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var labelName: UILabel!
     
     var vipCard: VipCard? {
         didSet {
@@ -27,8 +28,19 @@ class CardView: UIView {
                         _self?.imageView.image = image
                     })
                 }
+                
                 if let benefit = vipCard.benefit {
                     textView.text = benefit
+                }
+            }
+        }
+    }
+    
+    var user: User? {
+        didSet {
+            if let user = user {
+                if let fullName = user.fullName {
+                    labelName.text = fullName
                 }
             }
         }
@@ -53,5 +65,4 @@ class CardView: UIView {
         textView.isSelectable = false
         textView.setContentOffset(CGPoint.zero, animated: false)
     }
-
 }

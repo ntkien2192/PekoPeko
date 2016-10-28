@@ -11,12 +11,13 @@ import SwiftyJSON
 
 enum DiscoverType: Int {
     case deal = 1
-    case review = 2
+    case dealMulti = 2
 }
 
 enum DiscoverFields: String {
     case DiscoverID = "_id"
     case Content = "content"
+    case Name = "name"
     case TotalSaves = "total_saves"
     case DiscountRate = "discount_rate"
     case PriceNew = "price_new"
@@ -35,39 +36,50 @@ enum DiscoverFields: String {
     case Image = "images"
     case Steps = "steps"
     
+    case SavedAt = "saved_at"
+    
 }
 
 class Discover: NSObject {
     var discoverID: String?
     var content: String?
+    var name: String?
     var totalSaves: Int?
     var discountRate: Float?
     var priceNew: Float?
     var priceOld: Float?
     var startedAt: Double?
-    var endedAt: Double?
+    var endedAt: (Int, Int, Int)?
     var expireAt: Double?
     var createdAt: Double?
     var shop: Shop?
+    
     var isSave: Bool?
     var discoverType: DiscoverType?
     var totalLikes: Int?
     var totalComments: Int?
     var isLiked: Bool?
     var image: Image?
-    
+    var images: [Image]?
     var steps: [DealStep]?
+    
+    var savedAt:Double?
     
     required init(json: JSON) {
         discoverID = json[DiscoverFields.DiscoverID.rawValue].string
         content = json[DiscoverFields.Content.rawValue].string
+        name = json[DiscoverFields.Name.rawValue].string
         totalSaves = json[DiscoverFields.TotalSaves.rawValue].int
         discountRate = json[DiscoverFields.DiscountRate.rawValue].float
         priceNew = json[DiscoverFields.PriceNew.rawValue].float
         priceOld = json[DiscoverFields.PriceOld.rawValue].float
         
         startedAt = json[DiscoverFields.StartedAt.rawValue].double
-        endedAt = json[DiscoverFields.EndedAt.rawValue].double
+        
+        let end = json[DiscoverFields.EndedAt.rawValue].doubleValue
+        let time = Int(Date(timeIntervalSince1970: TimeInterval(end / 1000.0)).timeIntervalSince(Date()))
+        endedAt = (time < 0 ? 0 : time).secondsToDayHoursMinutes()
+        
         expireAt = json[DiscoverFields.ExpireAt.rawValue].double
         createdAt = json[DiscoverFields.CreatedAt.rawValue].double
         
@@ -79,7 +91,7 @@ class Discover: NSObject {
         case 1:
             discoverType = .deal
         case 2:
-            discoverType = .review
+            discoverType = .dealMulti
         default:
             break
         }
@@ -90,6 +102,8 @@ class Discover: NSObject {
         image = Image(json: json[DiscoverFields.Image.rawValue])
         
         steps = json[DiscoverFields.Steps.rawValue].arrayValue.map({ DealStep(json: $0) })
+        
+        savedAt = json[DiscoverFields.SavedAt.rawValue].double
     }
     
     func imageCount() -> Int {
