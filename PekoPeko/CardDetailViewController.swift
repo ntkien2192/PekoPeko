@@ -285,6 +285,7 @@ extension CardDetailViewController: UITableViewDataSource {
         case -9:
             let cell = tableView.dequeueReusableCell(withIdentifier: DiscountCardTableViewCell.identify, for: indexPath) as! DiscountCardTableViewCell
             cell.card = card
+            cell.delegate = self
             return cell
         case -8:
             let cell = tableView.dequeueReusableCell(withIdentifier: PointCardTableViewCell.identify, for: indexPath) as! PointCardTableViewCell
@@ -314,6 +315,29 @@ extension CardDetailViewController: UITableViewDataSource {
             }
         }
         return UITableViewCell()
+    }
+}
+
+extension CardDetailViewController: DiscountCardTableViewCellDelegate {
+    func discountCardCellTapped(card: Card?) {
+        if let addresses = addresses {
+            if addresses.count == 1 {
+                let addPointViewController = UIStoryboard(name: AddPointViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: AddPointViewController.identify) as! AddPointViewController
+                addPointViewController.card = card
+                addPointViewController.address = addresses.first
+                
+                if let topController = AppDelegate.topController() {
+                    topController.present(addPointViewController, animated: true, completion: nil)
+                }
+            } else if addresses.count > 1 {
+                let cardAddressView = CardAddressView(frame: view.bounds)
+                cardAddressView.addresses = addresses
+                cardAddressView.delegate = self
+                addFullView(view: cardAddressView)
+            }
+        } else {
+            getCardAddress()
+        }
     }
 }
 

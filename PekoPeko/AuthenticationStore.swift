@@ -15,6 +15,7 @@ class AuthenticationStore {
     
     fileprivate let accessTokenKey = "pekopeko.accesstoken"
     fileprivate let isLoginKey = "pekopeko.isLoginKey"
+    fileprivate let isLoginTypeKey = "pekopeko.isLoginTypeKey"
     fileprivate let phoneNumberKey = "pekopeko.phoneNumber"
     fileprivate let connectFacebookKey = "pekopeko.connectFacebook"
     
@@ -22,6 +23,16 @@ class AuthenticationStore {
         
         return UserDefaults.standard
     }()
+    
+    //MARK: LOGIN TYPE
+    var isLoginWithPhone: Bool {
+        return defaults.value(forKey: isLoginTypeKey) as? Bool ?? false
+    }
+    
+    func saveLoginTypePhone(_ isPhone: Bool) {
+        defaults.set(isPhone, forKey: isLoginTypeKey)
+        defaults.synchronize()
+    }
     
     //MARK: LOGIN
     var isLogin: Bool {

@@ -783,85 +783,36 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t2U-As-MLu" customClass="View" customModule="PekoPeko" customModuleProvider="target">
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c7d-2C-wKG" customClass="Button" customModule="PekoPeko" customModuleProvider="target">
-                                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
-                                                        <inset key="titleEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                        <state key="normal" title="Đổi mật khẩu">
-                                                            <color key="titleColor" red="0.25490196079999999" green="0.1137254902" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="animation" value="fadeInLeft"/>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="force">
-                                                                <real key="value" value="1"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="delay">
-                                                                <real key="value" value="0.20000000000000001"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <segue destination="GbB-vF-6Ai" kind="show" id="ntY-ks-Nus"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c7d-2C-wKG" customClass="Button" customModule="PekoPeko" customModuleProvider="target">
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="bottom" secondItem="c7d-2C-wKG" secondAttribute="bottom" id="NiI-7g-LfC"/>
-                                                    <constraint firstAttribute="height" constant="50" id="PgP-u6-u7U"/>
-                                                    <constraint firstItem="c7d-2C-wKG" firstAttribute="leading" secondItem="t2U-As-MLu" secondAttribute="leading" id="bCI-O7-9ri"/>
-                                                    <constraint firstItem="c7d-2C-wKG" firstAttribute="top" secondItem="t2U-As-MLu" secondAttribute="top" id="ufX-ks-Txi"/>
-                                                    <constraint firstAttribute="trailing" secondItem="c7d-2C-wKG" secondAttribute="trailing" id="wRz-ME-b6f"/>
+                                                    <constraint firstAttribute="height" constant="50" id="qcH-jo-zNK"/>
                                                 </constraints>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                                <inset key="titleEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <state key="normal" title="Đổi mật khẩu">
+                                                    <color key="titleColor" red="0.25490196079999999" green="0.1137254902" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
                                                 <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="fadeInLeft"/>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="force">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                         <real key="value" value="0.5"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                         <color key="value" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wl0-Nj-SMB" customClass="View" customModule="PekoPeko" customModuleProvider="target">
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lnM-pz-wcB" customClass="Button" customModule="PekoPeko" customModuleProvider="target">
-                                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
-                                                        <state key="normal" title="Đăng xuất">
-                                                            <color key="titleColor" red="0.96078431369999995" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="animation" value="fadeInLeft"/>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="force">
-                                                                <real key="value" value="1"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="delay">
-                                                                <real key="value" value="0.20000000000000001"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="buttonLogoutTapped:" destination="VJY-rp-pNu" eventType="touchUpInside" id="2La-lE-887"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="bottom" secondItem="lnM-pz-wcB" secondAttribute="bottom" id="7Zd-Is-hES"/>
-                                                    <constraint firstItem="lnM-pz-wcB" firstAttribute="top" secondItem="Wl0-Nj-SMB" secondAttribute="top" id="EyI-Zc-5hy"/>
-                                                    <constraint firstAttribute="trailing" secondItem="lnM-pz-wcB" secondAttribute="trailing" id="Oa3-7m-o8q"/>
-                                                    <constraint firstAttribute="height" constant="50" id="ipa-Th-SId"/>
-                                                    <constraint firstItem="lnM-pz-wcB" firstAttribute="leading" secondItem="Wl0-Nj-SMB" secondAttribute="leading" id="jzb-rj-aV8"/>
-                                                </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <real key="value" value="0.5"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                        <color key="value" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="delay">
+                                                        <real key="value" value="0.20000000000000001"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
-                                            </view>
+                                                <connections>
+                                                    <segue destination="GbB-vF-6Ai" kind="show" id="ntY-ks-Nus"/>
+                                                </connections>
+                                            </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FGp-CY-qUf">
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="byh-yd-55P"/>
@@ -871,31 +822,60 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lnM-pz-wcB" customClass="Button" customModule="PekoPeko" customModuleProvider="target">
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="wKo-u7-JSE"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                                <state key="normal" title="Đăng xuất">
+                                                    <color key="titleColor" red="0.96078431369999995" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="fadeInLeft"/>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="0.5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="force">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="delay">
+                                                        <real key="value" value="0.20000000000000001"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="buttonLogoutTapped:" destination="VJY-rp-pNu" eventType="touchUpInside" id="2La-lE-887"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="Wl0-Nj-SMB" secondAttribute="trailing" constant="-1" id="1kp-GN-TLG"/>
                                             <constraint firstAttribute="trailing" secondItem="gDU-n9-3yG" secondAttribute="trailing" constant="-1" id="4gW-dg-hYS"/>
                                             <constraint firstItem="1Qb-aU-PF0" firstAttribute="centerY" secondItem="ukN-LN-1vg" secondAttribute="centerY" id="5OJ-rk-jWo"/>
                                             <constraint firstItem="ukN-LN-1vg" firstAttribute="top" secondItem="0g0-ix-Plq" secondAttribute="top" constant="50" id="8eH-CG-Quh"/>
                                             <constraint firstItem="8Jw-TL-0LV" firstAttribute="top" secondItem="gDU-n9-3yG" secondAttribute="bottom" constant="15" id="ABD-y9-GbC"/>
-                                            <constraint firstAttribute="bottom" secondItem="Wl0-Nj-SMB" secondAttribute="bottom" constant="15" id="ARJ-cM-7Bz"/>
+                                            <constraint firstItem="lnM-pz-wcB" firstAttribute="top" secondItem="HXC-FX-b0v" secondAttribute="bottom" constant="80" id="IVE-tU-dmE"/>
+                                            <constraint firstItem="c7d-2C-wKG" firstAttribute="leading" secondItem="0g0-ix-Plq" secondAttribute="leading" constant="-1" id="M4z-hD-vgQ"/>
+                                            <constraint firstAttribute="trailing" secondItem="lnM-pz-wcB" secondAttribute="trailing" constant="-1" id="Mmt-Z5-sjw"/>
                                             <constraint firstItem="1Qb-aU-PF0" firstAttribute="centerX" secondItem="ukN-LN-1vg" secondAttribute="centerX" id="O16-wa-0xJ"/>
                                             <constraint firstItem="rrP-3h-6fA" firstAttribute="trailing" secondItem="ukN-LN-1vg" secondAttribute="trailing" id="Ovb-EA-Fi0"/>
                                             <constraint firstItem="gDU-n9-3yG" firstAttribute="leading" secondItem="0g0-ix-Plq" secondAttribute="leading" constant="-1" id="PWp-yX-YBc"/>
                                             <constraint firstAttribute="trailing" secondItem="HXC-FX-b0v" secondAttribute="trailing" constant="-1" id="Qd0-gw-8T4"/>
+                                            <constraint firstItem="lnM-pz-wcB" firstAttribute="leading" secondItem="0g0-ix-Plq" secondAttribute="leading" constant="-1" id="ReR-m0-R0t"/>
                                             <constraint firstAttribute="height" priority="250" constant="700" id="Tj2-mZ-pS0"/>
-                                            <constraint firstItem="Wl0-Nj-SMB" firstAttribute="leading" secondItem="0g0-ix-Plq" secondAttribute="leading" constant="-1" id="WbG-m3-LbQ"/>
-                                            <constraint firstItem="t2U-As-MLu" firstAttribute="top" secondItem="HXC-FX-b0v" secondAttribute="bottom" constant="15" id="cXI-Es-En0"/>
+                                            <constraint firstItem="c7d-2C-wKG" firstAttribute="top" secondItem="HXC-FX-b0v" secondAttribute="bottom" constant="15" id="cKu-of-gMo"/>
                                             <constraint firstItem="ukN-LN-1vg" firstAttribute="centerX" secondItem="0g0-ix-Plq" secondAttribute="centerX" id="eOL-8K-bKH"/>
+                                            <constraint firstAttribute="bottom" secondItem="lnM-pz-wcB" secondAttribute="bottom" constant="20" id="gmC-Jr-DUF"/>
                                             <constraint firstAttribute="trailing" secondItem="8Jw-TL-0LV" secondAttribute="trailing" constant="-1" id="hP2-BT-lhZ"/>
-                                            <constraint firstAttribute="trailing" secondItem="t2U-As-MLu" secondAttribute="trailing" constant="-1" id="hxa-j2-ey4"/>
-                                            <constraint firstItem="t2U-As-MLu" firstAttribute="leading" secondItem="0g0-ix-Plq" secondAttribute="leading" constant="-1" id="ime-kk-vxY"/>
                                             <constraint firstItem="HXC-FX-b0v" firstAttribute="leading" secondItem="0g0-ix-Plq" secondAttribute="leading" constant="-1" id="mzw-iH-Crb"/>
                                             <constraint firstItem="8Jw-TL-0LV" firstAttribute="leading" secondItem="0g0-ix-Plq" secondAttribute="leading" constant="-1" id="n8R-T3-sv2"/>
                                             <constraint firstItem="gDU-n9-3yG" firstAttribute="top" secondItem="FGp-CY-qUf" secondAttribute="bottom" constant="30" id="n9Y-s6-Pbk"/>
                                             <constraint firstItem="FGp-CY-qUf" firstAttribute="centerX" secondItem="0g0-ix-Plq" secondAttribute="centerX" id="nz2-cp-Ryb"/>
-                                            <constraint firstItem="Wl0-Nj-SMB" firstAttribute="top" secondItem="t2U-As-MLu" secondAttribute="bottom" constant="15" id="uDn-ad-vol"/>
+                                            <constraint firstAttribute="trailing" secondItem="c7d-2C-wKG" secondAttribute="trailing" constant="-1" id="qIw-aQ-doo"/>
                                             <constraint firstItem="HXC-FX-b0v" firstAttribute="top" secondItem="8Jw-TL-0LV" secondAttribute="bottom" constant="15" id="uy7-L4-jRs"/>
                                             <constraint firstItem="rrP-3h-6fA" firstAttribute="bottom" secondItem="ukN-LN-1vg" secondAttribute="bottom" id="x5p-dY-HdN"/>
                                             <constraint firstItem="FGp-CY-qUf" firstAttribute="top" secondItem="ukN-LN-1vg" secondAttribute="bottom" constant="20" id="xz5-Xn-ZM0"/>
@@ -928,8 +908,10 @@
                     <connections>
                         <outlet property="activityUploadData" destination="1Qb-aU-PF0" id="X0b-da-trc"/>
                         <outlet property="buttonAvatar" destination="ukN-LN-1vg" id="Ae8-D9-rC5"/>
+                        <outlet property="buttonChangePassword" destination="c7d-2C-wKG" id="uZh-A8-Q3P"/>
                         <outlet property="buttonConnectFacebook" destination="F9W-Sh-FKm" id="5ri-RC-8sx"/>
                         <outlet property="buttonTakePicture" destination="rrP-3h-6fA" id="KN5-n7-sg2"/>
+                        <outlet property="constraintLogoutTop" destination="IVE-tU-dmE" id="chJ-EI-vam"/>
                         <outlet property="labelAppLanguage" destination="rc8-cl-F7M" id="iPe-dP-yQQ"/>
                         <outlet property="labelAppVersion" destination="8EN-CT-Ubr" id="6a4-cB-yhR"/>
                         <outlet property="labelName" destination="FGp-CY-qUf" id="H3f-LF-WkV"/>
@@ -938,7 +920,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z0S-we-cfF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="531" y="2047"/>
+            <point key="canvasLocation" x="529.60000000000002" y="2046.4767616191905"/>
         </scene>
         <!--Đổi mật khẩu-->
         <scene sceneID="pnp-kw-9Ua">

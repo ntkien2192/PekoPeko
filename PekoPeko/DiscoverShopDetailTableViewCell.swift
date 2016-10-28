@@ -26,6 +26,7 @@ class DiscoverShopDetailTableViewCell: UITableViewCell {
     @IBOutlet weak var labelWorkTime: UILabel!
     @IBOutlet weak var buttonPhone: Button!
     @IBOutlet weak var imageViewAvatar: ImageView!
+    @IBOutlet weak var constraintButtonCallWidth: NSLayoutConstraint!
     
     var discover: Discover? {
         didSet {
@@ -45,17 +46,13 @@ class DiscoverShopDetailTableViewCell: UITableViewCell {
                     })
                 }
                 
-                if let name = shop.fullName {
-                    labelShopName.text = name
-                }
+                labelShopName.text = shop.fullName ?? ""
                 
                 if let address = shop.address, let addressContent = address.addressContent {
                     labelShopAddress.text = addressContent
                 }
                 
-                if let avgPrice = shop.avgPrice {
-                    labelPrice.text = avgPrice
-                }
+                labelPrice.text = shop.avgPrice ?? "Chưa cập nhật"
                 
                 if let workTime = shop.workTime {
                     if let openTime = workTime.openTime, let closeTime = workTime.closeTime {
@@ -66,7 +63,10 @@ class DiscoverShopDetailTableViewCell: UITableViewCell {
                 if let telephone = shop.telephone {
                     if !telephone.isEmpty {
                         buttonPhone.isHidden = false
+                         constraintButtonCallWidth.constant = 140.0
                         self.telephone = telephone
+                    } else {
+                        constraintButtonCallWidth.constant = 0.0
                     }
                 }
             }

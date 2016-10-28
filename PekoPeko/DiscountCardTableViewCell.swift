@@ -10,9 +10,15 @@ import UIKit
 import Haneke
 import SwiftDate
 
+protocol DiscountCardTableViewCellDelegate: class {
+    func discountCardCellTapped(card: Card?)
+}
+
 class DiscountCardTableViewCell: UITableViewCell {
 
     static let identify = "DiscountCardTableViewCell"
+    
+    weak var delegate: DiscountCardTableViewCellDelegate?
     
     @IBOutlet weak var labelTitle: UILabel!
     @IBOutlet weak var labelDate: UILabel!
@@ -63,7 +69,8 @@ class DiscountCardTableViewCell: UITableViewCell {
             }
         }
     }
-    @IBAction func buttonCellTapped(_ sender: AnyObject) {
-    }
     
+    @IBAction func buttonCellTapped(_ sender: AnyObject) {
+        delegate?.discountCardCellTapped(card: card)
+    }
 }

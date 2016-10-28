@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "AppBackground~universal@1x.png",
+      "filename" : "IconCheckVIP~universal@1x.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "AppBackground~universal@2x.png",
+      "filename" : "IconCheckVIP~universal@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "AppBackground~universal@3x.png",
+      "filename" : "IconCheckVIP~universal@3x.png",
       "scale" : "3x"
     }
   ],

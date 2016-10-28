@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "iconpeko copy~universal@1x.png",
+      "filename" : "padlock~universal@1x.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "iconpeko copy~universal@2x.png",
+      "filename" : "padlock~universal@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "iconpeko copy~universal@3x.png",
+      "filename" : "padlock~universal@3x.png",
       "scale" : "3x"
     }
   ],

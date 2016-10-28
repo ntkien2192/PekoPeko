@@ -13,6 +13,8 @@ import FBSDKLoginKit
 
 class SettingViewController: BaseViewController {
 
+    @IBOutlet weak var constraintLogoutTop: NSLayoutConstraint!
+    @IBOutlet weak var buttonChangePassword: Button!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var buttonAvatar: Button!
     @IBOutlet weak var buttonTakePicture: Button!
@@ -115,10 +117,21 @@ class SettingViewController: BaseViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         getUserInfo()
+        getLoginType()
     }
 
     func reloadUserInfo() {
         getUserInfo()
+    }
+    
+    func getLoginType() {
+        if AuthenticationStore().isLoginWithPhone {
+            buttonChangePassword.isHidden = false
+            constraintLogoutTop.constant = 80.0
+        } else {
+            buttonChangePassword.isHidden = true
+            constraintLogoutTop.constant = 15.0
+        }
     }
     
     func getUserInfo() {

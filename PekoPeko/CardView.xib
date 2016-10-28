@@ -9,8 +9,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CardView" customModule="PekoPeko" customModuleProvider="target">
             <connections>
+                <outlet property="backGroundImage" destination="kH8-uf-KmP" id="J3S-Sy-Hir"/>
                 <outlet property="imageView" destination="EcW-U6-zqR" id="eNg-CM-lQr"/>
+                <outlet property="imageViewVip" destination="kFf-gB-pRu" id="u5Z-tb-wDJ"/>
                 <outlet property="labelName" destination="Q9W-Lg-ebO" id="Ep4-6Q-yYR"/>
+                <outlet property="labelVip" destination="RNT-3z-5XZ" id="IRg-zB-AhZ"/>
                 <outlet property="textView" destination="eoq-90-PkI" id="iUI-bv-oic"/>
                 <outlet property="view" destination="iN0-l3-epB" id="3vj-Yf-ak3"/>
             </connections>
@@ -56,27 +59,67 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q9W-Lg-ebO">
-                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
-                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="15"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cần thêm 30 Point để lên cấp" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RNT-3z-5XZ">
+                    <color key="backgroundColor" red="0.1764705882" green="0.80000000000000004" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="Ogy-Ra-cDG"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="13"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kH8-uf-KmP" customClass="View" customModule="PekoPeko" customModuleProvider="target">
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconCheckVIP" translatesAutoresizingMaskIntoConstraints="NO" id="kFf-gB-pRu" customClass="ImageView" customModule="PekoPeko" customModuleProvider="target">
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="28"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="kFf-gB-pRu" secondAttribute="trailing" constant="2" id="E9m-E5-wlA"/>
+                        <constraint firstAttribute="width" constant="60" id="LRM-6O-DN1"/>
+                        <constraint firstItem="kFf-gB-pRu" firstAttribute="leading" secondItem="kH8-uf-KmP" secondAttribute="leading" constant="2" id="MEY-ch-OMV"/>
+                        <constraint firstAttribute="bottom" secondItem="kFf-gB-pRu" secondAttribute="bottom" constant="2" id="iDf-5O-fO7"/>
+                        <constraint firstItem="kFf-gB-pRu" firstAttribute="top" secondItem="kH8-uf-KmP" secondAttribute="top" constant="2" id="lkR-BF-Pa7"/>
+                        <constraint firstAttribute="height" constant="60" id="wvF-aX-sjK"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="30"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="eoq-90-PkI" secondAttribute="trailing" constant="10" id="0BM-kB-2Qw"/>
-                <constraint firstAttribute="bottom" secondItem="eoq-90-PkI" secondAttribute="bottom" constant="10" id="1aX-e0-EaB"/>
+                <constraint firstItem="RNT-3z-5XZ" firstAttribute="top" secondItem="kH8-uf-KmP" secondAttribute="bottom" constant="-10" id="8oM-Fc-iUO"/>
                 <constraint firstItem="nvt-hW-nbq" firstAttribute="centerY" secondItem="xFa-id-ggM" secondAttribute="centerY" id="8pP-kK-YIc"/>
+                <constraint firstItem="kH8-uf-KmP" firstAttribute="top" secondItem="eoq-90-PkI" secondAttribute="bottom" constant="8" id="BV4-Wf-1sF"/>
                 <constraint firstItem="EcW-U6-zqR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="Fe3-Zv-eyO"/>
+                <constraint firstAttribute="trailing" secondItem="RNT-3z-5XZ" secondAttribute="trailing" id="Ho7-jr-NNk"/>
                 <constraint firstItem="nvt-hW-nbq" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="JUy-Gw-sr3"/>
                 <constraint firstItem="eoq-90-PkI" firstAttribute="top" secondItem="xFa-id-ggM" secondAttribute="bottom" constant="8" id="Jks-Pa-JtV"/>
                 <constraint firstAttribute="trailing" secondItem="xFa-id-ggM" secondAttribute="trailing" constant="20" symbolic="YES" id="N8c-iZ-do7"/>
-                <constraint firstItem="Q9W-Lg-ebO" firstAttribute="leading" secondItem="EcW-U6-zqR" secondAttribute="leading" constant="10" id="R5e-sG-VsZ"/>
+                <constraint firstItem="Q9W-Lg-ebO" firstAttribute="leading" secondItem="EcW-U6-zqR" secondAttribute="leading" constant="12" id="R5e-sG-VsZ"/>
                 <constraint firstItem="EcW-U6-zqR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="U29-1E-2H6"/>
-                <constraint firstItem="Q9W-Lg-ebO" firstAttribute="bottom" secondItem="EcW-U6-zqR" secondAttribute="bottom" constant="-10" id="a9p-z2-fKj"/>
+                <constraint firstItem="kH8-uf-KmP" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="U6c-y1-BE5"/>
+                <constraint firstItem="Q9W-Lg-ebO" firstAttribute="bottom" secondItem="EcW-U6-zqR" secondAttribute="bottom" constant="-12" id="a9p-z2-fKj"/>
                 <constraint firstAttribute="trailing" secondItem="EcW-U6-zqR" secondAttribute="trailing" constant="10" id="mZD-cj-jeU"/>
+                <constraint firstItem="RNT-3z-5XZ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="pES-xy-ibi"/>
                 <constraint firstItem="eoq-90-PkI" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="rYW-xv-ehv"/>
                 <constraint firstItem="xFa-id-ggM" firstAttribute="top" secondItem="EcW-U6-zqR" secondAttribute="bottom" constant="20" id="tNK-zK-mEp"/>
                 <constraint firstItem="xFa-id-ggM" firstAttribute="leading" secondItem="nvt-hW-nbq" secondAttribute="trailing" constant="10" id="tQI-gu-x4R"/>
+                <constraint firstAttribute="bottom" secondItem="RNT-3z-5XZ" secondAttribute="bottom" id="zni-aI-sJJ"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <userDefinedRuntimeAttributes>
@@ -94,6 +137,7 @@
         </view>
     </objects>
     <resources>
+        <image name="IconCheckVIP" width="60" height="60"/>
         <image name="IconVipDia" width="44" height="44"/>
     </resources>
 </document>

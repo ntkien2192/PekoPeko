@@ -20,6 +20,8 @@ class VipCard: NSObject {
     var imageUrl: String?
     var benefit: String?
     var isCurrent: Bool = false
+    var isLock: Bool = true
+    var needPoint: Int?
     
     override init() {
         

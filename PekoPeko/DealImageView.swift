@@ -17,10 +17,11 @@ class DealImageView: UIView {
     var imageUrl: String? {
         didSet {
             if let imageUrl = imageUrl {
+                imageView.contentMode = .scaleAspectFill
+                imageView.clipsToBounds = false
+                imageView.layer.masksToBounds = true
+                
                 if !imageUrl.isEmpty {
-                    imageView.contentMode = .scaleAspectFill
-                    imageView.clipsToBounds = false
-                    imageView.layer.masksToBounds = true
                     
                     let cache = Shared.imageCache
                     let URL = NSURL(string: imageUrl)!

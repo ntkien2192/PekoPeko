@@ -129,8 +129,29 @@ class Card: NSObject {
         rewards = json[CardFields.Rewards.rawValue].arrayValue.map({ AllReward(json: $0) })
         openingTime = WordTime(json: json[CardFields.ShopPhone.rawValue])
         
-        vipCards = json[CardFields.VipCard.rawValue].arrayValue.map({ VipCard(json: $0) })
+        vipCards = json[CardFields.VipCard.rawValue].arrayValue.map({ VipCard(json: $0) }).sorted(by: { (vip1, vip2) -> Bool in
+            return (vip1.hpRequire ?? 0) < (vip2.hpRequire ?? 0)
+        })
         totalHp = json[CardFields.TotalHP.rawValue].int
+        
+        if let vipCards = vipCards {
+            for i in 0..<vipCards.count {
+                if let hpRequire = vipCards[i].hpRequire {
+                    
+                    vipCards[i].needPoint = hpRequire - (totalHp ?? 0)
+                    
+                    if (totalHp ?? 0) >= hpRequire {
+                        vipCards[i].isCurrent = true
+                        vipCards[i].isLock = false
+                        if i > 0 {
+                            vipCards[i - 1].isCurrent = false
+                        }
+                    } else {
+                        vipCards[i].isLock = true
+                    }
+                }
+            }
+        }
     }
     
     func isReward() -> Bool {

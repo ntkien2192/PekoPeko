@@ -83,6 +83,8 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func buttonLoginTapped(_ sender: AnyObject) {
+        AuthenticationStore().saveLoginTypePhone(true)
+        
         let loginPhoneViewController = UIStoryboard(name: LoginPhoneViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: LoginPhoneViewController.identify) as! LoginPhoneViewController
         if let userLocation = userLocation {
             loginPhoneViewController.userLocation = userLocation
@@ -93,6 +95,9 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func buttonFacebookSigninClicked(sender: AnyObject) {
+        
+        AuthenticationStore().saveLoginTypePhone(false)
+        
         let login = FBSDKLoginManager()
         login.logOut()
         weak var _self = self

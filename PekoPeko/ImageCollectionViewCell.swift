@@ -18,11 +18,11 @@ class ImageCollectionViewCell: UICollectionViewCell {
     var image: String? {
         didSet {
             if let image = image {
+                imageView.contentMode = .scaleAspectFill
+                imageView.clipsToBounds = false
+                imageView.layer.masksToBounds = true
+                
                 if !image.isEmpty {
-                    imageView.contentMode = .scaleAspectFill
-                    imageView.clipsToBounds = false
-                    imageView.layer.masksToBounds = true
-                    
                     let cache = Shared.imageCache
                     let URL = NSURL(string: image)!
                     let fetcher = NetworkFetcher<UIImage>(URL: URL as URL)

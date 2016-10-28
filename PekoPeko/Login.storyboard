@@ -20,7 +20,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="384" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppBackground" translatesAutoresizingMaskIntoConstraints="NO" id="WMy-ez-few">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppBackgroun" translatesAutoresizingMaskIntoConstraints="NO" id="WMy-ez-few">
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="WMy-ez-few" secondAttribute="height" multiplier="1080:1920" id="rT4-UB-L11"/>
                                 </constraints>
@@ -1372,7 +1372,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="AppBackground" width="360" height="640"/>
+        <image name="AppBackgroun" width="360" height="640"/>
         <image name="BackgroundLoginPhone" width="360" height="640"/>
         <image name="ButtonLoginFacebook" width="294" height="50"/>
         <image name="ButtonLoginPhone" width="294" height="50"/>

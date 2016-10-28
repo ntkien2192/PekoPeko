@@ -15,22 +15,57 @@ class CardView: UIView {
     @IBOutlet weak var imageView: ImageView!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var labelName: UILabel!
+    @IBOutlet weak var labelVip: UILabel!
+    @IBOutlet weak var backGroundImage: View!
+    @IBOutlet weak var imageViewVip: ImageView!
     
     var vipCard: VipCard? {
         didSet {
             if let vipCard = vipCard {
+                
                 if let imageUrl = vipCard.imageUrl {
-                    let cache = Shared.imageCache
-                    let URL = NSURL(string: imageUrl)!
-                    let fetcher = NetworkFetcher<UIImage>(URL: URL as URL)
-                    weak var _self = self
-                    _ = cache.fetch(fetcher: fetcher).onSuccess({ (image) in
-                        _self?.imageView.image = image
-                    })
+                    imageView.contentMode = .scaleAspectFill
+                    imageView.clipsToBounds = false
+                    imageView.layer.masksToBounds = true
+                    
+                    if !imageUrl.isEmpty {
+                        let cache = Shared.imageCache
+                        let URL = NSURL(string: imageUrl)!
+                        let fetcher = NetworkFetcher<UIImage>(URL: URL as URL)
+                        weak var _self = self
+                        _ = cache.fetch(fetcher: fetcher).onSuccess({ (image) in
+                            _self?.imageView.image = image
+                        })
+                    } else {
+                        imageView.image = UIImage(named: "DefaultCellImage")
+                    }
                 }
                 
-                if let benefit = vipCard.benefit {
-                    textView.text = benefit
+                textView.text = vipCard.benefit ?? ""
+                
+                if vipCard.isLock {
+                    labelVip.backgroundColor = UIColor.darkGray
+                    labelVip.textColor = UIColor.white
+                    backGroundImage.backgroundColor = UIColor.darkGray
+                    imageViewVip.image = UIImage(named: "IconPadlock")
+                    
+                    labelVip.text = "Bạn cần thêm \(vipCard.needPoint ?? 0) điểm để lên cấp"
+                } else {
+                    if vipCard.isCurrent {
+                        labelVip.backgroundColor = UIColor.RGB(45, green: 204, blue: 112)
+                        labelVip.textColor = UIColor.white
+                        backGroundImage.backgroundColor = UIColor.white
+                        imageViewVip.image = UIImage(named: "IconCheckVIP")
+                        
+                        labelVip.text = "Bạn đang được hưởng quyền lợi VIP"
+                    } else {
+                        labelVip.backgroundColor = UIColor.white
+                        labelVip.textColor = UIColor.darkGray
+                        backGroundImage.backgroundColor = UIColor.darkGray
+                        imageViewVip.image = UIImage(named: "IconUsesVIP")
+                        
+                        labelVip.text = "Đã qua sử dụng"
+                    }
                 }
             }
         }
