@@ -270,6 +270,11 @@
                     <navigationItem key="navigationItem" id="bo2-4L-yeG">
                         <nil key="title"/>
                         <barButtonItem key="backBarButtonItem" title=" " id="5p6-3Z-rp0"/>
+                        <barButtonItem key="rightBarButtonItem" image="IconSettings" id="V0b-dK-Ewc">
+                            <connections>
+                                <segue destination="VJY-rp-pNu" kind="show" id="N4O-Xf-a1M"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="constraintLogoHeight" destination="7TZ-mG-Qg0" id="lwy-QT-7XV"/>
@@ -920,7 +925,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z0S-we-cfF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="529.60000000000002" y="2046.4767616191905"/>
+            <point key="canvasLocation" x="922" y="2069"/>
         </scene>
         <!--Đổi mật khẩu-->
         <scene sceneID="pnp-kw-9Ua">
@@ -1092,7 +1097,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xan-Mb-GMN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1356.8" y="1911.5442278860571"/>
+            <point key="canvasLocation" x="1739" y="1934"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="G6k-Zf-DUe">
@@ -1135,6 +1140,6 @@
         <image name="logoBar.png" width="418" height="112"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Fh8-I7-XBI"/>
+        <segue reference="N4O-Xf-a1M"/>
     </inferredMetricsTieBreakers>
 </document>

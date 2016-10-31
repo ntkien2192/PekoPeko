@@ -10,11 +10,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="575" id="5fv-Wj-2al" customClass="DealTableViewCell" customModule="PekoPeko" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="575"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="524" id="5fv-Wj-2al" customClass="DealTableViewCell" customModule="PekoPeko" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5fv-Wj-2al" id="cVJ-Yf-F7s">
-                <frame key="frameInset" width="320" height="574"/>
+                <frame key="frameInset" width="320" height="523"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q3Z-O7-8vJ">
@@ -395,21 +395,9 @@
                             <outlet property="delegate" destination="5fv-Wj-2al" id="5uA-tJ-gTs"/>
                         </connections>
                     </collectionView>
-                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Jn-bC-mNn">
-                        <frame key="frameInset" minY="6780" width="320" height="574.5"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Jn-bC-mNn">
                         <connections>
                             <action selector="buttonCellTapped:" destination="5fv-Wj-2al" eventType="touchUpInside" id="fuL-4A-VJ9"/>
-                        </connections>
-                    </button>
-                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nTZ-uT-vtT">
-                        <constraints>
-                            <constraint firstAttribute="height" constant="40" id="ASG-zX-RmE"/>
-                            <constraint firstAttribute="width" constant="40" id="Yhg-EQ-BNc"/>
-                        </constraints>
-                        <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
-                        <state key="normal" image="IconShare"/>
-                        <connections>
-                            <action selector="buttonShareTapped:" destination="5fv-Wj-2al" eventType="touchUpInside" id="aql-hU-Lv6"/>
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aQl-uJ-gHw">
@@ -433,7 +421,6 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="s8R-a4-eQC" firstAttribute="leading" secondItem="cVJ-Yf-F7s" secondAttribute="leading" id="0ge-eA-8g9"/>
-                    <constraint firstItem="nTZ-uT-vtT" firstAttribute="leading" secondItem="q3Z-O7-8vJ" secondAttribute="trailing" constant="8" id="2Kt-It-xpp"/>
                     <constraint firstItem="xKn-a1-XEL" firstAttribute="top" secondItem="vgG-Cc-TfC" secondAttribute="bottom" id="3FM-44-PL9"/>
                     <constraint firstItem="H4u-Rv-DRT" firstAttribute="leading" secondItem="cVJ-Yf-F7s" secondAttribute="leading" id="3Pf-SK-iew"/>
                     <constraint firstItem="gbE-FI-Mec" firstAttribute="top" secondItem="H4u-Rv-DRT" secondAttribute="bottom" id="59A-RF-eXy"/>
@@ -441,6 +428,7 @@
                     <constraint firstItem="6PP-Rp-TeB" firstAttribute="leading" secondItem="AzH-N1-6wW" secondAttribute="trailing" id="9LW-eI-XD4"/>
                     <constraint firstItem="hNq-OQ-WwU" firstAttribute="top" secondItem="s8R-a4-eQC" secondAttribute="bottom" constant="6" id="Afm-mS-ADz"/>
                     <constraint firstItem="Z1N-fY-EUz" firstAttribute="centerX" secondItem="cVJ-Yf-F7s" secondAttribute="centerX" id="BaE-hx-FxZ"/>
+                    <constraint firstAttribute="trailing" secondItem="q3Z-O7-8vJ" secondAttribute="trailing" constant="8" id="DJI-aN-YtW"/>
                     <constraint firstAttribute="trailing" secondItem="xKn-a1-XEL" secondAttribute="trailing" id="DW1-bl-Y9Q"/>
                     <constraint firstItem="dgD-cw-VT5" firstAttribute="top" secondItem="GWK-je-tzL" secondAttribute="top" id="EbJ-Yd-1f1"/>
                     <constraint firstItem="AzH-N1-6wW" firstAttribute="top" secondItem="s8R-a4-eQC" secondAttribute="bottom" id="Gv3-2Z-PUg"/>
@@ -448,18 +436,15 @@
                     <constraint firstAttribute="trailing" secondItem="SXR-xC-9py" secondAttribute="trailing" constant="15" id="Ik3-63-c9y"/>
                     <constraint firstItem="xKn-a1-XEL" firstAttribute="top" secondItem="6PP-Rp-TeB" secondAttribute="bottom" id="JcY-2w-mM6"/>
                     <constraint firstAttribute="trailing" secondItem="aQl-uJ-gHw" secondAttribute="trailing" id="K7Q-0f-DzL"/>
-                    <constraint firstItem="nTZ-uT-vtT" firstAttribute="leading" secondItem="dgD-cw-VT5" secondAttribute="trailing" constant="8" id="KP9-YV-Hh5"/>
                     <constraint firstItem="GWK-je-tzL" firstAttribute="top" secondItem="cVJ-Yf-F7s" secondAttribute="top" constant="10" id="OpX-d5-HrE"/>
                     <constraint firstItem="5Jn-bC-mNn" firstAttribute="leading" secondItem="cVJ-Yf-F7s" secondAttribute="leading" id="QbD-Wa-epF"/>
                     <constraint firstItem="mnC-0s-l0S" firstAttribute="centerX" secondItem="cVJ-Yf-F7s" secondAttribute="centerX" id="R84-gh-UWD"/>
                     <constraint firstItem="xKn-a1-XEL" firstAttribute="top" secondItem="OlG-1a-mRw" secondAttribute="bottom" constant="4" id="SrQ-in-ZZj"/>
-                    <constraint firstItem="nTZ-uT-vtT" firstAttribute="top" secondItem="cVJ-Yf-F7s" secondAttribute="top" constant="10" id="TRi-6K-0A9"/>
                     <constraint firstItem="Zch-4O-hMr" firstAttribute="leading" secondItem="cVJ-Yf-F7s" secondAttribute="leading" id="Vyh-43-GQ2"/>
                     <constraint firstAttribute="trailing" secondItem="Zch-4O-hMr" secondAttribute="trailing" id="WCQ-u8-CEe"/>
                     <constraint firstItem="SXR-xC-9py" firstAttribute="leading" secondItem="cVJ-Yf-F7s" secondAttribute="leading" constant="15" id="WVv-oa-AOg"/>
                     <constraint firstAttribute="bottom" secondItem="5Jn-bC-mNn" secondAttribute="bottom" id="ZFd-I1-G1L"/>
                     <constraint firstItem="aQl-uJ-gHw" firstAttribute="top" secondItem="s8R-a4-eQC" secondAttribute="bottom" id="b8R-Sn-aUl"/>
-                    <constraint firstAttribute="trailing" secondItem="nTZ-uT-vtT" secondAttribute="trailing" constant="10" id="bfT-rh-TLH"/>
                     <constraint firstItem="SXR-xC-9py" firstAttribute="top" secondItem="Zch-4O-hMr" secondAttribute="bottom" constant="15" id="c09-PS-g87"/>
                     <constraint firstItem="GWK-je-tzL" firstAttribute="leading" secondItem="cVJ-Yf-F7s" secondAttribute="leading" constant="10" id="cjL-g9-iBQ"/>
                     <constraint firstItem="6PP-Rp-TeB" firstAttribute="leading" secondItem="OlG-1a-mRw" secondAttribute="trailing" constant="4" id="dqi-Xt-BjU"/>
@@ -484,6 +469,7 @@
                     <constraint firstItem="AzH-N1-6wW" firstAttribute="leading" secondItem="cVJ-Yf-F7s" secondAttribute="leading" id="uqj-SE-AVg"/>
                     <constraint firstItem="q3Z-O7-8vJ" firstAttribute="top" secondItem="aDh-uw-q04" secondAttribute="top" id="uzn-eA-cWs"/>
                     <constraint firstAttribute="trailing" secondItem="H4u-Rv-DRT" secondAttribute="trailing" id="v8A-ha-S0z"/>
+                    <constraint firstAttribute="trailing" secondItem="dgD-cw-VT5" secondAttribute="trailing" constant="8" id="vom-BT-Jr3"/>
                     <constraint firstItem="gbE-FI-Mec" firstAttribute="centerX" secondItem="cVJ-Yf-F7s" secondAttribute="centerX" id="xM7-vh-KGE"/>
                     <constraint firstAttribute="bottom" secondItem="xKn-a1-XEL" secondAttribute="bottom" id="xku-4I-rX7"/>
                     <constraint firstItem="OlG-1a-mRw" firstAttribute="leading" secondItem="cVJ-Yf-F7s" secondAttribute="leading" constant="4" id="xql-Vd-OEc"/>
@@ -497,6 +483,7 @@
                 <outlet property="buttonSave" destination="aQl-uJ-gHw" id="HFW-AV-fiy"/>
                 <outlet property="collectionView" destination="H4u-Rv-DRT" id="PSI-zb-ddJ"/>
                 <outlet property="constraintLineBottonHeight" destination="9pu-Kt-1bf" id="7wp-3k-HWa"/>
+                <outlet property="imageViewDiscount" destination="SYb-mn-Iry" id="HaL-vX-BhP"/>
                 <outlet property="imageViewLike" destination="hNq-OQ-WwU" id="kOI-td-5PT"/>
                 <outlet property="imageViewShopAvatar" destination="GWK-je-tzL" id="ZRZ-D4-fub"/>
                 <outlet property="labelDate1" destination="YeX-rk-4Qr" id="pIe-yi-5De"/>
@@ -513,13 +500,12 @@
                 <outlet property="labelUserSaved" destination="vgG-Cc-TfC" id="qjB-8W-agh"/>
                 <outlet property="laberMinute2" destination="bVQ-z3-YuX" id="vHh-iV-f3h"/>
             </connections>
-            <point key="canvasLocation" x="-68" y="119.5"/>
+            <point key="canvasLocation" x="-68" y="145"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="IconDiscountPer" width="100" height="134"/>
         <image name="IconLike" width="50" height="50"/>
-        <image name="IconShare" width="44" height="44"/>
         <image name="IconShopLocation" width="12" height="16"/>
         <image name="ShopAvatar" width="40" height="40"/>
     </resources>

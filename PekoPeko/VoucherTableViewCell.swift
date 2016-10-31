@@ -10,7 +10,7 @@ import UIKit
 import Haneke
 
 protocol VoucherTableViewCellDelegate: class {
-    func voucherTapped(voucher: Voucher?)
+    func voucherTapped(voucher: Voucher?, completionHandler: @escaping (Bool) -> Void)
 }
 
 class VoucherTableViewCell: UITableViewCell {
@@ -49,31 +49,11 @@ class VoucherTableViewCell: UITableViewCell {
                 }
                 
                 if let totalUses = voucher.totalUses {
-                    let attributedText = NSMutableAttributedString()
-                    let attribute1 = [NSFontAttributeName: UIFont.getFont(14), NSForegroundColorAttributeName: UIColor.colorBrown]
-                    let variety1 = NSAttributedString(string: "Đã sử dụng: ", attributes: attribute1)
-                    attributedText.append(variety1)
-                    let attribute2 = [NSFontAttributeName: UIFont.getBoldFont(14), NSForegroundColorAttributeName: UIColor.colorOrange]
-                    let variety2 = NSAttributedString(string: "\(totalUses)", attributes: attribute2)
-                    attributedText.append(variety2)
-                    
-                    labelUser.attributedText = attributedText
-                    
-                    if let maxUses = voucher.maxUses {
-                        
-                        let attributedText = NSMutableAttributedString()
-                        let attribute1 = [NSFontAttributeName: UIFont.getFont(14), NSForegroundColorAttributeName: UIColor.colorBrown]
-                        let variety1 = NSAttributedString(string: "Còn lại: ", attributes: attribute1)
-                        attributedText.append(variety1)
-                        let attribute2 = [NSFontAttributeName: UIFont.getBoldFont(30), NSForegroundColorAttributeName: UIColor.colorOrange]
-                        let variety2 = NSAttributedString(string: "\(maxUses - totalUses)", attributes: attribute2)
-                        attributedText.append(variety2)
-                        
-                        let variety3 = NSAttributedString(string: " xuất", attributes: attribute1)
-                        attributedText.append(variety3)
-                        
-                        labelExtant.attributedText = attributedText
-                    }
+                    self.totalUses = totalUses
+                }
+                
+                if let maxUses = voucher.maxUses {
+                    self.maxUses = maxUses
                 }
                 
                 if let shop = voucher.shop {
@@ -99,6 +79,37 @@ class VoucherTableViewCell: UITableViewCell {
         }
     }
     
+    var totalUses: Int = 0 {
+        didSet {
+            let attributedText = NSMutableAttributedString()
+            let attribute1 = [NSFontAttributeName: UIFont.getFont(14), NSForegroundColorAttributeName: UIColor.colorBrown]
+            let variety1 = NSAttributedString(string: "Đã sử dụng: ", attributes: attribute1)
+            attributedText.append(variety1)
+            let attribute2 = [NSFontAttributeName: UIFont.getBoldFont(14), NSForegroundColorAttributeName: UIColor.colorOrange]
+            let variety2 = NSAttributedString(string: "\(totalUses)", attributes: attribute2)
+            attributedText.append(variety2)
+            
+            labelUser.attributedText = attributedText
+        }
+    }
+    
+    var maxUses: Int = 0 {
+        didSet {
+            let attributedText = NSMutableAttributedString()
+            let attribute1 = [NSFontAttributeName: UIFont.getFont(14), NSForegroundColorAttributeName: UIColor.colorBrown]
+            let variety1 = NSAttributedString(string: "Còn lại: ", attributes: attribute1)
+            attributedText.append(variety1)
+            let attribute2 = [NSFontAttributeName: UIFont.getBoldFont(30), NSForegroundColorAttributeName: UIColor.colorOrange]
+            let variety2 = NSAttributedString(string: "\(maxUses - totalUses)", attributes: attribute2)
+            attributedText.append(variety2)
+            
+            let variety3 = NSAttributedString(string: " xuất", attributes: attribute1)
+            attributedText.append(variety3)
+            
+            labelExtant.attributedText = attributedText
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setupBorder()
@@ -120,6 +131,14 @@ class VoucherTableViewCell: UITableViewCell {
     }
     
     @IBAction func buttonCellTapped(_ sender: AnyObject) {
-        delegate?.voucherTapped(voucher: voucher)
+        weak var _self = self
+        delegate?.voucherTapped(voucher: voucher, completionHandler: { (success) in
+            if let _self = _self {
+                if success {
+                    _self.totalUses = _self.totalUses + 1
+                    _self.maxUses = Int(_self.maxUses)
+                }
+            }
+        })
     }
 }

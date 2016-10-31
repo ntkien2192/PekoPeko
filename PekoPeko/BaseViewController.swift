@@ -21,6 +21,8 @@ class BaseViewController: UIViewController {
         if let navigationController = navigationController {
             navigationController.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.colorBrown]
         }
+        
+        self.automaticallyAdjustsScrollViewInsets = false
     }
     
     override func didReceiveMemoryWarning() {

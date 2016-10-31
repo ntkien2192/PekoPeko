@@ -12,6 +12,7 @@ import DZNEmptyDataSet
 
 protocol MyDealViewControllerDelegate: class {
     func discoverTapped(discover: Discover?)
+    func myDiscoverUpdated()
 }
 
 class MyDealViewController: BaseViewController {
@@ -49,7 +50,7 @@ class MyDealViewController: BaseViewController {
         super.viewConfig()
         
         tableView.tableFooterView = UIView()
-        tableView.register(UINib(nibName: DealTableViewCell.identify, bundle: nil), forCellReuseIdentifier: DealTableViewCell.identify)
+        tableView.register(UINib(nibName: MyDealTableViewCell.identify, bundle: nil), forCellReuseIdentifier: MyDealTableViewCell.identify)
         
         refreshControl = UIRefreshControl()
         if let refreshControl = refreshControl {
@@ -123,7 +124,7 @@ extension MyDealViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: DealTableViewCell.identify, for: indexPath) as! DealTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: MyDealTableViewCell.identify, for: indexPath) as! MyDealTableViewCell
         
         let discover = discovers[indexPath.row]
         cell.discover = discover
@@ -131,78 +132,88 @@ extension MyDealViewController: UITableViewDataSource {
         cell.delegate = self
         
         if isNext && self.tableView.tag == 0 && indexPath.row == discovers.count - 1 {
-            
             preID = [discover.discoverID ?? ""]
             lastTime = discover.savedAt
             self.tableView.tag = 1
             getMyDeal()
-            
         }
         
         return cell
     }
 }
 
-extension MyDealViewController: DealTableViewCellDelegate {
-    func shareDiscoverTapped(discover: Discover?) {
+extension MyDealViewController: MyDealTableViewCellDelegate {
+
+    func moreDiscoverTapped(discover: Discover?) {
         
+        weak var _self = self
+        
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let deleteAction = UIAlertAction(title: "Xoá Deal", style: .destructive) { (action) in
+            if let _self = _self {
+                let alertView = AlertView(frame: _self.view.bounds)
+                alertView.message = "Xác nhận xoá Deal?"
+                alertView.setButtonSubmit("Xoá", action: {
+                    
+                    if let discover = discover, let dealID = discover.discoverID {
+                        let loadingNotification = MBProgressHUD.showAdded(to: _self.view, animated: true)
+                        loadingNotification.mode = MBProgressHUDMode.indeterminate
+                        weak var _self = self
+                        DiscoverStore.unsaveDeal(dealID: dealID, completionHandler: { (success, error) in
+                            if let _self = _self {
+                                loadingNotification.hide(animated: true)
+                                guard error == nil else {
+                                    if let error = error as? ServerResponseError, let data = error.data {
+                                        let messageView = MessageView(frame: _self.view.bounds)
+                                        messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
+                                        messageView.setButtonClose("Đóng", action: {
+                                            if !AuthenticationStore().isLogin {
+                                                HomeTabbarController.sharedInstance.logOut()
+                                            }
+                                        })
+                                        _self.addFullView(view: messageView)
+                                    }
+                                    return
+                                }
+                                
+                                if success {
+                                    var tempDiscover = [Discover]()
+                                    for mainDiscover in _self.discovers {
+                                        if let mainDiscoverID = mainDiscover.discoverID {
+                                            if mainDiscoverID != dealID {
+                                                tempDiscover.append(mainDiscover)
+                                            }
+                                        }
+                                    }
+                                    _self.discovers = tempDiscover
+                                    _self.delegate?.myDiscoverUpdated()
+                                }
+                            }
+                        })
+                    }
+                    
+                })
+                _self.addFullView(view: alertView)
+            }
+        }
+        alertController.addAction(deleteAction)
+        
+        let cancleAction = UIAlertAction(title: "Huỷ", style: .cancel, handler: nil)
+        alertController.addAction(cancleAction)
+        
+        if let topController = AppDelegate.topController() {
+            topController.present(alertController, animated: true, completion: nil)
+        }
     }
     
-    func saveDiscoverTapped(discover: Discover?, isSaved: Bool, completionHandler: @escaping (Bool) -> Void) {
-        if let discover = discover, let dealID = discover.discoverID {
-            if isSaved {
-                let loadingNotification = MBProgressHUD.showAdded(to: view, animated: true)
-                loadingNotification.mode = MBProgressHUDMode.indeterminate
-                weak var _self = self
-                DiscoverStore.unsaveDeal(dealID: dealID, completionHandler: { (success, error) in
-                    if let _self = _self {
-                        loadingNotification.hide(animated: true)
-                        guard error == nil else {
-                            if let error = error as? ServerResponseError, let data = error.data {
-                                let messageView = MessageView(frame: _self.view.bounds)
-                                messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
-                                messageView.setButtonClose("Đóng", action: {
-                                    if !AuthenticationStore().isLogin {
-                                        HomeTabbarController.sharedInstance.logOut()
-                                    }
-                                })
-                                _self.addFullView(view: messageView)
-                            }
-                            return
-                        }
-                        
-                        if success {
-                            completionHandler(true)
-                        }
-                    }
-                })
-            } else {
-                let loadingNotification = MBProgressHUD.showAdded(to: view, animated: true)
-                loadingNotification.mode = MBProgressHUDMode.indeterminate
-                weak var _self = self
-                DiscoverStore.saveDeal(dealID: dealID, completionHandler: { (success, error) in
-                    if let _self = _self {
-                        loadingNotification.hide(animated: true)
-                        guard error == nil else {
-                            if let error = error as? ServerResponseError, let data = error.data {
-                                let messageView = MessageView(frame: _self.view.bounds)
-                                messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
-                                messageView.setButtonClose("Đóng", action: {
-                                    if !AuthenticationStore().isLogin {
-                                        HomeTabbarController.sharedInstance.logOut()
-                                    }
-                                })
-                                _self.addFullView(view: messageView)
-                            }
-                            return
-                        }
-                        
-                        if success {
-                            completionHandler(true)
-                        }
-                    }
-                })
-            }
+    func useDiscoverTapped(discover: Discover?, completionHandler: @escaping (Bool) -> Void) {
+        let redeemViewController = UIStoryboard(name: RedeemViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: RedeemViewController.identify) as! RedeemViewController
+        redeemViewController.setSuccessHandle {
+            completionHandler(true)
+        }
+        redeemViewController.deal = discover
+        if let topController = AppDelegate.topController() {
+            topController.present(redeemViewController, animated: true, completion: nil)
         }
     }
     
@@ -235,6 +246,7 @@ extension MyDealViewController: DealTableViewCellDelegate {
                         
                         if success {
                             completionHandler(true)
+                            _self.delegate?.myDiscoverUpdated()
                         }
                     }
                 })
@@ -261,6 +273,7 @@ extension MyDealViewController: DealTableViewCellDelegate {
                         
                         if success {
                             completionHandler(true)
+                            _self.delegate?.myDiscoverUpdated()
                         }
                     }
                 })

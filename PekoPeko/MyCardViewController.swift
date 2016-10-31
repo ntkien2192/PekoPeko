@@ -27,11 +27,9 @@ class MyCardViewController: BaseViewController {
     
     var nextPage: String?
     
-    var cards: [Card]? {
+    var cards = [Card]() {
         didSet {
-            if cards != nil {
-                tableView.reloadData()
-            }
+            tableView.reloadData()
         }
     }
     
@@ -53,7 +51,13 @@ class MyCardViewController: BaseViewController {
         }
     }
     
+    func reload() {
+        tableView.reloadData()
+    }
+    
     func reloadMyCard() {
+        cards.removeAll()
+        nextPage = "0"
         getMyCard()
     }
     
@@ -81,7 +85,7 @@ class MyCardViewController: BaseViewController {
                 
                 if let cardResponse = cardResponse {
                     if let cards = cardResponse.cards {
-                        _self.cards = cards
+                        _self.cards.append(contentsOf: cards)
                     }
                     if let pagination = cardResponse.pagination, let nextPage = pagination.nextPage {
                         _self.nextPage = nextPage
@@ -104,40 +108,31 @@ class MyCardViewController: BaseViewController {
 
 extension MyCardViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let cards = cards {
-            return cards.count
-        }
-        return 0
+        return cards.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cards = cards {
-            let card = cards[indexPath.row]
-            if card.isReward() {
-                let cell = tableView.dequeueReusableCell(withIdentifier: MyCardRewardTableViewCell.identify, for: indexPath) as! MyCardRewardTableViewCell
-                cell.delegate = self
-                cell.card = card
-                
-                if nextPage != "NO" && self.tableView.tag == 0 && indexPath.row == cards.count - 1 {
-                    self.tableView.tag = 1
-                    getMyCard()
-                }
-                
-                return cell
-            } else {
-                let cell = tableView.dequeueReusableCell(withIdentifier: MyCardTableViewCell.identify, for: indexPath) as! MyCardTableViewCell
-                cell.delegate = self
-                cell.card = card
-                
-                if nextPage != "NO" && self.tableView.tag == 0 && indexPath.row == cards.count - 1 {
-                    self.tableView.tag = 1
-                    getMyCard()
-                }
-                
-                return cell
-            }
+        
+        let card = cards[indexPath.row]
+        
+        if nextPage != "NO" && self.tableView.tag == 0 && indexPath.row == cards.count - 1 {
+            self.tableView.tag = 1
+            getMyCard()
         }
-        return UITableViewCell()
+        
+        if card.isReward() {
+            let cell = tableView.dequeueReusableCell(withIdentifier: MyCardRewardTableViewCell.identify, for: indexPath) as! MyCardRewardTableViewCell
+            cell.delegate = self
+            cell.card = card
+            
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: MyCardTableViewCell.identify, for: indexPath) as! MyCardTableViewCell
+            cell.delegate = self
+            cell.card = card
+            
+            return cell
+        }
     }
 }
 
@@ -178,17 +173,15 @@ extension MyCardViewController: MyCardTableViewCellDelegate, MyCardRewardTableVi
                             }
                             
                             if success {
-                                if let cards = _self.cards {
-                                    var tempCard: [Card] = [Card]()
-                                    for mainCard in cards {
-                                        if let mainCardID = mainCard.shopID {
-                                            if mainCardID != cardID {
-                                                tempCard.append(mainCard)
-                                            }
+                                var tempCard: [Card] = [Card]()
+                                for mainCard in _self.cards {
+                                    if let mainCardID = mainCard.shopID {
+                                        if mainCardID != cardID {
+                                            tempCard.append(mainCard)
                                         }
                                     }
-                                    _self.cards = tempCard
                                 }
+                                _self.cards = tempCard
                             }
                         })
                     }

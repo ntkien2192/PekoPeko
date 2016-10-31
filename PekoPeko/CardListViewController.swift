@@ -27,11 +27,9 @@ class CardListViewController: BaseViewController {
     let locationManager = CLLocationManager()
     var userLocation: Location?
     
-    var cards: [Card]? {
+    var cards = [Card]() {
         didSet {
-            if cards != nil {
-                tableView.reloadData()
-            }
+            tableView.reloadData()
         }
     }
     
@@ -39,10 +37,6 @@ class CardListViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
     }
     
     override func viewConfig() {
@@ -67,7 +61,12 @@ class CardListViewController: BaseViewController {
         locationManager.startUpdatingLocation()
     }
     
+    func reload() {
+        tableView.reloadData()
+    }
+    
     func reloadAllCard() {
+        cards.removeAll()
         nextPage = "0"
         getAllCard()
     }
@@ -96,7 +95,7 @@ class CardListViewController: BaseViewController {
                 
                 if let cardResponse = cardResponse {
                     if let cards = cardResponse.cards {
-                        _self.cards = cards
+                        _self.cards.append(contentsOf: cards)
                     }
                     if let pagination = cardResponse.pagination, let nextPage = pagination.nextPage {
                         _self.nextPage = nextPage
@@ -132,27 +131,19 @@ extension CardListViewController: CLLocationManagerDelegate {
 
 extension CardListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let cards = cards {
-            return cards.count
-        }
-        return 5
+        return cards.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cards = cards {
-            let cell = tableView.dequeueReusableCell(withIdentifier: CardTableViewCell.identify, for: indexPath) as! CardTableViewCell
-            cell.delegate = self
-            cell.card = cards[indexPath.row]
-            
-            if nextPage != "NO" && self.tableView.tag == 0 && indexPath.row == cards.count - 1 {
-                self.tableView.tag = 1
-                getAllCard()
-            }
-            
-            return cell
-            
+        let cell = tableView.dequeueReusableCell(withIdentifier: CardTableViewCell.identify, for: indexPath) as! CardTableViewCell
+        cell.delegate = self
+        cell.card = cards[indexPath.row]
+        
+        if nextPage != "NO" && self.tableView.tag == 0 && indexPath.row == cards.count - 1 {
+            self.tableView.tag = 1
+            getAllCard()
         }
-        let cell = tableView.dequeueReusableCell(withIdentifier: EmptyTableViewCell.identify, for: indexPath) as! EmptyTableViewCell
+        
         return cell
     }
 }

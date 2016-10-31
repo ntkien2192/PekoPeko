@@ -16,10 +16,16 @@ enum RowDisplayType: Int {
     case vipMember = -7
 }
 
+protocol CardDetailViewControllerDelegate: class {
+    func cardUpdated()
+}
+
 class CardDetailViewController: BaseViewController {
 
     static let storyboardName = "Card"
     static let identify = "CardDetailViewController"
+    
+    weak var delegate: CardDetailViewControllerDelegate?
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var buttonAddCard: Button!
@@ -28,7 +34,7 @@ class CardDetailViewController: BaseViewController {
     
     var rowDisplayType: [Int] = [Int]() {
         didSet {
-            tableView.reloadData()
+            self.tableView.reloadData()
         }
     }
     
@@ -253,6 +259,7 @@ class CardDetailViewController: BaseViewController {
                             return
                         }
                         _self.isAdded = success
+                        _self.delegate?.cardUpdated()
                     }
 
                 })
@@ -319,6 +326,12 @@ extension CardDetailViewController: UITableViewDataSource {
 }
 
 extension CardDetailViewController: DiscountCardTableViewCellDelegate {
+    func noMoreDiscountCardCellTapped(card: Card?) {
+        let messageView = MessageView(frame: view.bounds)
+        messageView.message = "Đã hết đợt giảm giá"
+        addFullView(view: messageView)
+    }
+
     func discountCardCellTapped(card: Card?) {
         if let addresses = addresses {
             if addresses.count == 1 {

@@ -118,15 +118,6 @@ class RewardTableViewCell: UITableViewCell {
             } else {
                 
                 buttonExchange.setBackgroundImage(UIImage(named: "ButtonExchangeOFF"), for: .normal)
-                
-//                if let reward = reward, let hpRequire = reward.hpRequire, let hpCurrent = reward.hpCurrent {
-//                    if hpRequire > hpCurrent {
-//                         buttonExchange.setBackgroundImage(UIImage(named: "ButtonExchangeOFF"), for: .normal)
-//                    } else {
-//                         buttonExchange.setBackgroundImage(UIImage(named: "ButtonExchangeOFF"), for: .normal)
-//                    }
-//                }
-               
             }
         }
     }

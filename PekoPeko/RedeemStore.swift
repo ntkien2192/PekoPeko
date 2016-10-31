@@ -44,9 +44,25 @@ class RedeemStore {
         })
     }
     
-    class func redeemVoucher(shopID: String, redeemRequest: RedeemRequest, completionHandler: @escaping (Bool, Error?) -> Void) {
+    class func redeemVoucher(voucherID: String, redeemRequest: RedeemRequest, completionHandler: @escaping (Bool, Error?) -> Void) {
         let parameters = redeemRequest.toJSON()
-        _ = Alamofire.request(Router.redeemVoucher(shopID, parameters as [String : AnyObject])).responseRedeem({ (response) in
+        _ = Alamofire.request(Router.redeemVoucher(voucherID, parameters as [String : AnyObject])).responseRedeem({ (response) in
+            if let error = response.result.error {
+                completionHandler(false, error)
+                return
+            }
+            guard response.result.value != nil else {
+                // TODO: Create error here
+                completionHandler(false, nil)
+                return
+            }
+            completionHandler(response.result.value ?? false, nil)
+        })
+    }
+    
+    class func redeemDeal(dealID: String, redeemRequest: RedeemRequest, completionHandler: @escaping (Bool, Error?) -> Void) {
+        let parameters = redeemRequest.toJSON()
+        _ = Alamofire.request(Router.redeemDeal(dealID, parameters as [String : AnyObject])).responseRedeem({ (response) in
             if let error = response.result.error {
                 completionHandler(false, error)
                 return

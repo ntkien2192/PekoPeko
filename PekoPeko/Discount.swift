@@ -25,7 +25,7 @@ class Discount: NSObject {
     var isVisible: Bool?
     
     var title: String?
-    var endedAt: Date?
+    var endedAt: Double?
     var isNeverEnd:Bool?
     var total: Int?
     var coverUrl: String?
@@ -35,13 +35,12 @@ class Discount: NSObject {
         isVisible = json[DiscountFields.Visible.rawValue].bool
         
         title = json[DiscountFields.Title.rawValue].string
-        let time = json[DiscountFields.EndedAt.rawValue].double
-        if let time = time {
-            if time < 0 {
+        endedAt = json[DiscountFields.EndedAt.rawValue].double
+        if let endedAt = endedAt {
+            if endedAt < 0 {
                 isNeverEnd = true
             } else {
                 isNeverEnd = false
-                endedAt = Date(timeIntervalSince1970: time)
             }
         }
         total = json[DiscountFields.Total.rawValue].int

@@ -106,7 +106,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="DefaultCellImage" width="500" height="300"/>
+        <image name="DefaultCellImage" width="500" height="500"/>
         <image name="IconRightArrow" width="44" height="44"/>
         <image name="IconShopLocation" width="12" height="16"/>
         <image name="ShopAvatar" width="40" height="40"/>

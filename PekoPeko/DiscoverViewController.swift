@@ -18,7 +18,10 @@ class DiscoverViewController: BaseViewController {
     var pageMenu: CAPSPageMenu?
     
     var discoverList: DiscoverListViewController?
+    var discoverListNeedUpdate: Bool = false
+    
     var myDealList: MyDealViewController?
+    var myDealListNeedUpdate: Bool = false
     
     var currnetPage: Int = 0
     
@@ -35,11 +38,13 @@ class DiscoverViewController: BaseViewController {
             if let pageMenu = pageMenu, let discoverList = discoverList, let myDealList = myDealList {
                 switch pageMenu.currentPageIndex {
                 case 0:
-                    if discoverList.discovers.count == 0 {
+                    if discoverList.discovers.count == 0 || discoverListNeedUpdate {
+                        discoverListNeedUpdate = false
                         discoverList.reloadAllDiscover()
                     }
                 case 1:
-                    if myDealList.discovers.count == 0 {
+                    if myDealList.discovers.count == 0 || myDealListNeedUpdate {
+                        myDealListNeedUpdate = false
                         myDealList.reloadMyDeal()
                     }
                     break
@@ -98,9 +103,15 @@ extension DiscoverViewController: CAPSPageMenuDelegate {
                 currnetPage = index
                 switch pageMenu.currentPageIndex {
                 case 0:
-                    discoverList.reloadAllDiscover()
+                    if discoverList.discovers.count == 0 || discoverListNeedUpdate {
+                        discoverListNeedUpdate = false
+                        discoverList.reloadAllDiscover()
+                    }
                 case 1:
-                    myDealList.reloadMyDeal()
+                    if myDealList.discovers.count == 0 || myDealListNeedUpdate {
+                        myDealListNeedUpdate = false
+                        myDealList.reloadMyDeal()
+                    }
                     break
                 default:
                     break
@@ -115,5 +126,13 @@ extension DiscoverViewController: DiscoverListViewControllerDelegate, MyDealView
         if let discover = discover {
             present(discover: discover)
         }
+    }
+    
+    func discoverUpdated() {
+        myDealListNeedUpdate = true
+    }
+    
+    func myDiscoverUpdated() {
+        discoverListNeedUpdate = true
     }
 }

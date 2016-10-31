@@ -257,7 +257,7 @@ class AddPointViewController: BaseViewController {
                                     addpointSuccessView.card = card
                                 }
                                 addpointSuccessView.honeyPot = honeyPot
-                                addpointSuccessView.setButtonClose("Quay lại thẻ", action: { 
+                                addpointSuccessView.setButtonClose("Quay lại", action: { 
                                     _self.dismiss(animated: true, completion: nil)
                                 })
                                 _self.addFullView(view: addpointSuccessView)

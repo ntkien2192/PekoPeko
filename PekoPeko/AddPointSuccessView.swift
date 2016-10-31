@@ -48,6 +48,10 @@ class AddPointSuccessView: UIView {
                 labelCardAddress.text = address
             }
             
+            if let addressList = card.addressList, let address = addressList.first, let addressContent = address.addressContent {
+               labelCardAddress.text = addressContent
+            }
+            
             if let shopCoverUrl = card.shopCoverUrl {
                 let cache = Shared.imageCache
                 let URL = NSURL(string: shopCoverUrl)!

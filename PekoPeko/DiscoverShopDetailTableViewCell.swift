@@ -52,7 +52,10 @@ class DiscoverShopDetailTableViewCell: UITableViewCell {
                     labelShopAddress.text = addressContent
                 }
                 
-                labelPrice.text = shop.avgPrice ?? "Chưa cập nhật"
+                if let avgPrice = shop.avgPrice {
+                    labelPrice.text = avgPrice.isEmpty ? "Chưa cập nhật" : avgPrice
+                    labelPrice.textColor = avgPrice.isEmpty ? UIColor.lightGray : UIColor.black
+                }
                 
                 if let workTime = shop.workTime {
                     if let openTime = workTime.openTime, let closeTime = workTime.closeTime {

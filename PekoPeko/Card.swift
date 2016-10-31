@@ -97,6 +97,11 @@ class Card: NSObject {
         self.shopName = shop.fullName
         self.addressList = shop.addresses
         self.shopAvatarUrl = shop.avatarUrl
+        
+        if let address = shop.address {
+            self.shopAddress = address.addressContent
+            self.cardAddress = address.addressContent
+        }
     }
     
     required init(json: JSON) {

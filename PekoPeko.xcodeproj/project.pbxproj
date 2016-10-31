@@ -165,7 +165,6 @@
 		E49404D81DA6B60800918C75 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E49404D71DA6B60800918C75 /* Home.storyboard */; };
 		E49404DA1DA6BB2100918C75 /* logoBar.png in Resources */ = {isa = PBXBuildFile; fileRef = E49404D91DA6BB2100918C75 /* logoBar.png */; };
 		E49D5A8F1DB1C62A001E19DD /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49D5A8E1DB1C62A001E19DD /* Point.swift */; };
-		E4C07B4E1DC3B55C00CE1F8A /* AppBackground in Resources */ = {isa = PBXBuildFile; fileRef = E4C07B4D1DC3B55C00CE1F8A /* AppBackground */; };
 		E4CC4A671DAF3991003B8385 /* DiscountCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CC4A651DAF3991003B8385 /* DiscountCardTableViewCell.swift */; };
 		E4CC4A681DAF3991003B8385 /* DiscountCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4CC4A661DAF3991003B8385 /* DiscountCardTableViewCell.xib */; };
 		E4E0414C1DB74576001E0226 /* MyCardRewardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E0414A1DB74576001E0226 /* MyCardRewardTableViewCell.swift */; };
@@ -183,6 +182,8 @@
 		E4EC1D8C1DB5C517005CECB6 /* ShopMenuShowMoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4EC1D8A1DB5C517005CECB6 /* ShopMenuShowMoreTableViewCell.xib */; };
 		E4EC1D8F1DB5DBB4005CECB6 /* WordTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EC1D8E1DB5DBB4005CECB6 /* WordTime.swift */; };
 		E4EC1D911DB5DBEB005CECB6 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EC1D901DB5DBEB005CECB6 /* Address.swift */; };
+		E4F252421DC4429200D70228 /* MyDealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F252401DC4429200D70228 /* MyDealTableViewCell.swift */; };
+		E4F252431DC4429200D70228 /* MyDealTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4F252411DC4429200D70228 /* MyDealTableViewCell.xib */; };
 		E4F5BB991DC33B0800C3FB59 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F5BB981DC33B0800C3FB59 /* ForgotPasswordViewController.swift */; };
 		E4F601771DBB0C71006309A5 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F601761DBB0C71006309A5 /* DiscoverViewController.swift */; };
 		E4F601791DBB13B0006309A5 /* DiscoverStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F601781DBB13AF006309A5 /* DiscoverStore.swift */; };
@@ -395,7 +396,6 @@
 		E49404D71DA6B60800918C75 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		E49404D91DA6BB2100918C75 /* logoBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoBar.png; sourceTree = "<group>"; };
 		E49D5A8E1DB1C62A001E19DD /* Point.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
-		E4C07B4D1DC3B55C00CE1F8A /* AppBackground */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppBackground; sourceTree = "<group>"; };
 		E4CC4A651DAF3991003B8385 /* DiscountCardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountCardTableViewCell.swift; sourceTree = "<group>"; };
 		E4CC4A661DAF3991003B8385 /* DiscountCardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiscountCardTableViewCell.xib; sourceTree = "<group>"; };
 		E4E0414A1DB74576001E0226 /* MyCardRewardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCardRewardTableViewCell.swift; sourceTree = "<group>"; };
@@ -413,6 +413,8 @@
 		E4EC1D8A1DB5C517005CECB6 /* ShopMenuShowMoreTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShopMenuShowMoreTableViewCell.xib; sourceTree = "<group>"; };
 		E4EC1D8E1DB5DBB4005CECB6 /* WordTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordTime.swift; sourceTree = "<group>"; };
 		E4EC1D901DB5DBEB005CECB6 /* Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		E4F252401DC4429200D70228 /* MyDealTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyDealTableViewCell.swift; sourceTree = "<group>"; };
+		E4F252411DC4429200D70228 /* MyDealTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyDealTableViewCell.xib; sourceTree = "<group>"; };
 		E4F5BB981DC33B0800C3FB59 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		E4F601761DBB0C71006309A5 /* DiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		E4F601781DBB13AF006309A5 /* DiscoverStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverStore.swift; sourceTree = "<group>"; };
@@ -1068,7 +1070,6 @@
 			isa = PBXGroup;
 			children = (
 				E42469F41DAE0FB200D0A074 /* Font */,
-				E4C07B4D1DC3B55C00CE1F8A /* AppBackground */,
 				E42469E31DADF64E00D0A074 /* item_top_loyalty_cards.png */,
 				E49404D91DA6BB2100918C75 /* logoBar.png */,
 				E49404A51DA6AD1B00918C75 /* Assets.xcassets */,
@@ -1138,6 +1139,7 @@
 				E41B7F851DC08F1A0036DFAE /* ImageCollectionViewCell */,
 				E462CA6B1DBDAD4F001D5D5A /* DiscoverDetailTableViewCell */,
 				E4C00C3F1DBCE63600EE3CF4 /* DealTableViewCell */,
+				E4F2523F1DC4427600D70228 /* MyDealTableViewCell */,
 			);
 			name = DiscoverTableViewCell;
 			sourceTree = "<group>";
@@ -1196,6 +1198,15 @@
 				E4EC1D8A1DB5C517005CECB6 /* ShopMenuShowMoreTableViewCell.xib */,
 			);
 			name = ShopMenuShowMoreTableViewCell;
+			sourceTree = "<group>";
+		};
+		E4F2523F1DC4427600D70228 /* MyDealTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				E4F252401DC4429200D70228 /* MyDealTableViewCell.swift */,
+				E4F252411DC4429200D70228 /* MyDealTableViewCell.xib */,
+			);
+			name = MyDealTableViewCell;
 			sourceTree = "<group>";
 		};
 		E4F601841DBB2BCA006309A5 /* PromoViewController */ = {
@@ -1356,6 +1367,7 @@
 				E42469FE1DAE101C00D0A074 /* ProximaNovaSoft-Regular.otf in Resources */,
 				E4246A001DAE101C00D0A074 /* ProximaNovaSoft-Semibold.otf in Resources */,
 				E4EC1D7C1DB5C30C005CECB6 /* ShopMenuTableViewCell.xib in Resources */,
+				E4F252431DC4429200D70228 /* MyDealTableViewCell.xib in Resources */,
 				E4E041521DB75054001E0226 /* ShopMenuCollectionViewCell.xib in Resources */,
 				E47E58881DC0B699001400E0 /* DealImageView.xib in Resources */,
 				E427F8E51DAF5F580012F3F5 /* RewardTableViewCell.xib in Resources */,
@@ -1392,7 +1404,6 @@
 				E4246A0D1DAE411A00D0A074 /* DetailCardHeaderTableViewCell.xib in Resources */,
 				E4364F131DBCA28100EFCF41 /* Discover.storyboard in Resources */,
 				E41B7F771DC06A5B0036DFAE /* DealTimeTableViewCell.xib in Resources */,
-				E4C07B4E1DC3B55C00CE1F8A /* AppBackground in Resources */,
 				E4EC1D841DB5C352005CECB6 /* ShopMenuTitleTableViewCell.xib in Resources */,
 				E4271BF11DB4727900B485B3 /* CardAddressView.xib in Resources */,
 				E427F8E91DAF790C0012F3F5 /* Reward10TableViewCell.xib in Resources */,
@@ -1550,6 +1561,7 @@
 				E4336D6D1DBC737A002E9F5C /* VoucherStore.swift in Sources */,
 				E4F5BB991DC33B0800C3FB59 /* ForgotPasswordViewController.swift in Sources */,
 				E43D2C821DA7F6C40019B2DD /* LoginViewController.swift in Sources */,
+				E4F252421DC4429200D70228 /* MyDealTableViewCell.swift in Sources */,
 				E42469DD1DADE79100D0A074 /* CardRequest.swift in Sources */,
 				E4364F111DBC9ABB00EFCF41 /* DiscoverResponse.swift in Sources */,
 				E4EC1D7F1DB5C32C005CECB6 /* ShopMenu2TableViewCell.swift in Sources */,

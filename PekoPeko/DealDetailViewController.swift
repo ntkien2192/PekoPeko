@@ -96,7 +96,9 @@ class DealDetailViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        reloadDiscoverInfo()
+        if discover == nil {
+            reloadDiscoverInfo()
+        }
     }
     
     func reloadDiscoverInfo() {
@@ -156,34 +158,34 @@ extension DealDetailViewController: UITableViewDataSource {
         let cellType = rowDisplayType[indexPath.row]
         
         switch cellType {
-        case -10:
+        case DealRowDisplayType.header.rawValue:
             let cell = tableView.dequeueReusableCell(withIdentifier: DiscoverShopDetailTableViewCell.identify, for: indexPath) as! DiscoverShopDetailTableViewCell
             cell.discover = discover
             cell.delegate = self
             return cell
-        case -9:
+        case DealRowDisplayType.time.rawValue:
             let cell = tableView.dequeueReusableCell(withIdentifier: DealTimeTableViewCell.identify, for: indexPath) as! DealTimeTableViewCell
             cell.discover = discover
             return cell
-        case -8:
+        case DealRowDisplayType.images.rawValue:
             let cell = tableView.dequeueReusableCell(withIdentifier: DealImageTableViewCell.identify, for: indexPath) as! DealImageTableViewCell
             cell.discover = discover
             cell.delegate = self
             return cell
-        case -7:
+        case DealRowDisplayType.price.rawValue:
             let cell = tableView.dequeueReusableCell(withIdentifier: DealPriceTableViewCell.identify, for: indexPath) as! DealPriceTableViewCell
             cell.discover = discover
             return cell
-        case -6:
+        case DealRowDisplayType.multiPrice.rawValue:
             let cell = tableView.dequeueReusableCell(withIdentifier: DealMultiPriceTableViewCell.identify, for: indexPath) as! DealMultiPriceTableViewCell
             cell.discover = discover
             return cell
-        case -5:
+        case DealRowDisplayType.control.rawValue:
             let cell = tableView.dequeueReusableCell(withIdentifier: DealControlTableViewCell.identify, for: indexPath) as! DealControlTableViewCell
             cell.discover = discover
             cell.delegate = self
             return cell
-        case -4:
+        case DealRowDisplayType.desc.rawValue:
             let cell = tableView.dequeueReusableCell(withIdentifier: DealDescriptionTableViewCell.identify, for: indexPath) as! DealDescriptionTableViewCell
             cell.discover = discover
             return cell
@@ -223,6 +225,17 @@ extension DealDetailViewController: DiscoverShopDetailTableViewCellDelegate {
 }
 
 extension DealDetailViewController: DealControlTableViewCellDelegate {
+    func useDiscoverTapped(discover: Discover?, completionHandler: @escaping (Bool) -> Void) {
+        let redeemViewController = UIStoryboard(name: RedeemViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: RedeemViewController.identify) as! RedeemViewController
+        redeemViewController.setSuccessHandle {
+            completionHandler(true)
+        }
+        redeemViewController.deal = discover
+        if let topController = AppDelegate.topController() {
+            topController.present(redeemViewController, animated: true, completion: nil)
+        }
+    }
+    
     func saveDiscoverTapped(discover: Discover?, isSaved: Bool, completionHandler: @escaping (Bool) -> Void) {
         if let discover = discover, let dealID = discover.discoverID {
             if isSaved {

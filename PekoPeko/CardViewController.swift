@@ -12,7 +12,10 @@ class CardViewController: UIViewController {
     var pageMenu: CAPSPageMenu?
     
     var storyList: CardListViewController?
+    var storyListNeedUpdate: Bool = false
+    
     var myCardList: MyCardViewController?
+    var myCardListNeedUpdate: Bool = false
     
     var currnetPage: Int = 0
     
@@ -48,9 +51,19 @@ class CardViewController: UIViewController {
         if let pageMenu = pageMenu, let storyList = storyList, let myCardList = myCardList {
             switch pageMenu.currentPageIndex {
             case 0:
-                storyList.reloadAllCard()
+                if storyList.cards.count == 0 || storyListNeedUpdate {
+                    storyListNeedUpdate = false
+                    storyList.reloadAllCard()
+                } else {
+                    storyList.reload()
+                }
             case 1:
-                myCardList.reloadMyCard()
+                if myCardList.cards.count == 0 || myCardListNeedUpdate {
+                    myCardListNeedUpdate = false
+                    myCardList.reloadMyCard()
+                } else {
+                    myCardList.reload()
+                }
             default:
                 break
             }
@@ -61,7 +74,7 @@ class CardViewController: UIViewController {
         if let card = card, let shopID = card.shopID {
             let cardDetailViewController = UIStoryboard(name: CardDetailViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: CardDetailViewController.identify) as! CardDetailViewController
             cardDetailViewController.cardID = shopID
-            
+            cardDetailViewController.delegate = self
             if let navigationController = navigationController {
                 navigationController.show(cardDetailViewController, sender: nil)
             }
@@ -75,6 +88,12 @@ class CardViewController: UIViewController {
 
 }
 
+extension CardViewController: CardDetailViewControllerDelegate {
+    func cardUpdated() {
+        myCardListNeedUpdate = true
+    }
+}
+
 extension CardViewController: CAPSPageMenuDelegate {
     func didMoveToPage(_ controller: UIViewController, index: Int) {
         if let pageMenu = pageMenu, let storyList = storyList, let myCardList = myCardList {
@@ -82,9 +101,19 @@ extension CardViewController: CAPSPageMenuDelegate {
                 currnetPage = index
                 switch pageMenu.currentPageIndex {
                 case 0:
-                    storyList.reloadAllCard()
+                    if storyList.cards.count == 0 || storyListNeedUpdate {
+                        storyListNeedUpdate = false
+                        storyList.reloadAllCard()
+                    } else {
+                        storyList.reload()
+                    }
                 case 1:
-                    myCardList.reloadMyCard()
+                    if myCardList.cards.count == 0 || myCardListNeedUpdate {
+                        myCardListNeedUpdate = false
+                        myCardList.reloadMyCard()
+                    } else {
+                        myCardList.reload()
+                    }
                 default:
                     break
                 }

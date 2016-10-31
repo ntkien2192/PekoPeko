@@ -12,6 +12,7 @@ import UIKit
 protocol DealControlTableViewCellDelegate: class {
     func saveDiscoverTapped(discover: Discover?, isSaved: Bool, completionHandler: @escaping (Bool) -> Void)
     func likeDiscoverTapped(discover: Discover?, isLiked: Bool, completionHandler: @escaping (Bool) -> Void)
+    func useDiscoverTapped(discover: Discover?, completionHandler: @escaping (Bool) -> Void)
 }
 
 class DealControlTableViewCell: UITableViewCell {
@@ -40,17 +41,46 @@ class DealControlTableViewCell: UITableViewCell {
     
     var isSaved: Bool = false {
         didSet {
-            if isSaved {
-                buttonSave.setTitle("Đã lưu", for: .normal)
+            reloadDealStep()
+            
+            labelUserSaved.animation = "zoomIn"
+            labelUserSaved.animate()
+        }
+    }
+    
+    var isUsed: Bool = false {
+        didSet {
+            if isUsed {
+                buttonSave.setTitle("Đã sử dụng", for: .normal)
                 buttonSave.setTitleColor(UIColor.colorOrange, for: .normal)
                 buttonSave.backgroundColor = UIColor.RGB(245, green: 245, blue: 245)
+            } else {
+                buttonSave.setTitle("Sử Dụng", for: .normal)
+                buttonSave.setTitleColor(UIColor.white, for: .normal)
+                buttonSave.backgroundColor = UIColor.RGB(45, green: 204, blue: 112)
+            }
+        }
+    }
+    
+    var isExpire: Bool = false {
+        didSet {
+            reloadDealStep()
+        }
+    }
+    
+    func reloadDealStep() {
+        if isExpire {
+            buttonSave.setTitle("Đã Hết Hạn", for: .normal)
+            buttonSave.setTitleColor(UIColor.white, for: .normal)
+            buttonSave.backgroundColor = UIColor.darkGray
+        } else {
+            if isSaved {
+                isUsed = Bool(isUsed)
             } else {
                 buttonSave.setTitle("Lưu Deal", for: .normal)
                 buttonSave.setTitleColor(UIColor.white, for: .normal)
                 buttonSave.backgroundColor = UIColor.colorOrange
             }
-            labelUserSaved.animation = "zoomIn"
-            labelUserSaved.animate()
         }
     }
     
@@ -94,9 +124,13 @@ class DealControlTableViewCell: UITableViewCell {
                     totalSave = totalSaves
                 }
                 
-                isLiked = discover.isLiked ?? false
+                isLiked = discover.isLiked
                 
-                isSaved = discover.isSave ?? false
+                isUsed = discover.isUsed
+                
+                isSaved = discover.isSave
+                
+                isExpire = discover.isExpire
                 
                 if let totalLikes = discover.totalLikes {
                     totalLike = totalLikes
@@ -126,22 +160,38 @@ class DealControlTableViewCell: UITableViewCell {
     }
     
     @IBAction func buttonSaveDealTapped(_ sender: AnyObject) {
-        weak var _self = self
-        delegate?.saveDiscoverTapped(discover: discover, isSaved: isSaved, completionHandler: { (success) in
-            if let _self = _self, let discover = _self.discover {
-                if success {
-                    if _self.isSaved {
-                        discover.isSave = false
-                        discover.totalSaves = (discover.totalSaves ?? 1) - 1
-                        
-                    } else {
-                        discover.isSave = true
-                        discover.totalSaves = (discover.totalSaves ?? 0) + 1
-                    }
-                    _self.totalSave = discover.totalSaves ?? 0
-                    _self.isSaved = !_self.isSaved
+        if !isExpire {
+            if isSaved {
+                if !isUsed {
+                    weak var _self = self
+                    delegate?.useDiscoverTapped(discover: discover, completionHandler: { (success) in
+                        if let _self = _self, let discover = _self.discover {
+                            if success {
+                                discover.isUsed = true
+                                _self.isUsed = true
+                            }
+                        }
+                    })
                 }
+            } else {
+                weak var _self = self
+                delegate?.saveDiscoverTapped(discover: discover, isSaved: isSaved, completionHandler: { (success) in
+                    if let _self = _self, let discover = _self.discover {
+                        if success {
+                            if _self.isSaved {
+                                discover.isSave = false
+                                discover.totalSaves = (discover.totalSaves ?? 1) - 1
+                                
+                            } else {
+                                discover.isSave = true
+                                discover.totalSaves = (discover.totalSaves ?? 0) + 1
+                            }
+                            _self.totalSave = discover.totalSaves ?? 0
+                            _self.isSaved = !_self.isSaved
+                        }
+                    }
+                })
             }
-        })
+        }
     }
 }

@@ -10,7 +10,6 @@ import UIKit
 import Haneke
 
 protocol DealTableViewCellDelegate: class {
-    func shareDiscoverTapped(discover: Discover?)
     func saveDiscoverTapped(discover: Discover?, isSaved: Bool, completionHandler: @escaping (Bool) -> Void)
     func discoverTapped(discover: Discover?)
     func likeDiscoverTapped(discover: Discover?, isLiked: Bool, completionHandler: @escaping (Bool) -> Void)
@@ -44,6 +43,7 @@ class DealTableViewCell: UITableViewCell {
     
     @IBOutlet weak var imageViewLike: ImageView!
     @IBOutlet weak var labelLike: UILabel!
+    @IBOutlet weak var imageViewDiscount: UIImageView!
     
     var isLast: Bool = false {
         didSet {
@@ -76,6 +76,16 @@ class DealTableViewCell: UITableViewCell {
                 buttonSave.setTitle("Lưu Deal", for: .normal)
                 buttonSave.setTitleColor(UIColor.white, for: .normal)
                 buttonSave.backgroundColor = UIColor.colorOrange
+            }
+        }
+    }
+    
+    var isEnd: Bool = false {
+        didSet {
+            if isEnd {
+                buttonSave.setTitle("Đã hết hạn", for: .normal)
+                buttonSave.setTitleColor(UIColor.white, for: .normal)
+                buttonSave.backgroundColor = UIColor.darkGray
             }
         }
     }
@@ -174,50 +184,51 @@ class DealTableViewCell: UITableViewCell {
                     }
                 }
                 
-                if let content = discover.content {
-                    labelDescription.text = content
-                }
+                labelDescription.text = discover.content ?? ""
                 
-                if let totalSaves = discover.totalSaves {
-                    totalSave = totalSaves
-                }
+                totalSave = discover.totalSaves ?? 0
                 
-                isLiked = discover.isLiked ?? false
+                isLiked = discover.isLiked
                 
-                isSaved = discover.isSave ?? false
+                isSaved = discover.isSave
                 
-                if let totalLikes = discover.totalLikes {
-                    totalLike = totalLikes
-                }
+                isEnd = discover.isExpire
                 
-                if let endedAt = discover.endedAt {
-                    endAt = endedAt
-                }
+                totalLike = discover.totalLikes ?? 0
+                
+                endAt = discover.endedAt ?? (0, 0, 0)
                 
                 if let priceOld = discover.priceOld {
-                    var newPrice = 0.0
+                    var newPrice: Float = 0.0
                     
                     if let priceNew = discover.priceNew {
-                        newPrice = Double(priceNew)
+                        newPrice = priceNew
                     } else {
                         if let step = discover.currentStep(), let priceNew = step.priceNew {
-                            newPrice = Double(priceNew)
+                            newPrice = priceNew
                         } else if let step = discover.firstStep(), let priceNew = step.priceNew {
-                            newPrice = Double(priceNew)
+                            newPrice = priceNew
                         }
                     }
                     
                     if let discountRate = discover.discountRate {
-                        let attributedText = NSMutableAttributedString()
-                        let attribute1 = [NSFontAttributeName: UIFont.getBoldFont(15), NSForegroundColorAttributeName: UIColor.white]
-                        let variety1 = NSAttributedString(string: "\(NSString(format: "%.0f", discountRate))%\n", attributes: attribute1)
-                        attributedText.append(variety1)
-                        
-                        let attribute2 = [NSFontAttributeName: UIFont.getFont(8), NSForegroundColorAttributeName: UIColor.white]
-                        let variety2 = NSAttributedString(string: "OFF", attributes: attribute2)
-                        attributedText.append(variety2)
-                        
-                        labelDiscount.attributedText = attributedText
+                        if discountRate != 0 {
+                            imageViewDiscount.isHidden = false
+                            labelDiscount.isHidden = false
+                            let attributedText = NSMutableAttributedString()
+                            let attribute1 = [NSFontAttributeName: UIFont.getBoldFont(15), NSForegroundColorAttributeName: UIColor.white]
+                            let variety1 = NSAttributedString(string: "\(NSString(format: "%.0f", discountRate))%\n", attributes: attribute1)
+                            attributedText.append(variety1)
+                            
+                            let attribute2 = [NSFontAttributeName: UIFont.getFont(8), NSForegroundColorAttributeName: UIColor.white]
+                            let variety2 = NSAttributedString(string: "OFF", attributes: attribute2)
+                            attributedText.append(variety2)
+                            
+                            labelDiscount.attributedText = attributedText
+                        } else {
+                            imageViewDiscount.isHidden = true
+                            labelDiscount.isHidden = true
+                        }
                     }
                     
                     let formatter = NumberFormatter()
@@ -277,30 +288,28 @@ class DealTableViewCell: UITableViewCell {
         })
     }
     
-    @IBAction func buttonShareTapped(_ sender: AnyObject) {
-        delegate?.shareDiscoverTapped(discover: discover)
-    }
-    
     @IBAction func buttonSaveDealTapped(_ sender: AnyObject) {
-        weak var _self = self
-        delegate?.saveDiscoverTapped(discover: discover, isSaved: isSaved, completionHandler: { (success) in
-            if let _self = _self, let discover = _self.discover {
-                if success {
-                    if _self.isSaved {
-                        discover.isSave = false
-                        discover.totalSaves = (discover.totalSaves ?? 1) - 1
-                        
-                    } else {
-                        discover.isSave = true
-                        discover.totalSaves = (discover.totalSaves ?? 0) + 1
+        if !isEnd {
+            weak var _self = self
+            delegate?.saveDiscoverTapped(discover: discover, isSaved: isSaved, completionHandler: { (success) in
+                if let _self = _self, let discover = _self.discover {
+                    if success {
+                        if _self.isSaved {
+                            discover.isSave = false
+                            discover.totalSaves = (discover.totalSaves ?? 1) - 1
+                            
+                        } else {
+                            discover.isSave = true
+                            discover.totalSaves = (discover.totalSaves ?? 0) + 1
+                        }
+                        _self.totalSave = discover.totalSaves ?? 0
+                        _self.isSaved = !_self.isSaved
+                        _self.labelUserSaved.animation = "zoomIn"
+                        _self.labelUserSaved.animate()
                     }
-                    _self.totalSave = discover.totalSaves ?? 0
-                    _self.isSaved = !_self.isSaved
-                    _self.labelUserSaved.animation = "zoomIn"
-                    _self.labelUserSaved.animate()
                 }
-            }
-        })
+            })
+        }
     }
     
     @IBAction func buttonCellTapped(_ sender: AnyObject) {

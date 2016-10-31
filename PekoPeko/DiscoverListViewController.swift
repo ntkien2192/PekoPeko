@@ -11,6 +11,7 @@ import MBProgressHUD
 
 protocol DiscoverListViewControllerDelegate: class {
     func discoverTapped(discover: Discover?)
+    func discoverUpdated()
 }
 
 class DiscoverListViewController: BaseViewController {
@@ -24,12 +25,11 @@ class DiscoverListViewController: BaseViewController {
     
     var refreshControl: UIRefreshControl?
     
-    var discovers: [Discover] = [Discover]() {
+    var discovers = [Discover]() {
         didSet {
             tableView.reloadData()
         }
     }
-    
     
     var isNext: Bool = false
     var preID: [String]?
@@ -143,10 +143,6 @@ extension DiscoverListViewController: UITableViewDataSource {
 }
 
 extension DiscoverListViewController: DealTableViewCellDelegate {
-    func shareDiscoverTapped(discover: Discover?) {
-        
-    }
-    
     func saveDiscoverTapped(discover: Discover?, isSaved: Bool, completionHandler: @escaping (Bool) -> Void) {
         if let discover = discover, let dealID = discover.discoverID {
             if isSaved {
@@ -172,6 +168,7 @@ extension DiscoverListViewController: DealTableViewCellDelegate {
                         
                         if success {
                             completionHandler(true)
+                            _self.delegate?.discoverUpdated()
                         }
                     }
                 })
@@ -198,6 +195,7 @@ extension DiscoverListViewController: DealTableViewCellDelegate {
                         
                         if success {
                             completionHandler(true)
+                            _self.delegate?.discoverUpdated()
                         }
                     }
                 })
@@ -234,6 +232,7 @@ extension DiscoverListViewController: DealTableViewCellDelegate {
                         
                         if success {
                             completionHandler(true)
+                            _self.delegate?.discoverUpdated()
                         }
                     }
                 })
@@ -260,6 +259,7 @@ extension DiscoverListViewController: DealTableViewCellDelegate {
                         
                         if success {
                             completionHandler(true)
+                            _self.delegate?.discoverUpdated()
                         }
                     }
                 })

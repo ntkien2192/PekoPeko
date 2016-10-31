@@ -27,7 +27,6 @@ class SettingViewController: BaseViewController {
     @IBOutlet weak var labelName: UILabel!
     
     var imagePicker: UIImagePickerController?
-    
     var refreshControl: UIRefreshControl?
     
     var avatar: UIImage? {
@@ -234,11 +233,15 @@ class SettingViewController: BaseViewController {
     }
     
     @IBAction func buttonRateAppTapped(_ sender: AnyObject) {
-        
+        let messageView = MessageView(frame: view.bounds)
+        messageView.message = "Chức năng này đang được phát triển"
+        addFullView(view: messageView)
     }
     
     @IBAction func buttonSendEmailTapped(_ sender: AnyObject) {
-        
+        let messageView = MessageView(frame: view.bounds)
+        messageView.message = "Chức năng này đang được phát triển"
+        addFullView(view: messageView)
     }
     
     /// Take Pictures Alert Button

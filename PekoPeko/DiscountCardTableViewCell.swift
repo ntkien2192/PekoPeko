@@ -12,6 +12,7 @@ import SwiftDate
 
 protocol DiscountCardTableViewCellDelegate: class {
     func discountCardCellTapped(card: Card?)
+    func noMoreDiscountCardCellTapped(card: Card?)
 }
 
 class DiscountCardTableViewCell: UITableViewCell {
@@ -44,25 +45,31 @@ class DiscountCardTableViewCell: UITableViewCell {
                 }
                 
                 if let total = discount.total, let usesNumber = discount.usesNumber {
-                    labelTotal.text = "x\(total - usesNumber)"
+                    if total - usesNumber > 0 {
+                        labelTotal.text = "x\(total - usesNumber)"
+                    } else {
+                        labelTotal.text = "x0"
+                        canAdd = false
+                    }
+                    
                 }
+                
                 if let isNeverEnd = discount.isNeverEnd {
                     if isNeverEnd {
                         labelDate.text = "Không Giới Hạn"
                     } else {
                         if let endedAt = discount.endedAt {
+                            let time = Date(timeIntervalSince1970: endedAt / 1000)
                             let attributedText = NSMutableAttributedString()
-                            let attribute1 = [NSFontAttributeName: UIFont.getBoldFont(10), NSForegroundColorAttributeName: UIColor.gray]
+                            let attribute1 = [NSFontAttributeName: UIFont.getBoldFont(8), NSForegroundColorAttributeName: UIColor.gray]
                             let variety1 = NSAttributedString(string: "Kết thúc vào\n", attributes: attribute1)
                             attributedText.append(variety1)
                             
-                            
-                            
-                            let attribute2 = [NSFontAttributeName: UIFont.getFont(12), NSForegroundColorAttributeName: UIColor.gray]
-                            let variety2 = NSAttributedString(string: "\(endedAt.string(custom: "dd/MM/yyyy"))", attributes: attribute2)
+                            let attribute2 = [NSFontAttributeName: UIFont.getFont(10), NSForegroundColorAttributeName: UIColor.gray]
+                            let variety2 = NSAttributedString(string: "\(time.string(custom: "dd/MM/yyyy"))", attributes: attribute2)
                             attributedText.append(variety2)
                             
-                            labelTitle.attributedText = attributedText
+                            labelDate.attributedText = attributedText
                         }
                     }
                 }
@@ -70,7 +77,13 @@ class DiscountCardTableViewCell: UITableViewCell {
         }
     }
     
+    var canAdd: Bool = true
+    
     @IBAction func buttonCellTapped(_ sender: AnyObject) {
-        delegate?.discountCardCellTapped(card: card)
+        if canAdd {
+            delegate?.discountCardCellTapped(card: card)
+        } else {
+            delegate?.noMoreDiscountCardCellTapped(card: card)
+        }
     }
 }

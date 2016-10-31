@@ -17,12 +17,11 @@ enum ApiVersion: String {
 }
 
 enum Router: URLRequestConvertible {
-    static let baseURLString = "https://api.hungrybear.vn/"
-//    static let baseURLString = "https://api.pekopeko.vn/"
+//    static let baseURLString = "https://api.hungrybear.vn/" 
+    static let baseURLString = "https://api.pekopeko.vn/"
     
-    
-    static let baseUploadFile = "https://files.hungrybear.vn/"
-//    static let baseUploadFile = "https://files.pekopeko.vn/"
+//    static let baseUploadFile = "https://files.hungrybear.vn/"
+    static let baseUploadFile = "https://files.pekopeko.vn/"
     
     // Router
     case exchangeToken()
@@ -64,6 +63,7 @@ enum Router: URLRequestConvertible {
     case saveDeal(String)
     case unsaveDeal(String)
     case getDealInfo(String)
+    case redeemDeal(String, [String: AnyObject])
     
     case getPromoCodeData()
     
@@ -162,6 +162,9 @@ enum Router: URLRequestConvertible {
         case .getDealInfo:
             return .get
             
+        case .redeemDeal:
+            return .post
+            
         case .getPromoCodeData:
             return .get
         }
@@ -220,8 +223,8 @@ enum Router: URLRequestConvertible {
         case .redeemPoint:
             return "card/scan"
             
-        case .redeemVoucher(let shopID, _):
-            return "voucher/\(shopID)"
+        case .redeemVoucher(let voucherID, _):
+            return "voucher/\(voucherID)"
             
         case .getShopInfo(let shopID, _):
             return "shop/\(shopID)"
@@ -261,6 +264,9 @@ enum Router: URLRequestConvertible {
             
         case .getDealInfo(let dealID):
             return "deal/\(dealID)"
+           
+        case .redeemDeal(let dealID, _):
+            return "deal/\(dealID)/use"
             
         case .getPromoCodeData:
             return "user/base-panel"
@@ -362,6 +368,9 @@ enum Router: URLRequestConvertible {
         case .getDealInfo:
             return ApiVersion.V210.rawValue
             
+        case .redeemDeal:
+            return ApiVersion.V210.rawValue
+            
         case .getPromoCodeData:
             return ApiVersion.V210.rawValue
         }
@@ -384,6 +393,7 @@ enum Router: URLRequestConvertible {
         
         if let token = AuthenticationStore().accessToken {
             urlRequest.setValue(token, forHTTPHeaderField: "Authorization")
+            print(token)
         }
         
         switch self {
@@ -446,6 +456,9 @@ enum Router: URLRequestConvertible {
 
         case .getMyDeal(let parameters):
             urlRequest = try URLEncoding.default.encode(urlRequest, with: parameters)
+        
+        case .redeemDeal(_, let parameters):
+            urlRequest = try JSONEncoding.default.encode(urlRequest, with: parameters)
             
         case .redeemVoucher(_, let parameters):
             urlRequest = try JSONEncoding.default.encode(urlRequest, with: parameters)

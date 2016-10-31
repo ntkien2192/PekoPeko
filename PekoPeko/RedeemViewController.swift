@@ -7,16 +7,21 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 enum RedeemType: Int {
     case gift = 0
     case voucher = 1
+    case deal = 2
 }
 
 class RedeemViewController: BaseViewController {
     
     static let storyboardName = "Redeem"
     static let identify = "RedeemViewController"
+    
+    typealias RedeemViewControllerHandle = () -> Void
+    var successAction: RedeemViewControllerHandle?
     
     @IBOutlet weak var labelTitle: UILabel!
     @IBOutlet weak var labelRedeemName: Label!
@@ -39,6 +44,14 @@ class RedeemViewController: BaseViewController {
             }
         }
     }
+    var deal: Discover? {
+        didSet {
+            if let deal = deal, let shop = deal.shop {
+                card = Card(shop: shop)
+                redeemType = .deal
+            }
+        }
+    }
     
     var redeemType: RedeemType = .gift
     
@@ -56,20 +69,28 @@ class RedeemViewController: BaseViewController {
         super.viewConfig()
         NotificationCenter.default.addObserver(self, selector: #selector(RedeemViewController.keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(RedeemViewController.keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-        
-        
     }
     
+    func setSuccessHandle(action: @escaping RedeemViewControllerHandle) {
+        successAction = action
+    }
     
     func loadRedeemInfo() {
         
         if let card = card, let shopName = card.shopName{
             labelTitle.text = shopName
         }
+        
         if let reward = reward {
-            if let title = reward.title {
-                labelRedeemName.text = title
-            }
+            labelRedeemName.text = reward.title ?? ""
+        }
+        
+        if let voucher = voucher {
+            labelRedeemName.text = voucher.title ?? ""
+        }
+        
+        if deal != nil {
+            labelRedeemName.text = "Sử dụng Deal"
         }
     }
     
@@ -102,51 +123,22 @@ class RedeemViewController: BaseViewController {
             addFullView(view: messageView)
         } else {
             
-            if let card = card, let shopID = card.shopID {
-                
-                switch redeemType {
-                case .gift:
-                    if let reward = reward, let rewardID = reward.rewardID {
-                        if let code = NumberFormatter().number(from: pinCode) {
-                            let redeemRequest = RedeemRequest(shopID: shopID, redeemID: rewardID, pinCode: code.intValue)
-                            
-                            weak var _self = self
-                            
-                            RedeemStore.redeemAward(redeemRequest: redeemRequest, completionHandler: { (success, error) in
-                                if let _self = _self {
-                                    guard error == nil else {
-                                        if let error = error as? ServerResponseError, let data = error.data {
-                                            let messageView = MessageView(frame: _self.view.bounds)
-                                            messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
-                                            messageView.setButtonClose("Đóng", action: {
-                                                if !AuthenticationStore().isLogin {
-                                                    HomeTabbarController.sharedInstance.logOut()
-                                                }
-                                            })
-                                            _self.addFullView(view: messageView)
-                                        }
-                                        return
-                                    }
-                                    
-                                    if success {
-                                        let popView = RedeemSuccessView(frame: _self.view.bounds)
-                                        popView.delegate = self
-                                        popView.card = card
-                                        popView.reward = reward
-                                        _self.addFullView(view: popView)
-                                    }
-                                }
-                            })
-                        }
-                    }
-                case .voucher:
+            let loadingNotification = MBProgressHUD.showAdded(to: view, animated: true)
+            loadingNotification.mode = MBProgressHUDMode.indeterminate
+            
+            switch redeemType {
+            case .gift:
+                if let card = card, let shopID = card.shopID, let reward = reward, let rewardID = reward.rewardID {
                     if let code = NumberFormatter().number(from: pinCode) {
-                        let redeemRequest = RedeemRequest(pinCode: code.intValue)
+                        let redeemRequest = RedeemRequest(shopID: shopID, redeemID: rewardID, pinCode: code.intValue)
                         
                         weak var _self = self
                         
-                        RedeemStore.redeemVoucher(shopID: shopID, redeemRequest: redeemRequest, completionHandler: { (success, error) in
+                        RedeemStore.redeemAward(redeemRequest: redeemRequest, completionHandler: { (success, error) in
                             if let _self = _self {
+                                
+                                loadingNotification.hide(animated: true)
+                                
                                 guard error == nil else {
                                     if let error = error as? ServerResponseError, let data = error.data {
                                         let messageView = MessageView(frame: _self.view.bounds)
@@ -162,15 +154,104 @@ class RedeemViewController: BaseViewController {
                                 }
                                 
                                 if success {
-                                    if let voucher = _self.voucher, let title = voucher.title {
-                                        let messageView = MessageView(frame: _self.view.bounds)
-                                        messageView.message = "Chúc mừng bạn đã nhận Voucher: \(title) thành công"
-                                        _self.addFullView(view: messageView)
+                                    let popView = RedeemSuccessView(frame: _self.view.bounds)
+                                    popView.delegate = self
+                                    popView.card = card
+                                    popView.reward = reward
+                                    _self.addFullView(view: popView)
+                                    
+                                    if let successAction = _self.successAction {
+                                        successAction()
                                     }
                                 }
                             }
                         })
                     }
+                }
+                break
+            case .voucher:
+                
+                if let voucher = voucher, let voucherID = voucher.voucherID {
+                    let redeemRequest = RedeemRequest(pinCodeString: pinCode)
+                    
+                    weak var _self = self
+                    
+                    RedeemStore.redeemVoucher(voucherID: voucherID, redeemRequest: redeemRequest, completionHandler: { (success, error) in
+                        if let _self = _self {
+                            
+                            loadingNotification.hide(animated: true)
+                            
+                            guard error == nil else {
+                                if let error = error as? ServerResponseError, let data = error.data {
+                                    let messageView = MessageView(frame: _self.view.bounds)
+                                    messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
+                                    messageView.setButtonClose("Đóng", action: {
+                                        if !AuthenticationStore().isLogin {
+                                            HomeTabbarController.sharedInstance.logOut()
+                                        }
+                                    })
+                                    _self.addFullView(view: messageView)
+                                }
+                                return
+                            }
+                            
+                            if success {
+                                let popView = RedeemSuccessView(frame: _self.view.bounds)
+                                popView.delegate = self
+                                if let shop = voucher.shop {
+                                    popView.card = Card(shop: shop)
+                                }
+                                popView.voucher = voucher
+                                _self.addFullView(view: popView)
+                                
+                                if let successAction = _self.successAction {
+                                    successAction()
+                                }
+                            }
+                        }
+                    })
+                }
+            case .deal:
+                if let deal = deal, let dealID = deal.discoverID {
+                    let redeemRequest = RedeemRequest(pinCodeString: pinCode)
+                    
+                    weak var _self = self
+                    
+                    RedeemStore.redeemDeal(dealID: dealID, redeemRequest: redeemRequest, completionHandler: { (success, error) in
+                        if let _self = _self {
+                            
+                            loadingNotification.hide(animated: true)
+                            
+                            guard error == nil else {
+                                if let error = error as? ServerResponseError, let data = error.data {
+                                    let messageView = MessageView(frame: _self.view.bounds)
+                                    messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
+                                    messageView.setButtonClose("Đóng", action: {
+                                        if !AuthenticationStore().isLogin {
+                                            HomeTabbarController.sharedInstance.logOut()
+                                        }
+                                    })
+                                    _self.addFullView(view: messageView)
+                                }
+                                return
+                            }
+                            
+                            if success {
+                                let popView = RedeemSuccessView(frame: _self.view.bounds)
+                                popView.delegate = self
+                                deal.isUsed = true
+                                if let shop = deal.shop {
+                                    popView.card = Card(shop: shop)
+                                }
+                                popView.deal = deal
+                                _self.addFullView(view: popView)
+                                
+                                if let successAction = _self.successAction {
+                                    successAction()
+                                }
+                            }
+                        }
+                    })
                 }
             }
         }

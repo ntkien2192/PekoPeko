@@ -19,6 +19,7 @@ class RedeemRequest: Mappable {
     var shopID: String?
     var redeemID: String?
     var pinCode: Int?
+    var pinCodeString: String?
     
     required init(shopID: String, redeemID: String, pinCode: Int) {
         self.shopID = shopID
@@ -30,10 +31,15 @@ class RedeemRequest: Mappable {
         self.pinCode = pinCode
     }
     
+    required init(pinCodeString: String) {
+        self.pinCodeString = pinCodeString
+    }
+    
     required init?(map: Map) {}
     func mapping(map: Map) {
         shopID <- map[RedeemRequestFields.ShopID.rawValue]
         redeemID <- map[RedeemRequestFields.RewardID.rawValue]
         pinCode <- map[RedeemRequestFields.PinCode.rawValue]
+        pinCodeString <- map[RedeemRequestFields.PinCode.rawValue]
     }
 }

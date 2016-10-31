@@ -125,14 +125,14 @@ class PromoViewController: BaseViewController {
         // Dispose of any resources that can be recreated.
     }
     @IBAction func buttonGiftTapped(_ sender: AnyObject) {
-        let voucherViewController = UIStoryboard(name: VoucherViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: VoucherViewController.identify) as! VoucherViewController
-        
         if let user = user {
+            let voucherViewController = UIStoryboard(name: VoucherViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: VoucherViewController.identify) as! VoucherViewController
+            
             voucherViewController.user = user
-        }
-        
-        if let navigationController = navigationController {
-            navigationController.show(voucherViewController, sender: nil)
+            
+            if let navigationController = navigationController {
+                navigationController.show(voucherViewController, sender: nil)
+            }
         }
     }
     

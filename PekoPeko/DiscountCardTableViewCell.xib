@@ -76,9 +76,9 @@
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Không Giới Hạn" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ema-rd-75z">
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="22" id="32M-yB-5Cm"/>
+                                            <constraint firstAttribute="height" constant="26" id="32M-yB-5Cm"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="10"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="8"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -87,23 +87,23 @@
                                 <constraints>
                                     <constraint firstItem="mPB-R9-78d" firstAttribute="top" secondItem="vbE-km-gfZ" secondAttribute="bottom" constant="4" id="0TF-Fp-EuP"/>
                                     <constraint firstItem="mPB-R9-78d" firstAttribute="leading" secondItem="f46-ae-1Jg" secondAttribute="leading" constant="8" id="1S4-nd-CdE"/>
-                                    <constraint firstAttribute="width" constant="120" id="6T6-yU-LDI"/>
-                                    <constraint firstAttribute="height" constant="120" id="7jj-2m-tSq"/>
-                                    <constraint firstItem="vbE-km-gfZ" firstAttribute="top" secondItem="FRQ-oN-TK4" secondAttribute="bottom" constant="3" id="8Kp-7F-IAY"/>
+                                    <constraint firstAttribute="width" constant="130" id="6T6-yU-LDI"/>
+                                    <constraint firstAttribute="height" constant="130" id="7jj-2m-tSq"/>
+                                    <constraint firstItem="vbE-km-gfZ" firstAttribute="top" secondItem="FRQ-oN-TK4" secondAttribute="bottom" constant="4" id="8Kp-7F-IAY"/>
                                     <constraint firstAttribute="trailing" secondItem="mPB-R9-78d" secondAttribute="trailing" constant="8" id="Olp-9C-Yx1"/>
                                     <constraint firstItem="vbE-km-gfZ" firstAttribute="leading" secondItem="f46-ae-1Jg" secondAttribute="leading" id="QsA-w0-vcZ"/>
                                     <constraint firstAttribute="trailing" secondItem="FRQ-oN-TK4" secondAttribute="trailing" id="abZ-qn-hOh"/>
                                     <constraint firstAttribute="bottom" secondItem="Ema-rd-75z" secondAttribute="bottom" constant="12" id="eqn-ds-lry"/>
                                     <constraint firstAttribute="trailing" secondItem="vbE-km-gfZ" secondAttribute="trailing" id="g0a-b1-G0T"/>
                                     <constraint firstAttribute="trailing" secondItem="Ema-rd-75z" secondAttribute="trailing" constant="8" id="odR-tV-tjc"/>
-                                    <constraint firstItem="FRQ-oN-TK4" firstAttribute="top" secondItem="f46-ae-1Jg" secondAttribute="top" constant="12" id="ruh-d7-rua"/>
+                                    <constraint firstItem="FRQ-oN-TK4" firstAttribute="top" secondItem="f46-ae-1Jg" secondAttribute="top" constant="13" id="ruh-d7-rua"/>
                                     <constraint firstItem="FRQ-oN-TK4" firstAttribute="leading" secondItem="f46-ae-1Jg" secondAttribute="leading" id="tfV-R3-8cY"/>
                                     <constraint firstItem="Ema-rd-75z" firstAttribute="top" secondItem="mPB-R9-78d" secondAttribute="bottom" constant="4" id="uVP-t8-RR2"/>
                                     <constraint firstItem="Ema-rd-75z" firstAttribute="leading" secondItem="f46-ae-1Jg" secondAttribute="leading" constant="8" id="zhY-pn-ElA"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="60"/>
+                                        <real key="value" value="65"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                         <real key="value" value="2"/>

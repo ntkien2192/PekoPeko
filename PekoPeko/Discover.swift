@@ -37,7 +37,7 @@ enum DiscoverFields: String {
     case Steps = "steps"
     
     case SavedAt = "saved_at"
-    
+    case IsUsed = "is_used"
 }
 
 class Discover: NSObject {
@@ -54,16 +54,20 @@ class Discover: NSObject {
     var createdAt: Double?
     var shop: Shop?
     
-    var isSave: Bool?
+    var isSave = false
     var discoverType: DiscoverType?
     var totalLikes: Int?
     var totalComments: Int?
-    var isLiked: Bool?
+    var isLiked: Bool = false
     var image: Image?
     var images: [Image]?
     var steps: [DealStep]?
     
-    var savedAt:Double?
+    var savedAt: Double?
+    
+    var isUsed = false
+    var isEnd = false
+    var isExpire = false
     
     required init(json: JSON) {
         discoverID = json[DiscoverFields.DiscoverID.rawValue].string
@@ -77,14 +81,18 @@ class Discover: NSObject {
         startedAt = json[DiscoverFields.StartedAt.rawValue].double
         
         let end = json[DiscoverFields.EndedAt.rawValue].doubleValue
-        let time = Int(Date(timeIntervalSince1970: TimeInterval(end / 1000.0)).timeIntervalSince(Date()))
+        var time = Int(Date(timeIntervalSince1970: TimeInterval(end / 1000.0)).timeIntervalSince(Date()))
+        isEnd = time > 0 ? false : true
         endedAt = (time < 0 ? 0 : time).secondsToDayHoursMinutes()
         
         expireAt = json[DiscoverFields.ExpireAt.rawValue].double
+        time = Int(Date(timeIntervalSince1970: TimeInterval((expireAt ?? 0) / 1000.0)).timeIntervalSince(Date()))
+        isExpire = time > 0 ? false : true
+        
         createdAt = json[DiscoverFields.CreatedAt.rawValue].double
         
         shop = Shop(json: json[DiscoverFields.Shop.rawValue])
-        isSave = json[DiscoverFields.Saved.rawValue].bool
+        isSave = json[DiscoverFields.Saved.rawValue].boolValue
         
         let type = json[DiscoverFields.DiscoverType.rawValue].intValue
         switch type {
@@ -98,12 +106,13 @@ class Discover: NSObject {
         
         totalLikes = json[DiscoverFields.TotalLikes.rawValue].int
         totalComments = json[DiscoverFields.TotalComments.rawValue].int
-        isLiked = json[DiscoverFields.Liked.rawValue].bool
+        isLiked = json[DiscoverFields.Liked.rawValue].boolValue
         image = Image(json: json[DiscoverFields.Image.rawValue])
         
         steps = json[DiscoverFields.Steps.rawValue].arrayValue.map({ DealStep(json: $0) })
         
         savedAt = json[DiscoverFields.SavedAt.rawValue].double
+        isUsed = json[DiscoverFields.IsUsed.rawValue].boolValue
     }
     
     func imageCount() -> Int {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -10,17 +10,25 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="60" id="KGk-i7-Jjw" customClass="VipTableViewCell" customModule="PekoPeko" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="66" id="KGk-i7-Jjw" customClass="VipTableViewCell" customModule="PekoPeko" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <frame key="frameInset" width="320" height="59"/>
+                <frame key="frameInset" width="320" height="65"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="VipCellBackground" translatesAutoresizingMaskIntoConstraints="NO" id="gZi-GS-ANy">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="VipCellBackground" translatesAutoresizingMaskIntoConstraints="NO" id="gZi-GS-ANy" customClass="ImageView" customModule="PekoPeko" customModuleProvider="target">
                         <constraints>
                             <constraint firstAttribute="width" secondItem="gZi-GS-ANy" secondAttribute="height" multiplier="1800:333" priority="750" id="aY1-FI-E0A"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Roi-Fq-vtO">
                         <subviews>
@@ -72,15 +80,15 @@
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="Roi-Fq-vtO" firstAttribute="centerX" secondItem="gZi-GS-ANy" secondAttribute="centerX" multiplier="1.05" id="0xt-z7-zZb"/>
-                    <constraint firstItem="gZi-GS-ANy" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="1lW-ii-cuY"/>
+                    <constraint firstItem="gZi-GS-ANy" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="1lW-ii-cuY"/>
                     <constraint firstAttribute="bottom" secondItem="bTe-eE-bUq" secondAttribute="bottom" id="7ma-Te-eDE"/>
                     <constraint firstAttribute="bottom" secondItem="gZi-GS-ANy" secondAttribute="bottom" id="8FN-Hm-vKM"/>
                     <constraint firstItem="oX2-sP-d7c" firstAttribute="centerX" secondItem="Roi-Fq-vtO" secondAttribute="centerX" id="DXi-qI-jNR"/>
                     <constraint firstItem="Roi-Fq-vtO" firstAttribute="centerY" secondItem="gZi-GS-ANy" secondAttribute="centerY" multiplier="1.1" id="Hq8-GL-ogD"/>
                     <constraint firstAttribute="trailing" secondItem="bTe-eE-bUq" secondAttribute="trailing" id="MPS-7M-KtN"/>
                     <constraint firstItem="QFi-6F-JyY" firstAttribute="centerY" secondItem="oX2-sP-d7c" secondAttribute="centerY" multiplier="0.9" id="XhG-bU-oBR"/>
-                    <constraint firstAttribute="trailing" secondItem="gZi-GS-ANy" secondAttribute="trailing" id="YtM-79-pEj"/>
-                    <constraint firstItem="gZi-GS-ANy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="cCq-2r-uv4"/>
+                    <constraint firstAttribute="trailing" secondItem="gZi-GS-ANy" secondAttribute="trailing" constant="-1" id="YtM-79-pEj"/>
+                    <constraint firstItem="gZi-GS-ANy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="-1" id="cCq-2r-uv4"/>
                     <constraint firstItem="oX2-sP-d7c" firstAttribute="centerY" secondItem="Roi-Fq-vtO" secondAttribute="centerY" id="fMO-3y-YFf"/>
                     <constraint firstItem="Biy-uJ-gsy" firstAttribute="centerY" secondItem="oX2-sP-d7c" secondAttribute="centerY" multiplier="1.1" id="hTM-E9-nvM"/>
                     <constraint firstItem="Biy-uJ-gsy" firstAttribute="leading" secondItem="oX2-sP-d7c" secondAttribute="trailing" constant="8" id="n1j-lF-oPl"/>
@@ -88,10 +96,13 @@
                     <constraint firstItem="bTe-eE-bUq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="n9U-hg-Mmx"/>
                     <constraint firstItem="oX2-sP-d7c" firstAttribute="leading" secondItem="QFi-6F-JyY" secondAttribute="trailing" constant="8" id="rT6-rA-Nxu"/>
                     <constraint firstItem="bTe-eE-bUq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="sjB-6n-Eky"/>
-                    <constraint firstItem="gZi-GS-ANy" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" id="tTm-gN-Eex"/>
                 </constraints>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="19" y="26"/>
+            <connections>
+                <outlet property="labelHPCurrent" destination="QFi-6F-JyY" id="oWg-ao-feO"/>
+                <outlet property="labelHPRequire" destination="Biy-uJ-gsy" id="gqT-ae-6tc"/>
+            </connections>
+            <point key="canvasLocation" x="19" y="31"/>
         </tableViewCell>
     </objects>
     <resources>

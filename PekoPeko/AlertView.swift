@@ -14,9 +14,9 @@ class AlertView: UIView {
     @IBOutlet weak var labelMessage: UILabel!
     @IBOutlet weak var buttonSubmit: Button!
     
-    typealias AlertViewViewHandle = () -> Void
+    typealias AlertViewHandle = () -> Void
     
-    var submitAction: AlertViewViewHandle?
+    var submitAction: AlertViewHandle?
     
     var message: String?
     var submitTitle: String?
@@ -42,7 +42,7 @@ class AlertView: UIView {
         }
     }
     
-    func setButtonSubmit(_ title: String, action: @escaping AlertViewViewHandle) {
+    func setButtonSubmit(_ title: String, action: @escaping AlertViewHandle) {
         submitAction = action
         buttonSubmit.setTitle(title, for: UIControlState())
     }

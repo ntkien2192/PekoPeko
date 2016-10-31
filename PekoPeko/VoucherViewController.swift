@@ -51,8 +51,10 @@ class VoucherViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        if vouchers == nil {
+            reloadVoucher()
+        }
         
-        reloadVoucher()
     }
     
     func reloadVoucher() {
@@ -95,20 +97,15 @@ class VoucherViewController: BaseViewController {
     }
     
     func loadUserInfo() {
-        if let user = user, let invited = user.invited, let require = user.require {
-            if invited >= require {
-                if let vouchers = user.vouchers {
-                    labelInfo.text = "Bạn có thể sử dụng \(vouchers) phiếu giảm giá"
-                }
-                
+        if let user = user {
+            if (user.vouchers ?? 0) > 0 {
+                labelInfo.text = "Bạn có thể sử dụng \((user.vouchers ?? 0)) phiếu giảm giá"
             } else {
-                
-                if invited != 0 {
-                    labelInfo.text = "Bạn cần mời ít nhất \(require) người để sử dụng các phiếu giám giá"
+                if (user.invited ?? 0) == 0 {
+                    labelInfo.text = "Bạn cần mời ít nhất \((user.require ?? 0)) người để sử dụng các phiếu giám giá"
                 } else {
-                    labelInfo.text = "Bạn cần mời thêm \(require - invited) người để sử dụng các phiếu giám giá"
+                    labelInfo.text = "Bạn cần mời thêm \((user.require ?? 0) - (user.invited ?? 0)) người để sử dụng các phiếu giám giá"
                 }
-                
             }
         }
     }
@@ -138,14 +135,27 @@ extension VoucherViewController: UITableViewDataSource {
 }
 
 extension VoucherViewController: VoucherTableViewCellDelegate {
-    func voucherTapped(voucher: Voucher?) {
-        if let user = user, let invited = user.invited, let require = user.require {
-            if invited >= require {
+    func voucherTapped(voucher: Voucher?, completionHandler: @escaping (Bool) -> Void) {
+        if let user = user {
+            
+            if (user.vouchers ?? 0) > 0 {
                 let redeemViewController = UIStoryboard(name: RedeemViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: RedeemViewController.identify) as! RedeemViewController
                 
                 if let voucher = voucher {
                     redeemViewController.voucher = voucher
                 }
+                
+                weak var _self = self
+                redeemViewController.setSuccessHandle {
+                    if let _self = _self, let user = _self.user {
+                        if (user.vouchers ?? 0) - 1 >= 0 {
+                            user.vouchers = (user.vouchers ?? 0) - 1
+                            _self.loadUserInfo()
+                            completionHandler(true)
+                        }
+                    }
+                }
+                
                 if let topController = AppDelegate.topController() {
                     topController.present(redeemViewController, animated: true, completion: nil)
                 }
@@ -153,7 +163,7 @@ extension VoucherViewController: VoucherTableViewCellDelegate {
                 weak var _self = self
                 let alertView = AlertView(frame: view.bounds)
                 alertView.message = "Bạn chưa mời đủ số người yêu cầu để sử dụng chức năng này."
-                alertView.setButtonSubmit("Mời bạn", action: { 
+                alertView.setButtonSubmit("Mời bạn", action: {
                     if let _self = _self {
                         let shareView = ShareView(frame: _self.view.bounds)
                         if let user = _self.user, let promoCode = user.promoCode {

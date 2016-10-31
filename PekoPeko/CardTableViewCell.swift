@@ -11,7 +11,6 @@ import Haneke
 
 protocol CardTableViewCellDelegate: class {
     func cellTapped(card: Card?)
-//    func shopTapped(card: Card?)
 }
 
 class CardTableViewCell: UITableViewCell {

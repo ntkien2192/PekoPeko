@@ -20,7 +20,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="384" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppBackgroun" translatesAutoresizingMaskIntoConstraints="NO" id="WMy-ez-few">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppBackground" translatesAutoresizingMaskIntoConstraints="NO" id="WMy-ez-few">
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="WMy-ez-few" secondAttribute="height" multiplier="1080:1920" id="rT4-UB-L11"/>
                                 </constraints>
@@ -34,6 +34,11 @@
                                 <state key="normal" title="Bắt đầu với số điện thoại" backgroundImage="ButtonLoginPhone">
                                     <color key="titleColor" red="0.10689641497461932" green="0.090892618893269092" blue="0.00034475334940410114" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="buttonLoginTapped:" destination="RyG-3a-5rd" eventType="touchUpInside" id="tkj-9R-fEV"/>
                                 </connections>
@@ -45,6 +50,11 @@
                                 <state key="normal" title="Bắt đầu với Facebook" backgroundImage="ButtonLoginFacebook">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="buttonFacebookSigninClickedWithSender:" destination="RyG-3a-5rd" eventType="touchUpInside" id="jrp-BP-0gX"/>
                                 </connections>
@@ -74,7 +84,7 @@
                             <constraint firstItem="WMy-ez-few" firstAttribute="centerX" secondItem="cwL-a6-HUJ" secondAttribute="centerX" id="DKS-Qe-6Pg"/>
                             <constraint firstItem="5M0-8s-3Ej" firstAttribute="centerX" secondItem="cwL-a6-HUJ" secondAttribute="centerX" id="F7j-cP-bDA"/>
                             <constraint firstItem="xcu-qb-Zaf" firstAttribute="top" secondItem="0zA-Gj-Q2w" secondAttribute="bottom" constant="20" id="Gxd-pf-Qvy"/>
-                            <constraint firstItem="ib6-0V-0vC" firstAttribute="top" secondItem="xcu-qb-Zaf" secondAttribute="bottom" constant="50" id="LKO-T3-Yig"/>
+                            <constraint firstItem="ib6-0V-0vC" firstAttribute="top" secondItem="xcu-qb-Zaf" secondAttribute="bottom" constant="40" id="LKO-T3-Yig"/>
                             <constraint firstItem="0zA-Gj-Q2w" firstAttribute="centerX" secondItem="WMy-ez-few" secondAttribute="centerX" id="MhH-N4-AMx"/>
                             <constraint firstItem="WMy-ez-few" firstAttribute="width" secondItem="cwL-a6-HUJ" secondAttribute="width" id="Pg3-15-1jG"/>
                             <constraint firstItem="ib6-0V-0vC" firstAttribute="top" secondItem="5M0-8s-3Ej" secondAttribute="bottom" constant="50" id="XbA-uj-FpV"/>
@@ -1372,7 +1382,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="AppBackgroun" width="360" height="640"/>
+        <image name="AppBackground" width="540" height="960"/>
         <image name="BackgroundLoginPhone" width="360" height="640"/>
         <image name="ButtonLoginFacebook" width="294" height="50"/>
         <image name="ButtonLoginPhone" width="294" height="50"/>

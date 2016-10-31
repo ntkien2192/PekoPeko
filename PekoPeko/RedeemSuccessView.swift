@@ -24,6 +24,8 @@ class RedeemSuccessView: UIView {
     
     var card: Card?
     var reward: Reward?
+    var voucher: Voucher?
+    var deal: Discover?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -46,12 +48,22 @@ class RedeemSuccessView: UIView {
             if let address = card.shopAddress {
                 labelCardAddress.text = address
             }
+            
+            if let addresses = card.addressList, let address = addresses.last, let addressContent = address.addressContent {
+                labelCardAddress.text = addressContent
+            }
         }
         
-        if let reward = reward {
-            if let title = reward.title {
-                labelRedeemName.text = title
-            }
+        if let reward = reward, let title = reward.title {
+            labelRedeemName.text = title
+        }
+        
+        if let voucher = voucher, let title = voucher.title {
+            labelRedeemName.text = title
+        }
+        
+        if let deal = deal, let name = deal.name {
+            labelRedeemName.text = name
         }
     }
     
