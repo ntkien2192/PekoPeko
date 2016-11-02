@@ -930,7 +930,7 @@
         <!--Đổi mật khẩu-->
         <scene sceneID="pnp-kw-9Ua">
             <objects>
-                <viewController id="GbB-vF-6Ai" customClass="ForgotPasswordViewController" customModule="PekoPeko" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="GbB-vF-6Ai" customClass="ChangePasswordViewController" customModule="PekoPeko" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5Hu-fO-aad"/>
                         <viewControllerLayoutGuide type="bottom" id="qnl-ZX-qUD"/>

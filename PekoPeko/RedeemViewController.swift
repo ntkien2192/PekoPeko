@@ -20,9 +20,6 @@ class RedeemViewController: BaseViewController {
     static let storyboardName = "Redeem"
     static let identify = "RedeemViewController"
     
-    typealias RedeemViewControllerHandle = () -> Void
-    var successAction: RedeemViewControllerHandle?
-    
     @IBOutlet weak var labelTitle: UILabel!
     @IBOutlet weak var labelRedeemName: Label!
     @IBOutlet weak var constraintBottom: NSLayoutConstraint!
@@ -70,6 +67,9 @@ class RedeemViewController: BaseViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(RedeemViewController.keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(RedeemViewController.keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
+    
+    typealias RedeemViewControllerHandle = () -> Void
+    var successAction: RedeemViewControllerHandle?
     
     func setSuccessHandle(action: @escaping RedeemViewControllerHandle) {
         successAction = action

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Group3ImageView" customModule="PekoPeko" customModuleProvider="target">
+            <connections>
+                <outlet property="imageView1" destination="u0r-wC-x5K" id="aSD-9G-8Jt"/>
+                <outlet property="imageView2" destination="mD4-2c-KjO" id="hr1-Ug-39E"/>
+                <outlet property="imageView3" destination="JzK-8z-gKV" id="B4s-Cv-y4C"/>
+                <outlet property="view" destination="iN0-l3-epB" id="ffK-4f-thf"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="150"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mD4-2c-KjO">
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="mD4-2c-KjO" secondAttribute="height" multiplier="1:1" priority="750" id="KvY-x7-Rhs"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JzK-8z-gKV">
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="JzK-8z-gKV" secondAttribute="height" multiplier="1:1" id="UqC-B8-Cot"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="u0r-wC-x5K">
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="u0r-wC-x5K" secondAttribute="height" multiplier="3:2" priority="750" id="nro-Vd-ZR4"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="mD4-2c-KjO" firstAttribute="leading" secondItem="u0r-wC-x5K" secondAttribute="trailing" constant="1" id="5fa-5t-l08"/>
+                <constraint firstItem="JzK-8z-gKV" firstAttribute="top" secondItem="mD4-2c-KjO" secondAttribute="bottom" constant="1" id="DYP-AC-BEs"/>
+                <constraint firstItem="mD4-2c-KjO" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ONs-IL-gpV"/>
+                <constraint firstAttribute="trailing" secondItem="JzK-8z-gKV" secondAttribute="trailing" id="aXP-l5-fZO"/>
+                <constraint firstItem="u0r-wC-x5K" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="i9h-VD-rju"/>
+                <constraint firstItem="mD4-2c-KjO" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="1:2" id="jx6-Rx-iAs"/>
+                <constraint firstItem="u0r-wC-x5K" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="l1u-DB-fNu"/>
+                <constraint firstItem="JzK-8z-gKV" firstAttribute="leading" secondItem="u0r-wC-x5K" secondAttribute="trailing" constant="1" id="lI9-P1-Efb"/>
+                <constraint firstAttribute="bottom" secondItem="JzK-8z-gKV" secondAttribute="bottom" id="nl8-9a-T3b"/>
+                <constraint firstAttribute="trailing" secondItem="mD4-2c-KjO" secondAttribute="trailing" id="tq5-6h-3FI"/>
+                <constraint firstAttribute="bottom" secondItem="u0r-wC-x5K" secondAttribute="bottom" id="zDw-iz-2nu"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+</document>

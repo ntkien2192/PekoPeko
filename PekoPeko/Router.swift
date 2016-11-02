@@ -17,11 +17,11 @@ enum ApiVersion: String {
 }
 
 enum Router: URLRequestConvertible {
-//    static let baseURLString = "https://api.hungrybear.vn/" 
-    static let baseURLString = "https://api.pekopeko.vn/"
+    static let baseURLString = "https://api.hungrybear.vn/" 
+//    static let baseURLString = "https://api.pekopeko.vn/"
     
-//    static let baseUploadFile = "https://files.hungrybear.vn/"
-    static let baseUploadFile = "https://files.pekopeko.vn/"
+    static let baseUploadFile = "https://files.hungrybear.vn/"
+//    static let baseUploadFile = "https://files.pekopeko.vn/"
     
     // Router
     case exchangeToken()
@@ -66,6 +66,9 @@ enum Router: URLRequestConvertible {
     case redeemDeal(String, [String: AnyObject])
     
     case getPromoCodeData()
+    
+    case forgotPassword([String: AnyObject])
+    case renewPassword([String: AnyObject])
     
     var method: HTTPMethod {
         switch self {
@@ -167,6 +170,12 @@ enum Router: URLRequestConvertible {
             
         case .getPromoCodeData:
             return .get
+            
+        case .forgotPassword:
+            return .post
+            
+        case .renewPassword:
+            return .put
         }
     }
     
@@ -270,6 +279,12 @@ enum Router: URLRequestConvertible {
             
         case .getPromoCodeData:
             return "user/base-panel"
+            
+        case .forgotPassword:
+            return "auth/forgot-password"
+            
+        case .renewPassword:
+            return "auth/set-password"
         }
     }
     
@@ -373,6 +388,12 @@ enum Router: URLRequestConvertible {
             
         case .getPromoCodeData:
             return ApiVersion.V210.rawValue
+            
+        case .forgotPassword:
+            return ApiVersion.V210.rawValue
+            
+        case .renewPassword:
+            return ApiVersion.V210.rawValue
         }
     }
     
@@ -393,7 +414,6 @@ enum Router: URLRequestConvertible {
         
         if let token = AuthenticationStore().accessToken {
             urlRequest.setValue(token, forHTTPHeaderField: "Authorization")
-            print(token)
         }
         
         switch self {
@@ -461,6 +481,12 @@ enum Router: URLRequestConvertible {
             urlRequest = try JSONEncoding.default.encode(urlRequest, with: parameters)
             
         case .redeemVoucher(_, let parameters):
+            urlRequest = try JSONEncoding.default.encode(urlRequest, with: parameters)
+            
+        case .forgotPassword(let parameters):
+            urlRequest = try JSONEncoding.default.encode(urlRequest, with: parameters)
+
+        case .renewPassword(let parameters):
             urlRequest = try JSONEncoding.default.encode(urlRequest, with: parameters)
             
         default:

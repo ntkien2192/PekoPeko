@@ -50,7 +50,7 @@ class LoginPhoneViewController: UIViewController {
     }
     
     func viewConfig() {
-        if let top = DeviceConfig.getConstraintValue(d35: 40, d40: 50, d50: 50, d55: 50) {
+        if let top = DeviceConfig.getConstraintValue(d35: 20, d40: 50, d50: 50, d55: 50) {
             constraintTop.constant = top
         }
         defaultConstraintValue = constraintTop.constant
@@ -133,7 +133,11 @@ class LoginPhoneViewController: UIViewController {
         if error == "" {
             if let pass = textfieldPassword.text {
                 if !pass.isEmpty {
-                    password = pass
+                    if pass.length >= 6 {
+                        password = pass
+                    } else {
+                        error = "Mật khẩu không được ngắn hơn 6 ký tự"
+                    }
                 } else {
                     error = "Mật khẩu không được để trống"
                 }

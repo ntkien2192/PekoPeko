@@ -69,16 +69,14 @@ class ShopInfoTableViewCell: UITableViewCell {
                     
                 }
                 
-                if let isFollowing = shop.isFollowing {
-                    self.isFollowing = isFollowing
-                }
+                isFollowing = shop.isFollowing ?? false
             }
         }
     }
     
     var isFollowing: Bool = false {
         didSet {
-            buttonFollow.isHidden = true
+            buttonFollow.isHidden = false
             if isFollowing {
                 buttonFollow.setTitle("ĐANG THEO DÕI", for: .normal)
                 buttonFollow.setTitleColor(UIColor.white, for: .normal)

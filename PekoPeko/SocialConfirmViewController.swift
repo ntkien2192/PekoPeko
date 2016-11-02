@@ -49,7 +49,7 @@ class SocialConfirmViewController: UIViewController {
     }
     
     func viewConfig() {
-        if let top = DeviceConfig.getConstraintValue(d35: 40, d40: 50, d50: 50, d55: 50) {
+        if let top = DeviceConfig.getConstraintValue(d35: 20, d40: 50, d50: 50, d55: 50) {
             constraintTop.constant = top
         }
         defaultConstraintValue = constraintTop.constant

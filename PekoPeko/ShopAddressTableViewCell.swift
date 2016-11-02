@@ -45,7 +45,6 @@ class ShopAddressTableViewCell: UITableViewCell {
                     }
                 }
                 
-                
                 if let avgPrice = shop.avgPrice {
                     labelPrice.text = avgPrice.isEmpty ? "Chưa cập nhật" : avgPrice
                     labelPrice.textColor = avgPrice.isEmpty ? UIColor.lightGray : UIColor.black

@@ -55,15 +55,15 @@ class RedeemSuccessView: UIView {
         }
         
         if let reward = reward, let title = reward.title {
-            labelRedeemName.text = title
+            labelRedeemName.text = "Bạn nhận được\n\(title)"
         }
         
         if let voucher = voucher, let title = voucher.title {
-            labelRedeemName.text = title
+            labelRedeemName.text = "Bạn nhận được\n\(title)"
         }
         
         if let deal = deal, let name = deal.name {
-            labelRedeemName.text = name
+            labelRedeemName.text = "Bạn nhận được\n\(name)"
         }
     }
     

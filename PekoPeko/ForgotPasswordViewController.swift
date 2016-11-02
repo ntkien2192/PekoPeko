@@ -2,99 +2,235 @@
 //  ForgotPasswordViewController.swift
 //  PekoPeko
 //
-//  Created by Nguyễn Trung Kiên on 28/10/2016.
+//  Created by Nguyễn Trung Kiên on 01/11/2016.
 //  Copyright © 2016 hungrybear. All rights reserved.
 //
 
 import UIKit
+import Spring
+import NVActivityIndicatorView
 
 class ForgotPasswordViewController: UIViewController {
-
-    @IBOutlet weak var textfieldOldPassword: UITextField!
-    @IBOutlet weak var textfieldNewPassword: UITextField!
-    @IBOutlet weak var textfieldRePassword: UITextField!
+    
+    static let storyboardName = "Login"
+    static let identify = "ForgotPasswordViewController"
+    
+    // MARK: @IBOutlet
+    
+    @IBOutlet weak var constraintTop: NSLayoutConstraint!
+    @IBOutlet weak var imageViewLogo: SpringImageView!
+    
+    @IBOutlet weak var labelIntro: Label!
+    @IBOutlet weak var viewPhoneNumber: View!
+    @IBOutlet weak var textfieldPhoneNumber: Textfield!
+    
+    @IBOutlet weak var loginActivity: NVActivityIndicatorView!
+    
+    @IBOutlet weak var buttonSubmit: Button!
+    @IBOutlet weak var buttonInputCode: Button!
+    
+    var defaultConstraintValue: CGFloat?
+    
+    var userLocation: Location?
+    var socialCredential: String?
+    
+    //MARK: View Life
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewConfig()
+    }
+    
+    func viewConfig() {
+        if let top = DeviceConfig.getConstraintValue(d35: 20, d40: 50, d50: 50, d55: 50) {
+            constraintTop.constant = top
+        }
+        defaultConstraintValue = constraintTop.constant
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        resetLabelIntro()
+        loginActivity.stopAnimating()
+        showLoginField()
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func buttonHideKeyboardTapped(_ sender: AnyObject) {
-        view.endEditing(true)
+    //MARK: @IBAction
+    
+    @IBAction func buttonBackTapped(_ sender: AnyObject) {
+        if let navigationController = navigationController {
+            navigationController.popViewController(animated: true)
+        }
     }
     
-    @IBAction func buttonSaveTapped(_ sender: AnyObject) {
+    @IBAction func buttonSubmitTapped(_ sender: AnyObject) {
+        submit()
+    }
+    
+    @IBAction func buttonHideKeyboardTapped(_ sender: AnyObject) {
+        slideDownView()
+    }
+    
+    func submit() {
         var error = ""
+        var phoneNumber = ""
         
-        var oldPass = ""
-        var newPass = ""
-        
-        if let text = textfieldOldPassword.text {
-            if !text.isEmpty {
-                oldPass = text
+        if let phone = textfieldPhoneNumber.text {
+            if !phone.isEmpty {
+                phoneNumber = phone
             } else {
-                error = "Mật khẩu cũ không được để trống"
+                error = "Số điện thoại không được để trống"
             }
         }
         
-        if let text = textfieldNewPassword.text {
-            if !text.isEmpty {
-                if text.length >= 6 {
-                    newPass = text
-                } else {
-                    error = "Mật khẩu mới không được ngắn hơn 6 kỹ tự"
-                }
-            } else {
-                error = "Mật khẩu mới không được để trống"
-            }
-        }
-        
-        if let text = textfieldRePassword.text {
-            if !text.isEmpty {
-                if text != newPass {
-                    error = "Xác nhận mật khẩu không đúng"
-                }
-            } else {
-                error = "Xác nhận mật khẩu không được để trống"
-            }
-        }
-        
-        if !error.isEmpty {
-            let messageView = MessageView(frame: view.bounds)
-            messageView.message = error
-            addFullView(view: messageView)
+        if error != "" {
+            showError(error, animation: true)
         } else {
-            let user = User(currentPassword: oldPass, newPassword: newPass)
+            slideDownView()
+            hideLoginField()
+            loginActivity.startAnimating()
+            let loginParameter = LoginParameter(phone: phoneNumber)
+            
             weak var _self = self
-            UserStore.uploadPassword(user, completionHandler: { (success, error) in
+            AuthenticationStore.forgotPassword(loginParameters: loginParameter, completionHandler: { (success, error) in
                 if let _self = _self {
                     guard error == nil else {
-                        if let error = error as? ServerResponseError, let data = error.data {
-                            let messageView = MessageView(frame: _self.view.bounds)
-                            messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
-                            messageView.setButtonClose("Đóng", action: {
-                                if !AuthenticationStore().isLogin {
-                                    HomeTabbarController.sharedInstance.logOut()
-                                }
-                            })
-                            _self.addFullView(view: messageView)
+                        if let error = error as? ServerResponseError, let data = error.data,
+                            let reason: String = data[NSLocalizedFailureReasonErrorKey] as? String {
+                            _self.showError(reason, animation: false)
+                            _self.loginActivity.stopAnimating()
+                            _self.showLoginField()
                         }
                         return
                     }
-                    
+
                     if success {
-                        let messageView = MessageView(frame: _self.view.bounds)
-                        messageView.message = "Thay đổi thành công"
-                        _self.addFullView(view: messageView)
+                        AuthenticationStore().savePhoneNumber(phoneNumber)
+                        let newPasswordViewController = UIStoryboard(name: NewPasswordViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: NewPasswordViewController.identify)
+                        if let navigationController = _self.navigationController {
+                            navigationController.show(newPasswordViewController, sender: nil)
+                        }
                     }
                 }
             })
         }
+    }
+    
+    //MARK: View Model
+    
+    func resetLabelIntro() {
+        labelIntro.text = "Vui lòng nhập số điện thoại & mật khẩu"
+        labelIntro.backgroundColor = UIColor.clear
+        labelIntro.textColor = UIColor.colorBrown
+    }
+    
+    func showError(_ message: String?, animation: Bool) {
+        if let message = message {
+            labelIntro.text = message
+            labelIntro.backgroundColor = UIColor.colorBrown
+            labelIntro.textColor = UIColor.white
+            if animation {
+                labelIntro.animation = "shake"
+                labelIntro.duration = 0.5
+                labelIntro.animate()
+            }
+        }
+    }
+    
+    func slideDownView() {
+        view.endEditing(true)
+        if let defaultConstraintValue = defaultConstraintValue {
+            if constraintTop.constant != defaultConstraintValue {
+                constraintTop.constant = defaultConstraintValue
+                view.setNeedsLayout()
+                imageViewLogo.isHidden = false
+                weak var _self = self
+                UIView.animate(withDuration: 0.2) {
+                    _self?.view.layoutIfNeeded()
+                    _self?.imageViewLogo.alpha = 1.0
+                }
+            }
+        }
+    }
+    
+    func hideLoginField() {
+        let animation = "fadeOut"
+        
+        labelIntro.animation = animation
+        labelIntro.animate()
+        
+        viewPhoneNumber.animation = animation
+        viewPhoneNumber.animate()
+        
+        buttonInputCode.animation = animation
+        buttonInputCode.animate()
+        
+        buttonSubmit.animation = animation
+        buttonSubmit.animate()
+    }
+    
+    func showLoginField() {
+        let animation = "fadeInUp"
+        
+        labelIntro.animation = animation
+        labelIntro.animate()
+        
+        buttonInputCode.animation = animation
+        buttonInputCode.animate()
+        
+        viewPhoneNumber.animation = animation
+        viewPhoneNumber.animate()
+        
+        buttonSubmit.animation = animation
+        buttonSubmit.animate()
+    }
+    
+    
+}
+
+extension ForgotPasswordViewController: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        switch textField.tag {
+        case 0:
+            viewPhoneNumber.layer.borderWidth = 2.0
+            break
+        default:
+            break
+        }
+        
+        if let constraintValue = DeviceConfig.getConstraintValue(d35: -110, d40: -90, d50: -65, d55: -65) {
+            if constraintTop.constant != constraintValue {
+                constraintTop.constant = constraintValue
+                view.setNeedsLayout()
+                weak var _self = self
+                UIView.animate(withDuration: 0.2, animations: {
+                    _self?.view.layoutIfNeeded()
+                    _self?.imageViewLogo.alpha = 0.0
+                    }, completion: { _ in
+                        _self?.imageViewLogo.isHidden = true
+                })
+            }
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        viewPhoneNumber.layer.borderWidth = 0.5
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        submit()
+        return true
     }
 }

@@ -68,6 +68,13 @@ class DealDetailViewController: BaseViewController {
         }
     }
     
+    typealias DealDetailViewControllerHandle = () -> Void
+    var usedAction: DealDetailViewControllerHandle?
+    
+    func setUsedsHandle(action: @escaping DealDetailViewControllerHandle) {
+        usedAction = action
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -226,14 +233,24 @@ extension DealDetailViewController: DiscoverShopDetailTableViewCellDelegate {
 
 extension DealDetailViewController: DealControlTableViewCellDelegate {
     func useDiscoverTapped(discover: Discover?, completionHandler: @escaping (Bool) -> Void) {
-        let redeemViewController = UIStoryboard(name: RedeemViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: RedeemViewController.identify) as! RedeemViewController
-        redeemViewController.setSuccessHandle {
-            completionHandler(true)
+        if let discover = discover {
+            let redeemViewController = UIStoryboard(name: RedeemViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: RedeemViewController.identify) as! RedeemViewController
+            
+            weak var _self = self
+            redeemViewController.setSuccessHandle {
+                completionHandler(true)
+                if let _self = _self {
+                    if let usedAction = _self.usedAction {
+                        usedAction()
+                    }
+                }
+            }
+            redeemViewController.deal = discover
+            if let topController = AppDelegate.topController() {
+                topController.present(redeemViewController, animated: true, completion: nil)
+            }
         }
-        redeemViewController.deal = discover
-        if let topController = AppDelegate.topController() {
-            topController.present(redeemViewController, animated: true, completion: nil)
-        }
+
     }
     
     func saveDiscoverTapped(discover: Discover?, isSaved: Bool, completionHandler: @escaping (Bool) -> Void) {

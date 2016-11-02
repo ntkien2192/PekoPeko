@@ -111,7 +111,16 @@
 		E441E5DF1DBDF17F0016B87E /* CardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E441E5DE1DBDF17F0016B87E /* CardView.xib */; };
 		E441E5E11DBDF18C0016B87E /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E441E5E01DBDF18C0016B87E /* CardView.swift */; };
 		E441E5E31DBDF1B80016B87E /* VipCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E441E5E21DBDF1B80016B87E /* VipCard.swift */; };
+		E447A30C1DC9B826007D9AB4 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E447A30B1DC9B826007D9AB4 /* ChangePasswordViewController.swift */; };
 		E44B27B01DBDE341006FB81D /* VipCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E44B27AF1DBDE341006FB81D /* VipCardView.xib */; };
+		E44CF9331DC853BE00F815A8 /* Group1ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44CF9321DC853BE00F815A8 /* Group1ImageView.swift */; };
+		E44CF9351DC853C800F815A8 /* Group1ImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E44CF9341DC853C800F815A8 /* Group1ImageView.xib */; };
+		E44CF9371DC861A500F815A8 /* Group3ImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E44CF9361DC861A500F815A8 /* Group3ImageView.xib */; };
+		E44CF9391DC861B100F815A8 /* Group3ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44CF9381DC861B100F815A8 /* Group3ImageView.swift */; };
+		E44CF93B1DC86B5A00F815A8 /* GroupMoreImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44CF93A1DC86B5A00F815A8 /* GroupMoreImageView.swift */; };
+		E44CF93D1DC86B6400F815A8 /* GroupMoreImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E44CF93C1DC86B6400F815A8 /* GroupMoreImageView.xib */; };
+		E44CF93F1DC8998000F815A8 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44CF93E1DC8998000F815A8 /* ForgotPasswordViewController.swift */; };
+		E44CF9411DC89C4700F815A8 /* NewPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44CF9401DC89C4700F815A8 /* NewPasswordViewController.swift */; };
 		E45086E41DAFD9140090ACB5 /* Redeem.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E45086E31DAFD9140090ACB5 /* Redeem.storyboard */; };
 		E45086E71DAFDA5A0090ACB5 /* RedeemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45086E61DAFDA5A0090ACB5 /* RedeemViewController.swift */; };
 		E450F3891DC1CD0900640A4A /* DealMultiPriceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E450F3871DC1CD0900640A4A /* DealMultiPriceCollectionViewCell.swift */; };
@@ -184,7 +193,6 @@
 		E4EC1D911DB5DBEB005CECB6 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EC1D901DB5DBEB005CECB6 /* Address.swift */; };
 		E4F252421DC4429200D70228 /* MyDealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F252401DC4429200D70228 /* MyDealTableViewCell.swift */; };
 		E4F252431DC4429200D70228 /* MyDealTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4F252411DC4429200D70228 /* MyDealTableViewCell.xib */; };
-		E4F5BB991DC33B0800C3FB59 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F5BB981DC33B0800C3FB59 /* ForgotPasswordViewController.swift */; };
 		E4F601771DBB0C71006309A5 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F601761DBB0C71006309A5 /* DiscoverViewController.swift */; };
 		E4F601791DBB13B0006309A5 /* DiscoverStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F601781DBB13AF006309A5 /* DiscoverStore.swift */; };
 		E4F6017B1DBB142C006309A5 /* DiscoverRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F6017A1DBB142C006309A5 /* DiscoverRequest.swift */; };
@@ -336,7 +344,16 @@
 		E441E5DE1DBDF17F0016B87E /* CardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardView.xib; sourceTree = "<group>"; };
 		E441E5E01DBDF18C0016B87E /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		E441E5E21DBDF1B80016B87E /* VipCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VipCard.swift; sourceTree = "<group>"; };
+		E447A30B1DC9B826007D9AB4 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		E44B27AF1DBDE341006FB81D /* VipCardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VipCardView.xib; sourceTree = "<group>"; };
+		E44CF9321DC853BE00F815A8 /* Group1ImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group1ImageView.swift; sourceTree = "<group>"; };
+		E44CF9341DC853C800F815A8 /* Group1ImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Group1ImageView.xib; sourceTree = "<group>"; };
+		E44CF9361DC861A500F815A8 /* Group3ImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Group3ImageView.xib; sourceTree = "<group>"; };
+		E44CF9381DC861B100F815A8 /* Group3ImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group3ImageView.swift; sourceTree = "<group>"; };
+		E44CF93A1DC86B5A00F815A8 /* GroupMoreImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupMoreImageView.swift; sourceTree = "<group>"; };
+		E44CF93C1DC86B6400F815A8 /* GroupMoreImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupMoreImageView.xib; sourceTree = "<group>"; };
+		E44CF93E1DC8998000F815A8 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		E44CF9401DC89C4700F815A8 /* NewPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPasswordViewController.swift; sourceTree = "<group>"; };
 		E45086E31DAFD9140090ACB5 /* Redeem.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Redeem.storyboard; sourceTree = "<group>"; };
 		E45086E61DAFDA5A0090ACB5 /* RedeemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedeemViewController.swift; sourceTree = "<group>"; };
 		E450F3871DC1CD0900640A4A /* DealMultiPriceCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealMultiPriceCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -415,7 +432,6 @@
 		E4EC1D901DB5DBEB005CECB6 /* Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		E4F252401DC4429200D70228 /* MyDealTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyDealTableViewCell.swift; sourceTree = "<group>"; };
 		E4F252411DC4429200D70228 /* MyDealTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyDealTableViewCell.xib; sourceTree = "<group>"; };
-		E4F5BB981DC33B0800C3FB59 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		E4F601761DBB0C71006309A5 /* DiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		E4F601781DBB13AF006309A5 /* DiscoverStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverStore.swift; sourceTree = "<group>"; };
 		E4F6017A1DBB142C006309A5 /* DiscoverRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverRequest.swift; sourceTree = "<group>"; };
@@ -700,7 +716,7 @@
 			isa = PBXGroup;
 			children = (
 				E427F8EB1DAF91280012F3F5 /* SettingViewController.swift */,
-				E4F5BB981DC33B0800C3FB59 /* ForgotPasswordViewController.swift */,
+				E447A30B1DC9B826007D9AB4 /* ChangePasswordViewController.swift */,
 			);
 			name = Setting;
 			sourceTree = "<group>";
@@ -791,8 +807,23 @@
 				E42187AD1DB8713400EFC98C /* SocialConfirmViewController.swift */,
 				E42B6ADC1DAB36720091746F /* ConfirmCodeViewController.swift */,
 				E42B6AE41DAB966D0091746F /* UserUpdateInfoViewController.swift */,
+				E44CF93E1DC8998000F815A8 /* ForgotPasswordViewController.swift */,
+				E44CF9401DC89C4700F815A8 /* NewPasswordViewController.swift */,
 			);
 			name = LoginViewController;
+			sourceTree = "<group>";
+		};
+		E44CF9311DC8539700F815A8 /* GroupImageView */ = {
+			isa = PBXGroup;
+			children = (
+				E44CF9321DC853BE00F815A8 /* Group1ImageView.swift */,
+				E44CF9341DC853C800F815A8 /* Group1ImageView.xib */,
+				E44CF9381DC861B100F815A8 /* Group3ImageView.swift */,
+				E44CF9361DC861A500F815A8 /* Group3ImageView.xib */,
+				E44CF93A1DC86B5A00F815A8 /* GroupMoreImageView.swift */,
+				E44CF93C1DC86B6400F815A8 /* GroupMoreImageView.xib */,
+			);
+			name = GroupImageView;
 			sourceTree = "<group>";
 		};
 		E45086E51DAFDA350090ACB5 /* RedeemViewController */ = {
@@ -1113,6 +1144,7 @@
 		E49404D61DA6AEEA00918C75 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				E44CF9311DC8539700F815A8 /* GroupImageView */,
 				E462CA7D1DBDE02A001D5D5A /* VipCardView */,
 				E4C00C3E1DBCE62B00EE3CF4 /* DiscoverTableViewCell */,
 				E4364F181DBCA3EB00EFCF41 /* ShareView */,
@@ -1350,6 +1382,7 @@
 				E41DC09E1DB4D61A00411F55 /* ShopInfoTableViewCell.xib in Resources */,
 				E47E58791DC0A86C001400E0 /* DealPriceTableViewCell.xib in Resources */,
 				E42469F61DAE101C00D0A074 /* BebasNeue-webfont.ttf in Resources */,
+				E44CF9351DC853C800F815A8 /* Group1ImageView.xib in Resources */,
 				E4EC1D801DB5C32C005CECB6 /* ShopMenu2TableViewCell.xib in Resources */,
 				E4346EC61DB91AEF000566EE /* AddPointSuccessView.xib in Resources */,
 				E42469F71DAE101C00D0A074 /* ProximaNova-Bold.otf in Resources */,
@@ -1374,6 +1407,7 @@
 				E414486C1DB0D79B006C70EF /* Shop.storyboard in Resources */,
 				E41B7F711DC060020036DFAE /* DiscoverShopDetailTableViewCell.xib in Resources */,
 				E4246A011DAE101C00D0A074 /* UTM Bebas.ttf in Resources */,
+				E44CF93D1DC86B6400F815A8 /* GroupMoreImageView.xib in Resources */,
 				E462CA7C1DBDCDFF001D5D5A /* VipTableViewCell.xib in Resources */,
 				E416D0F81DB63368002BBA81 /* AlertView.xib in Resources */,
 				E4246A021DAE101C00D0A074 /* UVF ProximaNova-Regular.ttf in Resources */,
@@ -1382,6 +1416,7 @@
 				E4246A031DAE101C00D0A074 /* VNF.ProximaNova-Regular.ttf in Resources */,
 				E49404A91DA6AD1B00918C75 /* LaunchScreen.storyboard in Resources */,
 				E4336D791DBC83BB002E9F5C /* VoucherTableViewCell.xib in Resources */,
+				E44CF9371DC861A500F815A8 /* Group3ImageView.xib in Resources */,
 				E41B7F801DC07AD50036DFAE /* ImageCollectionViewCell.xib in Resources */,
 				E42469E41DADF64E00D0A074 /* item_top_loyalty_cards.png in Resources */,
 				E49404A61DA6AD1B00918C75 /* Assets.xcassets in Resources */,
@@ -1559,7 +1594,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4336D6D1DBC737A002E9F5C /* VoucherStore.swift in Sources */,
-				E4F5BB991DC33B0800C3FB59 /* ForgotPasswordViewController.swift in Sources */,
 				E43D2C821DA7F6C40019B2DD /* LoginViewController.swift in Sources */,
 				E4F252421DC4429200D70228 /* MyDealTableViewCell.swift in Sources */,
 				E42469DD1DADE79100D0A074 /* CardRequest.swift in Sources */,
@@ -1568,7 +1602,9 @@
 				E42422971DA8C2A100F7D6FC /* DeviceConfig.swift in Sources */,
 				E42469E11DADF55800D0A074 /* MyCardTableViewCell.swift in Sources */,
 				E42B6AE51DAB966D0091746F /* UserUpdateInfoViewController.swift in Sources */,
+				E44CF93B1DC86B5A00F815A8 /* GroupMoreImageView.swift in Sources */,
 				E42B6ADD1DAB36720091746F /* ConfirmCodeViewController.swift in Sources */,
+				E447A30C1DC9B826007D9AB4 /* ChangePasswordViewController.swift in Sources */,
 				E4336D6B1DBC7151002E9F5C /* VoucherViewController.swift in Sources */,
 				E4F6017B1DBB142C006309A5 /* DiscoverRequest.swift in Sources */,
 				E416D0F21DB605E7002BBA81 /* ShopCoverTableViewCell.swift in Sources */,
@@ -1608,11 +1644,14 @@
 				E41448671DB0BE7E006C70EF /* MessageView.swift in Sources */,
 				E4129A411DACE41200F78C79 /* CardStore.swift in Sources */,
 				E4246A051DAE245A00D0A074 /* CardDetailViewController.swift in Sources */,
+				E44CF9331DC853BE00F815A8 /* Group1ImageView.swift in Sources */,
 				E45086E71DAFDA5A0090ACB5 /* RedeemViewController.swift in Sources */,
 				E4EC1D831DB5C352005CECB6 /* ShopMenuTitleTableViewCell.swift in Sources */,
 				E427F8E41DAF5F580012F3F5 /* RewardTableViewCell.swift in Sources */,
 				E46894E71DB697060004B322 /* SMSegment.swift in Sources */,
+				E44CF93F1DC8998000F815A8 /* ForgotPasswordViewController.swift in Sources */,
 				E41448711DB0DA90006C70EF /* AddPointViewController.swift in Sources */,
+				E44CF9391DC861B100F815A8 /* Group3ImageView.swift in Sources */,
 				E462CA7B1DBDCDFF001D5D5A /* VipTableViewCell.swift in Sources */,
 				E41B7F761DC06A5B0036DFAE /* DealTimeTableViewCell.swift in Sources */,
 				E414485D1DB0970E006C70EF /* RedeemSuccessView.swift in Sources */,
@@ -1625,6 +1664,7 @@
 				E451FFF31DA813C800B5A756 /* ScrollView.swift in Sources */,
 				E476B0391DA9445E007B1D62 /* ImageView.swift in Sources */,
 				E45746DF1DB27FB100021604 /* QRCode.swift in Sources */,
+				E44CF9411DC89C4700F815A8 /* NewPasswordViewController.swift in Sources */,
 				E476B02C1DA937C1007B1D62 /* CardTableViewCell.swift in Sources */,
 				E476B0371DA93F0D007B1D62 /* BaseViewController.swift in Sources */,
 				E4364F1A1DBCA40400EFCF41 /* ShareView.swift in Sources */,

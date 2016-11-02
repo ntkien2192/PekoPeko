@@ -44,6 +44,7 @@ class AddPointViewController: BaseViewController {
             constraintPinViewTop.constant = !isDiscount ? 20 : 90
         }
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -96,8 +97,12 @@ class AddPointViewController: BaseViewController {
         
         if let card = card {
             if let discount = card.discount {
-                if discount.title != nil {
-                    isDiscount = true
+                if let total = discount.total, let uses = discount.usesNumber {
+                    if total - uses > 0 {
+                        isDiscount = true
+                    } else {
+                        isDiscount = false
+                    }
                 } else {
                     isDiscount = false
                 }

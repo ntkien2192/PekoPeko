@@ -11,7 +11,7 @@ import MBProgressHUD
 import DZNEmptyDataSet
 
 protocol MyDealViewControllerDelegate: class {
-    func discoverTapped(discover: Discover?)
+    func discoverTapped(discover: Discover?, completionHandler: @escaping () -> Void)
     func myDiscoverUpdated()
 }
 
@@ -217,8 +217,10 @@ extension MyDealViewController: MyDealTableViewCellDelegate {
         }
     }
     
-    func discoverTapped(discover: Discover?) {
-        delegate?.discoverTapped(discover: discover)
+    func discoverTapped(discover: Discover?, completionHandler: @escaping () -> Void) {
+        delegate?.discoverTapped(discover: discover, completionHandler: { 
+            completionHandler()
+        })
     }
     
     func likeDiscoverTapped(discover: Discover?, isLiked: Bool, completionHandler: @escaping (Bool) -> Void) {

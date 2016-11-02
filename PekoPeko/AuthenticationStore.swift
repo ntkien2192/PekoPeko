@@ -160,8 +160,27 @@ class AuthenticationStore {
         })
     }
     
-    class func exchangeToken(completionHandler: @escaping (Bool, Error?) -> Void) {
-        _ = Alamofire.request(Router.exchangeToken()).responseExchangeToken({ (response) in
+    class func forgotPassword(loginParameters: LoginParameter, completionHandler: @escaping (Bool, Error?) -> Void) {
+        let parameters = loginParameters.toJSON()
+        
+        _ = Alamofire.request(Router.forgotPassword(parameters as [String : AnyObject])).responseForgotPassword({ (response) in
+            if let error = response.result.error {
+                completionHandler(false, error)
+                return
+            }
+            guard let responseData = response.result.value else {
+                // TODO: Create error here
+                completionHandler(false, nil)
+                return
+            }
+            completionHandler(responseData ?? false, nil)
+        })
+    }
+
+    class func renewPassword(loginParameters: LoginParameter, completionHandler: @escaping (Bool, Error?) -> Void) {
+        let parameters = loginParameters.toJSON()
+        
+        _ = Alamofire.request(Router.renewPassword(parameters as [String : AnyObject])).responseForgotPassword({ (response) in
             if let error = response.result.error {
                 completionHandler(false, error)
                 return
@@ -244,7 +263,7 @@ extension Alamofire.DataRequest {
         return response(responseSerializer: responseSerializer, completionHandler: completionHandler)
     }
     
-    func responseExchangeToken(_ completionHandler: @escaping (DataResponse<Bool?>) -> Void) -> Self {
+    func responseForgotPassword(_ completionHandler: @escaping (DataResponse<Bool?>) -> Void) -> Self {
         let responseSerializer = DataResponseSerializer<Bool?> { request, response, data, error in
             guard error == nil else {
                 return .failure(error!)

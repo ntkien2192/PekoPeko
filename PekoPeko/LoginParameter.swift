@@ -41,6 +41,10 @@ class LoginParameter: Mappable {
         }
         self.location = location
     }
+
+    init(phone: String) {
+        self.phone = phone
+    }
     
     init(phone: String, code: String, type: String, location: Location) {
         self.phone = phone
@@ -50,6 +54,12 @@ class LoginParameter: Mappable {
         }
         self.loginType = type
         self.location = location
+    }
+    
+    init(phone: String, code: String, password: String) {
+        self.phone = phone
+        self.code = code
+        self.password = password
     }
     
     init(socialCredential: String, location: Location) {

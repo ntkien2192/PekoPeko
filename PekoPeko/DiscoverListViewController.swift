@@ -10,7 +10,7 @@ import UIKit
 import MBProgressHUD
 
 protocol DiscoverListViewControllerDelegate: class {
-    func discoverTapped(discover: Discover?)
+    func discoverTapped(discover: Discover?, completionHandler: @escaping () -> Void)
     func discoverUpdated()
 }
 
@@ -203,8 +203,10 @@ extension DiscoverListViewController: DealTableViewCellDelegate {
         }
     }
     
-    func discoverTapped(discover: Discover?) {
-        delegate?.discoverTapped(discover: discover)
+    func discoverTapped(discover: Discover?, completionHandler: @escaping () -> Void) {
+        delegate?.discoverTapped(discover: discover, completionHandler: { 
+            completionHandler()
+        })
     }
     
     func likeDiscoverTapped(discover: Discover?, isLiked: Bool, completionHandler: @escaping (Bool) -> Void) {

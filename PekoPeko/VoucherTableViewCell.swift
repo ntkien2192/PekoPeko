@@ -103,7 +103,7 @@ class VoucherTableViewCell: UITableViewCell {
             let variety2 = NSAttributedString(string: "\(maxUses - totalUses)", attributes: attribute2)
             attributedText.append(variety2)
             
-            let variety3 = NSAttributedString(string: " xuất", attributes: attribute1)
+            let variety3 = NSAttributedString(string: " suất", attributes: attribute1)
             attributedText.append(variety3)
             
             labelExtant.attributedText = attributedText

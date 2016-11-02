@@ -79,17 +79,6 @@ class DiscoverViewController: BaseViewController {
         }
     }
     
-    func present(discover: Discover?) {
-        if let discover = discover, let discoverID = discover.discoverID {
-            let cardDetailViewController = UIStoryboard(name: DealDetailViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: DealDetailViewController.identify) as! DealDetailViewController
-            cardDetailViewController.discoverID = discoverID
-            
-            if let navigationController = navigationController {
-                navigationController.show(cardDetailViewController, sender: nil)
-            }
-        }
-    }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -122,9 +111,17 @@ extension DiscoverViewController: CAPSPageMenuDelegate {
 }
 
 extension DiscoverViewController: DiscoverListViewControllerDelegate, MyDealViewControllerDelegate {
-    func discoverTapped(discover: Discover?) {
-        if let discover = discover {
-            present(discover: discover)
+    func discoverTapped(discover: Discover?, completionHandler: @escaping () -> Void) {
+        if let discover = discover, let discoverID = discover.discoverID {
+            let cardDetailViewController = UIStoryboard(name: DealDetailViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: DealDetailViewController.identify) as! DealDetailViewController
+            cardDetailViewController.discoverID = discoverID
+            cardDetailViewController.setUsedsHandle {
+                discover.isUsed = true
+                completionHandler()
+            }
+            if let navigationController = navigationController {
+                navigationController.show(cardDetailViewController, sender: nil)
+            }
         }
     }
     
