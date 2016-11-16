@@ -31,12 +31,8 @@
 		E41B7F771DC06A5B0036DFAE /* DealTimeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E41B7F751DC06A5B0036DFAE /* DealTimeTableViewCell.xib */; };
 		E41B7F7A1DC07A1E0036DFAE /* DealImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41B7F781DC07A1E0036DFAE /* DealImageTableViewCell.swift */; };
 		E41B7F7B1DC07A1E0036DFAE /* DealImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E41B7F791DC07A1E0036DFAE /* DealImageTableViewCell.xib */; };
-		E41B7F7F1DC07AD50036DFAE /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41B7F7D1DC07AD50036DFAE /* ImageCollectionViewCell.swift */; };
-		E41B7F801DC07AD50036DFAE /* ImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E41B7F7E1DC07AD50036DFAE /* ImageCollectionViewCell.xib */; };
 		E41B7F831DC088350036DFAE /* DealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41B7F811DC088350036DFAE /* DealTableViewCell.swift */; };
 		E41B7F841DC088350036DFAE /* DealTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E41B7F821DC088350036DFAE /* DealTableViewCell.xib */; };
-		E41B7F881DC090270036DFAE /* ImageMoreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41B7F861DC090260036DFAE /* ImageMoreCollectionViewCell.swift */; };
-		E41B7F891DC090270036DFAE /* ImageMoreCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E41B7F871DC090260036DFAE /* ImageMoreCollectionViewCell.xib */; };
 		E41DC09D1DB4D61A00411F55 /* ShopInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41DC09B1DB4D61A00411F55 /* ShopInfoTableViewCell.swift */; };
 		E41DC09E1DB4D61A00411F55 /* ShopInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E41DC09C1DB4D61A00411F55 /* ShopInfoTableViewCell.xib */; };
 		E41DC0A71DB4D9CC00411F55 /* ShopAddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41DC0A51DB4D9CC00411F55 /* ShopAddressTableViewCell.swift */; };
@@ -132,7 +128,7 @@
 		E451FFF51DA813DA00B5A756 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = E451FFF41DA813DA00B5A756 /* Button.swift */; };
 		E45746DB1DB27F1200021604 /* Reward.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45746DA1DB27F1200021604 /* Reward.swift */; };
 		E45746DD1DB27F4400021604 /* Discount.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45746DC1DB27F4400021604 /* Discount.swift */; };
-		E45746DF1DB27FB100021604 /* QRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45746DE1DB27FB100021604 /* QRCode.swift */; };
+		E45746DF1DB27FB100021604 /* QRCodeContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45746DE1DB27FB100021604 /* QRCodeContent.swift */; };
 		E462CA771DBDC527001D5D5A /* DealDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E462CA761DBDC527001D5D5A /* DealDetailViewController.swift */; };
 		E462CA7B1DBDCDFF001D5D5A /* VipTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E462CA791DBDCDFF001D5D5A /* VipTableViewCell.swift */; };
 		E462CA7C1DBDCDFF001D5D5A /* VipTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E462CA7A1DBDCDFF001D5D5A /* VipTableViewCell.xib */; };
@@ -180,6 +176,8 @@
 		E4E0414D1DB74576001E0226 /* MyCardRewardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4E0414B1DB74576001E0226 /* MyCardRewardTableViewCell.xib */; };
 		E4E041511DB75054001E0226 /* ShopMenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E0414F1DB75054001E0226 /* ShopMenuCollectionViewCell.swift */; };
 		E4E041521DB75054001E0226 /* ShopMenuCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4E041501DB75054001E0226 /* ShopMenuCollectionViewCell.xib */; };
+		E4E44ACA1DCC880000BDB23C /* QRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E44AC91DCC880000BDB23C /* QRCodeView.swift */; };
+		E4E44ACC1DCC880800BDB23C /* QRCodeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4E44ACB1DCC880800BDB23C /* QRCodeView.xib */; };
 		E4EC1D7B1DB5C30C005CECB6 /* ShopMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EC1D791DB5C30C005CECB6 /* ShopMenuTableViewCell.swift */; };
 		E4EC1D7C1DB5C30C005CECB6 /* ShopMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4EC1D7A1DB5C30C005CECB6 /* ShopMenuTableViewCell.xib */; };
 		E4EC1D7F1DB5C32C005CECB6 /* ShopMenu2TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EC1D7D1DB5C32C005CECB6 /* ShopMenu2TableViewCell.swift */; };
@@ -264,12 +262,8 @@
 		E41B7F751DC06A5B0036DFAE /* DealTimeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DealTimeTableViewCell.xib; sourceTree = "<group>"; };
 		E41B7F781DC07A1E0036DFAE /* DealImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealImageTableViewCell.swift; sourceTree = "<group>"; };
 		E41B7F791DC07A1E0036DFAE /* DealImageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DealImageTableViewCell.xib; sourceTree = "<group>"; };
-		E41B7F7D1DC07AD50036DFAE /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
-		E41B7F7E1DC07AD50036DFAE /* ImageCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageCollectionViewCell.xib; sourceTree = "<group>"; };
 		E41B7F811DC088350036DFAE /* DealTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealTableViewCell.swift; sourceTree = "<group>"; };
 		E41B7F821DC088350036DFAE /* DealTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DealTableViewCell.xib; sourceTree = "<group>"; };
-		E41B7F861DC090260036DFAE /* ImageMoreCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageMoreCollectionViewCell.swift; sourceTree = "<group>"; };
-		E41B7F871DC090260036DFAE /* ImageMoreCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageMoreCollectionViewCell.xib; sourceTree = "<group>"; };
 		E41DC09B1DB4D61A00411F55 /* ShopInfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopInfoTableViewCell.swift; sourceTree = "<group>"; };
 		E41DC09C1DB4D61A00411F55 /* ShopInfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShopInfoTableViewCell.xib; sourceTree = "<group>"; };
 		E41DC0A51DB4D9CC00411F55 /* ShopAddressTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopAddressTableViewCell.swift; sourceTree = "<group>"; };
@@ -342,7 +336,7 @@
 		E43D2C811DA7F6C40019B2DD /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E43D2C831DA80DAE0019B2DD /* LoginPhoneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPhoneViewController.swift; sourceTree = "<group>"; };
 		E441E5DE1DBDF17F0016B87E /* CardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardView.xib; sourceTree = "<group>"; };
-		E441E5E01DBDF18C0016B87E /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		E441E5E01DBDF18C0016B87E /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		E441E5E21DBDF1B80016B87E /* VipCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VipCard.swift; sourceTree = "<group>"; };
 		E447A30B1DC9B826007D9AB4 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		E44B27AF1DBDE341006FB81D /* VipCardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VipCardView.xib; sourceTree = "<group>"; };
@@ -365,7 +359,7 @@
 		E451FFF41DA813DA00B5A756 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		E45746DA1DB27F1200021604 /* Reward.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reward.swift; sourceTree = "<group>"; };
 		E45746DC1DB27F4400021604 /* Discount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Discount.swift; sourceTree = "<group>"; };
-		E45746DE1DB27FB100021604 /* QRCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCode.swift; sourceTree = "<group>"; };
+		E45746DE1DB27FB100021604 /* QRCodeContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeContent.swift; sourceTree = "<group>"; };
 		E462CA761DBDC527001D5D5A /* DealDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealDetailViewController.swift; sourceTree = "<group>"; };
 		E462CA791DBDCDFF001D5D5A /* VipTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VipTableViewCell.swift; sourceTree = "<group>"; };
 		E462CA7A1DBDCDFF001D5D5A /* VipTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VipTableViewCell.xib; sourceTree = "<group>"; };
@@ -419,6 +413,8 @@
 		E4E0414B1DB74576001E0226 /* MyCardRewardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCardRewardTableViewCell.xib; sourceTree = "<group>"; };
 		E4E0414F1DB75054001E0226 /* ShopMenuCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopMenuCollectionViewCell.swift; sourceTree = "<group>"; };
 		E4E041501DB75054001E0226 /* ShopMenuCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShopMenuCollectionViewCell.xib; sourceTree = "<group>"; };
+		E4E44AC91DCC880000BDB23C /* QRCodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeView.swift; sourceTree = "<group>"; };
+		E4E44ACB1DCC880800BDB23C /* QRCodeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QRCodeView.xib; sourceTree = "<group>"; };
 		E4EC1D791DB5C30C005CECB6 /* ShopMenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopMenuTableViewCell.swift; sourceTree = "<group>"; };
 		E4EC1D7A1DB5C30C005CECB6 /* ShopMenuTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShopMenuTableViewCell.xib; sourceTree = "<group>"; };
 		E4EC1D7D1DB5C32C005CECB6 /* ShopMenu2TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopMenu2TableViewCell.swift; sourceTree = "<group>"; };
@@ -573,17 +569,6 @@
 			name = DealImageTableViewCell;
 			sourceTree = "<group>";
 		};
-		E41B7F851DC08F1A0036DFAE /* ImageCollectionViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				E41B7F7D1DC07AD50036DFAE /* ImageCollectionViewCell.swift */,
-				E41B7F7E1DC07AD50036DFAE /* ImageCollectionViewCell.xib */,
-				E41B7F861DC090260036DFAE /* ImageMoreCollectionViewCell.swift */,
-				E41B7F871DC090260036DFAE /* ImageMoreCollectionViewCell.xib */,
-			);
-			name = ImageCollectionViewCell;
-			sourceTree = "<group>";
-		};
 		E41DC0921DB4D31200411F55 /* ShopDetailTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -712,13 +697,13 @@
 			name = RewardTableViewCell;
 			sourceTree = "<group>";
 		};
-		E427F8EA1DAF90FB0012F3F5 /* Setting */ = {
+		E427F8EA1DAF90FB0012F3F5 /* SettingViewController */ = {
 			isa = PBXGroup;
 			children = (
 				E427F8EB1DAF91280012F3F5 /* SettingViewController.swift */,
 				E447A30B1DC9B826007D9AB4 /* ChangePasswordViewController.swift */,
 			);
-			name = Setting;
+			name = SettingViewController;
 			sourceTree = "<group>";
 		};
 		E42D538A1DB5BFB200EA76A8 /* ShopMenuTableViewCell */ = {
@@ -985,7 +970,6 @@
 				E49404CE1DA6AE6B00918C75 /* Controllers */,
 				E49404CF1DA6AE7900918C75 /* Stores */,
 				E49404D01DA6AE8100918C75 /* Extentions */,
-				E49404D11DA6AE8F00918C75 /* Helpers */,
 				E49404D21DA6AEA100918C75 /* Resources */,
 				E49404D31DA6AEB000918C75 /* AppDelegate */,
 				E49404D41DA6AEC100918C75 /* Config */,
@@ -1029,7 +1013,7 @@
 				E49D5A8E1DB1C62A001E19DD /* Point.swift */,
 				E45746DA1DB27F1200021604 /* Reward.swift */,
 				E45746DC1DB27F4400021604 /* Discount.swift */,
-				E45746DE1DB27FB100021604 /* QRCode.swift */,
+				E45746DE1DB27FB100021604 /* QRCodeContent.swift */,
 				E46CD5851DB4B25C001F37AF /* Shop.swift */,
 				E4EC1D851DB5C4BD005CECB6 /* MenuItem.swift */,
 				E4EC1D8E1DB5DBB4005CECB6 /* WordTime.swift */,
@@ -1061,7 +1045,7 @@
 				E476B0221DA92A8E007B1D62 /* CardViewController */,
 				E43D2C801DA7F6A90019B2DD /* LoginViewController */,
 				E45086E51DAFDA350090ACB5 /* RedeemViewController */,
-				E427F8EA1DAF90FB0012F3F5 /* Setting */,
+				E427F8EA1DAF90FB0012F3F5 /* SettingViewController */,
 				E414486F1DB0D7D1006C70EF /* ShopDetail */,
 			);
 			name = Controllers;
@@ -1088,13 +1072,6 @@
 				E42435C91DA8E0C700E6E5E7 /* Extensions.swift */,
 			);
 			name = Extentions;
-			sourceTree = "<group>";
-		};
-		E49404D11DA6AE8F00918C75 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Helpers;
 			sourceTree = "<group>";
 		};
 		E49404D21DA6AEA100918C75 /* Resources */ = {
@@ -1144,6 +1121,7 @@
 		E49404D61DA6AEEA00918C75 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				E4E44AC71DCC87E900BDB23C /* QRCodeView */,
 				E44CF9311DC8539700F815A8 /* GroupImageView */,
 				E462CA7D1DBDE02A001D5D5A /* VipCardView */,
 				E4C00C3E1DBCE62B00EE3CF4 /* DiscoverTableViewCell */,
@@ -1168,7 +1146,6 @@
 		E4C00C3E1DBCE62B00EE3CF4 /* DiscoverTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				E41B7F851DC08F1A0036DFAE /* ImageCollectionViewCell */,
 				E462CA6B1DBDAD4F001D5D5A /* DiscoverDetailTableViewCell */,
 				E4C00C3F1DBCE63600EE3CF4 /* DealTableViewCell */,
 				E4F2523F1DC4427600D70228 /* MyDealTableViewCell */,
@@ -1212,6 +1189,15 @@
 				E4E041501DB75054001E0226 /* ShopMenuCollectionViewCell.xib */,
 			);
 			name = ShopMenuCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		E4E44AC71DCC87E900BDB23C /* QRCodeView */ = {
+			isa = PBXGroup;
+			children = (
+				E4E44AC91DCC880000BDB23C /* QRCodeView.swift */,
+				E4E44ACB1DCC880800BDB23C /* QRCodeView.xib */,
+			);
+			name = QRCodeView;
 			sourceTree = "<group>";
 		};
 		E4EC1D871DB5C4E9005CECB6 /* ShopMenuTitleTableViewCell */ = {
@@ -1396,7 +1382,6 @@
 				E42469FA1DAE101C00D0A074 /* ProximaNovaSoft-Bold.otf in Resources */,
 				E41DC0A81DB4D9CC00411F55 /* ShopAddressTableViewCell.xib in Resources */,
 				E42469FC1DAE101C00D0A074 /* ProximaNovaSoft-Medium.otf in Resources */,
-				E41B7F891DC090270036DFAE /* ImageMoreCollectionViewCell.xib in Resources */,
 				E42469FE1DAE101C00D0A074 /* ProximaNovaSoft-Regular.otf in Resources */,
 				E4246A001DAE101C00D0A074 /* ProximaNovaSoft-Semibold.otf in Resources */,
 				E4EC1D7C1DB5C30C005CECB6 /* ShopMenuTableViewCell.xib in Resources */,
@@ -1404,6 +1389,7 @@
 				E4E041521DB75054001E0226 /* ShopMenuCollectionViewCell.xib in Resources */,
 				E47E58881DC0B699001400E0 /* DealImageView.xib in Resources */,
 				E427F8E51DAF5F580012F3F5 /* RewardTableViewCell.xib in Resources */,
+				E4E44ACC1DCC880800BDB23C /* QRCodeView.xib in Resources */,
 				E414486C1DB0D79B006C70EF /* Shop.storyboard in Resources */,
 				E41B7F711DC060020036DFAE /* DiscoverShopDetailTableViewCell.xib in Resources */,
 				E4246A011DAE101C00D0A074 /* UTM Bebas.ttf in Resources */,
@@ -1417,7 +1403,6 @@
 				E49404A91DA6AD1B00918C75 /* LaunchScreen.storyboard in Resources */,
 				E4336D791DBC83BB002E9F5C /* VoucherTableViewCell.xib in Resources */,
 				E44CF9371DC861A500F815A8 /* Group3ImageView.xib in Resources */,
-				E41B7F801DC07AD50036DFAE /* ImageCollectionViewCell.xib in Resources */,
 				E42469E41DADF64E00D0A074 /* item_top_loyalty_cards.png in Resources */,
 				E49404A61DA6AD1B00918C75 /* Assets.xcassets in Resources */,
 				E42469E21DADF55800D0A074 /* MyCardTableViewCell.xib in Resources */,
@@ -1605,6 +1590,7 @@
 				E44CF93B1DC86B5A00F815A8 /* GroupMoreImageView.swift in Sources */,
 				E42B6ADD1DAB36720091746F /* ConfirmCodeViewController.swift in Sources */,
 				E447A30C1DC9B826007D9AB4 /* ChangePasswordViewController.swift in Sources */,
+				E4E44ACA1DCC880000BDB23C /* QRCodeView.swift in Sources */,
 				E4336D6B1DBC7151002E9F5C /* VoucherViewController.swift in Sources */,
 				E4F6017B1DBB142C006309A5 /* DiscoverRequest.swift in Sources */,
 				E416D0F21DB605E7002BBA81 /* ShopCoverTableViewCell.swift in Sources */,
@@ -1663,7 +1649,7 @@
 				E4364F151DBCA31E00EFCF41 /* DiscoverListViewController.swift in Sources */,
 				E451FFF31DA813C800B5A756 /* ScrollView.swift in Sources */,
 				E476B0391DA9445E007B1D62 /* ImageView.swift in Sources */,
-				E45746DF1DB27FB100021604 /* QRCode.swift in Sources */,
+				E45746DF1DB27FB100021604 /* QRCodeContent.swift in Sources */,
 				E44CF9411DC89C4700F815A8 /* NewPasswordViewController.swift in Sources */,
 				E476B02C1DA937C1007B1D62 /* CardTableViewCell.swift in Sources */,
 				E476B0371DA93F0D007B1D62 /* BaseViewController.swift in Sources */,
@@ -1677,8 +1663,6 @@
 				E451FFF51DA813DA00B5A756 /* Button.swift in Sources */,
 				E4F6017D1DBB15F6006309A5 /* Discover.swift in Sources */,
 				E47CB7DC1DB4C71A0078279F /* ShopDetailViewController.swift in Sources */,
-				E41B7F881DC090270036DFAE /* ImageMoreCollectionViewCell.swift in Sources */,
-				E41B7F7F1DC07AD50036DFAE /* ImageCollectionViewCell.swift in Sources */,
 				E4EC1D911DB5DBEB005CECB6 /* Address.swift in Sources */,
 				E41448591DB08FD2006C70EF /* RedeemStore.swift in Sources */,
 				E46894EA1DB697060004B322 /* SMSegmentViewConstants.swift in Sources */,
@@ -1873,6 +1857,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = GKP4HXN9YZ;
@@ -1882,7 +1867,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = hungrybear.PekoPeko;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1894,6 +1879,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = GKP4HXN9YZ;
@@ -1903,7 +1889,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = hungrybear.PekoPeko;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

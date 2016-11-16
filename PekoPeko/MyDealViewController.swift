@@ -207,13 +207,21 @@ extension MyDealViewController: MyDealTableViewCellDelegate {
     }
     
     func useDiscoverTapped(discover: Discover?, completionHandler: @escaping (Bool) -> Void) {
-        let redeemViewController = UIStoryboard(name: RedeemViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: RedeemViewController.identify) as! RedeemViewController
-        redeemViewController.setSuccessHandle {
-            completionHandler(true)
-        }
-        redeemViewController.deal = discover
-        if let topController = AppDelegate.topController() {
-            topController.present(redeemViewController, animated: true, completion: nil)
+        if let discover = discover {
+            if discover.isNoPin {
+                let messageView = MessageView(frame: view.bounds)
+                messageView.message = "Để sử dụng vui lòng tới cửa hàng"
+                addFullView(view: messageView)
+            } else {
+                let redeemViewController = UIStoryboard(name: RedeemViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: RedeemViewController.identify) as! RedeemViewController
+                redeemViewController.setSuccessHandle {
+                    completionHandler(true)
+                }
+                redeemViewController.deal = discover
+                if let topController = AppDelegate.topController() {
+                    topController.present(redeemViewController, animated: true, completion: nil)
+                }
+            }
         }
     }
     
@@ -302,7 +310,7 @@ extension MyDealViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
         
         let attributedText = NSMutableAttributedString()
         let attribute1 = [NSFontAttributeName: UIFont.getBoldFont(12), NSForegroundColorAttributeName: UIColor.colorGray]
-        let variety1 = NSAttributedString(string: "Bạn có thể lưu các deal của\ncửa hàng để theo dõi!", attributes: attribute1)
+        let variety1 = NSAttributedString(string: "Bạn có thể theo dõi các deal\n đã lưu tại đây!", attributes: attribute1)
         attributedText.append(variety1)
         
         return attributedText

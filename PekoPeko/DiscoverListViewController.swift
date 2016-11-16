@@ -8,6 +8,7 @@
 
 import UIKit
 import MBProgressHUD
+import DZNEmptyDataSet
 
 protocol DiscoverListViewControllerDelegate: class {
     func discoverTapped(discover: Discover?, completionHandler: @escaping () -> Void)
@@ -122,19 +123,19 @@ extension DiscoverListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: DealTableViewCell.identify, for: indexPath) as! DealTableViewCell
-        cell.layer.shouldRasterize = true
-        cell.layer.rasterizationScale = UIScreen.main.scale
         
         let discover = discovers[indexPath.row]
+        
         cell.discover = discover
+        
         cell.isLast = indexPath.row == (discovers.count - 1) ? true : false
         cell.delegate = self
         
         if isNext && self.tableView.tag == 0 && indexPath.row == discovers.count - 1 {
-            
+            isNext = false
+            tableView.tag = 1
             preID = [discover.discoverID ?? ""]
             lastTime = discover.createdAt
-            self.tableView.tag = 1
             getAllDiscover()
         }
         
@@ -267,5 +268,21 @@ extension DiscoverListViewController: DealTableViewCellDelegate {
                 })
             }
         }
+    }
+}
+
+extension DiscoverListViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
+    func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
+        return UIImage(named: "IconBearEmpty")
+    }
+    
+    func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        
+        let attributedText = NSMutableAttributedString()
+        let attribute1 = [NSFontAttributeName: UIFont.getBoldFont(12), NSForegroundColorAttributeName: UIColor.colorGray]
+        let variety1 = NSAttributedString(string: "Bạn có thể lưu các deal của\ncửa hàng để theo dõi!", attributes: attribute1)
+        attributedText.append(variety1)
+        
+        return attributedText
     }
 }

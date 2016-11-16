@@ -436,6 +436,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="DLa-uE-HCd"/>
                     <connections>
+                        <outlet property="buttonForgotPass" destination="LOd-bE-oba" id="ezP-nR-d0r"/>
                         <outlet property="buttonShowHidePassword" destination="FNp-tl-YWe" id="RBN-Kq-YHD"/>
                         <outlet property="buttonSubmit" destination="3Od-xJ-jbS" id="2Ex-GV-KDl"/>
                         <outlet property="constraintTop" destination="7Ck-RX-Pzb" id="Nga-rF-GCw"/>

@@ -22,7 +22,7 @@ class Address: NSObject {
     var addressContent: String?
     var thumb: String?
     var location: Location?
-    var qrCode: QRCode?
+    var qrCode: QRCodeContent?
     
     required init(json: JSON) {
         addressID = json[AddressFields.AddressID.rawValue].string
@@ -32,7 +32,7 @@ class Address: NSObject {
         addressID = json[AddressFields.AddressID.rawValue].string
         if let data = json[AddressFields.QRData.rawValue].stringValue.data(using: String.Encoding.utf8) {
             let json = JSON(data: data)
-            qrCode = QRCode(json: json)
+            qrCode = QRCodeContent(json: json)
         }
     }
 }

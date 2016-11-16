@@ -17,6 +17,12 @@
                 <frame key="frameInset" width="320" height="523"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bVv-jQ-jP1">
+                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="bVv-jQ-jP1" secondAttribute="height" multiplier="2:1" id="NX0-tX-tN4"/>
+                        </constraints>
+                    </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q3Z-O7-8vJ">
                         <constraints>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="18" id="8u6-9Z-tk0"/>
@@ -402,12 +408,6 @@
                             <action selector="buttonLikeTapped:" destination="5fv-Wj-2al" eventType="touchUpInside" id="NdC-xl-S47"/>
                         </connections>
                     </button>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bVv-jQ-jP1">
-                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="width" secondItem="bVv-jQ-jP1" secondAttribute="height" multiplier="2:1" id="NX0-tX-tN4"/>
-                        </constraints>
-                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="s8R-a4-eQC" firstAttribute="leading" secondItem="cVJ-Yf-F7s" secondAttribute="leading" id="0ge-eA-8g9"/>

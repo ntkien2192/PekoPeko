@@ -6,7 +6,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Discover List View Controller-->
+        <!--Empty Data Set Delegate-->
         <scene sceneID="3CS-jO-PfH">
             <objects>
                 <viewController storyboardIdentifier="DiscoverListViewController" id="HaE-NM-1yh" customClass="DiscoverListViewController" customModule="PekoPeko" customModuleProvider="target" sceneMemberID="viewController">
@@ -23,6 +23,8 @@
                                 <connections>
                                     <outlet property="dataSource" destination="HaE-NM-1yh" id="VbM-4V-yj0"/>
                                     <outlet property="delegate" destination="HaE-NM-1yh" id="Q0M-Tv-kpg"/>
+                                    <outlet property="emptyDataSetDelegate" destination="HaE-NM-1yh" id="gqm-lC-iw5"/>
+                                    <outlet property="emptyDataSetSource" destination="HaE-NM-1yh" id="dCh-3D-ZzE"/>
                                 </connections>
                             </tableView>
                         </subviews>

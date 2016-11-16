@@ -29,33 +29,44 @@ class CardTableViewCell: UITableViewCell {
     var card: Card? {
         didSet {
             if let card = card {
-                
                 if let shopCoverUrl = card.shopCoverUrl {
-                    imageViewCover.contentMode = .scaleAspectFill
-                    imageViewCover.clipsToBounds = false
-                    imageViewCover.layer.masksToBounds = true
-                    
-                    let cache = Shared.imageCache
-                    let URL = NSURL(string: shopCoverUrl)!
-                    let fetcher = NetworkFetcher<UIImage>(URL: URL as URL)
                     weak var _self = self
-                    _ = cache.fetch(fetcher: fetcher).onSuccess({ (image) in
-                        _self?.imageViewCover.image = image
-                    })
+                    DispatchQueue.main.async {
+                        if let _self = _self {
+                            _self.imageViewCover.contentMode = .scaleAspectFill
+                            _self.imageViewCover.clipsToBounds = false
+                            _self.imageViewCover.layer.masksToBounds = true
+                            
+                            let cache = Shared.imageCache
+                            let URL = NSURL(string: shopCoverUrl)!
+                            let fetcher = NetworkFetcher<UIImage>(URL: URL as URL)
+                            _ = cache.fetch(fetcher: fetcher).onSuccess({ (image) in
+                                DispatchQueue.main.async {
+                                    _self.imageViewCover.image = image
+                                }
+                            })
+                        }
+                    }
                 }
                 
                 if let shopAvatarUrl = card.shopAvatarUrl {
-                    imageViewAvatar.contentMode = .scaleAspectFill
-                    imageViewAvatar.clipsToBounds = false
-                    imageViewAvatar.layer.masksToBounds = true
-                    
-                    let cache = Shared.imageCache
-                    let URL = NSURL(string: shopAvatarUrl)!
-                    let fetcher = NetworkFetcher<UIImage>(URL: URL as URL)
                     weak var _self = self
-                    _ = cache.fetch(fetcher: fetcher).onSuccess({ (image) in
-                        _self?.imageViewAvatar.image = image.resizeImage(targetSize: CGSize(width: 80, height: 80))
-                    })
+                    DispatchQueue.main.async {
+                        if let _self = _self {
+                            _self.imageViewAvatar.contentMode = .scaleAspectFill
+                            _self.imageViewAvatar.clipsToBounds = false
+                            _self.imageViewAvatar.layer.masksToBounds = true
+                            
+                            let cache = Shared.imageCache
+                            let URL = NSURL(string: shopAvatarUrl)!
+                            let fetcher = NetworkFetcher<UIImage>(URL: URL as URL)
+                            _ = cache.fetch(fetcher: fetcher).onSuccess({ (image) in
+                                DispatchQueue.main.async {
+                                    _self.imageViewAvatar.image = image.resizeImage(targetSize: CGSize(width: 80, height: 80))
+                                }
+                            })
+                        }
+                    }
                 }
                 
                 if let shopAddress = card.shopAddress {
@@ -91,8 +102,4 @@ class CardTableViewCell: UITableViewCell {
     @IBAction func buttonCellTapped(_ sender: AnyObject) {
         delegate?.cellTapped(card: card)
     }
-    
-//    @IBAction func buttonShopTapped(_ sender: AnyObject) {
-//        delegate?.shopTapped(card: card)
-//    }
 }

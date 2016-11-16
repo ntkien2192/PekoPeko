@@ -44,14 +44,14 @@ class DiscountCardTableViewCell: UITableViewCell {
                     labelTitle.text = title
                 }
                 
-                if let total = discount.total, let usesNumber = discount.usesNumber {
-                    if total - usesNumber > 0 {
-                        labelTotal.text = "x\(total - usesNumber)"
+                if let total = discount.total {
+                    if total > 0 {
+                        labelTotal.text = "x\(total)"
+                        canAdd = true
                     } else {
                         labelTotal.text = "x0"
                         canAdd = false
                     }
-                    
                 }
                 
                 if let isNeverEnd = discount.isNeverEnd {

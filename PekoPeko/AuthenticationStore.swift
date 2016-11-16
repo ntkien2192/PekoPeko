@@ -18,6 +18,7 @@ class AuthenticationStore {
     fileprivate let isLoginTypeKey = "pekopeko.isLoginTypeKey"
     fileprivate let phoneNumberKey = "pekopeko.phoneNumber"
     fileprivate let connectFacebookKey = "pekopeko.connectFacebook"
+    fileprivate let userIDKey = "pekopeko.userid"
     
     fileprivate var defaults: UserDefaults = {
         
@@ -91,6 +92,29 @@ class AuthenticationStore {
         defaults.synchronize()
     }
 
+    // Authenticated phoneNumber
+    
+    var hasUserID: Bool {
+        if userID != nil {
+            return true
+        }
+        return false
+    }
+    
+    var userID: String? {
+        return defaults.value(forKey: userIDKey) as? String ?? nil
+    }
+    
+    func saveUserID(_ userID: String) {
+        defaults.set(userID, forKey: userIDKey)
+        defaults.synchronize()
+    }
+    
+    func deleteUserID() {
+        defaults.removeObject(forKey: userIDKey)
+        defaults.synchronize()
+    }
+    
     // ConnectFacebook
     var isFacebookConnected: Bool {
         return defaults.value(forKey: connectFacebookKey) as? Bool ?? false
@@ -251,6 +275,11 @@ extension Alamofire.DataRequest {
                     let token = data["token"].stringValue
                     if !token.isEmpty {
                         AuthenticationStore().saveAcessToken(token)
+                    }
+                    
+                    let userID = data["_id"].stringValue
+                    if !userID.isEmpty {
+                        AuthenticationStore().saveUserID(userID)
                     }
                     
                     return .success(user)

@@ -17,14 +17,13 @@ enum ApiVersion: String {
 }
 
 enum Router: URLRequestConvertible {
-    static let baseURLString = "https://api.hungrybear.vn/" 
-//    static let baseURLString = "https://api.pekopeko.vn/"
-    
+    static let baseURLString = "https://api.hungrybear.vn/"
     static let baseUploadFile = "https://files.hungrybear.vn/"
+    
+//    static let baseURLString = "https://api.pekopeko.vn/"
 //    static let baseUploadFile = "https://files.pekopeko.vn/"
     
     // Router
-    case exchangeToken()
     case login([String: AnyObject])
     case loginSocial([String: AnyObject])
     
@@ -72,9 +71,6 @@ enum Router: URLRequestConvertible {
     
     var method: HTTPMethod {
         switch self {
-        case .exchangeToken:
-            return .get
-            
         case .login:
             return .post
             
@@ -181,9 +177,6 @@ enum Router: URLRequestConvertible {
     
     var path: String {
         switch self {
-        case .exchangeToken:
-            return "auth/refresh-token"
-            
         case .login:
             return "auth/phone"
          
@@ -290,9 +283,6 @@ enum Router: URLRequestConvertible {
     
     var apiVersion: String {
         switch self {
-        case .exchangeToken:
-            return ApiVersion.V100.rawValue
-            
         case .login:
             return ApiVersion.V200.rawValue
             

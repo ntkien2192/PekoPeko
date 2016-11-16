@@ -156,8 +156,10 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="buttonPhone" destination="mpz-V0-yEQ" id="gH4-M6-vpv"/>
+                <outlet property="buttonShop" destination="WWe-kH-1fT" id="6lM-aF-byv"/>
                 <outlet property="constraintButtonCallWidth" destination="cCq-l0-p8a" id="cVf-Cd-JdJ"/>
                 <outlet property="imageViewAvatar" destination="VzH-lu-us9" id="T6d-ob-Rb5"/>
+                <outlet property="imageViewShop" destination="nMH-BQ-TnF" id="Z7n-hd-0Gb"/>
                 <outlet property="labelPrice" destination="DMd-yY-pGI" id="5ar-Fp-HhO"/>
                 <outlet property="labelShopAddress" destination="uIW-2x-WTv" id="Jrg-MN-sYw"/>
                 <outlet property="labelShopName" destination="tHV-U2-svg" id="y7z-AG-BKF"/>

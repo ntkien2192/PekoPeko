@@ -61,5 +61,4 @@ class Textfield: SpringTextField {
             rightViewMode = UITextFieldViewMode.always
         }
     }
-    
 }

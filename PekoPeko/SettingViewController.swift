@@ -165,6 +165,16 @@ class SettingViewController: BaseViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func buttonShowQRCodeTapped(_ sender: AnyObject) {
+        if AuthenticationStore().hasUserID {
+            let qrCodeView = QRCodeView(frame: view.bounds)
+            if let userID = AuthenticationStore().userID {
+                qrCodeView.content = QRCodeContent(userID: userID).toJSONString()
+            }
+            addFullView(view: qrCodeView)
+        }
+    }
+    
     @IBAction func buttonLogoutTapped(_ sender: AnyObject) {
         let alertView = AlertView(frame: view.bounds)
         alertView.message = "Xác nhận đăng xuất?"

@@ -20,6 +20,8 @@ class DiscoverShopDetailTableViewCell: UITableViewCell {
     
     weak var delegate: DiscoverShopDetailTableViewCellDelegate?
     
+    @IBOutlet weak var imageViewShop: UIImageView!
+    @IBOutlet weak var buttonShop: UIButton!
     @IBOutlet weak var labelShopName: UILabel!
     @IBOutlet weak var labelShopAddress: UILabel!
     @IBOutlet weak var labelPrice: UILabel!
@@ -31,7 +33,7 @@ class DiscoverShopDetailTableViewCell: UITableViewCell {
     var discover: Discover? {
         didSet {
             if let discover = discover, let shop = discover.shop {
-                
+
                 if let shopAvatarUrl = shop.avatarUrl {
                     imageViewAvatar.contentMode = .scaleAspectFill
                     imageViewAvatar.clipsToBounds = false
@@ -66,7 +68,7 @@ class DiscoverShopDetailTableViewCell: UITableViewCell {
                 if let telephone = shop.telephone {
                     if !telephone.isEmpty {
                         buttonPhone.isHidden = false
-                         constraintButtonCallWidth.constant = 140.0
+                        constraintButtonCallWidth.constant = 140.0
                         self.telephone = telephone
                     } else {
                         constraintButtonCallWidth.constant = 0.0

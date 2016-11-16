@@ -38,6 +38,8 @@ enum DiscoverFields: String {
     
     case SavedAt = "saved_at"
     case IsUsed = "is_used"
+    
+    case IsNoPin = "no_pin"
 }
 
 class Discover: NSObject {
@@ -68,6 +70,8 @@ class Discover: NSObject {
     var isUsed = false
     var isEnd = false
     var isExpire = false
+    
+    var isNoPin = false
     
     required init(json: JSON) {
         discoverID = json[DiscoverFields.DiscoverID.rawValue].string
@@ -113,6 +117,8 @@ class Discover: NSObject {
         
         savedAt = json[DiscoverFields.SavedAt.rawValue].double
         isUsed = json[DiscoverFields.IsUsed.rawValue].boolValue
+        
+        isNoPin = json[DiscoverFields.IsNoPin.rawValue].boolValue
     }
     
     func imageCount() -> Int {

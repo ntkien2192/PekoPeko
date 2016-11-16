@@ -20,6 +20,7 @@ class AddPointViewController: BaseViewController {
     @IBOutlet weak var labelName: UILabel!
     @IBOutlet weak var labelAddress: UILabel!
     @IBOutlet weak var imageView: ImageView!
+    @IBOutlet weak var buttonQRCode: UIButton!
     
     @IBOutlet weak var constraintTop: NSLayoutConstraint!
     @IBOutlet weak var textfieldCode1: Textfield!
@@ -35,13 +36,19 @@ class AddPointViewController: BaseViewController {
     var defaultConstraintValue: CGFloat?
     
     var card: Card?
-    var qrCode: QRCode?
+    var qrCode: QRCodeContent?
     var address: Address?
     
     var isScan: Bool = false
     var isDiscount: Bool = false {
         didSet {
             constraintPinViewTop.constant = !isDiscount ? 20 : 90
+        }
+    }
+    
+    var qrContent: String? {
+        didSet {
+            buttonQRCode.isHidden = false
         }
     }
     
@@ -87,6 +94,10 @@ class AddPointViewController: BaseViewController {
     }
     
     func loadRewardInfo() {
+        let userID = AuthenticationStore().userID ?? ""
+        let scanType = "getPoint"
+        var cardID: String?
+        
         if !isScan {
             if let address = address {
                 if let addressContent = address.addressContent {
@@ -96,9 +107,12 @@ class AddPointViewController: BaseViewController {
         }
         
         if let card = card {
+            
+            cardID = card.shopID ?? ""
+            
             if let discount = card.discount {
-                if let total = discount.total, let uses = discount.usesNumber {
-                    if total - uses > 0 {
+                if let total = discount.total {
+                    if total > 0 {
                         isDiscount = true
                     } else {
                         isDiscount = false
@@ -136,6 +150,8 @@ class AddPointViewController: BaseViewController {
                 }
             }
         }
+        
+        qrContent = QRCodeContent(userID: userID, scanType: scanType, cardID: cardID).toJSONString()
     }
     
     func loadQRCode() {
@@ -198,7 +214,7 @@ class AddPointViewController: BaseViewController {
             addFullView(view: messageView)
         } else {
             
-            var mainQrCode = QRCode()
+            var mainQrCode = QRCodeContent()
             var mainPinCode = 0
             let mainBill = textfieldMoney.amount.doubleValue
             let mainHasDiscount = buttonDiscount.isOn
@@ -221,7 +237,7 @@ class AddPointViewController: BaseViewController {
 
     }
     
-    func redeemPoint(qrCode: QRCode, totalBill: Double, hasDiscount: Bool, pinCode: Int) {
+    func redeemPoint(qrCode: QRCodeContent, totalBill: Double, hasDiscount: Bool, pinCode: Int) {
         if let shopID = qrCode.shopID,
             let addressID = qrCode.addressID,
             let key = qrCode.key,
@@ -292,6 +308,12 @@ class AddPointViewController: BaseViewController {
         addPoint()
     }
     
+    @IBAction func buttonQRCodeTapped(_ sender: AnyObject) {
+        let qrCodeView = QRCodeView(frame: view.bounds)
+        qrCodeView.content = qrContent ?? ""
+        addFullView(view: qrCodeView)
+    }
+    
     @IBAction func buttonShopTapped(_ sender: AnyObject) {
         if let card = card {
             let shopDetailController = UIStoryboard(name: ShopDetailViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: ShopDetailViewController.identify) as! ShopDetailViewController
@@ -305,7 +327,7 @@ extension AddPointViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.layer.borderWidth = 2.0
         let discountY: CGFloat = !isDiscount ? 90.0 : 0.0
-        if let constraintValue = DeviceConfig.getConstraintValue(d35: -40, d40: -200, d50: -70, d55: -70) {
+        if let constraintValue = DeviceConfig.getConstraintValue(d35: -200, d40: -200, d50: -70, d55: -70) {
             if constraintTop.constant != constraintValue + discountY {
                 constraintTop.constant = constraintValue + discountY
                 view.setNeedsLayout()

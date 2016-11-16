@@ -54,19 +54,19 @@ class ScanQRCodeViewController: UIViewController {
                             if codes.count != 0 {
                                 scaner.stopScanning()
                                 if let data = (codes.first as! AVMetadataMachineReadableCodeObject).stringValue.data(using: String.Encoding.utf8) {
-                                    let qrCode = QRCode(json: JSON(data: data))
+                                    let qrCode = QRCodeContent(json: JSON(data: data))
                                     self.loadCardList(qrCode: qrCode)
                                 }
                                 
                             }
                         }
-                        }, error: nil)
+                    }, error: nil)
                 }
             })
         }
     }
     
-    func loadCardList(qrCode: QRCode) {
+    func loadCardList(qrCode: QRCodeContent) {
         let addPointViewController = UIStoryboard(name: AddPointViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: AddPointViewController.identify) as! AddPointViewController
         addPointViewController.qrCode = qrCode
         addPointViewController.isScan = true

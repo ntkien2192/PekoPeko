@@ -9,7 +9,7 @@ target 'PekoPeko' do
   pod 'SwiftyJSON'
   pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift3'
   pod 'ObjectMapper', '~> 2.0'
-  pod 'SwiftHEXColors', :git => 'https://github.com/thii/SwiftHEXColors.git', :branch => 'swift-3.0'
+  pod 'SwiftHEXColors'
   pod 'MBProgressHUD', '~> 1.0.0'
   pod 'UIResponder+KeyboardCache', '~> 0.1'
   pod 'NVActivityIndicatorView'
@@ -22,7 +22,6 @@ target 'PekoPeko' do
   pod 'FBSDKLoginKit'
   pod 'DZNEmptyDataSet'
   pod 'iCarousel'
-  pod 'SwiftDate', '~> 4.0'
   pod 'LDProgressView', '>= 1.1'
   
   # Pods for PekoPeko

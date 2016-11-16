@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import DZNEmptyDataSet
 
 protocol CardListViewControllerDelegate: class {
     func buttonCardTapped(card: Card?)
@@ -145,5 +146,21 @@ extension CardListViewController: UITableViewDataSource {
         }
         
         return cell
+    }
+}
+
+extension CardListViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
+    func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
+        return UIImage(named: "IconBearEmpty")
+    }
+    
+    func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        
+        let attributedText = NSMutableAttributedString()
+        let attribute1 = [NSFontAttributeName: UIFont.getBoldFont(12), NSForegroundColorAttributeName: UIColor.colorGray]
+        let variety1 = NSAttributedString(string: "Danh sách Card của cửa hàng với\nvô vàn phần thưởng hấp dẫn", attributes: attribute1)
+        attributedText.append(variety1)
+        
+        return attributedText
     }
 }

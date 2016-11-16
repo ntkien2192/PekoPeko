@@ -22,7 +22,7 @@ PODS:
   - ObjectMapper (2.0.0)
   - Spring (1.0.3)
   - SwiftDate (4.0.4)
-  - SwiftHEXColors (1.0.4)
+  - SwiftHEXColors (1.1.0)
   - SwiftyJSON (3.1.0)
   - TSCurrencyTextField (0.1.0):
     - TSCurrencyTextField/Core (= 0.1.0)
@@ -44,7 +44,7 @@ DEPENDENCIES:
   - ObjectMapper (~> 2.0)
   - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift3`)
   - SwiftDate (~> 4.0)
-  - SwiftHEXColors (from `https://github.com/thii/SwiftHEXColors.git`, branch `swift-3.0`)
+  - SwiftHEXColors
   - SwiftyJSON
   - TSCurrencyTextField (~> 0.1.0)
   - UIResponder+KeyboardCache (~> 0.1)
@@ -59,9 +59,6 @@ EXTERNAL SOURCES:
   Spring:
     :branch: swift3
     :git: https://github.com/MengTo/Spring.git
-  SwiftHEXColors:
-    :branch: swift-3.0
-    :git: https://github.com/thii/SwiftHEXColors.git
 
 CHECKOUT OPTIONS:
   Alamofire:
@@ -73,9 +70,6 @@ CHECKOUT OPTIONS:
   Spring:
     :commit: e5c127b7aa6ce31e5f4d01100a8991423a1eb498
     :git: https://github.com/MengTo/Spring.git
-  SwiftHEXColors:
-    :commit: f4b98e298528fd9d88b10ab55e806d29ce497daa
-    :git: https://github.com/thii/SwiftHEXColors.git
 
 SPEC CHECKSUMS:
   Alamofire: d8ab1487ca8accacde5d0c65ae8144bdf9a264b8
@@ -93,11 +87,11 @@ SPEC CHECKSUMS:
   ObjectMapper: aed2570edabbd3c9b26c939e1cabdb6558f933e0
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
   SwiftDate: 16d9e299eafb8021d921e874f13c0f79e7f1a801
-  SwiftHEXColors: b0ecc7bd83a1aa2e1956f9ba51f55ebb2bcf86ef
+  SwiftHEXColors: 8f7e364df7929e32cff9f9eeb044bb215167d6be
   SwiftyJSON: 29b9f2a64f118c07e691667c2ba1efe536acfe0b
   TSCurrencyTextField: 03f9d4d263d617d1f0e034e4ace12febcfa6fe48
   UIResponder+KeyboardCache: dc1b7ff925c25ddb58b289bc71a3724c269767ef
 
-PODFILE CHECKSUM: bc4876b0e9ceec3a216c84e059324d418007337c
+PODFILE CHECKSUM: f5b0a92d8b985de4f2b1300142e6503e91ed6943
 
 COCOAPODS: 1.0.1

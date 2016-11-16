@@ -234,20 +234,26 @@ extension DealDetailViewController: DiscoverShopDetailTableViewCellDelegate {
 extension DealDetailViewController: DealControlTableViewCellDelegate {
     func useDiscoverTapped(discover: Discover?, completionHandler: @escaping (Bool) -> Void) {
         if let discover = discover {
-            let redeemViewController = UIStoryboard(name: RedeemViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: RedeemViewController.identify) as! RedeemViewController
-            
-            weak var _self = self
-            redeemViewController.setSuccessHandle {
-                completionHandler(true)
-                if let _self = _self {
-                    if let usedAction = _self.usedAction {
-                        usedAction()
+            if discover.isNoPin {
+                let messageView = MessageView(frame: view.bounds)
+                messageView.message = "Để sử dụng vui lòng tới cửa hàng"
+                addFullView(view: messageView)
+            } else {
+                let redeemViewController = UIStoryboard(name: RedeemViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: RedeemViewController.identify) as! RedeemViewController
+                
+                weak var _self = self
+                redeemViewController.setSuccessHandle {
+                    completionHandler(true)
+                    if let _self = _self {
+                        if let usedAction = _self.usedAction {
+                            usedAction()
+                        }
                     }
                 }
-            }
-            redeemViewController.deal = discover
-            if let topController = AppDelegate.topController() {
-                topController.present(redeemViewController, animated: true, completion: nil)
+                redeemViewController.deal = discover
+                if let topController = AppDelegate.topController() {
+                    topController.present(redeemViewController, animated: true, completion: nil)
+                }
             }
         }
 

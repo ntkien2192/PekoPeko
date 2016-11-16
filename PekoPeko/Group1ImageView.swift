@@ -17,17 +17,23 @@ class Group1ImageView: UIView {
     var imageUrls: [String]? {
         didSet {
             if let imageUrls = imageUrls, let imageUrl = imageUrls.first {
-                imageView.contentMode = .scaleAspectFill
-                imageView.clipsToBounds = false
-                imageView.layer.masksToBounds = true
-                
-                let cache = Shared.imageCache
-                let URL = NSURL(string: imageUrl)!
-                let fetcher = NetworkFetcher<UIImage>(URL: URL as URL)
                 weak var _self = self
-                _ = cache.fetch(fetcher: fetcher).onSuccess({ (image) in
-                    _self?.imageView.image = image
-                })
+                DispatchQueue.main.async {
+                    if let _self = _self {
+                        _self.imageView.contentMode = .scaleAspectFill
+                        _self.imageView.clipsToBounds = false
+                        _self.imageView.layer.masksToBounds = true
+                        
+                        let cache = Shared.imageCache
+                        let URL = NSURL(string: imageUrl)!
+                        let fetcher = NetworkFetcher<UIImage>(URL: URL as URL)
+                        _ = cache.fetch(fetcher: fetcher).onSuccess({ (image) in
+                            DispatchQueue.main.async {
+                                _self.imageView.image = image
+                            }
+                        })
+                    }
+                }
             }
         }
     }

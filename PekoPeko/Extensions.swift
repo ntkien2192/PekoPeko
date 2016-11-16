@@ -72,6 +72,25 @@ extension UIImageView {
                 })
         }
     }
+    
+    func setQRCode(content: String) {
+        var contentImage = CIImage()
+        if let data = content.data(using: .utf8, allowLossyConversion: false) {
+            if let filter = CIFilter(name: "CIQRCodeGenerator") {
+                filter.setValue(data, forKey: "inputMessage")
+                filter.setValue("Q", forKey: "inputCorrectionLevel")
+                if let image = filter.outputImage {
+                    contentImage = image
+                }
+            }
+        }
+        let scaleX = self.bounds.size.width / contentImage.extent.size.width
+        let scaleY = self.bounds.size.height / contentImage.extent.size.height
+        
+        let transformedImage = contentImage.applying(CGAffineTransform(scaleX: scaleX, y: scaleY))
+        
+        image = UIImage(ciImage: transformedImage)
+    }
 }
 
 extension UIImage {

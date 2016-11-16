@@ -130,15 +130,19 @@ class DealTableViewCell: UITableViewCell {
     var endAt: (Int, Int, Int) = (0, 0, 0) {
         didSet {
             let (d, h, m) = endAt
-            
-            if let attributedText = labelDate1.attributedText {
-                let attributes = attributedText.attributes(at: 0, longestEffectiveRange: nil, in: NSMakeRange(0, attributedText.length))
-                labelDate1.attributedText = NSAttributedString(string: "\(d > 9 ? Int(d / 10) : 0)", attributes: attributes)
-                labelDate2.attributedText = NSAttributedString(string: "\(d > 9 ? Int(d % 10) : d)", attributes: attributes)
-                labelHour1.attributedText = NSAttributedString(string: "\(h > 9 ? Int(h / 10) : 0)", attributes: attributes)
-                labelHour2.attributedText = NSAttributedString(string: "\(h > 9 ? Int(h % 10) : h)", attributes: attributes)
-                labelMinute1.attributedText = NSAttributedString(string: "\(m > 9 ? Int(m / 10) : 0)", attributes: attributes)
-                laberMinute2.attributedText = NSAttributedString(string: "\(m > 9 ? Int(m % 10) : m)", attributes: attributes)
+            weak var _self = self
+            DispatchQueue.main.async {
+                if let _self = _self {
+                    if let attributedText = _self.labelDate1.attributedText {
+                        let attributes = attributedText.attributes(at: 0, longestEffectiveRange: nil, in: NSMakeRange(0, attributedText.length))
+                        _self.labelDate1.attributedText = NSAttributedString(string: "\(d > 9 ? Int(d / 10) : 0)", attributes: attributes)
+                        _self.labelDate2.attributedText = NSAttributedString(string: "\(d > 9 ? Int(d % 10) : d)", attributes: attributes)
+                        _self.labelHour1.attributedText = NSAttributedString(string: "\(h > 9 ? Int(h / 10) : 0)", attributes: attributes)
+                        _self.labelHour2.attributedText = NSAttributedString(string: "\(h > 9 ? Int(h % 10) : h)", attributes: attributes)
+                        _self.labelMinute1.attributedText = NSAttributedString(string: "\(m > 9 ? Int(m / 10) : 0)", attributes: attributes)
+                        _self.laberMinute2.attributedText = NSAttributedString(string: "\(m > 9 ? Int(m % 10) : m)", attributes: attributes)
+                    }
+                }
             }
         }
     }
@@ -147,27 +151,46 @@ class DealTableViewCell: UITableViewCell {
         didSet {
             if let images = images {
                 if images.count == 1 {
+
                     let group1ImageView = Group1ImageView(frame: groupImageView.bounds)
                     group1ImageView.imageUrls = images
                     groupImageView.addSubview(group1ImageView)
-                    group1ImageView.translatesAutoresizingMaskIntoConstraints = false
-                    groupImageView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[view]-0-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": group1ImageView]))
-                    groupImageView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[view]-0-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": group1ImageView]))
+                    
+                    weak var _self = self
+                    DispatchQueue.main.async {
+                        if let _self = _self {
+                            group1ImageView.translatesAutoresizingMaskIntoConstraints = false
+                            _self.groupImageView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[view]-0-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": group1ImageView]))
+                            _self.groupImageView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[view]-0-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": group1ImageView]))
+                        }
+                    }
+
                     
                 } else if isMoreImage {
                     let groupMoreImageView = GroupMoreImageView(frame: groupImageView.bounds)
                     groupMoreImageView.imageUrls = images
                     groupImageView.addSubview(groupMoreImageView)
-                    groupMoreImageView.translatesAutoresizingMaskIntoConstraints = false
-                    groupImageView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[view]-0-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": groupMoreImageView]))
-                    groupImageView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[view]-0-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": groupMoreImageView]))
+                    
+                    weak var _self = self
+                    DispatchQueue.main.async {
+                        if let _self = _self {
+                            groupMoreImageView.translatesAutoresizingMaskIntoConstraints = false
+                            _self.groupImageView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[view]-0-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": groupMoreImageView]))
+                            _self.groupImageView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[view]-0-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": groupMoreImageView]))
+                        }
+                    }
                 } else {
                     let group3ImageView = Group3ImageView(frame: groupImageView.bounds)
                     group3ImageView.imageUrls = images
                     groupImageView.addSubview(group3ImageView)
-                    group3ImageView.translatesAutoresizingMaskIntoConstraints = false
-                    groupImageView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[view]-0-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": group3ImageView]))
-                    groupImageView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[view]-0-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": group3ImageView]))
+                    weak var _self = self
+                    DispatchQueue.main.async {
+                        if let _self = _self {
+                            group3ImageView.translatesAutoresizingMaskIntoConstraints = false
+                            _self.groupImageView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[view]-0-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": group3ImageView]))
+                            _self.groupImageView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[view]-0-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": group3ImageView]))
+                        }
+                    }
                 }
             }
         }
@@ -177,6 +200,7 @@ class DealTableViewCell: UITableViewCell {
     
     var discover: Discover? {
         didSet {
+            
             reloadData()
         }
     }
@@ -185,17 +209,23 @@ class DealTableViewCell: UITableViewCell {
         if let discover = discover {
             if let shop = discover.shop {
                 if let shopAvatarUrl = shop.avatarUrl {
-                    imageViewShopAvatar.contentMode = .scaleAspectFill
-                    imageViewShopAvatar.clipsToBounds = false
-                    imageViewShopAvatar.layer.masksToBounds = true
-                    
-                    let cache = Shared.imageCache
-                    let URL = NSURL(string: shopAvatarUrl)!
-                    let fetcher = NetworkFetcher<UIImage>(URL: URL as URL)
                     weak var _self = self
-                    _ = cache.fetch(fetcher: fetcher).onSuccess({ (image) in
-                        _self?.imageViewShopAvatar.image = image.resizeImage(targetSize: CGSize(width: 80, height: 80))
-                    })
+                    DispatchQueue.main.async {
+                        if let _self = _self {
+                            _self.imageViewShopAvatar.contentMode = .scaleAspectFill
+                            _self.imageViewShopAvatar.clipsToBounds = false
+                            _self.imageViewShopAvatar.layer.masksToBounds = true
+                            
+                            let cache = Shared.imageCache
+                            let URL = NSURL(string: shopAvatarUrl)!
+                            let fetcher = NetworkFetcher<UIImage>(URL: URL as URL)
+                            _ = cache.fetch(fetcher: fetcher).onSuccess({ (image) in
+                                DispatchQueue.main.async {
+                                    _self.imageViewShopAvatar.image = image.resizeImage(targetSize: CGSize(width: 80, height: 80))
+                                }
+                            })
+                        }
+                    }
                 }
                 
                 if let fullName = shop.fullName {
@@ -246,49 +276,59 @@ class DealTableViewCell: UITableViewCell {
                     }
                 }
                 
-                if let discountRate = discover.discountRate {
-                    if discountRate != 0 {
-                        imageViewDiscount.isHidden = false
-                        labelDiscount.isHidden = false
-                        let attributedText = NSMutableAttributedString()
-                        let attribute1 = [NSFontAttributeName: UIFont.getBoldFont(15), NSForegroundColorAttributeName: UIColor.white]
-                        let variety1 = NSAttributedString(string: "\(NSString(format: "%.0f", discountRate))%\n", attributes: attribute1)
-                        attributedText.append(variety1)
-                        
-                        let attribute2 = [NSFontAttributeName: UIFont.getFont(8), NSForegroundColorAttributeName: UIColor.white]
-                        let variety2 = NSAttributedString(string: "OFF", attributes: attribute2)
-                        attributedText.append(variety2)
-                        
-                        labelDiscount.attributedText = attributedText
-                    } else {
-                        imageViewDiscount.isHidden = true
-                        labelDiscount.isHidden = true
+                weak var _self = self
+                
+                DispatchQueue.main.async {
+                    if let _self = _self {
+                        if let discountRate = discover.discountRate {
+                            if discountRate != 0 {
+                                _self.imageViewDiscount.isHidden = false
+                                _self.labelDiscount.isHidden = false
+                                let attributedText = NSMutableAttributedString()
+                                let attribute1 = [NSFontAttributeName: UIFont.getBoldFont(15), NSForegroundColorAttributeName: UIColor.white]
+                                let variety1 = NSAttributedString(string: "\(NSString(format: "%.0f", discountRate))%\n", attributes: attribute1)
+                                attributedText.append(variety1)
+                                
+                                let attribute2 = [NSFontAttributeName: UIFont.getFont(8), NSForegroundColorAttributeName: UIColor.white]
+                                let variety2 = NSAttributedString(string: "OFF", attributes: attribute2)
+                                attributedText.append(variety2)
+                                
+                                _self.labelDiscount.attributedText = attributedText
+                            } else {
+                                _self.imageViewDiscount.isHidden = true
+                                _self.labelDiscount.isHidden = true
+                            }
+                        }
                     }
                 }
                 
-                let formatter = NumberFormatter()
-                formatter.numberStyle = .currency
-                formatter.locale = Locale(identifier: "es_VN")
-                formatter.currencySymbol = ""
-                
-                let attributedText = NSMutableAttributedString()
-                let attribute1 = [NSFontAttributeName: UIFont.getBoldFont(28), NSForegroundColorAttributeName: UIColor.colorOrange]
-                let variety1 = NSAttributedString(string: "\(NSString(format: "%@", formatter.string(from: NSNumber(value: newPrice))!))", attributes: attribute1)
-                attributedText.append(variety1)
-                
-                let attribute2 = [NSFontAttributeName: UIFont.getFont(15), NSForegroundColorAttributeName: UIColor.colorOrange]
-                let variety2 = NSAttributedString(string: "VND", attributes: attribute2)
-                attributedText.append(variety2)
-                
-                let attribute3 = [NSFontAttributeName: UIFont.getBoldFont(15), NSForegroundColorAttributeName: UIColor.gray]
-                let variety3 = NSAttributedString(string: "   \(NSString(format: "%@", formatter.string(from: NSNumber(value: priceOld))!))", attributes: attribute3)
-                attributedText.append(variety3)
-                
-                let attribute4 = [NSFontAttributeName: UIFont.getBoldFont(8), NSForegroundColorAttributeName: UIColor.gray]
-                let variety4 = NSAttributedString(string: "VND", attributes: attribute4)
-                attributedText.append(variety4)
-                
-                labelPrice.attributedText = attributedText
+                DispatchQueue.main.async {
+                    if let _self = _self {
+                        let formatter = NumberFormatter()
+                        formatter.numberStyle = .currency
+                        formatter.locale = Locale(identifier: "es_VN")
+                        formatter.currencySymbol = ""
+                        
+                        let attributedText = NSMutableAttributedString()
+                        let attribute1 = [NSFontAttributeName: UIFont.getBoldFont(28), NSForegroundColorAttributeName: UIColor.colorOrange]
+                        let variety1 = NSAttributedString(string: "\(NSString(format: "%@", formatter.string(from: NSNumber(value: newPrice))!))", attributes: attribute1)
+                        attributedText.append(variety1)
+                        
+                        let attribute2 = [NSFontAttributeName: UIFont.getFont(15), NSForegroundColorAttributeName: UIColor.colorOrange]
+                        let variety2 = NSAttributedString(string: "VND", attributes: attribute2)
+                        attributedText.append(variety2)
+                        
+                        let attribute3 = [NSFontAttributeName: UIFont.getBoldFont(15), NSForegroundColorAttributeName: UIColor.gray]
+                        let variety3 = NSAttributedString(string: "   \(NSString(format: "%@", formatter.string(from: NSNumber(value: priceOld))!))", attributes: attribute3)
+                        attributedText.append(variety3)
+                        
+                        let attribute4 = [NSFontAttributeName: UIFont.getBoldFont(8), NSForegroundColorAttributeName: UIColor.gray]
+                        let variety4 = NSAttributedString(string: "VND", attributes: attribute4)
+                        attributedText.append(variety4)
+                        
+                        _self.labelPrice.attributedText = attributedText
+                    }
+                }
             }
         }
     }

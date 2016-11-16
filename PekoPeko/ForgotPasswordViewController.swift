@@ -31,9 +31,6 @@ class ForgotPasswordViewController: UIViewController {
     
     var defaultConstraintValue: CGFloat?
     
-    var userLocation: Location?
-    var socialCredential: String?
-    
     //MARK: View Life
     
     override func viewDidLoad() {

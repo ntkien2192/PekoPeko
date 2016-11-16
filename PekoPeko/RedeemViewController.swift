@@ -22,7 +22,7 @@ class RedeemViewController: BaseViewController {
     
     @IBOutlet weak var labelTitle: UILabel!
     @IBOutlet weak var labelRedeemName: Label!
-    @IBOutlet weak var constraintBottom: NSLayoutConstraint!
+    @IBOutlet weak var buttonQRCode: UIButton!
     
     @IBOutlet weak var textfieldCode1: Textfield!
     @IBOutlet weak var textfieldCode2: Textfield!
@@ -52,6 +52,12 @@ class RedeemViewController: BaseViewController {
     
     var redeemType: RedeemType = .gift
     
+    var qrContent: String? {
+        didSet {
+            buttonQRCode.isHidden = false
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -62,12 +68,6 @@ class RedeemViewController: BaseViewController {
         loadRedeemInfo()
     }
     
-    override func viewConfig() {
-        super.viewConfig()
-        NotificationCenter.default.addObserver(self, selector: #selector(RedeemViewController.keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(RedeemViewController.keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-    }
-    
     typealias RedeemViewControllerHandle = () -> Void
     var successAction: RedeemViewControllerHandle?
     
@@ -76,22 +76,45 @@ class RedeemViewController: BaseViewController {
     }
     
     func loadRedeemInfo() {
+        var targetID: String?
+        let userID = AuthenticationStore().userID ?? ""
+        var scanType: String?
+        var cardID: String?
         
-        if let card = card, let shopName = card.shopName{
-            labelTitle.text = shopName
+        if let card = card {
+            
+            cardID = card.shopID ?? ""
+            
+            if let shopName = card.shopName {
+                labelTitle.text = shopName
+            }
         }
         
         if let reward = reward {
+            scanType = "reward"
+            targetID = reward.rewardID ?? ""
             labelRedeemName.text = reward.title ?? ""
         }
         
         if let voucher = voucher {
+            scanType = "voucher"
+            targetID = voucher.voucherID ?? ""
             labelRedeemName.text = voucher.title ?? ""
         }
         
-        if deal != nil {
+        if let deal = deal {
+            scanType = "deal"
+            targetID = deal.discoverID ?? ""
             labelRedeemName.text = "Sử dụng Deal"
         }
+        
+        qrContent = QRCodeContent(userID: userID, targetID: targetID, scanType: scanType, cardID: cardID).toJSONString()
+    }
+    
+    @IBAction func buttonQRCodeTapped(_ sender: AnyObject) {
+        let qrCodeView = QRCodeView(frame: view.bounds)
+        qrCodeView.content = qrContent ?? ""
+        addFullView(view: qrCodeView)
     }
     
     func sentRedeem() {
@@ -278,27 +301,6 @@ class RedeemViewController: BaseViewController {
     
     func hideKeyboard() {
         view.endEditing(true)
-    }
-    
-    func keyboardWillShow(notification:NSNotification) {
-        let userInfo:NSDictionary = notification.userInfo! as NSDictionary
-        let keyboardFrame:NSValue = userInfo.value(forKey: UIKeyboardFrameEndUserInfoKey) as! NSValue
-        let keyboardRectangle = keyboardFrame.cgRectValue
-        constraintBottom.constant = keyboardRectangle.height
-        view.setNeedsLayout()
-        weak var _self = self
-        UIView.animate(withDuration: 0.2) { 
-            _self?.view.layoutIfNeeded()
-        }
-    }
-    
-    func keyboardWillHide(notification:NSNotification) {
-        constraintBottom.constant = 0
-        view.setNeedsLayout()
-        weak var _self = self
-        UIView.animate(withDuration: 0.2) {
-            _self?.view.layoutIfNeeded()
-        }
     }
 }
 

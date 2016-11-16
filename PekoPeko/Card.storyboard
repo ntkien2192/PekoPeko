@@ -6,7 +6,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Card List View Controller-->
+        <!--Empty Data Set Delegate-->
         <scene sceneID="j3I-fU-FG9">
             <objects>
                 <viewController storyboardIdentifier="StoreListViewController" id="clN-Iq-JzU" customClass="CardListViewController" customModule="PekoPeko" customModuleProvider="target" sceneMemberID="viewController">
@@ -23,6 +23,8 @@
                                 <connections>
                                     <outlet property="dataSource" destination="clN-Iq-JzU" id="bT4-rt-CAy"/>
                                     <outlet property="delegate" destination="clN-Iq-JzU" id="igV-tp-0kK"/>
+                                    <outlet property="emptyDataSetDelegate" destination="clN-Iq-JzU" id="vUh-8F-DDQ"/>
+                                    <outlet property="emptyDataSetSource" destination="clN-Iq-JzU" id="hGU-Fe-Bod"/>
                                 </connections>
                             </tableView>
                         </subviews>

@@ -17,6 +17,12 @@
                 <frame key="frameInset" width="320" height="528"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZBZ-x9-gkw">
+                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="ZBZ-x9-gkw" secondAttribute="height" multiplier="2:1" id="b26-oe-Rri"/>
+                        </constraints>
+                    </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PSI-EP-xqo">
                         <constraints>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="18" id="awa-em-4gx"/>
@@ -379,12 +385,6 @@
                         <color key="textColor" red="0.96078431369999995" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZBZ-x9-gkw">
-                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="width" secondItem="ZBZ-x9-gkw" secondAttribute="height" multiplier="2:1" id="b26-oe-Rri"/>
-                        </constraints>
-                    </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j17-tc-13M">
                         <connections>
                             <action selector="buttonCellTapped:" destination="JIz-uO-X3y" eventType="touchUpInside" id="cnf-rB-neT"/>
@@ -484,6 +484,7 @@
                 <outlet property="buttonUse" destination="Wx0-dq-CZX" id="gsG-wR-ghi"/>
                 <outlet property="constraintLineBottonHeight" destination="F3p-To-Jxg" id="R3X-0k-Nfd"/>
                 <outlet property="groupImageView" destination="ZBZ-x9-gkw" id="Hor-Tm-ps5"/>
+                <outlet property="imageViewDiscount" destination="8Is-nc-QCO" id="1wE-vT-dSw"/>
                 <outlet property="imageViewLike" destination="uKy-hh-lMT" id="tm7-oO-Nhc"/>
                 <outlet property="imageViewShopAvatar" destination="uRn-G0-sPs" id="xtF-OO-0wm"/>
                 <outlet property="labelDate1" destination="kBb-vu-LrP" id="raQ-VY-HQ1"/>

@@ -21,6 +21,7 @@ class LoginPhoneViewController: UIViewController {
     @IBOutlet weak var constraintTop: NSLayoutConstraint!
     @IBOutlet weak var imageViewLogo: SpringImageView!
     @IBOutlet weak var buttonShowHidePassword: UIButton!
+    @IBOutlet weak var buttonForgotPass: Button!
     
     @IBOutlet weak var labelIntro: Label!
     @IBOutlet weak var viewPhoneNumber: View!
@@ -243,6 +244,9 @@ class LoginPhoneViewController: UIViewController {
         viewPassword.animation = animation
         viewPassword.animate()
         
+        buttonForgotPass.animation = animation
+        buttonForgotPass.animate()
+        
         buttonSubmit.animation = animation
         buttonSubmit.animate()
     }
@@ -258,6 +262,9 @@ class LoginPhoneViewController: UIViewController {
         
         viewPassword.animation = animation
         viewPassword.animate()
+        
+        buttonForgotPass.animation = animation
+        buttonForgotPass.animate()
         
         buttonSubmit.animation = animation
         buttonSubmit.animate()
