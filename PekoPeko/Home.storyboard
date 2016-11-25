@@ -408,11 +408,6 @@
                     <navigationItem key="navigationItem" id="plS-b5-d6P">
                         <nil key="title"/>
                         <barButtonItem key="backBarButtonItem" title=" " id="zi8-n7-Cf2"/>
-                        <barButtonItem key="leftBarButtonItem" image="IconSearch" id="SOC-D3-AAv">
-                            <connections>
-                                <action selector="buttonSearchTapped:" destination="3sB-Wa-SfF" id="JRa-Fu-cWB"/>
-                            </connections>
-                        </barButtonItem>
                         <view key="titleView" contentMode="scaleToFill" id="sYP-mk-qF7">
                             <rect key="frame" x="117" y="2" width="150" height="40"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1231,7 +1226,6 @@
         <image name="IconLogoAppSplash" width="189" height="201"/>
         <image name="IconPhotoCamera" width="22" height="22"/>
         <image name="IconScan" width="540" height="959"/>
-        <image name="IconSearch" width="22" height="22"/>
         <image name="IconSettings" width="22" height="22"/>
         <image name="UserDefaultAvatar" width="400" height="400"/>
         <image name="logoBar.png" width="418" height="112"/>

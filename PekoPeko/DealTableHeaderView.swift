@@ -10,6 +10,7 @@ import UIKit
 
 protocol DealTableHeaderViewDelegate: class {
     func discoverTapped(discover: Discover?, completionHandler: @escaping (Discover?) -> Void)
+    func likeDiscoverTapped(discover: Discover?, completionHandler: @escaping (Discover?) -> Void)
 }
 
 class DealTableHeaderView: UIView {
@@ -121,6 +122,12 @@ extension DealTableHeaderView: UICollectionViewDataSource {
 extension DealTableHeaderView: DealTableHeaderViewCellDelegate {
     func discoverTapped(discover: Discover?, completionHandler: @escaping (Discover?) -> Void) {
         delegate?.discoverTapped(discover: discover, completionHandler: { newDiscover in
+            completionHandler(newDiscover)
+        })
+    }
+    
+    func likeDiscoverTapped(discover: Discover?, completionHandler: @escaping (Discover?) -> Void) {
+        delegate?.likeDiscoverTapped(discover: discover, completionHandler: { newDiscover in
             completionHandler(newDiscover)
         })
     }

@@ -11,6 +11,7 @@ import Haneke
 
 protocol DealTableHeaderViewCellDelegate: class {
     func discoverTapped(discover: Discover?, completionHandler: @escaping (Discover?) -> Void)
+    func likeDiscoverTapped(discover: Discover?, completionHandler: @escaping (Discover?) -> Void)
 }
 
 class DealTableHeaderViewCell: UICollectionViewCell {
@@ -21,6 +22,20 @@ class DealTableHeaderViewCell: UICollectionViewCell {
     
     @IBOutlet weak var labelPrice: UILabel!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var viewLike: View!
+    @IBOutlet weak var labelLike: UILabel!
+    @IBOutlet weak var imageViewLike: UIImageView!
+    
+    var isLiked: Bool = false {
+        didSet {
+            if isLiked {
+                imageViewLike.image = UIImage(named: "IconLiked")
+            } else {
+                imageViewLike.image = UIImage(named: "IconLike")
+                
+            }
+        }
+    }
     
     var discover: Discover? {
         didSet {
@@ -45,6 +60,10 @@ class DealTableHeaderViewCell: UICollectionViewCell {
                         }
                     }
                 }
+                
+                isLiked = discover.isLiked
+                
+                labelLike.text = "\((discover.totalLikes ?? 0))"
                 
                 if let priceOld = discover.priceOld {
                     var newPrice: Float = 0.0
@@ -97,6 +116,21 @@ class DealTableHeaderViewCell: UICollectionViewCell {
         weak var _self = self
         delegate?.discoverTapped(discover: discover, completionHandler: { newDiscover in
             if let _self = _self {
+                _self.discover = newDiscover
+            }
+        })
+    }
+    @IBAction func buttonLikeTapped(_ sender: Any) {
+        weak var _self = self
+        delegate?.likeDiscoverTapped(discover: discover, completionHandler: { newDiscover in
+            if let _self = _self {
+                
+                if let newDiscover = newDiscover {
+                    _self.isLiked = newDiscover.updateLike()
+                    _self.viewLike.animation = "zoomIn"
+                    _self.viewLike.animate()
+                }
+                
                 _self.discover = newDiscover
             }
         })
