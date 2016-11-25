@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="DealTableHeaderViewCell" customModule="PekoPeko" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DefaultCellImage" translatesAutoresizingMaskIntoConstraints="NO" id="8xR-bV-KIe">
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l8X-2B-WKb">
+                        <rect key="frame" x="0.0" y="120" width="300" height="50"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="Brl-FI-TI1"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconSuperDeal" translatesAutoresizingMaskIntoConstraints="NO" id="fop-Ac-3wj">
+                        <rect key="frame" x="10" y="10" width="80" height="80"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="80" id="CAi-Wl-I1i"/>
+                            <constraint firstAttribute="width" constant="80" id="zg1-Hw-QYV"/>
+                        </constraints>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KbA-dm-gOR">
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
+                        <connections>
+                            <action selector="buttonCellTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="0yg-dL-mJW"/>
+                        </connections>
+                    </button>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="KbA-dm-gOR" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="4Fy-nM-TkG"/>
+                <constraint firstItem="8xR-bV-KIe" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="CY2-EB-sBO"/>
+                <constraint firstAttribute="trailing" secondItem="KbA-dm-gOR" secondAttribute="trailing" id="JzZ-M7-h5B"/>
+                <constraint firstAttribute="bottom" secondItem="8xR-bV-KIe" secondAttribute="bottom" id="KRz-ZT-nen"/>
+                <constraint firstAttribute="bottom" secondItem="KbA-dm-gOR" secondAttribute="bottom" id="afx-kM-EKu"/>
+                <constraint firstItem="KbA-dm-gOR" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="eEn-6n-Yy0"/>
+                <constraint firstAttribute="trailing" secondItem="8xR-bV-KIe" secondAttribute="trailing" id="fIs-ep-9D9"/>
+                <constraint firstAttribute="bottom" secondItem="l8X-2B-WKb" secondAttribute="bottom" constant="30" id="hMt-nI-DKk"/>
+                <constraint firstAttribute="trailing" secondItem="l8X-2B-WKb" secondAttribute="trailing" id="iCN-ei-F4q"/>
+                <constraint firstItem="fop-Ac-3wj" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="jNW-65-Aew"/>
+                <constraint firstItem="fop-Ac-3wj" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="lKz-lE-aVj"/>
+                <constraint firstItem="l8X-2B-WKb" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="qLZ-7z-ozb"/>
+                <constraint firstItem="8xR-bV-KIe" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="uJH-6F-R8L"/>
+            </constraints>
+            <size key="customSize" width="249" height="169"/>
+            <connections>
+                <outlet property="imageView" destination="8xR-bV-KIe" id="rje-nY-eFh"/>
+                <outlet property="labelPrice" destination="l8X-2B-WKb" id="pcW-Sl-rM6"/>
+            </connections>
+            <point key="canvasLocation" x="-33" y="-72"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="DefaultCellImage" width="500" height="500"/>
+        <image name="IconSuperDeal" width="80" height="80"/>
+    </resources>
+</document>

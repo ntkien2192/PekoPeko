@@ -62,6 +62,20 @@ class DealControlTableViewCell: UITableViewCell {
         }
     }
     
+    var isEnd = false {
+        didSet {
+            if isEnd {
+                buttonSave.setTitle("Đã Hết Hạn", for: .normal)
+                buttonSave.setTitleColor(UIColor.white, for: .normal)
+                buttonSave.backgroundColor = UIColor.darkGray
+            } else {
+                buttonSave.setTitle("Lưu Deal", for: .normal)
+                buttonSave.setTitleColor(UIColor.white, for: .normal)
+                buttonSave.backgroundColor = UIColor.colorOrange
+            }
+        }
+    }
+    
     var isExpire: Bool = false {
         didSet {
             reloadDealStep()
@@ -77,9 +91,7 @@ class DealControlTableViewCell: UITableViewCell {
             if isSaved {
                 isUsed = Bool(isUsed)
             } else {
-                buttonSave.setTitle("Lưu Deal", for: .normal)
-                buttonSave.setTitleColor(UIColor.white, for: .normal)
-                buttonSave.backgroundColor = UIColor.colorOrange
+                isEnd = Bool(isEnd)
             }
         }
     }
@@ -129,6 +141,8 @@ class DealControlTableViewCell: UITableViewCell {
                 isUsed = discover.isUsed
                 
                 isSaved = discover.isSave
+                
+                isEnd = discover.isEnd
                 
                 isExpire = discover.isExpire
                 

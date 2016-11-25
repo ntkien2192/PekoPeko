@@ -34,12 +34,15 @@ enum DiscoverFields: String {
     case TotalComments = "total_comments"
     case Liked = "liked"
     case Image = "images"
+    case CoverImage = "image"
     case Steps = "steps"
     
     case SavedAt = "saved_at"
     case IsUsed = "is_used"
     
     case IsNoPin = "no_pin"
+    
+    case IsPayRequire = "is_prepaid"
 }
 
 class Discover: NSObject {
@@ -62,6 +65,7 @@ class Discover: NSObject {
     var totalComments: Int?
     var isLiked: Bool = false
     var image: Image?
+    var coverImage: String?
     var images: [Image]?
     var steps: [DealStep]?
     
@@ -72,6 +76,8 @@ class Discover: NSObject {
     var isExpire = false
     
     var isNoPin = false
+    
+    var isPayRequire = false
     
     required init(json: JSON) {
         discoverID = json[DiscoverFields.DiscoverID.rawValue].string
@@ -113,12 +119,16 @@ class Discover: NSObject {
         isLiked = json[DiscoverFields.Liked.rawValue].boolValue
         image = Image(json: json[DiscoverFields.Image.rawValue])
         
+        coverImage = json[DiscoverFields.CoverImage.rawValue].string
+        
         steps = json[DiscoverFields.Steps.rawValue].arrayValue.map({ DealStep(json: $0) })
         
         savedAt = json[DiscoverFields.SavedAt.rawValue].double
         isUsed = json[DiscoverFields.IsUsed.rawValue].boolValue
         
         isNoPin = json[DiscoverFields.IsNoPin.rawValue].boolValue
+        
+        isPayRequire = json[DiscoverFields.IsPayRequire.rawValue].boolValue
     }
     
     func imageCount() -> Int {

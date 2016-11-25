@@ -14,6 +14,7 @@ enum ApiVersion: String {
     case V100 = "1.0.0"
     case V200 = "2.0.0"
     case V210 = "2.1.0"
+    case V220 = "2.2.0"
 }
 
 enum Router: URLRequestConvertible {
@@ -68,6 +69,9 @@ enum Router: URLRequestConvertible {
     
     case forgotPassword([String: AnyObject])
     case renewPassword([String: AnyObject])
+    
+    case getHotDeal()
+    case getPayData(String)
     
     var method: HTTPMethod {
         switch self {
@@ -172,6 +176,12 @@ enum Router: URLRequestConvertible {
             
         case .renewPassword:
             return .put
+            
+        case .getHotDeal:
+            return .get
+            
+        case .getPayData:
+            return .get
         }
     }
     
@@ -278,6 +288,12 @@ enum Router: URLRequestConvertible {
             
         case .renewPassword:
             return "auth/set-password"
+            
+        case .getHotDeal:
+            return "discover/hot-deal"
+            
+        case .getPayData(let dealID):
+            return "payment/deal/\(dealID)"
         }
     }
     
@@ -353,7 +369,7 @@ enum Router: URLRequestConvertible {
             return ApiVersion.V210.rawValue
             
         case .getAllDiscover:
-            return ApiVersion.V210.rawValue
+            return ApiVersion.V220.rawValue
             
         case .getMyDeal:
             return ApiVersion.V210.rawValue
@@ -371,7 +387,7 @@ enum Router: URLRequestConvertible {
             return ApiVersion.V210.rawValue
             
         case .getDealInfo:
-            return ApiVersion.V210.rawValue
+            return ApiVersion.V220.rawValue
             
         case .redeemDeal:
             return ApiVersion.V210.rawValue
@@ -384,6 +400,12 @@ enum Router: URLRequestConvertible {
             
         case .renewPassword:
             return ApiVersion.V210.rawValue
+            
+        case .getHotDeal:
+            return ApiVersion.V220.rawValue
+            
+        case .getPayData:
+            return ApiVersion.V220.rawValue
         }
     }
     

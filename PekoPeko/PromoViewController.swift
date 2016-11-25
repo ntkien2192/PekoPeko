@@ -15,6 +15,8 @@ class PromoViewController: BaseViewController {
     static let storyboardName = "Home"
     static let identify = "PromoViewController"
     
+    @IBOutlet weak var webView: UIWebView!
+    
     @IBOutlet weak var labelPromoCode: Label!
     @IBOutlet weak var labelInviteNumber: Label!
     @IBOutlet weak var constraintLogoHeight: NSLayoutConstraint!

@@ -199,8 +199,7 @@ class DealTableViewCell: UITableViewCell {
     var isMoreImage: Bool = false
     
     var discover: Discover? {
-        didSet {
-            
+        didSet { 
             reloadData()
         }
     }

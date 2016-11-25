@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nk4-RR-g8b">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nk4-RR-g8b">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -21,11 +24,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppBackground" translatesAutoresizingMaskIntoConstraints="NO" id="WMy-ez-few">
+                                <rect key="frame" x="0.0" y="-8" width="384" height="683"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="WMy-ez-few" secondAttribute="height" multiplier="1080:1920" id="rT4-UB-L11"/>
                                 </constraints>
                             </imageView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xcu-qb-Zaf" customClass="Button" customModule="PekoPeko" customModuleProvider="target">
+                                <rect key="frame" x="19" y="577.5" width="346" height="49.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="xcu-qb-Zaf" secondAttribute="height" multiplier="174:25" id="dNn-a2-E2b"/>
                                 </constraints>
@@ -44,6 +49,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0zA-Gj-Q2w" customClass="Button" customModule="PekoPeko" customModuleProvider="target">
+                                <rect key="frame" x="19" y="507" width="346" height="50.5"/>
                                 <color key="backgroundColor" red="0.22548452019691467" green="0.34771811962127686" blue="0.57596451044082642" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
                                 <inset key="titleEdgeInsets" minX="80" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -60,6 +66,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5M0-8s-3Ej" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
+                                <rect key="frame" x="167" y="567" width="50" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="ZNG-dP-dZT"/>
@@ -116,12 +123,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackgroundLoginPhone" translatesAutoresizingMaskIntoConstraints="NO" id="sTY-dR-LES">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="sTY-dR-LES" secondAttribute="height" multiplier="1080:1920" id="kpH-uW-c98"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconLogoAppSplash" translatesAutoresizingMaskIntoConstraints="NO" id="JTj-Jx-kp4" customClass="SpringImageView" customModule="Spring">
+                                <rect key="frame" x="132.5" y="60" width="110" height="117"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="JTj-Jx-kp4" secondAttribute="height" multiplier="567:604" id="GMA-Pm-s6q"/>
@@ -139,6 +148,7 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconAppName" translatesAutoresizingMaskIntoConstraints="NO" id="Nb7-q0-6w7" customClass="SpringImageView" customModule="Spring">
+                                <rect key="frame" x="107.5" y="181" width="160" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="160" id="6F2-Pm-uSN"/>
                                     <constraint firstAttribute="width" secondItem="Nb7-q0-6w7" secondAttribute="height" multiplier="89:16" id="a2v-N8-z5j"/>
@@ -155,6 +165,7 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N2s-rt-lFs" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
+                                <rect key="frame" x="162.5" y="567" width="50" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="cta-yY-nHE"/>
@@ -171,6 +182,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WWW.PEKOPEKO.VN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JvJ-h2-dnl" customClass="Label" customModule="PekoPeko" customModuleProvider="target">
+                                <rect key="frame" x="124.5" y="214" width="126.5" height="16.5"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="12"/>
                                 <color key="textColor" red="0.25490196079999999" green="0.1137254902" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -186,6 +198,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vui lòng nhập số điện thoại &amp; mật khẩu" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kys-81-Ew7" customClass="Label" customModule="PekoPeko" customModuleProvider="target">
+                                <rect key="frame" x="19" y="240.5" width="337.5" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="24" id="XTB-Mb-3Gw"/>
                                 </constraints>
@@ -207,25 +220,30 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lkl-BK-aNo">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <connections>
                                     <action selector="buttonHideKeyboardTapped:" destination="GJQ-AZ-Fif" eventType="touchUpInside" id="nly-yJ-1Oc"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pO3-A7-U6a" customClass="View" customModule="PekoPeko" customModuleProvider="target">
+                                <rect key="frame" x="19" y="272.5" width="337.5" height="50.5"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconSmartphone" translatesAutoresizingMaskIntoConstraints="NO" id="es8-5y-zV0">
+                                        <rect key="frame" x="12" y="14" width="22" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="22" id="ACq-PF-crW"/>
                                             <constraint firstAttribute="height" constant="22" id="R97-fk-iVA"/>
                                         </constraints>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uqu-JU-nx2">
+                                        <rect key="frame" x="46" y="14" width="0.5" height="22"/>
                                         <color key="backgroundColor" red="0.25490196078431371" green="0.11372549019607843" blue="0.066666666666666666" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="0.5" id="k87-Q2-wFs"/>
                                         </constraints>
                                     </view>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Số điện thoại" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kiN-d1-pjX" customClass="Textfield" customModule="PekoPeko" customModuleProvider="target">
+                                        <rect key="frame" x="61.5" y="0.0" width="261" height="50.5"/>
                                         <color key="tintColor" red="0.96078431369999995" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="textColor" red="0.25490196079999999" green="0.1137254902" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
@@ -269,20 +287,24 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kkq-pW-heF" customClass="View" customModule="PekoPeko" customModuleProvider="target">
+                                <rect key="frame" x="19" y="343" width="337.5" height="51"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconKey" translatesAutoresizingMaskIntoConstraints="NO" id="gx6-s0-iqD">
+                                        <rect key="frame" x="12" y="14.5" width="22" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="2du-IK-mbt"/>
                                             <constraint firstAttribute="width" constant="22" id="2vM-X3-eyN"/>
                                         </constraints>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pth-fb-qh6">
+                                        <rect key="frame" x="46" y="14.5" width="0.5" height="22"/>
                                         <color key="backgroundColor" red="0.25490196079999999" green="0.1137254902" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="0.5" id="JyI-LF-JRB"/>
                                         </constraints>
                                     </view>
                                     <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="center" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mật khẩu" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FIN-Rc-IF2" customClass="Textfield" customModule="PekoPeko" customModuleProvider="target">
+                                        <rect key="frame" x="61.5" y="0.0" width="224.5" height="51"/>
                                         <color key="tintColor" red="0.96078431369999995" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="textColor" red="0.25490196079999999" green="0.1137254902" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
@@ -292,6 +314,7 @@
                                         </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FNp-tl-YWe">
+                                        <rect key="frame" x="286" y="0.0" width="51.5" height="51"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="FNp-tl-YWe" secondAttribute="height" multiplier="1:1" id="f2m-mN-NS8"/>
                                         </constraints>
@@ -338,6 +361,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Od-xJ-jbS" customClass="Button" customModule="PekoPeko" customModuleProvider="target">
+                                <rect key="frame" x="117.5" y="414" width="140" height="44"/>
                                 <color key="backgroundColor" red="0.96078431369999995" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="140" id="4OM-qb-KeQ"/>
@@ -365,6 +389,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qz0-cV-j8u">
+                                <rect key="frame" x="0.0" y="20" width="44" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="44" id="QbT-ZP-pr1"/>
                                     <constraint firstAttribute="height" constant="44" id="eNV-Ba-L7q"/>
@@ -376,6 +401,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LOd-bE-oba" customClass="Button" customModule="PekoPeko" customModuleProvider="target">
+                                <rect key="frame" x="19" y="466" width="337.5" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="upP-Of-Qzt"/>
                                 </constraints>
@@ -486,12 +512,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackgroundLoginPhone" translatesAutoresizingMaskIntoConstraints="NO" id="S5B-9x-QDU">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="S5B-9x-QDU" secondAttribute="height" multiplier="1080:1920" id="aYG-vi-GdN"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconLogoAppSplash" translatesAutoresizingMaskIntoConstraints="NO" id="kmo-wg-swV" customClass="ImageView" customModule="PekoPeko" customModuleProvider="target">
+                                <rect key="frame" x="132.5" y="70" width="110" height="117"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="kmo-wg-swV" secondAttribute="height" multiplier="567:604" id="733-2o-10z"/>
@@ -509,6 +537,7 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconAppName" translatesAutoresizingMaskIntoConstraints="NO" id="oY7-5d-9Jv" customClass="SpringImageView" customModule="Spring">
+                                <rect key="frame" x="107.5" y="191" width="160" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="160" id="sYC-AY-zqf"/>
                                     <constraint firstAttribute="width" secondItem="oY7-5d-9Jv" secondAttribute="height" multiplier="89:16" id="udf-JS-Tgq"/>
@@ -525,6 +554,7 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WWW.PEKOPEKO.VN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oQg-7C-j7H" customClass="Label" customModule="PekoPeko" customModuleProvider="target">
+                                <rect key="frame" x="124.5" y="224" width="126.5" height="16.5"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="12"/>
                                 <color key="textColor" red="0.25490196079999999" green="0.1137254902" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -540,6 +570,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nhập mã xác nhận vừa gửi đến số điện thoại bạn đã đăng ký" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qPK-gW-NeX" customClass="Label" customModule="PekoPeko" customModuleProvider="target">
+                                <rect key="frame" x="37.5" y="250.5" width="300" height="41"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="tv0-Kg-7rP"/>
                                 </constraints>
@@ -571,11 +602,13 @@
                                 </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dwa-MX-S6H">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <connections>
                                     <action selector="buttonHideKeyboardTapped:" destination="sCP-Kx-29X" eventType="touchUpInside" id="mSq-J9-zNV"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VcP-Sk-0In">
+                                <rect key="frame" x="0.0" y="20" width="44" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="44" id="LI2-QQ-scb"/>
                                     <constraint firstAttribute="height" constant="44" id="hhj-li-4h6"/>
@@ -587,6 +620,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lvi-YQ-iQY" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
+                                <rect key="frame" x="162.5" y="567" width="50" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="ccw-zW-ncB"/>
@@ -603,11 +637,14 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zNv-WL-sNN" customClass="View" customModule="PekoPeko" customModuleProvider="target">
+                                <rect key="frame" x="37.5" y="299.5" width="300" height="60"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T2G-lr-Enz">
+                                        <rect key="frame" x="140" y="0.0" width="20" height="60"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f4A-Ug-7aT" customClass="Textfield" customModule="PekoPeko" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                         <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -640,6 +677,7 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oy9-yR-jPX" customClass="Textfield" customModule="PekoPeko" customModuleProvider="target">
+                                        <rect key="frame" x="240" y="0.0" width="60" height="60"/>
                                         <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="textColor" red="0.25490196079999999" green="0.1137254902" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -669,6 +707,7 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="efn-8f-4ta" customClass="Textfield" customModule="PekoPeko" customModuleProvider="target">
+                                        <rect key="frame" x="160" y="0.0" width="60" height="60"/>
                                         <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="textColor" red="0.25490196079999999" green="0.1137254902" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -698,6 +737,7 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Xf-MQ-5kV" customClass="Textfield" customModule="PekoPeko" customModuleProvider="target">
+                                        <rect key="frame" x="80" y="0.0" width="60" height="60"/>
                                         <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="textColor" red="0.25490196079999999" green="0.1137254902" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -762,6 +802,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NCf-fp-k9v" customClass="Button" customModule="PekoPeko" customModuleProvider="target">
+                                <rect key="frame" x="117.5" y="383" width="140" height="44"/>
                                 <color key="backgroundColor" red="0.96078431369999995" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="QG0-bV-Qap"/>
@@ -849,17 +890,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackgroundLoginPhone" translatesAutoresizingMaskIntoConstraints="NO" id="Qrq-cK-69v">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Qrq-cK-69v" secondAttribute="height" multiplier="1080:1920" id="d9K-gv-zlg"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dbv-3g-0T6">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <connections>
                                     <action selector="buttonHideKeyboardTapped:" destination="7Fe-Os-Gy4" eventType="touchUpInside" id="dKr-0G-IZb"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oer-Po-COg" customClass="Button" customModule="PekoPeko" customModuleProvider="target">
+                                <rect key="frame" x="117.5" y="427.5" width="140" height="44"/>
                                 <color key="backgroundColor" red="0.96078431369999995" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="DPw-ea-EK1"/>
@@ -887,20 +931,24 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jIj-iE-pGr" customClass="View" customModule="PekoPeko" customModuleProvider="target">
+                                <rect key="frame" x="19" y="286" width="337.5" height="51"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconUser" translatesAutoresizingMaskIntoConstraints="NO" id="k61-cq-ved">
+                                        <rect key="frame" x="12" y="14.5" width="22" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="22" id="DFo-6N-Ddj"/>
                                             <constraint firstAttribute="height" constant="22" id="HUA-aI-s4q"/>
                                         </constraints>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tbT-hC-J2u">
+                                        <rect key="frame" x="46" y="14.5" width="0.5" height="22"/>
                                         <color key="backgroundColor" red="0.25490196079999999" green="0.1137254902" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="0.5" id="MXg-cn-b4n"/>
                                         </constraints>
                                     </view>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Tên hiển thị" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rZi-OL-VtG" customClass="Textfield" customModule="PekoPeko" customModuleProvider="target">
+                                        <rect key="frame" x="61.5" y="0.0" width="261" height="51"/>
                                         <color key="tintColor" red="0.96078431369999995" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="textColor" red="0.25490196079999999" green="0.1137254902" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
@@ -910,6 +958,7 @@
                                         </connections>
                                     </textField>
                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="1jf-vk-tAR">
+                                        <rect key="frame" x="13" y="15.5" width="20" height="20"/>
                                         <color key="color" red="0.25490196079999999" green="0.1137254902" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
                                     </activityIndicatorView>
                                 </subviews>
@@ -949,20 +998,24 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MKo-qK-avv" customClass="View" customModule="PekoPeko" customModuleProvider="target">
+                                <rect key="frame" x="19" y="357" width="337.5" height="50.5"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IsonBarsCode" translatesAutoresizingMaskIntoConstraints="NO" id="DOY-my-4bP">
+                                        <rect key="frame" x="12" y="14" width="22" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="DwA-mI-mVK"/>
                                             <constraint firstAttribute="width" constant="22" id="oSb-oT-VxV"/>
                                         </constraints>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nKs-B3-Oj9">
+                                        <rect key="frame" x="46" y="14" width="0.5" height="22"/>
                                         <color key="backgroundColor" red="0.25490196079999999" green="0.1137254902" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="0.5" id="g0j-Cn-fm9"/>
                                         </constraints>
                                     </view>
                                     <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="center" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mã giới thiệu" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oWr-C7-jeK" customClass="Textfield" customModule="PekoPeko" customModuleProvider="target">
+                                        <rect key="frame" x="61.5" y="0.0" width="261" height="50.5"/>
                                         <color key="tintColor" red="0.96078431369999995" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="textColor" red="0.25490196079999999" green="0.1137254902" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
@@ -972,6 +1025,7 @@
                                         </connections>
                                     </textField>
                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="zd0-2E-A79">
+                                        <rect key="frame" x="13" y="15" width="20" height="20"/>
                                         <color key="color" red="0.25490196079999999" green="0.1137254902" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
                                     </activityIndicatorView>
                                 </subviews>
@@ -1009,6 +1063,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ruM-30-ZLf" customClass="Button" customModule="PekoPeko" customModuleProvider="target">
+                                <rect key="frame" x="117.5" y="70" width="140" height="140"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="140" id="b3S-OX-Mz5"/>
@@ -1031,6 +1086,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I3Z-I9-rvq" customClass="Button" customModule="PekoPeko" customModuleProvider="target">
+                                <rect key="frame" x="221.5" y="174" width="36" height="36"/>
                                 <color key="backgroundColor" red="0.99265462159999995" green="0.84121900800000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="Mga-dm-1R8"/>
@@ -1055,6 +1111,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tên hiển thị cùng với một hình ảnh đẹp sẽ giúp bạn nổi bật hơn" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9mw-lM-9ir" customClass="Label" customModule="PekoPeko" customModuleProvider="target">
+                                <rect key="frame" x="50" y="230" width="275" height="41"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="fCY-b3-D3b"/>
                                 </constraints>
@@ -1086,6 +1143,7 @@
                                 </variation>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hh5-pw-B2a" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
+                                <rect key="frame" x="162.5" y="115" width="50" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="bY2-B0-p0b"/>
@@ -1169,12 +1227,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackgroundLoginPhone" translatesAutoresizingMaskIntoConstraints="NO" id="lLu-xP-oWB">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="lLu-xP-oWB" secondAttribute="height" multiplier="1080:1920" id="Fh7-bj-Uhz"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconLogoAppSplash" translatesAutoresizingMaskIntoConstraints="NO" id="ESg-cM-T1Q" customClass="SpringImageView" customModule="Spring">
+                                <rect key="frame" x="132.5" y="70" width="110" height="117"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="110" id="3zg-ny-qmO"/>
@@ -1192,6 +1252,7 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconAppName" translatesAutoresizingMaskIntoConstraints="NO" id="fMw-Xh-lT9" customClass="SpringImageView" customModule="Spring">
+                                <rect key="frame" x="107.5" y="191" width="160" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="fMw-Xh-lT9" secondAttribute="height" multiplier="89:16" id="Cer-cU-x0F"/>
                                     <constraint firstAttribute="width" constant="160" id="n4k-Jb-aGA"/>
@@ -1208,6 +1269,7 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TB9-6e-WIS" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
+                                <rect key="frame" x="162.5" y="567" width="50" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="JRM-yX-Euk"/>
@@ -1224,6 +1286,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WWW.PEKOPEKO.VN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZLz-9D-WpQ" customClass="Label" customModule="PekoPeko" customModuleProvider="target">
+                                <rect key="frame" x="124.5" y="224" width="126.5" height="16.5"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="12"/>
                                 <color key="textColor" red="0.25490196079999999" green="0.1137254902" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1239,6 +1302,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vui lòng nhập số điện thoại" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zwa-zb-77d" customClass="Label" customModule="PekoPeko" customModuleProvider="target">
+                                <rect key="frame" x="19" y="250.5" width="337.5" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="24" id="yz0-MJ-Raz"/>
                                 </constraints>
@@ -1260,25 +1324,30 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dvx-Gj-Fnu">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <connections>
                                     <action selector="buttonHideKeyboardTapped:" destination="1Kq-yZ-YYx" eventType="touchUpInside" id="Ka3-tg-zLc"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AY7-CY-nn5" customClass="View" customModule="PekoPeko" customModuleProvider="target">
+                                <rect key="frame" x="19" y="282.5" width="337.5" height="50.5"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconSmartphone" translatesAutoresizingMaskIntoConstraints="NO" id="1R7-sT-wxK">
+                                        <rect key="frame" x="12" y="14" width="22" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="22" id="XgR-Ml-hyl"/>
                                             <constraint firstAttribute="height" constant="22" id="jyC-qh-KHM"/>
                                         </constraints>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o5m-xL-6Rt">
+                                        <rect key="frame" x="46" y="14" width="0.5" height="22"/>
                                         <color key="backgroundColor" red="0.25490196079999999" green="0.1137254902" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="0.5" id="3tO-Vx-HLu"/>
                                         </constraints>
                                     </view>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Số điện thoại" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sIi-ux-sHx" customClass="Textfield" customModule="PekoPeko" customModuleProvider="target">
+                                        <rect key="frame" x="61.5" y="0.0" width="261" height="50.5"/>
                                         <color key="tintColor" red="0.96078431369999995" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="textColor" red="0.25490196079999999" green="0.1137254902" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
@@ -1322,6 +1391,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WOM-9w-gO7">
+                                <rect key="frame" x="0.0" y="20" width="44" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="Liz-W4-pdU"/>
                                     <constraint firstAttribute="width" constant="44" id="ocP-4E-xxI"/>
@@ -1333,6 +1403,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yTA-ZN-PPe" customClass="Button" customModule="PekoPeko" customModuleProvider="target">
+                                <rect key="frame" x="117.5" y="353" width="140" height="44"/>
                                 <color key="backgroundColor" red="0.96078431369999995" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="Lxk-bD-J2e"/>
@@ -1419,12 +1490,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackgroundLoginPhone" translatesAutoresizingMaskIntoConstraints="NO" id="wtl-oR-oXP">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="wtl-oR-oXP" secondAttribute="height" multiplier="1080:1920" id="KhW-Kx-eyC"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconLogoAppSplash" translatesAutoresizingMaskIntoConstraints="NO" id="tCa-Ac-xyD" customClass="SpringImageView" customModule="Spring">
+                                <rect key="frame" x="132.5" y="70" width="110" height="117"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="tCa-Ac-xyD" secondAttribute="height" multiplier="567:604" id="4vO-N2-bIR"/>
@@ -1442,6 +1515,7 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconAppName" translatesAutoresizingMaskIntoConstraints="NO" id="y0x-YS-cMH" customClass="SpringImageView" customModule="Spring">
+                                <rect key="frame" x="107.5" y="191" width="160" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="y0x-YS-cMH" secondAttribute="height" multiplier="89:16" id="AgT-tA-EJz"/>
                                     <constraint firstAttribute="width" constant="160" id="i5B-cg-UpR"/>
@@ -1458,6 +1532,7 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zhj-IA-cWk" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
+                                <rect key="frame" x="162.5" y="567" width="50" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="7ez-cB-gFh"/>
@@ -1474,6 +1549,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WWW.PEKOPEKO.VN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1hK-xN-EVg" customClass="Label" customModule="PekoPeko" customModuleProvider="target">
+                                <rect key="frame" x="124.5" y="224" width="126.5" height="16.5"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="12"/>
                                 <color key="textColor" red="0.25490196079999999" green="0.1137254902" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1489,6 +1565,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vui lòng nhập số điện thoại" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jg7-Q5-HLW" customClass="Label" customModule="PekoPeko" customModuleProvider="target">
+                                <rect key="frame" x="19" y="250.5" width="337.5" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="24" id="sAM-LP-aPV"/>
                                 </constraints>
@@ -1510,25 +1587,30 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aBg-rB-hlr">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <connections>
                                     <action selector="buttonHideKeyboardTapped:" destination="J5t-HH-ObA" eventType="touchUpInside" id="CV5-oG-bKe"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SM7-We-IXM" customClass="View" customModule="PekoPeko" customModuleProvider="target">
+                                <rect key="frame" x="19" y="282.5" width="337.5" height="50.5"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconSmartphone" translatesAutoresizingMaskIntoConstraints="NO" id="jO4-Yn-DPw">
+                                        <rect key="frame" x="12" y="14" width="22" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="22" id="5CK-eg-FMC"/>
                                             <constraint firstAttribute="height" constant="22" id="maN-Xn-u4e"/>
                                         </constraints>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NbL-N0-Dn0">
+                                        <rect key="frame" x="46" y="14" width="0.5" height="22"/>
                                         <color key="backgroundColor" red="0.25490196079999999" green="0.1137254902" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="0.5" id="3HT-eO-y9w"/>
                                         </constraints>
                                     </view>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Số điện thoại" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7e9-qm-nfO" customClass="Textfield" customModule="PekoPeko" customModuleProvider="target">
+                                        <rect key="frame" x="61.5" y="0.0" width="261" height="50.5"/>
                                         <color key="tintColor" red="0.96078431369999995" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="textColor" red="0.25490196079999999" green="0.1137254902" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
@@ -1572,6 +1654,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gPY-Sk-grx">
+                                <rect key="frame" x="0.0" y="20" width="44" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="hU4-Xz-xcH"/>
                                     <constraint firstAttribute="width" constant="44" id="tJ3-3a-4KC"/>
@@ -1583,6 +1666,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ovv-9R-Vee" customClass="Button" customModule="PekoPeko" customModuleProvider="target">
+                                <rect key="frame" x="117.5" y="353" width="140" height="44"/>
                                 <color key="backgroundColor" red="0.96078431369999995" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="D5n-vZ-pMQ"/>
@@ -1610,6 +1694,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pTD-nd-QyV" customClass="Button" customModule="PekoPeko" customModuleProvider="target">
+                                <rect key="frame" x="19" y="405" width="337.5" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="5gU-rw-cBa"/>
                                 </constraints>
@@ -1695,12 +1780,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackgroundLoginPhone" translatesAutoresizingMaskIntoConstraints="NO" id="izI-xy-NdP">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="izI-xy-NdP" secondAttribute="height" multiplier="1080:1920" id="pTz-sn-jn5"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconLogoAppSplash" translatesAutoresizingMaskIntoConstraints="NO" id="k0o-hI-vUg" customClass="ImageView" customModule="PekoPeko" customModuleProvider="target">
+                                <rect key="frame" x="152.5" y="70" width="70" height="74.5"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="k0o-hI-vUg" secondAttribute="height" multiplier="567:604" id="1CJ-sV-UqC"/>
@@ -1718,6 +1805,7 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconAppName" translatesAutoresizingMaskIntoConstraints="NO" id="wgi-u5-UQP" customClass="SpringImageView" customModule="Spring">
+                                <rect key="frame" x="117.5" y="148.5" width="140" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="wgi-u5-UQP" secondAttribute="height" multiplier="89:16" id="8Qy-6F-NaQ"/>
                                     <constraint firstAttribute="width" constant="140" id="RKH-QB-a56"/>
@@ -1734,6 +1822,7 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WWW.PEKOPEKO.VN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jhJ-gz-yta" customClass="Label" customModule="PekoPeko" customModuleProvider="target">
+                                <rect key="frame" x="124.5" y="177.5" width="126.5" height="16.5"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="12"/>
                                 <color key="textColor" red="0.25490196079999999" green="0.1137254902" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1749,6 +1838,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nhập mã xác nhận vừa gửi đến  số điện thoại bạn đã đăng ký" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ai-iy-4qK" customClass="Label" customModule="PekoPeko" customModuleProvider="target">
+                                <rect key="frame" x="19" y="204" width="337.5" height="41"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="25z-hg-F3E"/>
                                 </constraints>
@@ -1780,13 +1870,16 @@
                                 </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gFu-WN-gEy">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <connections>
                                     <action selector="buttonHideKeyboardTapped:" destination="90S-eM-R2e" eventType="touchUpInside" id="tad-UF-dpP"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rTR-30-Xyg" customClass="View" customModule="PekoPeko" customModuleProvider="target">
+                                <rect key="frame" x="19" y="253" width="337.5" height="49.5"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hX5-oo-Oxe" customClass="Textfield" customModule="PekoPeko" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="49" height="49.5"/>
                                         <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -1811,6 +1904,7 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Enh-7W-6TX" customClass="Textfield" customModule="PekoPeko" customModuleProvider="target">
+                                        <rect key="frame" x="288" y="0.0" width="49.5" height="49.5"/>
                                         <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -1835,6 +1929,7 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7yh-O3-Qta" customClass="Textfield" customModule="PekoPeko" customModuleProvider="target">
+                                        <rect key="frame" x="57.5" y="0.0" width="49.5" height="49.5"/>
                                         <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="textColor" red="0.25490196079999999" green="0.1137254902" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -1856,6 +1951,7 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JE7-0P-icR" customClass="Textfield" customModule="PekoPeko" customModuleProvider="target">
+                                        <rect key="frame" x="115" y="0.0" width="49.5" height="49.5"/>
                                         <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="textColor" red="0.25490196079999999" green="0.1137254902" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -1877,15 +1973,19 @@
                                         </connections>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8AR-Kh-ZkQ">
+                                        <rect key="frame" x="49" y="0.0" width="8.5" height="49.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RBd-mG-EiZ">
+                                        <rect key="frame" x="107" y="0.0" width="8" height="49.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hXs-WL-3FR">
+                                        <rect key="frame" x="164.5" y="0.0" width="8" height="49.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N6s-6N-LtY" customClass="Textfield" customModule="PekoPeko" customModuleProvider="target">
+                                        <rect key="frame" x="172.5" y="0.0" width="49.5" height="49.5"/>
                                         <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="textColor" red="0.25490196079999999" green="0.1137254902" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -1907,9 +2007,11 @@
                                         </connections>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hhr-cr-4fy">
+                                        <rect key="frame" x="222" y="0.0" width="8" height="49.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OK2-yt-u9l" customClass="Textfield" customModule="PekoPeko" customModuleProvider="target">
+                                        <rect key="frame" x="230" y="0.0" width="49.5" height="49.5"/>
                                         <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="textColor" red="0.25490196079999999" green="0.1137254902" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -1931,6 +2033,7 @@
                                         </connections>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PoA-VP-reC">
+                                        <rect key="frame" x="279.5" y="0.0" width="8.5" height="49.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>
@@ -1994,20 +2097,24 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ash-sU-g9T" customClass="View" customModule="PekoPeko" customModuleProvider="target">
+                                <rect key="frame" x="19" y="322.5" width="337.5" height="51"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconKey" translatesAutoresizingMaskIntoConstraints="NO" id="njE-3m-sJe">
+                                        <rect key="frame" x="12" y="14.5" width="22" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="22" id="a72-dO-qxM"/>
                                             <constraint firstAttribute="height" constant="22" id="o4K-xj-kPD"/>
                                         </constraints>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2dr-TB-an4">
+                                        <rect key="frame" x="46" y="14.5" width="0.5" height="22"/>
                                         <color key="backgroundColor" red="0.25490196079999999" green="0.1137254902" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="0.5" id="atI-0o-hi8"/>
                                         </constraints>
                                     </view>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="center" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mật khẩu mới" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D7U-3n-Sk3" customClass="Textfield" customModule="PekoPeko" customModuleProvider="target">
+                                        <rect key="frame" x="61.5" y="0.0" width="261" height="51"/>
                                         <color key="tintColor" red="0.96078431369999995" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="textColor" red="0.25490196079999999" green="0.1137254902" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
@@ -2050,20 +2157,24 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8yL-Hl-YJV" customClass="View" customModule="PekoPeko" customModuleProvider="target">
+                                <rect key="frame" x="19" y="393.5" width="337.5" height="50.5"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconKey" translatesAutoresizingMaskIntoConstraints="NO" id="Mre-Wq-njB">
+                                        <rect key="frame" x="12" y="14" width="22" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="22" id="538-Xe-XAw"/>
                                             <constraint firstAttribute="height" constant="22" id="h9b-ai-UfO"/>
                                         </constraints>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qey-Wb-PcG">
+                                        <rect key="frame" x="46" y="14" width="0.5" height="22"/>
                                         <color key="backgroundColor" red="0.25490196079999999" green="0.1137254902" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="0.5" id="Swe-jF-GNR"/>
                                         </constraints>
                                     </view>
                                     <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="center" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Xác nhận mật khẩu" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j46-xV-dXt" customClass="Textfield" customModule="PekoPeko" customModuleProvider="target">
+                                        <rect key="frame" x="61.5" y="0.0" width="261" height="50.5"/>
                                         <color key="tintColor" red="0.96078431369999995" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="textColor" red="0.25490196079999999" green="0.1137254902" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
@@ -2106,6 +2217,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hxf-hF-IuP">
+                                <rect key="frame" x="0.0" y="20" width="44" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="eZz-of-jvp"/>
                                     <constraint firstAttribute="width" constant="44" id="oI4-Pl-qZv"/>
@@ -2117,6 +2229,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZZf-7E-xQ9" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
+                                <rect key="frame" x="162.5" y="567" width="50" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="9Pl-m1-OHh"/>
@@ -2133,6 +2246,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mlh-pH-3QY" customClass="Button" customModule="PekoPeko" customModuleProvider="target">
+                                <rect key="frame" x="117.5" y="464" width="140" height="44"/>
                                 <color key="backgroundColor" red="0.96078431369999995" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="FGt-ZF-AjT"/>

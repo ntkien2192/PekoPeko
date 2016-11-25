@@ -261,58 +261,72 @@ extension DealDetailViewController: DealControlTableViewCellDelegate {
     
     func saveDiscoverTapped(discover: Discover?, isSaved: Bool, completionHandler: @escaping (Bool) -> Void) {
         if let discover = discover, let dealID = discover.discoverID {
-            if isSaved {
-                let loadingNotification = MBProgressHUD.showAdded(to: view, animated: true)
-                loadingNotification.mode = MBProgressHUDMode.indeterminate
-                weak var _self = self
-                DiscoverStore.unsaveDeal(dealID: dealID, completionHandler: { (success, error) in
-                    if let _self = _self {
-                        loadingNotification.hide(animated: true)
-                        guard error == nil else {
-                            if let error = error as? ServerResponseError, let data = error.data {
-                                let messageView = MessageView(frame: _self.view.bounds)
-                                messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
-                                messageView.setButtonClose("Đóng", action: {
-                                    if !AuthenticationStore().isLogin {
-                                        HomeTabbarController.sharedInstance.logOut()
-                                    }
-                                })
-                                _self.addFullView(view: messageView)
-                            }
-                            return
-                        }
-                        
-                        if success {
-                            completionHandler(true)
-                        }
+            if discover.isPayRequire {
+                let alertView = AlertView(frame: view.bounds)
+                alertView.message = "Deal này yêu cầu thanh toán trước"
+                alertView.setButtonSubmit("Thanh Toán", action: {
+                    let payTypeViewController = UIStoryboard(name: PayTypeViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: PayTypeViewController.storyboardID) as! PayTypeViewController
+                    payTypeViewController.targetID = dealID
+                    
+                    if let topController = AppDelegate.topController() {
+                        topController.present(payTypeViewController, animated: true, completion: nil)
                     }
                 })
+                addFullView(view: alertView)
             } else {
-                let loadingNotification = MBProgressHUD.showAdded(to: view, animated: true)
-                loadingNotification.mode = MBProgressHUDMode.indeterminate
-                weak var _self = self
-                DiscoverStore.saveDeal(dealID: dealID, completionHandler: { (success, error) in
-                    if let _self = _self {
-                        loadingNotification.hide(animated: true)
-                        guard error == nil else {
-                            if let error = error as? ServerResponseError, let data = error.data {
-                                let messageView = MessageView(frame: _self.view.bounds)
-                                messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
-                                messageView.setButtonClose("Đóng", action: {
-                                    if !AuthenticationStore().isLogin {
-                                        HomeTabbarController.sharedInstance.logOut()
-                                    }
-                                })
-                                _self.addFullView(view: messageView)
+                if isSaved {
+                    let loadingNotification = MBProgressHUD.showAdded(to: view, animated: true)
+                    loadingNotification.mode = MBProgressHUDMode.indeterminate
+                    weak var _self = self
+                    DiscoverStore.unsaveDeal(dealID: dealID, completionHandler: { (success, error) in
+                        if let _self = _self {
+                            loadingNotification.hide(animated: true)
+                            guard error == nil else {
+                                if let error = error as? ServerResponseError, let data = error.data {
+                                    let messageView = MessageView(frame: _self.view.bounds)
+                                    messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
+                                    messageView.setButtonClose("Đóng", action: {
+                                        if !AuthenticationStore().isLogin {
+                                            HomeTabbarController.sharedInstance.logOut()
+                                        }
+                                    })
+                                    _self.addFullView(view: messageView)
+                                }
+                                return
                             }
-                            return
+                            
+                            if success {
+                                completionHandler(true)
+                            }
                         }
-                        
-                        if success {
-                            completionHandler(true)
+                    })
+                } else {
+                    let loadingNotification = MBProgressHUD.showAdded(to: view, animated: true)
+                    loadingNotification.mode = MBProgressHUDMode.indeterminate
+                    weak var _self = self
+                    DiscoverStore.saveDeal(dealID: dealID, completionHandler: { (success, error) in
+                        if let _self = _self {
+                            loadingNotification.hide(animated: true)
+                            guard error == nil else {
+                                if let error = error as? ServerResponseError, let data = error.data {
+                                    let messageView = MessageView(frame: _self.view.bounds)
+                                    messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
+                                    messageView.setButtonClose("Đóng", action: {
+                                        if !AuthenticationStore().isLogin {
+                                            HomeTabbarController.sharedInstance.logOut()
+                                        }
+                                    })
+                                    _self.addFullView(view: messageView)
+                                }
+                                return
+                            }
+                            
+                            if success {
+                                completionHandler(true)
+                            }
                         }
-                    }
-                })
+                    })
+                }
             }
         }
     }

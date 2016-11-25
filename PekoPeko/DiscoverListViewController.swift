@@ -25,6 +25,7 @@ class DiscoverListViewController: BaseViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var refreshControl: UIRefreshControl?
+    var tableHeader: DealTableHeaderView?
     
     var discovers = [Discover]() {
         didSet {
@@ -32,10 +33,25 @@ class DiscoverListViewController: BaseViewController {
         }
     }
     
+    var hotDeals = [Discover]() {
+        didSet {
+            if hotDeals.count != 0 {
+                let width = view.bounds.width
+                tableHeader = DealTableHeaderView(frame: CGRect(x: 0, y: 0, width: width, height: width * 2.0 / 3.0))
+                tableHeader?.delegate = self
+                if let tableHeader = tableHeader {
+                    tableHeader.deals = hotDeals
+                    tableView.tableHeaderView = tableHeader
+                }
+            }
+        }
+    }
+    
     var isNext: Bool = false
     var preID: [String]?
     var lastTime: Double?
     var isReload: Bool = false
+    var isReloadList: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,8 +76,10 @@ class DiscoverListViewController: BaseViewController {
     
     func reloadAllDiscover() {
         isReload = true
+        isReloadList = true
         preID = nil
         lastTime = nil
+        getHotDeals()
         getAllDiscover()
     }
     
@@ -89,8 +107,8 @@ class DiscoverListViewController: BaseViewController {
                     return
                 }
                 
-                if _self.isReload {
-                    _self.isReload = false
+                if _self.isReloadList {
+                    _self.isReloadList = false
                     _self.discovers.removeAll()
                 }
                 
@@ -103,6 +121,42 @@ class DiscoverListViewController: BaseViewController {
                             _self.isNext = false
                         }
                     }
+                }
+                
+                _self.tableView.tag = 0
+            }
+        }
+    }
+    
+    func getHotDeals() {
+        weak var _self = self
+        DiscoverStore.getHotDeals { (discoverResponse, error) in
+            if let _self = _self {
+                if let refreshControl = _self.refreshControl {
+                    refreshControl.endRefreshing()
+                }
+                
+                guard error == nil else {
+                    if let error = error as? ServerResponseError, let data = error.data {
+                        let messageView = MessageView(frame: _self.view.bounds)
+                        messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
+                        messageView.setButtonClose("Đóng", action: {
+                            if !AuthenticationStore().isLogin {
+                                HomeTabbarController.sharedInstance.logOut()
+                            }
+                        })
+                        _self.addFullView(view: messageView)
+                    }
+                    return
+                }
+                
+                if _self.isReload {
+                    _self.isReload = false
+                    _self.hotDeals.removeAll()
+                }
+                
+                if let discoverResponse = discoverResponse, let discovers = discoverResponse.discovers {
+                    _self.hotDeals.append(contentsOf: discovers)
                 }
                 
                 _self.tableView.tag = 0
@@ -143,63 +197,77 @@ extension DiscoverListViewController: UITableViewDataSource {
     }
 }
 
-extension DiscoverListViewController: DealTableViewCellDelegate {
+extension DiscoverListViewController: DealTableViewCellDelegate, DealTableHeaderViewDelegate {
     func saveDiscoverTapped(discover: Discover?, isSaved: Bool, completionHandler: @escaping (Bool) -> Void) {
         if let discover = discover, let dealID = discover.discoverID {
-            if isSaved {
-                let loadingNotification = MBProgressHUD.showAdded(to: view, animated: true)
-                loadingNotification.mode = MBProgressHUDMode.indeterminate
-                weak var _self = self
-                DiscoverStore.unsaveDeal(dealID: dealID, completionHandler: { (success, error) in
-                    if let _self = _self {
-                        loadingNotification.hide(animated: true)
-                        guard error == nil else {
-                            if let error = error as? ServerResponseError, let data = error.data {
-                                let messageView = MessageView(frame: _self.view.bounds)
-                                messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
-                                messageView.setButtonClose("Đóng", action: {
-                                    if !AuthenticationStore().isLogin {
-                                        HomeTabbarController.sharedInstance.logOut()
-                                    }
-                                })
-                                _self.addFullView(view: messageView)
-                            }
-                            return
-                        }
-                        
-                        if success {
-                            completionHandler(true)
-                            _self.delegate?.discoverUpdated()
-                        }
+            if discover.isPayRequire {
+                let alertView = AlertView(frame: view.bounds)
+                alertView.message = "Deal này yêu cầu thanh toán trước"
+                alertView.setButtonSubmit("Thanh Toán", action: {
+                    let payTypeViewController = UIStoryboard(name: PayTypeViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: PayTypeViewController.storyboardID) as! PayTypeViewController
+                    payTypeViewController.targetID = dealID
+                    
+                    if let topController = AppDelegate.topController() {
+                        topController.present(payTypeViewController, animated: true, completion: nil)
                     }
                 })
+                addFullView(view: alertView)
             } else {
-                let loadingNotification = MBProgressHUD.showAdded(to: view, animated: true)
-                loadingNotification.mode = MBProgressHUDMode.indeterminate
-                weak var _self = self
-                DiscoverStore.saveDeal(dealID: dealID, completionHandler: { (success, error) in
-                    if let _self = _self {
-                        loadingNotification.hide(animated: true)
-                        guard error == nil else {
-                            if let error = error as? ServerResponseError, let data = error.data {
-                                let messageView = MessageView(frame: _self.view.bounds)
-                                messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
-                                messageView.setButtonClose("Đóng", action: {
-                                    if !AuthenticationStore().isLogin {
-                                        HomeTabbarController.sharedInstance.logOut()
-                                    }
-                                })
-                                _self.addFullView(view: messageView)
+                if isSaved {
+                    let loadingNotification = MBProgressHUD.showAdded(to: view, animated: true)
+                    loadingNotification.mode = MBProgressHUDMode.indeterminate
+                    weak var _self = self
+                    DiscoverStore.unsaveDeal(dealID: dealID, completionHandler: { (success, error) in
+                        if let _self = _self {
+                            loadingNotification.hide(animated: true)
+                            guard error == nil else {
+                                if let error = error as? ServerResponseError, let data = error.data {
+                                    let messageView = MessageView(frame: _self.view.bounds)
+                                    messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
+                                    messageView.setButtonClose("Đóng", action: {
+                                        if !AuthenticationStore().isLogin {
+                                            HomeTabbarController.sharedInstance.logOut()
+                                        }
+                                    })
+                                    _self.addFullView(view: messageView)
+                                }
+                                return
                             }
-                            return
+                            
+                            if success {
+                                completionHandler(true)
+                                _self.delegate?.discoverUpdated()
+                            }
                         }
-                        
-                        if success {
-                            completionHandler(true)
-                            _self.delegate?.discoverUpdated()
+                    })
+                } else {
+                    let loadingNotification = MBProgressHUD.showAdded(to: view, animated: true)
+                    loadingNotification.mode = MBProgressHUDMode.indeterminate
+                    weak var _self = self
+                    DiscoverStore.saveDeal(dealID: dealID, completionHandler: { (success, error) in
+                        if let _self = _self {
+                            loadingNotification.hide(animated: true)
+                            guard error == nil else {
+                                if let error = error as? ServerResponseError, let data = error.data {
+                                    let messageView = MessageView(frame: _self.view.bounds)
+                                    messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
+                                    messageView.setButtonClose("Đóng", action: {
+                                        if !AuthenticationStore().isLogin {
+                                            HomeTabbarController.sharedInstance.logOut()
+                                        }
+                                    })
+                                    _self.addFullView(view: messageView)
+                                }
+                                return
+                            }
+                            
+                            if success {
+                                completionHandler(true)
+                                _self.delegate?.discoverUpdated()
+                            }
                         }
-                    }
-                })
+                    })
+                }
             }
         }
     }

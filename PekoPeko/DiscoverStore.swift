@@ -30,6 +30,21 @@ class DiscoverStore {
         })
     }
     
+    class func getHotDeals(completionHandler: @escaping (DiscoverResponse?, Error?) -> Void) {
+        
+        _ = Alamofire.request(Router.getHotDeal()).responseAllDiscover({ (response) in
+            if let error = response.result.error {
+                completionHandler(nil, error)
+                return
+            }
+            guard response.result.value != nil else {
+                // TODO: Create error here
+                completionHandler(nil, nil)
+                return
+            }
+            completionHandler(response.result.value ?? nil, nil)
+        })
+    }
     
     class func getMyDeal(discoverRequest: DiscoverRequest, completionHandler: @escaping (DiscoverResponse?, Error?) -> Void) {
         
