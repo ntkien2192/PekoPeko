@@ -11,9 +11,9 @@ import Haneke
 
 protocol MyDealTableViewCellDelegate: class {
     func moreDiscoverTapped(discover: Discover?)
-    func useDiscoverTapped(discover: Discover?, completionHandler: @escaping (Bool) -> Void)
-    func discoverTapped(discover: Discover?, completionHandler: @escaping () -> Void)
-    func likeDiscoverTapped(discover: Discover?, isLiked: Bool, completionHandler: @escaping (Bool) -> Void)
+    func useDiscoverTapped(discover: Discover?, completionHandler: @escaping (Discover?) -> Void)
+    func discoverTapped(discover: Discover?, completionHandler: @escaping (Discover?) -> Void)
+    func likeDiscoverTapped(discover: Discover?, completionHandler: @escaping (Discover?) -> Void)
 }
 
 class MyDealTableViewCell: UITableViewCell {
@@ -68,24 +68,27 @@ class MyDealTableViewCell: UITableViewCell {
     }
     
     var isUsed: Bool = false
-    var isExpire: Bool = false
     
-    func reloadDealStep() {
-        if isExpire {
-            buttonUse.setTitle("Đã hết hạn", for: .normal)
-            buttonUse.setTitleColor(UIColor.white, for: .normal)
-            buttonUse.backgroundColor = UIColor.darkGray
-        } else {
-            if isUsed {
-                buttonMore.isHidden = true
-                buttonUse.setTitle("Đã sử dụng", for: .normal)
-                buttonUse.setTitleColor(UIColor.colorOrange, for: .normal)
-                buttonUse.backgroundColor = UIColor.RGB(245, green: 245, blue: 245)
-            } else {
+    var dealStep: DealStep = .begin {
+        didSet {
+            switch dealStep {
+            case .canUse:
                 buttonMore.isHidden = false
                 buttonUse.setTitle("Sử Dụng", for: .normal)
                 buttonUse.setTitleColor(UIColor.white, for: .normal)
                 buttonUse.backgroundColor = UIColor.RGB(45, green: 204, blue: 112)
+            case .used:
+                buttonMore.isHidden = true
+                buttonUse.setTitle("Đã sử dụng", for: .normal)
+                buttonUse.setTitleColor(UIColor.colorOrange, for: .normal)
+                buttonUse.backgroundColor = UIColor.RGB(245, green: 245, blue: 245)
+            case .close:
+                buttonMore.isHidden = true
+                buttonUse.setTitle("Đã hết hạn", for: .normal)
+                buttonUse.setTitleColor(UIColor.white, for: .normal)
+                buttonUse.backgroundColor = UIColor.darkGray
+            default:
+                break
             }
         }
     }
@@ -146,6 +149,11 @@ class MyDealTableViewCell: UITableViewCell {
     var images: [String]? {
         didSet {
             if let images = images {
+                
+                for view in groupImageView.subviews {
+                    view.removeFromSuperview()
+                }
+                
                 if images.count == 1 {
                     
                     let group1ImageView = Group1ImageView(frame: groupImageView.bounds)
@@ -246,9 +254,7 @@ class MyDealTableViewCell: UITableViewCell {
             
             isUsed = discover.isUsed
             
-            isExpire = discover.isExpire
-            
-            reloadDealStep()
+            dealStep = discover.step
             
             totalLike = discover.totalLikes ?? 0
             
@@ -327,24 +333,16 @@ class MyDealTableViewCell: UITableViewCell {
     
     @IBAction func buttonLikeTapped(_ sender: AnyObject) {
         weak var _self = self
-        delegate?.likeDiscoverTapped(discover: discover, isLiked: isLiked, completionHandler: { (success) in
-            if let _self = _self, let discover = _self.discover {
-                if success {
-                    if _self.isLiked {
-                        discover.isLiked = false
-                        discover.totalLikes = (discover.totalLikes ?? 1) - 1
-                        
-                    } else {
-                        discover.isLiked = true
-                        discover.totalLikes = (discover.totalLikes ?? 0) + 1
-                    }
-                    _self.totalLike = discover.totalLikes ?? 0
-                    _self.isLiked = !_self.isLiked
+        delegate?.likeDiscoverTapped(discover: discover, completionHandler: { newDiscover in
+            if let _self = _self {
+                
+                if let newDiscover = newDiscover {
+                    _self.isLiked = newDiscover.updateLike()
                     _self.imageViewLike.animation = "zoomIn"
                     _self.imageViewLike.animate()
-                    
-                    _self.reloadData()
                 }
+                
+                _self.discover = newDiscover
             }
         })
     }
@@ -354,26 +352,23 @@ class MyDealTableViewCell: UITableViewCell {
     }
     
     @IBAction func buttonUseDealTapped(_ sender: AnyObject) {
-        if !isExpire && !isUsed {
-            weak var _self = self
-            delegate?.useDiscoverTapped(discover: discover, completionHandler: { (success) in
-                if let _self = _self, let discover = _self.discover {
-                    if success {
-                        discover.isUsed = true
-                        _self.isUsed = true
+        if let discover = discover {
+            if discover.step == .canUse {
+                weak var _self = self
+                delegate?.useDiscoverTapped(discover: discover, completionHandler: { newDiscover in
+                    if let _self = _self {
+                        _self.discover = newDiscover
                     }
-                    
-                    _self.reloadData()
-                }
-            })
+                })
+            }
         }
     }
     
     @IBAction func buttonCellTapped(_ sender: AnyObject) {
         weak var _self = self
-        delegate?.discoverTapped(discover: discover, completionHandler: {
+        delegate?.discoverTapped(discover: discover, completionHandler: { newDiscover in
             if let _self = _self {
-                _self.reloadData()
+                _self.discover = newDiscover
             }
         })
     }

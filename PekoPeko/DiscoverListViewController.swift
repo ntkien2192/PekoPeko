@@ -11,7 +11,7 @@ import MBProgressHUD
 import DZNEmptyDataSet
 
 protocol DiscoverListViewControllerDelegate: class {
-    func discoverTapped(discover: Discover?, completionHandler: @escaping () -> Void)
+    func discoverTapped(discover: Discover?, completionHandler: @escaping (Discover?) -> Void)
     func discoverUpdated()
 }
 
@@ -198,7 +198,7 @@ extension DiscoverListViewController: UITableViewDataSource {
 }
 
 extension DiscoverListViewController: DealTableViewCellDelegate, DealTableHeaderViewDelegate {
-    func saveDiscoverTapped(discover: Discover?, isSaved: Bool, completionHandler: @escaping (Bool) -> Void) {
+    func saveDiscoverTapped(discover: Discover?, completionHandler: @escaping (Discover?) -> Void) {
         if let discover = discover, let dealID = discover.discoverID {
             if discover.isPayRequire {
                 let alertView = AlertView(frame: view.bounds)
@@ -213,7 +213,7 @@ extension DiscoverListViewController: DealTableViewCellDelegate, DealTableHeader
                 })
                 addFullView(view: alertView)
             } else {
-                if isSaved {
+                if discover.isSave {
                     let loadingNotification = MBProgressHUD.showAdded(to: view, animated: true)
                     loadingNotification.mode = MBProgressHUDMode.indeterminate
                     weak var _self = self
@@ -235,7 +235,7 @@ extension DiscoverListViewController: DealTableViewCellDelegate, DealTableHeader
                             }
                             
                             if success {
-                                completionHandler(true)
+                                completionHandler(discover)
                                 _self.delegate?.discoverUpdated()
                             }
                         }
@@ -262,7 +262,7 @@ extension DiscoverListViewController: DealTableViewCellDelegate, DealTableHeader
                             }
                             
                             if success {
-                                completionHandler(true)
+                                completionHandler(discover)
                                 _self.delegate?.discoverUpdated()
                             }
                         }
@@ -272,15 +272,15 @@ extension DiscoverListViewController: DealTableViewCellDelegate, DealTableHeader
         }
     }
     
-    func discoverTapped(discover: Discover?, completionHandler: @escaping () -> Void) {
-        delegate?.discoverTapped(discover: discover, completionHandler: { 
-            completionHandler()
+    func discoverTapped(discover: Discover?, completionHandler: @escaping (Discover?) -> Void) {
+        delegate?.discoverTapped(discover: discover, completionHandler: { newDiscover in
+            completionHandler(newDiscover)
         })
     }
     
-    func likeDiscoverTapped(discover: Discover?, isLiked: Bool, completionHandler: @escaping (Bool) -> Void) {
+    func likeDiscoverTapped(discover: Discover?, completionHandler: @escaping (Discover?) -> Void) {
         if let discover = discover, let dealID = discover.discoverID {
-            if isLiked {
+            if discover.isLiked {
                 let loadingNotification = MBProgressHUD.showAdded(to: view, animated: true)
                 loadingNotification.mode = MBProgressHUDMode.indeterminate
                 weak var _self = self
@@ -302,7 +302,7 @@ extension DiscoverListViewController: DealTableViewCellDelegate, DealTableHeader
                         }
                         
                         if success {
-                            completionHandler(true)
+                            completionHandler(discover)
                             _self.delegate?.discoverUpdated()
                         }
                     }
@@ -329,7 +329,7 @@ extension DiscoverListViewController: DealTableViewCellDelegate, DealTableHeader
                         }
                         
                         if success {
-                            completionHandler(true)
+                            completionHandler(discover)
                             _self.delegate?.discoverUpdated()
                         }
                     }

@@ -10,9 +10,9 @@ import UIKit
 
 
 protocol DealControlTableViewCellDelegate: class {
-    func saveDiscoverTapped(discover: Discover?, isSaved: Bool, completionHandler: @escaping (Bool) -> Void)
-    func likeDiscoverTapped(discover: Discover?, isLiked: Bool, completionHandler: @escaping (Bool) -> Void)
-    func useDiscoverTapped(discover: Discover?, completionHandler: @escaping (Bool) -> Void)
+    func saveDiscoverTapped(discover: Discover?, completionHandler: @escaping (Discover?) -> Void)
+    func likeDiscoverTapped(discover: Discover?, completionHandler: @escaping (Discover?) -> Void)
+    func useDiscoverTapped(discover: Discover?, completionHandler: @escaping (Discover?) -> Void)
 }
 
 class DealControlTableViewCell: UITableViewCell {
@@ -34,19 +34,10 @@ class DealControlTableViewCell: UITableViewCell {
                 imageViewLike.image = UIImage(named: "IconLike")
                 
             }
-            imageViewLike.animation = "zoomIn"
-            imageViewLike.animate()
         }
     }
     
-    var isSaved: Bool = false {
-        didSet {
-            reloadDealStep()
-            
-            labelUserSaved.animation = "zoomIn"
-            labelUserSaved.animate()
-        }
-    }
+    var isSaved: Bool = false
     
     var isUsed: Bool = false {
         didSet {
@@ -62,36 +53,29 @@ class DealControlTableViewCell: UITableViewCell {
         }
     }
     
-    var isEnd = false {
+    var dealStep: DealStep = .begin {
         didSet {
-            if isEnd {
-                buttonSave.setTitle("Đã Hết Hạn", for: .normal)
-                buttonSave.setTitleColor(UIColor.white, for: .normal)
-                buttonSave.backgroundColor = UIColor.darkGray
-            } else {
+            switch dealStep {
+            case .begin:
+                buttonSave.setTitle("Chưa bắt đầu", for: .normal)
+                buttonSave.setTitleColor(UIColor.colorYellow, for: .normal)
+                buttonSave.backgroundColor = UIColor.RGB(245, green: 245, blue: 245)
+            case .canSave:
                 buttonSave.setTitle("Lưu Deal", for: .normal)
                 buttonSave.setTitleColor(UIColor.white, for: .normal)
                 buttonSave.backgroundColor = UIColor.colorOrange
-            }
-        }
-    }
-    
-    var isExpire: Bool = false {
-        didSet {
-            reloadDealStep()
-        }
-    }
-    
-    func reloadDealStep() {
-        if isExpire {
-            buttonSave.setTitle("Đã Hết Hạn", for: .normal)
-            buttonSave.setTitleColor(UIColor.white, for: .normal)
-            buttonSave.backgroundColor = UIColor.darkGray
-        } else {
-            if isSaved {
-                isUsed = Bool(isUsed)
-            } else {
-                isEnd = Bool(isEnd)
+            case .canUse:
+                buttonSave.setTitle("Sử Dụng", for: .normal)
+                buttonSave.setTitleColor(UIColor.white, for: .normal)
+                buttonSave.backgroundColor = UIColor.RGB(45, green: 204, blue: 112)
+            case .used:
+                buttonSave.setTitle("Đã sử dụng", for: .normal)
+                buttonSave.setTitleColor(UIColor.colorOrange, for: .normal)
+                buttonSave.backgroundColor = UIColor.RGB(245, green: 245, blue: 245)
+            case .close:
+                buttonSave.setTitle("Đã hết hạn", for: .normal)
+                buttonSave.setTitleColor(UIColor.white, for: .normal)
+                buttonSave.backgroundColor = UIColor.darkGray
             }
         }
     }
@@ -142,9 +126,7 @@ class DealControlTableViewCell: UITableViewCell {
                 
                 isSaved = discover.isSave
                 
-                isEnd = discover.isEnd
-                
-                isExpire = discover.isExpire
+                dealStep = discover.step
                 
                 if let totalLikes = discover.totalLikes {
                     totalLike = totalLikes
@@ -155,57 +137,52 @@ class DealControlTableViewCell: UITableViewCell {
     
     @IBAction func buttonLikeTapped(_ sender: AnyObject) {
         weak var _self = self
-        delegate?.likeDiscoverTapped(discover: discover, isLiked: isLiked, completionHandler: { (success) in
-            if let _self = _self, let discover = _self.discover {
-                if success {
-                    if _self.isLiked {
-                        discover.isLiked = false
-                        discover.totalLikes = (discover.totalLikes ?? 1) - 1
-                        
-                    } else {
-                        discover.isLiked = true
-                        discover.totalLikes = (discover.totalLikes ?? 0) + 1
-                    }
-                    _self.totalLike = discover.totalLikes ?? 0
-                    _self.isLiked = !_self.isLiked
+        delegate?.likeDiscoverTapped(discover: discover, completionHandler: { newDiscover in
+            if let _self = _self {
+                
+                if let newDiscover = newDiscover {
+                    _self.isLiked = newDiscover.updateLike()
+                    _self.imageViewLike.animation = "zoomIn"
+                    _self.imageViewLike.animate()
                 }
+                
+                _self.discover = newDiscover
             }
         })
     }
     
     @IBAction func buttonSaveDealTapped(_ sender: AnyObject) {
-        if !isExpire {
-            if isSaved {
-                if !isUsed {
-                    weak var _self = self
-                    delegate?.useDiscoverTapped(discover: discover, completionHandler: { (success) in
-                        if let _self = _self, let discover = _self.discover {
-                            if success {
-                                discover.isUsed = true
-                                _self.isUsed = true
-                            }
-                        }
-                    })
-                }
-            } else {
-                weak var _self = self
-                delegate?.saveDiscoverTapped(discover: discover, isSaved: isSaved, completionHandler: { (success) in
-                    if let _self = _self, let discover = _self.discover {
-                        if success {
-                            if _self.isSaved {
-                                discover.isSave = false
-                                discover.totalSaves = (discover.totalSaves ?? 1) - 1
-                                
-                            } else {
-                                discover.isSave = true
-                                discover.totalSaves = (discover.totalSaves ?? 0) + 1
-                            }
-                            _self.totalSave = discover.totalSaves ?? 0
-                            _self.isSaved = !_self.isSaved
-                        }
+        switch dealStep {
+        case .canUse:
+            weak var _self = self
+            delegate?.useDiscoverTapped(discover: discover, completionHandler: { newDiscover in
+                if let _self = _self {
+                    
+                    if let newDiscover = newDiscover {
+                        _self.isUsed = newDiscover.updateUse()
+                        _self.imageViewLike.animation = "zoomIn"
+                        _self.imageViewLike.animate()
                     }
-                })
-            }
+                    
+                    _self.discover = newDiscover
+                }
+            })
+        case .canSave:
+            weak var _self = self
+            delegate?.saveDiscoverTapped(discover: discover, completionHandler: { newDiscover in
+                if let _self = _self {
+                    
+                    if let newDiscover = newDiscover {
+                        _self.isSaved = newDiscover.updateSave()
+                        _self.labelUserSaved.animation = "zoomIn"
+                        _self.labelUserSaved.animate()
+                    }
+                    
+                    _self.discover = newDiscover
+                }
+            })
+        default:
+            break
         }
     }
 }

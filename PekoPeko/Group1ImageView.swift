@@ -28,9 +28,7 @@ class Group1ImageView: UIView {
                         let URL = NSURL(string: imageUrl)!
                         let fetcher = NetworkFetcher<UIImage>(URL: URL as URL)
                         _ = cache.fetch(fetcher: fetcher).onSuccess({ (image) in
-                            DispatchQueue.main.async {
-                                _self.imageView.image = image
-                            }
+                            _self.imageView.image = image
                         })
                     }
                 }

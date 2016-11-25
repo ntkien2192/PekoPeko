@@ -9,20 +9,7 @@
 import Foundation
 import Alamofire
 
-enum ApiVersion: String {
-    case V110 = "1.1.0"
-    case V100 = "1.0.0"
-    case V200 = "2.0.0"
-    case V210 = "2.1.0"
-    case V220 = "2.2.0"
-}
-
 enum Router: URLRequestConvertible {
-    static let baseURLString = "https://api.hungrybear.vn/"
-    static let baseUploadFile = "https://files.hungrybear.vn/"
-    
-//    static let baseURLString = "https://api.pekopeko.vn/"
-//    static let baseUploadFile = "https://files.pekopeko.vn/"
     
     // Router
     case login([String: AnyObject])
@@ -412,11 +399,11 @@ enum Router: URLRequestConvertible {
     // MARK: URLRequestConvertible
     
     func asURLRequest() throws -> URLRequest {
-        var url = try Router.baseURLString.asURL()
+        var url = try ApiBase.baseURLString.rawValue.asURL()
         
         switch self {
         case .uploadUserAvatar():
-            url = try Router.baseUploadFile.asURL()
+            url = try ApiBase.baseUploadFile.rawValue.asURL()
         default:
             break
         }

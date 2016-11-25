@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -14,16 +17,18 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="529"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JIz-uO-X3y" id="pJQ-Wo-ODW">
-                <frame key="frameInset" width="320" height="528"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="528"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZBZ-x9-gkw">
+                        <rect key="frame" x="0.0" y="87" width="320" height="160"/>
                         <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="ZBZ-x9-gkw" secondAttribute="height" multiplier="2:1" id="b26-oe-Rri"/>
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PSI-EP-xqo">
+                        <rect key="frame" x="76" y="32" width="186" height="47"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="18" id="awa-em-4gx"/>
                         </constraints>
@@ -32,12 +37,14 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconShopLocation" translatesAutoresizingMaskIntoConstraints="NO" id="g2R-fL-ngK">
+                        <rect key="frame" x="58" y="32" width="10" height="14"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="14" id="31K-BX-sSR"/>
                             <constraint firstAttribute="width" constant="10" id="3cU-Qv-KkB"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DG5-Xp-YTl">
+                        <rect key="frame" x="58" y="10" width="204" height="18"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="18" id="bgB-vj-vpv"/>
                         </constraints>
@@ -46,6 +53,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ShopAvatar" translatesAutoresizingMaskIntoConstraints="NO" id="uRn-G0-sPs" customClass="ImageView" customModule="PekoPeko" customModuleProvider="target">
+                        <rect key="frame" x="10" y="10" width="40" height="40"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="40" id="gSl-a8-2DV"/>
@@ -64,13 +72,16 @@
                         </userDefinedRuntimeAttributes>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PII-Az-BQh">
+                        <rect key="frame" x="7.5" y="247" width="305" height="60"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconDiscountPer" translatesAutoresizingMaskIntoConstraints="NO" id="8Is-nc-QCO">
+                                <rect key="frame" x="0.0" y="0.0" width="39" height="52"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="8Is-nc-QCO" secondAttribute="height" multiplier="100:134" id="aJG-ea-kfV"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="189.000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iKy-fP-n96">
+                                <rect key="frame" x="47" y="7.5" width="250" height="42.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="rS4-L5-Emx"/>
                                 </constraints>
@@ -79,6 +90,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w9q-VZ-R0l">
+                                <rect key="frame" x="0.0" y="4" width="39" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -100,12 +112,14 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x5y-WD-3Gq">
+                        <rect key="frame" x="0.0" y="307" width="320" height="0.5"/>
                         <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="0.5" id="kff-s4-koq"/>
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VLE-Sd-jKY">
+                        <rect key="frame" x="15" y="322.5" width="290" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="P26-si-Mvw"/>
                         </constraints>
@@ -114,6 +128,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hạn cuối" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x1P-h3-bqg">
+                        <rect key="frame" x="126" y="358.5" width="68.5" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="nZJ-5j-kcB"/>
                         </constraints>
@@ -122,8 +137,10 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A2b-St-keT">
+                        <rect key="frame" x="64.5" y="386" width="191" height="64"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kBb-vu-LrP" customClass="Label" customModule="PekoPeko" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="25" height="40"/>
                                 <color key="backgroundColor" red="0.2035900652" green="0.20669677850000001" blue="0.26472905279999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="HXO-TC-OZo"/>
@@ -146,6 +163,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tdc-E8-fjg" customClass="Label" customModule="PekoPeko" customModuleProvider="target">
+                                <rect key="frame" x="28" y="0.0" width="25" height="40"/>
                                 <color key="backgroundColor" red="0.2035900652" green="0.20669677850000001" blue="0.26472905279999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="95D-5N-Nsw"/>
@@ -168,6 +186,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="It0-4I-VNa" customClass="Label" customModule="PekoPeko" customModuleProvider="target">
+                                <rect key="frame" x="53" y="0.0" width="16" height="40"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="16" id="VT4-wD-Cq5"/>
@@ -185,6 +204,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r11-lB-oDy" customClass="Label" customModule="PekoPeko" customModuleProvider="target">
+                                <rect key="frame" x="69" y="0.0" width="25" height="40"/>
                                 <color key="backgroundColor" red="0.2035900652" green="0.20669677850000001" blue="0.26472905279999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="6zo-Tq-t26"/>
@@ -207,6 +227,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KgY-7z-0OD" customClass="Label" customModule="PekoPeko" customModuleProvider="target">
+                                <rect key="frame" x="97" y="0.0" width="25" height="40"/>
                                 <color key="backgroundColor" red="0.2035900652" green="0.20669677850000001" blue="0.26472905279999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="0Am-rW-owj"/>
@@ -229,6 +250,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Evg-jI-YKP" customClass="Label" customModule="PekoPeko" customModuleProvider="target">
+                                <rect key="frame" x="122" y="0.0" width="16" height="40"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="YIE-8R-wvX"/>
@@ -246,6 +268,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hsK-2D-y81" customClass="Label" customModule="PekoPeko" customModuleProvider="target">
+                                <rect key="frame" x="138" y="0.0" width="25" height="40"/>
                                 <color key="backgroundColor" red="0.2035900652" green="0.20669677850000001" blue="0.26472905279999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="jkO-h8-kWZ"/>
@@ -268,6 +291,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8zB-Cv-uqL" customClass="Label" customModule="PekoPeko" customModuleProvider="target">
+                                <rect key="frame" x="166" y="0.0" width="25" height="40"/>
                                 <color key="backgroundColor" red="0.2035900652" green="0.20669677850000001" blue="0.26472905279999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="gIg-7N-iAQ"/>
@@ -290,6 +314,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ngày" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n8f-gS-B8r">
+                                <rect key="frame" x="0.0" y="44" width="53" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="rwE-1n-8gp"/>
                                 </constraints>
@@ -298,11 +323,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Giờ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0mB-KT-MZg">
+                                <rect key="frame" x="69" y="44" width="53" height="19.5"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phút" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WiO-Hc-OVR">
+                                <rect key="frame" x="138" y="44" width="53" height="19.5"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -342,12 +369,14 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dus-Xo-BLQ">
+                        <rect key="frame" x="0.0" y="458" width="320" height="0.5"/>
                         <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="0.5" id="PG6-QB-tl0"/>
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wmf-f9-Jcy" customClass="Label" customModule="PekoPeko" customModuleProvider="target">
+                        <rect key="frame" x="50.5" y="458.5" width="60" height="50"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="60" id="0k3-3w-phE"/>
                             <constraint firstAttribute="height" constant="50" id="VRc-VB-7d2"/>
@@ -360,18 +389,21 @@
                         </userDefinedRuntimeAttributes>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qhf-rs-CoU">
+                        <rect key="frame" x="0.0" y="508.5" width="320" height="20"/>
                         <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="F3p-To-Jxg"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Dc-oG-vgx">
+                        <rect key="frame" x="50" y="458.5" width="0.5" height="50"/>
                         <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="0.5" id="aZD-Nd-bjC"/>
                         </constraints>
                     </view>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconLike" translatesAutoresizingMaskIntoConstraints="NO" id="uKy-hh-lMT" customClass="ImageView" customModule="PekoPeko" customModuleProvider="target">
+                        <rect key="frame" x="13" y="464.5" width="24" height="24"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="24" id="nxk-vN-HwE"/>
                             <constraint firstAttribute="width" constant="24" id="yeF-CD-SFh"/>
@@ -381,16 +413,19 @@
                         </userDefinedRuntimeAttributes>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1000K" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nOU-XF-ALS">
+                        <rect key="frame" x="4" y="488.5" width="42" height="16"/>
                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="10"/>
                         <color key="textColor" red="0.96078431369999995" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j17-tc-13M">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="528.5"/>
                         <connections>
                             <action selector="buttonCellTapped:" destination="JIz-uO-X3y" eventType="touchUpInside" id="cnf-rB-neT"/>
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G7R-Lq-n47">
+                        <rect key="frame" x="270" y="10" width="40" height="40"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="5jm-0n-2GV"/>
                             <constraint firstAttribute="width" constant="40" id="gIG-fJ-LLR"/>
@@ -402,6 +437,7 @@
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wx0-dq-CZX">
+                        <rect key="frame" x="110.5" y="458.5" width="209.5" height="50"/>
                         <color key="backgroundColor" red="0.96078431369999995" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="50" id="9uS-LF-1Yj"/>
@@ -415,6 +451,7 @@
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PU6-ol-93x">
+                        <rect key="frame" x="0.0" y="458.5" width="50" height="50"/>
                         <connections>
                             <action selector="buttonLikeTapped:" destination="JIz-uO-X3y" eventType="touchUpInside" id="zDe-cN-lMP"/>
                         </connections>

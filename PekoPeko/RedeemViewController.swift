@@ -68,12 +68,7 @@ class RedeemViewController: BaseViewController {
         loadRedeemInfo()
     }
     
-    typealias RedeemViewControllerHandle = () -> Void
-    var successAction: RedeemViewControllerHandle?
-    
-    func setSuccessHandle(action: @escaping RedeemViewControllerHandle) {
-        successAction = action
-    }
+    var successHandle: (() -> Void)?
     
     func loadRedeemInfo() {
         var targetID: String?
@@ -183,8 +178,8 @@ class RedeemViewController: BaseViewController {
                                     popView.reward = reward
                                     _self.addFullView(view: popView)
                                     
-                                    if let successAction = _self.successAction {
-                                        successAction()
+                                    if let successHandle = _self.successHandle {
+                                        successHandle()
                                     }
                                 }
                             }
@@ -227,8 +222,8 @@ class RedeemViewController: BaseViewController {
                                 popView.voucher = voucher
                                 _self.addFullView(view: popView)
                                 
-                                if let successAction = _self.successAction {
-                                    successAction()
+                                if let successHandle = _self.successHandle {
+                                    successHandle()
                                 }
                             }
                         }
@@ -269,8 +264,8 @@ class RedeemViewController: BaseViewController {
                                 popView.deal = deal
                                 _self.addFullView(view: popView)
                                 
-                                if let successAction = _self.successAction {
-                                    successAction()
+                                if let successHandle = _self.successHandle {
+                                    successHandle()
                                 }
                             }
                         }

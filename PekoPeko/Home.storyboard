@@ -408,6 +408,11 @@
                     <navigationItem key="navigationItem" id="plS-b5-d6P">
                         <nil key="title"/>
                         <barButtonItem key="backBarButtonItem" title=" " id="zi8-n7-Cf2"/>
+                        <barButtonItem key="leftBarButtonItem" image="IconSearch" id="SOC-D3-AAv">
+                            <connections>
+                                <action selector="buttonSearchTapped:" destination="3sB-Wa-SfF" id="JRa-Fu-cWB"/>
+                            </connections>
+                        </barButtonItem>
                         <view key="titleView" contentMode="scaleToFill" id="sYP-mk-qF7">
                             <rect key="frame" x="117" y="2" width="150" height="40"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -863,8 +868,8 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fJP-kt-xz9" customClass="View" customModule="PekoPeko" customModuleProvider="target">
-                                                <rect key="frame" x="-1" y="264" width="386" height="50"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fJP-kt-xz9" customClass="View" customModule="PekoPeko" customModuleProvider="target">
+                                                <rect key="frame" x="-1" y="260" width="386" height="50"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YX7-WA-Far" customClass="Button" customModule="PekoPeko" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="386" height="50"/>
@@ -1226,11 +1231,12 @@
         <image name="IconLogoAppSplash" width="189" height="201"/>
         <image name="IconPhotoCamera" width="22" height="22"/>
         <image name="IconScan" width="540" height="959"/>
+        <image name="IconSearch" width="22" height="22"/>
         <image name="IconSettings" width="22" height="22"/>
         <image name="UserDefaultAvatar" width="400" height="400"/>
         <image name="logoBar.png" width="418" height="112"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="N4O-Xf-a1M"/>
+        <segue reference="Fh8-I7-XBI"/>
     </inferredMetricsTieBreakers>
 </document>

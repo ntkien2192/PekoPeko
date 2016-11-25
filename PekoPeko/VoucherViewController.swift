@@ -146,7 +146,7 @@ extension VoucherViewController: VoucherTableViewCellDelegate {
                 }
                 
                 weak var _self = self
-                redeemViewController.setSuccessHandle {
+                redeemViewController.successHandle = {
                     if let _self = _self, let user = _self.user {
                         if (user.vouchers ?? 0) - 1 >= 0 {
                             user.vouchers = (user.vouchers ?? 0) - 1

@@ -9,6 +9,14 @@
 import UIKit
 import SwiftyJSON
 
+enum DealStep {
+    case begin
+    case canSave
+    case canUse
+    case used
+    case close
+}
+
 enum DiscoverType: Int {
     case deal = 1
     case dealMulti = 2
@@ -67,17 +75,49 @@ class Discover: NSObject {
     var image: Image?
     var coverImage: String?
     var images: [Image]?
-    var steps: [DealStep]?
+    var steps: [DealPayStep]?
     
     var savedAt: Double?
     
     var isUsed = false
     var isEnd = false
-    var isExpire = false
     
     var isNoPin = false
     
     var isPayRequire = false
+    
+    var step: DealStep {
+        let isStart = Int(Date(timeIntervalSince1970: TimeInterval((startedAt ?? 0.0) / 1000.0)).timeIntervalSince(Date())) < 0 ? true : false
+        let isExpire = Int(Date(timeIntervalSince1970: TimeInterval((expireAt ?? 0.0) / 1000.0)).timeIntervalSince(Date())) > 0 ? true : false
+        
+        if isStart {
+            if !isEnd {
+                if isSave {
+                    if isUsed {
+                        return .used
+                    } else {
+                        return .canUse
+                    }
+                } else {
+                    return .canSave
+                }
+            } else if !isExpire {
+                if isSave {
+                    if isUsed {
+                        return .used
+                    } else {
+                        return .canUse
+                    }
+                } else {
+                    return .canSave
+                }
+            } else {
+                return .close
+            }
+        } else {
+            return .begin
+        }
+    }
     
     required init(json: JSON) {
         discoverID = json[DiscoverFields.DiscoverID.rawValue].string
@@ -91,13 +131,11 @@ class Discover: NSObject {
         startedAt = json[DiscoverFields.StartedAt.rawValue].double
         
         let end = json[DiscoverFields.EndedAt.rawValue].doubleValue
-        var time = Int(Date(timeIntervalSince1970: TimeInterval(end / 1000.0)).timeIntervalSince(Date()))
+        let time = Int(Date(timeIntervalSince1970: TimeInterval(end / 1000.0)).timeIntervalSince(Date()))
         isEnd = time > 0 ? false : true
         endedAt = (time < 0 ? 0 : time).secondsToDayHoursMinutes()
         
         expireAt = json[DiscoverFields.ExpireAt.rawValue].double
-        time = Int(Date(timeIntervalSince1970: TimeInterval((expireAt ?? 0) / 1000.0)).timeIntervalSince(Date()))
-        isExpire = time > 0 ? false : true
         
         createdAt = json[DiscoverFields.CreatedAt.rawValue].double
         
@@ -121,7 +159,7 @@ class Discover: NSObject {
         
         coverImage = json[DiscoverFields.CoverImage.rawValue].string
         
-        steps = json[DiscoverFields.Steps.rawValue].arrayValue.map({ DealStep(json: $0) })
+        steps = json[DiscoverFields.Steps.rawValue].arrayValue.map({ DealPayStep(json: $0) })
         
         savedAt = json[DiscoverFields.SavedAt.rawValue].double
         isUsed = json[DiscoverFields.IsUsed.rawValue].boolValue
@@ -131,6 +169,35 @@ class Discover: NSObject {
         isPayRequire = json[DiscoverFields.IsPayRequire.rawValue].boolValue
     }
     
+    func updateLike() -> Bool {
+        isLiked = !isLiked
+        
+        if isLiked {
+            totalLikes = (totalLikes ?? 0) + 1
+        } else {
+            totalLikes = (totalLikes ?? 1) - 1
+        }
+        
+        return isLiked
+    }
+    
+    func updateSave() -> Bool {
+        isSave = !isSave
+        
+        if isSave {
+            totalSaves = (totalSaves ?? 0) + 1
+        } else {
+            totalSaves = (totalSaves ?? 1) - 1
+        }
+        
+        return isSave
+    }
+    
+    func updateUse() -> Bool {
+        isUsed = !isUsed
+        return isUsed
+    }
+    
     func imageCount() -> Int {
         if let image = image, let urls = image.urls{
             return urls.count
@@ -138,9 +205,9 @@ class Discover: NSObject {
         return 0
     }
     
-    func currentStep() -> DealStep? {
+    func currentStep() -> DealPayStep? {
         if let steps = steps {
-            var tempCurrentStep = DealStep()
+            var tempCurrentStep = DealPayStep()
             for step in steps {
                 if let saveRequire = step.saveRequire, let totalSaves = totalSaves {
                     if totalSaves > saveRequire {
@@ -153,7 +220,7 @@ class Discover: NSObject {
         return nil
     }
     
-    func firstStep() -> DealStep? {
+    func firstStep() -> DealPayStep? {
         if let steps = steps {
             if let step = steps.first {
                 return step

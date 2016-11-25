@@ -10,7 +10,7 @@ import UIKit
 import Haneke
 
 protocol DealTableHeaderViewCellDelegate: class {
-    func discoverTapped(discover: Discover?, completionHandler: @escaping () -> Void)
+    func discoverTapped(discover: Discover?, completionHandler: @escaping (Discover?) -> Void)
 }
 
 class DealTableHeaderViewCell: UICollectionViewCell {
@@ -94,8 +94,11 @@ class DealTableHeaderViewCell: UICollectionViewCell {
     }
     
     @IBAction func buttonCellTapped(_ sender: Any) {
-        delegate?.discoverTapped(discover: discover, completionHandler: { 
-            
+        weak var _self = self
+        delegate?.discoverTapped(discover: discover, completionHandler: { newDiscover in
+            if let _self = _self {
+                _self.discover = newDiscover
+            }
         })
     }
 }

@@ -166,6 +166,13 @@
 		E47E58881DC0B699001400E0 /* DealImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E47E58871DC0B699001400E0 /* DealImageView.xib */; };
 		E47E588C1DC0BD27001400E0 /* DealDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47E588A1DC0BD27001400E0 /* DealDescriptionTableViewCell.swift */; };
 		E47E588D1DC0BD27001400E0 /* DealDescriptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E47E588B1DC0BD27001400E0 /* DealDescriptionTableViewCell.xib */; };
+		E49346FF1DE7DA8000057659 /* SearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49346FE1DE7DA8000057659 /* SearchRequest.swift */; };
+		E49347021DE7DAA600057659 /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49347011DE7DAA600057659 /* SearchResponse.swift */; };
+		E49347041DE7DB2A00057659 /* SearchStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49347031DE7DB2A00057659 /* SearchStore.swift */; };
+		E49347081DE7DBCC00057659 /* SearchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49347071DE7DBCC00057659 /* SearchRouter.swift */; };
+		E493470D1DE7E20B00057659 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E493470C1DE7E20B00057659 /* SearchView.swift */; };
+		E493470F1DE7E21100057659 /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E493470E1DE7E21100057659 /* SearchView.xib */; };
+		E49347111DE8114000057659 /* ApiBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49347101DE8114000057659 /* ApiBase.swift */; };
 		E494049F1DA6AD1B00918C75 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E494049E1DA6AD1B00918C75 /* AppDelegate.swift */; };
 		E49404A41DA6AD1B00918C75 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E49404A21DA6AD1B00918C75 /* Main.storyboard */; };
 		E49404A61DA6AD1B00918C75 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E49404A51DA6AD1B00918C75 /* Assets.xcassets */; };
@@ -406,6 +413,13 @@
 		E47E58871DC0B699001400E0 /* DealImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DealImageView.xib; sourceTree = "<group>"; };
 		E47E588A1DC0BD27001400E0 /* DealDescriptionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealDescriptionTableViewCell.swift; sourceTree = "<group>"; };
 		E47E588B1DC0BD27001400E0 /* DealDescriptionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DealDescriptionTableViewCell.xib; sourceTree = "<group>"; };
+		E49346FE1DE7DA8000057659 /* SearchRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchRequest.swift; sourceTree = "<group>"; };
+		E49347011DE7DAA600057659 /* SearchResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
+		E49347031DE7DB2A00057659 /* SearchStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchStore.swift; sourceTree = "<group>"; };
+		E49347071DE7DBCC00057659 /* SearchRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchRouter.swift; sourceTree = "<group>"; };
+		E493470C1DE7E20B00057659 /* SearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		E493470E1DE7E21100057659 /* SearchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchView.xib; sourceTree = "<group>"; };
+		E49347101DE8114000057659 /* ApiBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiBase.swift; sourceTree = "<group>"; };
 		E494049B1DA6AD1B00918C75 /* PekoPeko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PekoPeko.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E494049E1DA6AD1B00918C75 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E49404A31DA6AD1B00918C75 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -979,6 +993,40 @@
 			name = DealDescriptionTableViewCell;
 			sourceTree = "<group>";
 		};
+		E49346FA1DE7DA2800057659 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
+		E49346FD1DE7DA6D00057659 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				E49346FE1DE7DA8000057659 /* SearchRequest.swift */,
+				E49347011DE7DAA600057659 /* SearchResponse.swift */,
+			);
+			name = Search;
+			sourceTree = "<group>";
+		};
+		E49347051DE7DBAC00057659 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				E49347071DE7DBCC00057659 /* SearchRouter.swift */,
+				E49347031DE7DB2A00057659 /* SearchStore.swift */,
+			);
+			name = Search;
+			sourceTree = "<group>";
+		};
+		E493470B1DE7E1FC00057659 /* SearchView */ = {
+			isa = PBXGroup;
+			children = (
+				E493470C1DE7E20B00057659 /* SearchView.swift */,
+				E493470E1DE7E21100057659 /* SearchView.xib */,
+			);
+			name = SearchView;
+			sourceTree = "<group>";
+		};
 		E49404921DA6AD1B00918C75 = {
 			isa = PBXGroup;
 			children = (
@@ -1037,6 +1085,8 @@
 		E49404CC1DA6AE5F00918C75 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E49346FD1DE7DA6D00057659 /* Search */,
+				E49346FA1DE7DA2800057659 /* Base */,
 				E49ACD3E1DE6DD1600EEA4BA /* Pay */,
 				E4364F0F1DBC9A9C00EFCF41 /* Discover */,
 				E4336D721DBC7550002E9F5C /* Voucher */,
@@ -1094,6 +1144,8 @@
 		E49404CF1DA6AE7900918C75 /* Stores */ = {
 			isa = PBXGroup;
 			children = (
+				E49347101DE8114000057659 /* ApiBase.swift */,
+				E49347051DE7DBAC00057659 /* Search */,
 				E424228D1DA8A10900F7D6FC /* Router.swift */,
 				E424228F1DA8A14A00F7D6FC /* AuthenticationStore.swift */,
 				E470CF641DAC99BA00434909 /* UserStore.swift */,
@@ -1162,6 +1214,7 @@
 		E49404D61DA6AEEA00918C75 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				E493470B1DE7E1FC00057659 /* SearchView */,
 				E47C40511DE5D369003D96FA /* DealTableHeaderView */,
 				E4E44AC71DCC87E900BDB23C /* QRCodeView */,
 				E44CF9311DC8539700F815A8 /* GroupImageView */,
@@ -1367,7 +1420,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = hungrybear;
 				TargetAttributes = {
 					E494049A1DA6AD1B00918C75 = {
@@ -1451,6 +1504,7 @@
 				E416D0F81DB63368002BBA81 /* AlertView.xib in Resources */,
 				E4246A021DAE101C00D0A074 /* UVF ProximaNova-Regular.ttf in Resources */,
 				E42187B71DB8A38B00EFC98C /* EmptyTableViewCell.xib in Resources */,
+				E493470F1DE7E21100057659 /* SearchView.xib in Resources */,
 				E4364F1C1DBCA41000EFCF41 /* ShareView.xib in Resources */,
 				E4246A031DAE101C00D0A074 /* VNF.ProximaNova-Regular.ttf in Resources */,
 				E49404A91DA6AD1B00918C75 /* LaunchScreen.storyboard in Resources */,
@@ -1655,9 +1709,13 @@
 				E4271BEF1DB4726E00B485B3 /* CardAddressView.swift in Sources */,
 				E4346EC41DB91AE1000566EE /* AddPointSuccessView.swift in Sources */,
 				E441E5E31DBDF1B80016B87E /* VipCard.swift in Sources */,
+				E49347081DE7DBCC00057659 /* SearchRouter.swift in Sources */,
 				E451FFEF1DA8120B00B5A756 /* Textfield.swift in Sources */,
+				E493470D1DE7E20B00057659 /* SearchView.swift in Sources */,
 				E462CA7F1DBDE03E001D5D5A /* VipCardView.swift in Sources */,
+				E49347021DE7DAA600057659 /* SearchResponse.swift in Sources */,
 				E4336D711DBC7438002E9F5C /* Voucher.swift in Sources */,
+				E49347111DE8114000057659 /* ApiBase.swift in Sources */,
 				E424228E1DA8A10900F7D6FC /* Router.swift in Sources */,
 				E42B6AE31DAB3BCE0091746F /* User.swift in Sources */,
 				E4129A3D1DACDC6400F78C79 /* Card.swift in Sources */,
@@ -1680,6 +1738,7 @@
 				E43D2C841DA80DAE0019B2DD /* LoginPhoneViewController.swift in Sources */,
 				E47C40541DE5D3A3003D96FA /* DealTableHeaderView.swift in Sources */,
 				E494049F1DA6AD1B00918C75 /* AppDelegate.swift in Sources */,
+				E49347041DE7DB2A00057659 /* SearchStore.swift in Sources */,
 				E42474C01DBF788300720C99 /* DealStep.swift in Sources */,
 				E47E587D1DC0A8A5001400E0 /* DealMultiPriceTableViewCell.swift in Sources */,
 				E41448671DB0BE7E006C70EF /* MessageView.swift in Sources */,
@@ -1721,6 +1780,7 @@
 				E4F6017D1DBB15F6006309A5 /* Discover.swift in Sources */,
 				E4054E741DE6C4DD00652F68 /* PayTypeViewController.swift in Sources */,
 				E47CB7DC1DB4C71A0078279F /* ShopDetailViewController.swift in Sources */,
+				E49346FF1DE7DA8000057659 /* SearchRequest.swift in Sources */,
 				E4EC1D911DB5DBEB005CECB6 /* Address.swift in Sources */,
 				E41448591DB08FD2006C70EF /* RedeemStore.swift in Sources */,
 				E46894EA1DB697060004B322 /* SMSegmentViewConstants.swift in Sources */,

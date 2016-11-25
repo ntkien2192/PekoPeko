@@ -9,7 +9,7 @@
 import UIKit
 
 protocol DealTableHeaderViewDelegate: class {
-    func discoverTapped(discover: Discover?, completionHandler: @escaping () -> Void)
+    func discoverTapped(discover: Discover?, completionHandler: @escaping (Discover?) -> Void)
 }
 
 class DealTableHeaderView: UIView {
@@ -119,8 +119,10 @@ extension DealTableHeaderView: UICollectionViewDataSource {
 }
 
 extension DealTableHeaderView: DealTableHeaderViewCellDelegate {
-    func discoverTapped(discover: Discover?, completionHandler: @escaping () -> Void){
-        delegate?.discoverTapped(discover: discover, completionHandler: completionHandler)
+    func discoverTapped(discover: Discover?, completionHandler: @escaping (Discover?) -> Void) {
+        delegate?.discoverTapped(discover: discover, completionHandler: { newDiscover in
+            completionHandler(newDiscover)
+        })
     }
 }
 

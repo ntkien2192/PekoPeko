@@ -11,7 +11,7 @@ import MBProgressHUD
 import DZNEmptyDataSet
 
 protocol MyDealViewControllerDelegate: class {
-    func discoverTapped(discover: Discover?, completionHandler: @escaping () -> Void)
+    func discoverTapped(discover: Discover?, completionHandler: @escaping (Discover?) -> Void)
     func myDiscoverUpdated()
 }
 
@@ -145,7 +145,6 @@ extension MyDealViewController: UITableViewDataSource {
 extension MyDealViewController: MyDealTableViewCellDelegate {
 
     func moreDiscoverTapped(discover: Discover?) {
-        
         weak var _self = self
         
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
@@ -196,6 +195,7 @@ extension MyDealViewController: MyDealTableViewCellDelegate {
                 _self.addFullView(view: alertView)
             }
         }
+        
         alertController.addAction(deleteAction)
         
         let cancleAction = UIAlertAction(title: "Huỷ", style: .cancel, handler: nil)
@@ -206,7 +206,7 @@ extension MyDealViewController: MyDealTableViewCellDelegate {
         }
     }
     
-    func useDiscoverTapped(discover: Discover?, completionHandler: @escaping (Bool) -> Void) {
+    func useDiscoverTapped(discover: Discover?, completionHandler: @escaping (Discover?) -> Void) {
         if let discover = discover {
             if discover.isNoPin {
                 let messageView = MessageView(frame: view.bounds)
@@ -214,8 +214,8 @@ extension MyDealViewController: MyDealTableViewCellDelegate {
                 addFullView(view: messageView)
             } else {
                 let redeemViewController = UIStoryboard(name: RedeemViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: RedeemViewController.identify) as! RedeemViewController
-                redeemViewController.setSuccessHandle {
-                    completionHandler(true)
+                redeemViewController.successHandle = {
+                    completionHandler(discover)
                 }
                 redeemViewController.deal = discover
                 if let topController = AppDelegate.topController() {
@@ -225,15 +225,15 @@ extension MyDealViewController: MyDealTableViewCellDelegate {
         }
     }
     
-    func discoverTapped(discover: Discover?, completionHandler: @escaping () -> Void) {
-        delegate?.discoverTapped(discover: discover, completionHandler: { 
-            completionHandler()
+    func discoverTapped(discover: Discover?, completionHandler: @escaping (Discover?) -> Void) {
+        delegate?.discoverTapped(discover: discover, completionHandler: { newDiscover in
+            completionHandler(newDiscover)
         })
     }
     
-    func likeDiscoverTapped(discover: Discover?, isLiked: Bool, completionHandler: @escaping (Bool) -> Void) {
+    func likeDiscoverTapped(discover: Discover?, completionHandler: @escaping (Discover?) -> Void) {
         if let discover = discover, let dealID = discover.discoverID {
-            if isLiked {
+            if discover.isLiked {
                 let loadingNotification = MBProgressHUD.showAdded(to: view, animated: true)
                 loadingNotification.mode = MBProgressHUDMode.indeterminate
                 weak var _self = self
@@ -255,7 +255,7 @@ extension MyDealViewController: MyDealTableViewCellDelegate {
                         }
                         
                         if success {
-                            completionHandler(true)
+                            completionHandler(discover)
                             _self.delegate?.myDiscoverUpdated()
                         }
                     }
@@ -282,7 +282,7 @@ extension MyDealViewController: MyDealTableViewCellDelegate {
                         }
                         
                         if success {
-                            completionHandler(true)
+                            completionHandler(discover)
                             _self.delegate?.myDiscoverUpdated()
                         }
                     }
@@ -290,6 +290,7 @@ extension MyDealViewController: MyDealTableViewCellDelegate {
             }
         }
     }
+    
 }
 
 extension MyDealViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {

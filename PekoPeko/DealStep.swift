@@ -9,20 +9,20 @@
 import UIKit
 import SwiftyJSON
 
-enum DealStepFields: String {
+enum DealPayStepFields: String {
     case PriceNew = "price_new"
     case SaveRequire = "save_require"
     
 }
 
-class DealStep: NSObject {
+class DealPayStep: NSObject {
     var priceNew: Float?
     var saveRequire: Int?
     
     override init() {}
     
     required init(json: JSON) {
-        priceNew = json[DealStepFields.PriceNew.rawValue].float
-        saveRequire = json[DealStepFields.SaveRequire.rawValue].int
+        priceNew = json[DealPayStepFields.PriceNew.rawValue].float
+        saveRequire = json[DealPayStepFields.SaveRequire.rawValue].int
     }
 }

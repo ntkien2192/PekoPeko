@@ -34,9 +34,7 @@ class Group3ImageView: UIView {
                                 let URL = NSURL(string: imageUrl)!
                                 let fetcher = NetworkFetcher<UIImage>(URL: URL as URL)
                                 _ = cache.fetch(fetcher: fetcher).onSuccess({ (image) in
-                                    DispatchQueue.main.async {
-                                        _self.imageView1.image = image
-                                    }
+                                    _self.imageView1.image = image
                                 })
                             }
                         }
@@ -53,9 +51,7 @@ class Group3ImageView: UIView {
                                 let URL = NSURL(string: imageUrl)!
                                 let fetcher = NetworkFetcher<UIImage>(URL: URL as URL)
                                 _ = cache.fetch(fetcher: fetcher).onSuccess({ (image) in
-                                    DispatchQueue.main.async {
-                                        _self.imageView2.image = image
-                                    }
+                                    _self.imageView2.image = image
                                 })
                             }
                         }
@@ -72,9 +68,7 @@ class Group3ImageView: UIView {
                                 let URL = NSURL(string: imageUrl)!
                                 let fetcher = NetworkFetcher<UIImage>(URL: URL as URL)
                                 _ = cache.fetch(fetcher: fetcher).onSuccess({ (image) in
-                                    DispatchQueue.main.async {
-                                        _self.imageView3.image = image
-                                    }
+                                    _self.imageView3.image = image
                                 })
                             }
                         }

@@ -79,6 +79,10 @@ class DiscoverViewController: BaseViewController {
         }
     }
     
+    @IBAction func buttonSearchTapped(_ sender: Any) {
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -111,14 +115,16 @@ extension DiscoverViewController: CAPSPageMenuDelegate {
 }
 
 extension DiscoverViewController: DiscoverListViewControllerDelegate, MyDealViewControllerDelegate {
-    func discoverTapped(discover: Discover?, completionHandler: @escaping () -> Void) {
+    
+    func discoverTapped(discover: Discover?, completionHandler: @escaping (Discover?) -> Void) {
         if let discover = discover, let discoverID = discover.discoverID {
             let cardDetailViewController = UIStoryboard(name: DealDetailViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: DealDetailViewController.identify) as! DealDetailViewController
+            
             cardDetailViewController.discoverID = discoverID
-            cardDetailViewController.setUsedsHandle {
-                discover.isUsed = true
-                completionHandler()
+            cardDetailViewController.successHandle = { newDiscover in
+                completionHandler(newDiscover)
             }
+            
             if let navigationController = navigationController {
                 navigationController.show(cardDetailViewController, sender: nil)
             }

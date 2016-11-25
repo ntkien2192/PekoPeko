@@ -68,12 +68,7 @@ class DealDetailViewController: BaseViewController {
         }
     }
     
-    typealias DealDetailViewControllerHandle = () -> Void
-    var usedAction: DealDetailViewControllerHandle?
-    
-    func setUsedsHandle(action: @escaping DealDetailViewControllerHandle) {
-        usedAction = action
-    }
+    var successHandle: ((Discover?) -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -146,6 +141,14 @@ class DealDetailViewController: BaseViewController {
                     }
                 }
             })
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        if let successHandle = successHandle {
+            successHandle(discover)
         }
     }
     
@@ -232,49 +235,25 @@ extension DealDetailViewController: DiscoverShopDetailTableViewCellDelegate {
 }
 
 extension DealDetailViewController: DealControlTableViewCellDelegate {
-    func useDiscoverTapped(discover: Discover?, completionHandler: @escaping (Bool) -> Void) {
-        if let discover = discover {
-            if discover.isNoPin {
-                let messageView = MessageView(frame: view.bounds)
-                messageView.message = "Để sử dụng vui lòng tới cửa hàng"
-                addFullView(view: messageView)
-            } else {
-                let redeemViewController = UIStoryboard(name: RedeemViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: RedeemViewController.identify) as! RedeemViewController
-                
-                weak var _self = self
-                redeemViewController.setSuccessHandle {
-                    completionHandler(true)
-                    if let _self = _self {
-                        if let usedAction = _self.usedAction {
-                            usedAction()
-                        }
-                    }
-                }
-                redeemViewController.deal = discover
-                if let topController = AppDelegate.topController() {
-                    topController.present(redeemViewController, animated: true, completion: nil)
-                }
-            }
-        }
-
-    }
-    
-    func saveDiscoverTapped(discover: Discover?, isSaved: Bool, completionHandler: @escaping (Bool) -> Void) {
+    func saveDiscoverTapped(discover: Discover?, completionHandler: @escaping (Discover?) -> Void) {
         if let discover = discover, let dealID = discover.discoverID {
             if discover.isPayRequire {
-                let alertView = AlertView(frame: view.bounds)
-                alertView.message = "Deal này yêu cầu thanh toán trước"
-                alertView.setButtonSubmit("Thanh Toán", action: {
-                    let payTypeViewController = UIStoryboard(name: PayTypeViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: PayTypeViewController.storyboardID) as! PayTypeViewController
-                    payTypeViewController.targetID = dealID
-                    
-                    if let topController = AppDelegate.topController() {
-                        topController.present(payTypeViewController, animated: true, completion: nil)
-                    }
-                })
-                addFullView(view: alertView)
+                if !discover.isEnd {
+                    let alertView = AlertView(frame: view.bounds)
+                    alertView.message = "Deal này yêu cầu thanh toán trước"
+                    alertView.setButtonSubmit("Thanh Toán", action: {
+                        let payTypeViewController = UIStoryboard(name: PayTypeViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: PayTypeViewController.storyboardID) as! PayTypeViewController
+                        payTypeViewController.targetID = dealID
+                        
+                        if let topController = AppDelegate.topController() {
+                            topController.present(payTypeViewController, animated: true, completion: nil)
+                        }
+                    })
+                    addFullView(view: alertView)
+                }
+                
             } else {
-                if isSaved {
+                if discover.isSave {
                     let loadingNotification = MBProgressHUD.showAdded(to: view, animated: true)
                     loadingNotification.mode = MBProgressHUDMode.indeterminate
                     weak var _self = self
@@ -296,7 +275,7 @@ extension DealDetailViewController: DealControlTableViewCellDelegate {
                             }
                             
                             if success {
-                                completionHandler(true)
+                                completionHandler(discover)
                             }
                         }
                     })
@@ -322,18 +301,19 @@ extension DealDetailViewController: DealControlTableViewCellDelegate {
                             }
                             
                             if success {
-                                completionHandler(true)
+                                completionHandler(discover)
                             }
                         }
                     })
                 }
             }
         }
+
     }
     
-    func likeDiscoverTapped(discover: Discover?, isLiked: Bool, completionHandler: @escaping (Bool) -> Void) {
+    func likeDiscoverTapped(discover: Discover?, completionHandler: @escaping (Discover?) -> Void) {
         if let discover = discover, let dealID = discover.discoverID {
-            if isLiked {
+            if discover.isLiked {
                 let loadingNotification = MBProgressHUD.showAdded(to: view, animated: true)
                 loadingNotification.mode = MBProgressHUDMode.indeterminate
                 weak var _self = self
@@ -355,7 +335,7 @@ extension DealDetailViewController: DealControlTableViewCellDelegate {
                         }
                         
                         if success {
-                            completionHandler(true)
+                            completionHandler(discover)
                         }
                     }
                 })
@@ -381,10 +361,40 @@ extension DealDetailViewController: DealControlTableViewCellDelegate {
                         }
                         
                         if success {
-                            completionHandler(true)
+                            completionHandler(discover)
                         }
                     }
                 })
+            }
+        }
+    }
+    
+    func useDiscoverTapped(discover: Discover?, completionHandler: @escaping (Discover?) -> Void) {
+        if let discover = discover {
+            if discover.isNoPin {
+                let messageView = MessageView(frame: view.bounds)
+                messageView.message = "Để sử dụng vui lòng tới cửa hàng"
+                addFullView(view: messageView)
+            } else {
+                let redeemViewController = UIStoryboard(name: RedeemViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: RedeemViewController.identify) as! RedeemViewController
+                
+                redeemViewController.deal = discover
+                
+                weak var _self = self
+                redeemViewController.successHandle = {
+                    
+                    completionHandler(discover)
+                    
+                    if let _self = _self {
+                        if let successHandle = _self.successHandle {
+                            successHandle(discover)
+                        }
+                    }
+                }
+                
+                if let topController = AppDelegate.topController() {
+                    topController.present(redeemViewController, animated: true, completion: nil)
+                }
             }
         }
     }
