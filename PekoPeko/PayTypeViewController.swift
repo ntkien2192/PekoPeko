@@ -15,10 +15,16 @@ enum PayType: Int {
     case exchange = 2
 }
 
+protocol PayTypeViewControllerDelegate: class {
+    func close(_ success: Bool)
+}
+
 class PayTypeViewController: UIViewController {
 
     static let storyboardName = "Redeem"
     static let storyboardID = "PayTypeViewController"
+    
+    weak var delegate: PayTypeViewControllerDelegate?
     
     @IBOutlet weak var viewATMCard: UIView!
     @IBOutlet weak var viewCreditCard: UIView!
@@ -194,7 +200,9 @@ class PayTypeViewController: UIViewController {
 extension PayTypeViewController: PayViewControllerDelegate {
     func closeView(success: Bool) {
         if success {
-            dismiss(animated: true, completion: nil)
+            dismiss(animated: true, completion: { 
+                self.delegate?.close(success)
+            })
         }
     }
 }

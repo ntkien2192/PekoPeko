@@ -26,16 +26,13 @@ class PayViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        if let url = URL(string: payUrl ?? "") {
+        
+        if let url = URL(string: ((payUrl ?? "").addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")) {
             webView.loadRequest(URLRequest(url: url))
             webView.delegate = self
         }
+        
+        // Do any additional setup after loading the view.
     }
     
     override func didReceiveMemoryWarning() {

@@ -238,18 +238,24 @@ extension DealDetailViewController: DealControlTableViewCellDelegate {
     func saveDiscoverTapped(discover: Discover?, completionHandler: @escaping (Discover?) -> Void) {
         if let discover = discover, let dealID = discover.discoverID {
             if discover.isPayRequire {
-                if !discover.isEnd {
-                    let alertView = AlertView(frame: view.bounds)
-                    alertView.message = "Deal này yêu cầu thanh toán trước"
-                    alertView.setButtonSubmit("Thanh Toán", action: {
-                        let payTypeViewController = UIStoryboard(name: PayTypeViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: PayTypeViewController.storyboardID) as! PayTypeViewController
-                        payTypeViewController.targetID = dealID
-                        
-                        if let topController = AppDelegate.topController() {
-                            topController.present(payTypeViewController, animated: true, completion: nil)
-                        }
-                    })
-                    addFullView(view: alertView)
+                if !discover.isSave {
+                    if !discover.isEnd {
+                        let alertView = AlertView(frame: view.bounds)
+                        alertView.message = "Deal này yêu cầu thanh toán trước"
+                        alertView.setButtonSubmit("Thanh Toán", action: {
+                            let payTypeViewController = UIStoryboard(name: PayTypeViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: PayTypeViewController.storyboardID) as! PayTypeViewController
+                            payTypeViewController.targetID = dealID
+                            payTypeViewController.delegate = self
+                            if let topController = AppDelegate.topController() {
+                                topController.present(payTypeViewController, animated: true, completion: nil)
+                            }
+                        })
+                        addFullView(view: alertView)
+                    }
+                } else {
+                    let messageView = MessageView(frame: view.bounds)
+                    messageView.message = "Bạn đã trả trước cho Deal này, vui lòng tới cửa hàng để sử dụng"
+                    addFullView(view: messageView)
                 }
                 
             } else {
@@ -396,6 +402,14 @@ extension DealDetailViewController: DealControlTableViewCellDelegate {
                     topController.present(redeemViewController, animated: true, completion: nil)
                 }
             }
+        }
+    }
+}
+
+extension DealDetailViewController: PayTypeViewControllerDelegate {
+    func close(_ success: Bool) {
+        if success {
+            reloadDiscoverInfo()
         }
     }
 }
