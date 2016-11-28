@@ -29,6 +29,8 @@ class PayTypeViewController: UIViewController {
     
     var targetID: String?
     
+    var isLoaded = false
+    
     var payType: PayType = .atm {
         didSet {
             var height = 0
@@ -77,8 +79,9 @@ class PayTypeViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        getPayData()
+        if !isLoaded {
+            getPayData()
+        }
     }
     
     func getPayData() {
@@ -120,6 +123,7 @@ class PayTypeViewController: UIViewController {
                         }
                         
                         _self.payType = .atm
+                        _self.isLoaded = true
                     }
                 }
             })
