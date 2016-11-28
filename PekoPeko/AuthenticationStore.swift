@@ -133,6 +133,12 @@ class AuthenticationStore {
         defaults.synchronize()
     }
     
+    
+    
+    
+    
+    //MARK: AuthenticationStore
+    
     class func login(_ loginParameters: LoginParameter, completionHandler: @escaping (User?, Error?) -> Void) {
         let parameters = loginParameters.toJSON()
         
@@ -217,6 +223,29 @@ class AuthenticationStore {
             completionHandler(responseData ?? false, nil)
         })
     }
+    
+    
+    
+    //MARK: AuthenticationStore
+    
+    class func register(authenticationRequest: AuthenticationRequest, completionHandler: @escaping (Bool, Error?) -> Void) {
+        
+        let parameters = authenticationRequest.toJSON()
+        
+        _ = Alamofire.request(AuthenticationRouter.register(parameters as [String : AnyObject])).responseForgotPassword({ (response) in
+            if let error = response.result.error {
+                completionHandler(false, error)
+                return
+            }
+            guard let responseData = response.result.value else {
+                // TODO: Create error here
+                completionHandler(false, nil)
+                return
+            }
+            completionHandler(responseData ?? false, nil)
+        })
+    }
+    
 }
 
 enum SocialNetwork: String {

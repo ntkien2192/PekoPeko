@@ -187,6 +187,8 @@
 		E49D5A8F1DB1C62A001E19DD /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49D5A8E1DB1C62A001E19DD /* Point.swift */; };
 		E4CC4A671DAF3991003B8385 /* DiscountCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CC4A651DAF3991003B8385 /* DiscountCardTableViewCell.swift */; };
 		E4CC4A681DAF3991003B8385 /* DiscountCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4CC4A661DAF3991003B8385 /* DiscountCardTableViewCell.xib */; };
+		E4D0C8E71DEBCFA900AF5CEF /* AuthenticationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D0C8E61DEBCFA900AF5CEF /* AuthenticationRouter.swift */; };
+		E4D0C8EB1DEBCFFE00AF5CEF /* AuthenticationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D0C8EA1DEBCFFE00AF5CEF /* AuthenticationRequest.swift */; };
 		E4D40D161DE5583400FC3274 /* PayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D40D151DE5583400FC3274 /* PayViewController.swift */; };
 		E4E0414C1DB74576001E0226 /* MyCardRewardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E0414A1DB74576001E0226 /* MyCardRewardTableViewCell.swift */; };
 		E4E0414D1DB74576001E0226 /* MyCardRewardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4E0414B1DB74576001E0226 /* MyCardRewardTableViewCell.xib */; };
@@ -440,6 +442,8 @@
 		E49D5A8E1DB1C62A001E19DD /* Point.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
 		E4CC4A651DAF3991003B8385 /* DiscountCardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountCardTableViewCell.swift; sourceTree = "<group>"; };
 		E4CC4A661DAF3991003B8385 /* DiscountCardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiscountCardTableViewCell.xib; sourceTree = "<group>"; };
+		E4D0C8E61DEBCFA900AF5CEF /* AuthenticationRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationRouter.swift; sourceTree = "<group>"; };
+		E4D0C8EA1DEBCFFE00AF5CEF /* AuthenticationRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationRequest.swift; sourceTree = "<group>"; };
 		E4D40D151DE5583400FC3274 /* PayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayViewController.swift; sourceTree = "<group>"; };
 		E4E0414A1DB74576001E0226 /* MyCardRewardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCardRewardTableViewCell.swift; sourceTree = "<group>"; };
 		E4E0414B1DB74576001E0226 /* MyCardRewardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCardRewardTableViewCell.xib; sourceTree = "<group>"; };
@@ -1085,6 +1089,7 @@
 		E49404CC1DA6AE5F00918C75 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E4D0C8E81DEBCFE800AF5CEF /* Authentication */,
 				E49346FD1DE7DA6D00057659 /* Search */,
 				E49346FA1DE7DA2800057659 /* Base */,
 				E49ACD3E1DE6DD1600EEA4BA /* Pay */,
@@ -1144,10 +1149,10 @@
 		E49404CF1DA6AE7900918C75 /* Stores */ = {
 			isa = PBXGroup;
 			children = (
+				E4D0C8E41DEBCF8400AF5CEF /* Authentication */,
 				E49347101DE8114000057659 /* ApiBase.swift */,
 				E49347051DE7DBAC00057659 /* Search */,
 				E424228D1DA8A10900F7D6FC /* Router.swift */,
-				E424228F1DA8A14A00F7D6FC /* AuthenticationStore.swift */,
 				E470CF641DAC99BA00434909 /* UserStore.swift */,
 				E4129A401DACE41200F78C79 /* CardStore.swift */,
 				E41448581DB08FD2006C70EF /* RedeemStore.swift */,
@@ -1284,6 +1289,23 @@
 				E4CC4A661DAF3991003B8385 /* DiscountCardTableViewCell.xib */,
 			);
 			name = DiscountCardTableViewCell;
+			sourceTree = "<group>";
+		};
+		E4D0C8E41DEBCF8400AF5CEF /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				E4D0C8E61DEBCFA900AF5CEF /* AuthenticationRouter.swift */,
+				E424228F1DA8A14A00F7D6FC /* AuthenticationStore.swift */,
+			);
+			name = Authentication;
+			sourceTree = "<group>";
+		};
+		E4D0C8E81DEBCFE800AF5CEF /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				E4D0C8EA1DEBCFFE00AF5CEF /* AuthenticationRequest.swift */,
+			);
+			name = Authentication;
 			sourceTree = "<group>";
 		};
 		E4E0414E1DB75032001E0226 /* ShopMenuCollectionViewCell */ = {
@@ -1707,6 +1729,7 @@
 				E42187AE1DB8713400EFC98C /* SocialConfirmViewController.swift in Sources */,
 				E47E58781DC0A86C001400E0 /* DealPriceTableViewCell.swift in Sources */,
 				E4271BEF1DB4726E00B485B3 /* CardAddressView.swift in Sources */,
+				E4D0C8E71DEBCFA900AF5CEF /* AuthenticationRouter.swift in Sources */,
 				E4346EC41DB91AE1000566EE /* AddPointSuccessView.swift in Sources */,
 				E441E5E31DBDF1B80016B87E /* VipCard.swift in Sources */,
 				E49347081DE7DBCC00057659 /* SearchRouter.swift in Sources */,
@@ -1808,6 +1831,7 @@
 				E4CC4A671DAF3991003B8385 /* DiscountCardTableViewCell.swift in Sources */,
 				E41DC0A71DB4D9CC00411F55 /* ShopAddressTableViewCell.swift in Sources */,
 				E46894E81DB697060004B322 /* SMSegmentAppearance.swift in Sources */,
+				E4D0C8EB1DEBCFFE00AF5CEF /* AuthenticationRequest.swift in Sources */,
 				E45746DB1DB27F1200021604 /* Reward.swift in Sources */,
 				E4364F171DBCA33C00EFCF41 /* MyDealViewController.swift in Sources */,
 				E46CD5861DB4B25C001F37AF /* Shop.swift in Sources */,
