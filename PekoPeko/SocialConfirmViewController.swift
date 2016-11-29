@@ -128,7 +128,7 @@ class SocialConfirmViewController: UIViewController {
                         return
                     }
                     
-                    AuthenticationStore().savePhoneNumber(phoneNumber)
+//                    AuthenticationStore().savePhoneNumber(phoneNumber)
                     
                     if let loginResponse = loginResponse, let step = loginResponse.step {
                         if step == .verify {

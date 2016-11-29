@@ -15,6 +15,7 @@ enum AuthenticationRequestFields: String {
     case password = "password"
     case fullName = "fullName"
     case email = "email"
+    case account = "account"
 }
 
 struct AuthenticationRequest: Mappable {
@@ -22,6 +23,7 @@ struct AuthenticationRequest: Mappable {
     var password: String?
     var fullName: String?
     var email: String?
+    var account: String?
     
     init() {}
     
@@ -32,6 +34,11 @@ struct AuthenticationRequest: Mappable {
         self.email = email
     }
     
+    init(account: String, password: String) {
+        self.account = account
+        self.password = password
+    }
+    
     init?(map: Map) {}
     
     mutating func mapping(map: Map) {
@@ -39,5 +46,6 @@ struct AuthenticationRequest: Mappable {
         password <- map[AuthenticationRequestFields.password.rawValue]
         fullName <- map[AuthenticationRequestFields.fullName.rawValue]
         email <- map[AuthenticationRequestFields.email.rawValue]
+        account <- map[AuthenticationRequestFields.account.rawValue]
     }
 }

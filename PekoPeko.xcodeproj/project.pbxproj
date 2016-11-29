@@ -140,6 +140,8 @@
 		E46894EA1DB697060004B322 /* SMSegmentViewConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46894E61DB697060004B322 /* SMSegmentViewConstants.swift */; };
 		E46CD5831DB4B1E8001F37AF /* ShopStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46CD5821DB4B1E8001F37AF /* ShopStore.swift */; };
 		E46CD5861DB4B25C001F37AF /* Shop.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46CD5851DB4B25C001F37AF /* Shop.swift */; };
+		E46D3B461DEDB3A000B4CD11 /* ErrorField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46D3B451DEDB3A000B4CD11 /* ErrorField.swift */; };
+		E46D3B481DEDB4B100B4CD11 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46D3B471DEDB4B100B4CD11 /* ErrorResponse.swift */; };
 		E470CF651DAC99BA00434909 /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E470CF641DAC99BA00434909 /* UserStore.swift */; };
 		E476B0171DA8FB74007B1D62 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = E476B0161DA8FB74007B1D62 /* Label.swift */; };
 		E476B0191DA908FD007B1D62 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E476B0181DA908FD007B1D62 /* CardViewController.swift */; };
@@ -393,6 +395,8 @@
 		E46894E61DB697060004B322 /* SMSegmentViewConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMSegmentViewConstants.swift; sourceTree = "<group>"; };
 		E46CD5821DB4B1E8001F37AF /* ShopStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopStore.swift; sourceTree = "<group>"; };
 		E46CD5851DB4B25C001F37AF /* Shop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shop.swift; sourceTree = "<group>"; };
+		E46D3B451DEDB3A000B4CD11 /* ErrorField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorField.swift; sourceTree = "<group>"; };
+		E46D3B471DEDB4B100B4CD11 /* ErrorResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 		E470CF641DAC99BA00434909 /* UserStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
 		E476B0161DA8FB74007B1D62 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		E476B0181DA908FD007B1D62 /* CardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
@@ -921,6 +925,16 @@
 			name = SegmentView;
 			sourceTree = "<group>";
 		};
+		E46D3B441DEDB36200B4CD11 /* ErrorResponse */ = {
+			isa = PBXGroup;
+			children = (
+				E46D3B471DEDB4B100B4CD11 /* ErrorResponse.swift */,
+				E42422931DA8A64D00F7D6FC /* ServerResponseError.swift */,
+				E46D3B451DEDB3A000B4CD11 /* ErrorField.swift */,
+			);
+			name = ErrorResponse;
+			sourceTree = "<group>";
+		};
 		E476B0221DA92A8E007B1D62 /* CardViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -1098,6 +1112,7 @@
 		E49404CC1DA6AE5F00918C75 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E46D3B441DEDB36200B4CD11 /* ErrorResponse */,
 				E4D0C8E81DEBCFE800AF5CEF /* Authentication */,
 				E49346FD1DE7DA6D00057659 /* Search */,
 				E49346FA1DE7DA2800057659 /* Base */,
@@ -1105,7 +1120,6 @@
 				E4364F0F1DBC9A9C00EFCF41 /* Discover */,
 				E4336D721DBC7550002E9F5C /* Voucher */,
 				E42422911DA8A47900F7D6FC /* Authentication.swift */,
-				E42422931DA8A64D00F7D6FC /* ServerResponseError.swift */,
 				E42B6ADE1DAB37F20091746F /* Location.swift */,
 				E42B6AE01DAB394B0091746F /* LoginParameter.swift */,
 				E42B6AE21DAB3BCE0091746F /* User.swift */,
@@ -1796,7 +1810,9 @@
 				E41448671DB0BE7E006C70EF /* MessageView.swift in Sources */,
 				E4129A411DACE41200F78C79 /* CardStore.swift in Sources */,
 				E4246A051DAE245A00D0A074 /* CardDetailViewController.swift in Sources */,
+				E46D3B461DEDB3A000B4CD11 /* ErrorField.swift in Sources */,
 				E44CF9331DC853BE00F815A8 /* Group1ImageView.swift in Sources */,
+				E46D3B481DEDB4B100B4CD11 /* ErrorResponse.swift in Sources */,
 				E45086E71DAFDA5A0090ACB5 /* RedeemViewController.swift in Sources */,
 				E4EC1D831DB5C352005CECB6 /* ShopMenuTitleTableViewCell.swift in Sources */,
 				E427F8E41DAF5F580012F3F5 /* RewardTableViewCell.swift in Sources */,

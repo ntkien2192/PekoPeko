@@ -52,16 +52,24 @@ class MessageView: UIView {
         buttonClose.setTitle(title, for: UIControlState())
     }
     
+    func set(content: String?, buttonTitle: String?, action: @escaping MessageViewViewHandle) {
+        if let content = content {
+            message = content
+        }
+        
+        if let buttonTitle = buttonTitle {
+            buttonClose.setTitle(buttonTitle, for: UIControlState())
+        }
+        
+        closeAction = action
+    }
+    
     @IBAction func buttonCloseTapped(_ sender: AnyObject) {
         weak var _self = self
         UIView.animate(withDuration: 0.2, animations: { 
             self.alpha = 0.0
             }) { _ in
                 if let _self = _self {
-                    
-                    if !AuthenticationStore().isLogin {
-                        HomeTabbarController.sharedInstance.logOut()
-                    }
                     
                     if let closeAction = _self.closeAction {
                         closeAction()

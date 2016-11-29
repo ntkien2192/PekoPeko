@@ -9,6 +9,7 @@
 import UIKit
 import Foundation
 import Haneke
+import Alamofire
 
 extension AppDelegate {
     class func topController() -> UIViewController? {
@@ -42,6 +43,43 @@ extension String {
         return string.rangeOfCharacter(from: characterset.inverted) == nil
     }
 }
+//
+//extension NSObject {
+//    class func getErrorCode(json: JSON) -> String? {
+//        
+//        var errorType = 0 // 0 = none, 1 = input
+//        var message = ""
+//        let data = json.dictionary
+//        
+//        if let data = data {
+//            let keys = data.keys
+//            for key in keys {
+//                if key == "errors" {
+//                    errorType = 1
+//                }
+//            }
+//            
+//            if errorType == 0 {
+//                if let code = data["message_code"] {
+//                    message = code.stringValue
+//                }
+//            } else {
+//                if let errors = data["errors"] as? [String: AnyObject] {
+//                    if let firstKey = errors.keys.first {
+//                        if let firstObject = errors[firstKey] as? [String: AnyObject] {
+//                            if let code = firstObject["message_code"] {
+//                                message = code.stringValue
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//        
+//        
+//        return message
+//    }
+//}
 
 extension UIViewController {
     func addFullView(view: UIView) {

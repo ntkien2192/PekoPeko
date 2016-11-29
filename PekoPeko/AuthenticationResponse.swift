@@ -15,7 +15,6 @@ enum AuthenticationResponseFields: String {
 }
 
 class AuthenticationResponse: NSObject {
-    var user: User?
     
     override init() {}
     
@@ -30,6 +29,5 @@ class AuthenticationResponse: NSObject {
             AuthenticationStore().saveUser(userData)
         }
         
-        user = User(json: userData)
     }
 }

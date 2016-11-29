@@ -109,7 +109,7 @@ class SettingViewController: BaseViewController {
             scrollView.sendSubview(toBack: refreshControl)
         }
         
-        isFacebookConnected = AuthenticationStore().isFacebookConnected
+//        isFacebookConnected = AuthenticationStore().isFacebookConnected
 
     }
     
@@ -124,13 +124,13 @@ class SettingViewController: BaseViewController {
     }
     
     func getLoginType() {
-        if AuthenticationStore().isLoginWithPhone {
-            buttonChangePassword.isHidden = false
-            constraintLogoutTop.constant = 80.0
-        } else {
-            buttonChangePassword.isHidden = true
-            constraintLogoutTop.constant = 15.0
-        }
+//        if AuthenticationStore().isLoginWithPhone {
+//            buttonChangePassword.isHidden = false
+//            constraintLogoutTop.constant = 80.0
+//        } else {
+//            buttonChangePassword.isHidden = true
+//            constraintLogoutTop.constant = 15.0
+//        }
     }
     
     func getUserInfo() {
@@ -166,13 +166,13 @@ class SettingViewController: BaseViewController {
     }
     
     @IBAction func buttonShowQRCodeTapped(_ sender: AnyObject) {
-        if AuthenticationStore().hasUserID {
-            let qrCodeView = QRCodeView(frame: view.bounds)
-            if let userID = AuthenticationStore().userID {
-                qrCodeView.content = QRCodeContent(userID: userID).toJSONString()
-            }
-            addFullView(view: qrCodeView)
-        }
+//        if AuthenticationStore().hasUserID {
+//            let qrCodeView = QRCodeView(frame: view.bounds)
+//            if let userID = AuthenticationStore().userID {
+//                qrCodeView.content = QRCodeContent(userID: userID).toJSONString()
+//            }
+//            addFullView(view: qrCodeView)
+//        }
     }
     
     @IBAction func buttonLogoutTapped(_ sender: AnyObject) {

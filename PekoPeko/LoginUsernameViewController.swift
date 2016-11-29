@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class LoginUsernameViewController: UIViewController {
 
@@ -124,7 +125,7 @@ extension LoginUsernameViewController {
         if textfieldUserName.isEmpty() {
             error = error ?? "Tên đăng nhập không được để trống"
         } else {
-            authenticationRequest.username = textfieldUserName.text
+            authenticationRequest.account = textfieldUserName.text
         }
         
         if textfieldPassword.isEmpty() {
@@ -141,15 +142,41 @@ extension LoginUsernameViewController {
         if !(error ?? "").isEmpty {
             labelMessage.showError(error, animation: true)
         } else {
-            register(authenticationRequest: authenticationRequest)
+            login(authenticationRequest: authenticationRequest)
         }
         
     }
     
-    func register(authenticationRequest: AuthenticationRequest) {
+    func login(authenticationRequest: AuthenticationRequest) {
+        let loadingNotification = MBProgressHUD.showAdded(to: view, animated: true)
+        loadingNotification.mode = MBProgressHUDMode.indeterminate
         
+        weak var _self = self
+        AuthenticationStore.login(authenticationRequest: authenticationRequest, completionHandler: { (response, error) in
+            if let _self = _self {
+                loadingNotification.hide(animated: true)
+                guard error == nil else {
+                    if let error = error as? ServerResponseError, let data = error.data {
+                        let messageView = MessageView(frame: _self.view.bounds)
+                        messageView.set(content: data[NSLocalizedFailureReasonErrorKey] as! String?, buttonTitle: nil, action: { })
+                        _self.addFullView(view: messageView)
+                    }
+                    return
+                }
+                
+                if response != nil {
+                    _self.loginSuccess()
+                }
+            }
+        })
     }
     
+    func loginSuccess() {
+        AuthenticationStore().saveLoginValue(true)
+        if let navigationController = navigationController {
+            navigationController.dismiss(animated: true, completion: nil)
+        }
+    }
 }
 
 extension LoginUsernameViewController: UITextFieldDelegate {

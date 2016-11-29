@@ -57,9 +57,9 @@ class NewPasswordViewController: UIViewController {
         }
         defaultConstraintValue = constraintTop.constant
         
-        if let phone = AuthenticationStore().phoneNumber {
-            labelWeb.text = "Số của bạn: \(NSString(format: "%@", phone))"
-        }
+//        if let phone = AuthenticationStore().phoneNumber {
+//            labelWeb.text = "Số của bạn: \(NSString(format: "%@", phone))"
+//        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -130,38 +130,38 @@ class NewPasswordViewController: UIViewController {
             hideConfirmField()
             confirmActivity.startAnimating()
             
-            if AuthenticationStore().hasPhoneNumber {
-                if let phoneNumber = AuthenticationStore().phoneNumber {
-                    let loginParameter = LoginParameter(phone: phoneNumber, code: code, password: password)
-                    weak var _self = self
-                    
-                    AuthenticationStore.renewPassword(loginParameters: loginParameter, completionHandler: { (success, error) in
-                        if let _self = _self {
-                            _self.confirmActivity.stopAnimating()
-                            
-                            guard error == nil else {
-                                if let error = error as? ServerResponseError, let data = error.data,
-                                    let reason: String = data[NSLocalizedFailureReasonErrorKey] as? String {
-                                    _self.showError(reason, animation: false)
-                                    _self.showConfirmField()
-                                }
-                                return
-                            }
-                            
-                            if success {
-                                let messageView = MessageView(frame: _self.view.bounds)
-                                messageView.message = "Thay đổi mật khẩu thành công"
-                                messageView.setButtonClose("Đóng", action: {
-                                    if let navigationController = _self.navigationController {
-                                        navigationController.popToRootViewController(animated: true)
-                                    }
-                                })
-                                _self.addFullView(view: messageView)
-                            }
-                        }
-                    })
-                }
-            }
+//            if AuthenticationStore().hasPhoneNumber {
+//                if let phoneNumber = AuthenticationStore().phoneNumber {
+//                    let loginParameter = LoginParameter(phone: phoneNumber, code: code, password: password)
+//                    weak var _self = self
+//                    
+//                    AuthenticationStore.renewPassword(loginParameters: loginParameter, completionHandler: { (success, error) in
+//                        if let _self = _self {
+//                            _self.confirmActivity.stopAnimating()
+//                            
+//                            guard error == nil else {
+//                                if let error = error as? ServerResponseError, let data = error.data,
+//                                    let reason: String = data[NSLocalizedFailureReasonErrorKey] as? String {
+//                                    _self.showError(reason, animation: false)
+//                                    _self.showConfirmField()
+//                                }
+//                                return
+//                            }
+//                            
+//                            if success {
+//                                let messageView = MessageView(frame: _self.view.bounds)
+//                                messageView.message = "Thay đổi mật khẩu thành công"
+//                                messageView.setButtonClose("Đóng", action: {
+//                                    if let navigationController = _self.navigationController {
+//                                        navigationController.popToRootViewController(animated: true)
+//                                    }
+//                                })
+//                                _self.addFullView(view: messageView)
+//                            }
+//                        }
+//                    })
+//                }
+//            }
         }
     }
     
@@ -247,6 +247,7 @@ class NewPasswordViewController: UIViewController {
         buttonSaveCode.animate()
     }
 }
+
 extension NewPasswordViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         switch textField.tag {

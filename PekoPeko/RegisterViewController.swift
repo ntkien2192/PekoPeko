@@ -169,13 +169,17 @@ extension RegisterViewController {
         loadingNotification.mode = MBProgressHUDMode.indeterminate
         
         weak var _self = self
+        
         AuthenticationStore.register(authenticationRequest: authenticationRequest, completionHandler: { (response, error) in
+            
             if let _self = _self {
+                
                 loadingNotification.hide(animated: true)
+                
                 guard error == nil else {
                     if let error = error as? ServerResponseError, let data = error.data {
                         let messageView = MessageView(frame: _self.view.bounds)
-                        messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
+                        messageView.set(content: data[NSLocalizedFailureReasonErrorKey] as! String?, buttonTitle: nil, action: { })
                         _self.addFullView(view: messageView)
                     }
                     return
@@ -185,6 +189,7 @@ extension RegisterViewController {
                     _self.registerSuccess()
                 }
             }
+            
         })
     }
     

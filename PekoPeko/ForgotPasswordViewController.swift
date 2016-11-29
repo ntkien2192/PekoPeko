@@ -115,11 +115,11 @@ class ForgotPasswordViewController: UIViewController {
                     }
 
                     if success {
-                        AuthenticationStore().savePhoneNumber(phoneNumber)
-                        let newPasswordViewController = UIStoryboard(name: NewPasswordViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: NewPasswordViewController.identify)
-                        if let navigationController = _self.navigationController {
-                            navigationController.show(newPasswordViewController, sender: nil)
-                        }
+//                        AuthenticationStore().savePhoneNumber(phoneNumber)
+//                        let newPasswordViewController = UIStoryboard(name: NewPasswordViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: NewPasswordViewController.identify)
+//                        if let navigationController = _self.navigationController {
+//                            navigationController.show(newPasswordViewController, sender: nil)
+//                        }
                     }
                 }
             })

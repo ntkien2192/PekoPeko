@@ -13,10 +13,13 @@ import Alamofire
 enum AuthenticationRouter: URLRequestConvertible {
     
     case register([String: AnyObject])
+    case login([String: AnyObject])
     
     var method: HTTPMethod {
         switch self {
         case .register:
+            return .post
+        case .login:
             return .post
         }
     }
@@ -25,6 +28,8 @@ enum AuthenticationRouter: URLRequestConvertible {
         switch self {
         case .register:
             return "sign_up"
+        case .login:
+            return "login"
         }
     }
     
@@ -43,6 +48,9 @@ enum AuthenticationRouter: URLRequestConvertible {
         switch self {
             
         case .register(let parameters):
+            urlRequest = try JSONEncoding.default.encode(urlRequest, with: parameters)
+            
+        case .login(let parameters):
             urlRequest = try JSONEncoding.default.encode(urlRequest, with: parameters)
         }
         

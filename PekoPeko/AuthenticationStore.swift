@@ -16,27 +16,12 @@ class AuthenticationStore {
     fileprivate let accessTokenKey = "pekopeko.accesstoken"
     fileprivate let isLoginKey = "pekopeko.isLoginKey"
     fileprivate let userKey = "pekopeko.userKey"
-    
-    
-    fileprivate let isLoginTypeKey = "pekopeko.isLoginTypeKey"
-    fileprivate let phoneNumberKey = "pekopeko.phoneNumber"
-    fileprivate let connectFacebookKey = "pekopeko.connectFacebook"
-    fileprivate let userIDKey = "pekopeko.userid"
+    fileprivate let userIDKey = "pekopeko.userIDKey"
     
     fileprivate var defaults: UserDefaults = {
         
         return UserDefaults.standard
     }()
-    
-    //MARK: LOGIN TYPE
-    var isLoginWithPhone: Bool {
-        return defaults.value(forKey: isLoginTypeKey) as? Bool ?? false
-    }
-    
-    func saveLoginTypePhone(_ isPhone: Bool) {
-        defaults.set(isPhone, forKey: isLoginTypeKey)
-        defaults.synchronize()
-    }
     
     //MARK: LOGIN
     var isLogin: Bool {
@@ -82,41 +67,10 @@ class AuthenticationStore {
         defaults.synchronize()
     }
 
+    // Authenticated userID
     
-    // Authenticated phoneNumber
-    
-    var hasPhoneNumber: Bool {
-        if phoneNumber != nil {
-            return true
-        }
-        return false
-    }
-    
-    var phoneNumber: String? {
-        return defaults.value(forKey: phoneNumberKey) as? String ?? nil
-    }
-    
-    func savePhoneNumber(_ phoneNumber: String) {
-        defaults.set(phoneNumber, forKey: phoneNumberKey)
-        defaults.synchronize()
-    }
-    
-    func deletePhoneNumber() {
-        defaults.removeObject(forKey: phoneNumberKey)
-        defaults.synchronize()
-    }
-
-    // Authenticated phoneNumber
-    
-    var hasUserID: Bool {
-        if userID != nil {
-            return true
-        }
-        return false
-    }
-    
-    var userID: String? {
-        return defaults.value(forKey: userIDKey) as? String ?? nil
+    var userID: String {
+        return defaults.value(forKey: userIDKey) as? String ?? ""
     }
     
     func saveUserID(_ userID: String) {
@@ -124,26 +78,12 @@ class AuthenticationStore {
         defaults.synchronize()
     }
     
-    func deleteUserID() {
-        defaults.removeObject(forKey: userIDKey)
-        defaults.synchronize()
-    }
-    
-    // ConnectFacebook
-    var isFacebookConnected: Bool {
-        return defaults.value(forKey: connectFacebookKey) as? Bool ?? false
-    }
-    
-    func saveFacebookConnectValue(_ isConnected: Bool) {
-        defaults.set(isConnected, forKey: connectFacebookKey)
-        defaults.synchronize()
-    }
-    
     // Clear all data
     func clear() {
         defaults.removeObject(forKey: accessTokenKey)
-        defaults.removeObject(forKey: phoneNumberKey)
         defaults.removeObject(forKey: isLoginKey)
+        defaults.removeObject(forKey: userKey)
+        defaults.removeObject(forKey: userIDKey)
         defaults.synchronize()
     }
     
@@ -259,7 +199,24 @@ class AuthenticationStore {
             completionHandler(responseData, nil)
         })
     }
-    
+ 
+    class func login(authenticationRequest: AuthenticationRequest, completionHandler: @escaping (AuthenticationResponse?, Error?) -> Void) {
+        
+        let parameters = authenticationRequest.toJSON()
+        
+        _ = Alamofire.request(AuthenticationRouter.login(parameters as [String : AnyObject])).responseRegister({ (response) in
+            if let error = response.result.error {
+                completionHandler(nil, error)
+                return
+            }
+            guard let responseData = response.result.value else {
+                // TODO: Create error here
+                completionHandler(nil, nil)
+                return
+            }
+            completionHandler(responseData, nil)
+        })
+    }
 }
 
 enum SocialNetwork: String {
@@ -412,7 +369,9 @@ extension Alamofire.DataRequest {
                 switch result {
                 case .success(let value):
                     let json = SwiftyJSON.JSON(value)
-                    let failureReason = json["message"].stringValue
+                    
+                    let failureReason = ErrorResponse(json: json).errorMessage()
+                    
                     let errorData = [NSLocalizedFailureReasonErrorKey: failureReason]
                     let error = ServerResponseError(data: errorData as [String : AnyObject], kind: .dataSerializationFailed)
                     
@@ -436,6 +395,4 @@ extension Alamofire.DataRequest {
         }
         return response(responseSerializer: responseSerializer, completionHandler: completionHandler)
     }
-    
-    
 }
