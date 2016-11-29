@@ -29,7 +29,7 @@ enum AuthenticationRouter: URLRequestConvertible {
     }
     
     func asURLRequest() throws -> URLRequest {
-        let url = try ApiBase.baseURLString.rawValue.asURL()
+        let url = try ApiBase.baseString.rawValue.asURL()
         
         var urlRequest = URLRequest(url: url.appendingPathComponent(path))
         urlRequest.httpMethod = method.rawValue

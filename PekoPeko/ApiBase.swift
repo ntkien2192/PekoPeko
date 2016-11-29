@@ -9,6 +9,7 @@
 import UIKit
 
 enum ApiBase: String {
+    case baseString = "http://ec2-54-179-177-252.ap-southeast-1.compute.amazonaws.com:3000/"
     case baseURLString = "https://api.hungrybear.vn/"
     case baseUploadFile = "https://files.hungrybear.vn/"
     

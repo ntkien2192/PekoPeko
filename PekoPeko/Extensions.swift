@@ -28,6 +28,19 @@ extension String {
     func replace(_ string:String, replacement:String) -> String {
         return self.replacingOccurrences(of: string, with: replacement, options: NSString.CompareOptions.literal, range: nil)
     }
+    
+    func isEmail() -> Bool {
+        let string = self.replace(" ", replacement: "")
+        let laxString = "^.+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2}[A-Za-z]*$"
+        let emailTest: NSPredicate = NSPredicate(format: "SELF MATCHES %@", laxString)
+        return emailTest.evaluate(with: string)
+    }
+    
+    func isCharacters() -> Bool {
+        let string = self.replace(" ", replacement: "")
+        let characterset = CharacterSet(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLKMNOPQRSTUVWXYZ0123456789")
+        return string.rangeOfCharacter(from: characterset.inverted) == nil
+    }
 }
 
 extension UIViewController {

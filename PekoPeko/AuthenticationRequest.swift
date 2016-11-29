@@ -23,6 +23,8 @@ struct AuthenticationRequest: Mappable {
     var fullName: String?
     var email: String?
     
+    init() {}
+    
     init(username: String, password: String, fullName: String, email: String) {
         self.username = username
         self.password = password

@@ -57,8 +57,12 @@ class MessageView: UIView {
         UIView.animate(withDuration: 0.2, animations: { 
             self.alpha = 0.0
             }) { _ in
-                
                 if let _self = _self {
+                    
+                    if !AuthenticationStore().isLogin {
+                        HomeTabbarController.sharedInstance.logOut()
+                    }
+                    
                     if let closeAction = _self.closeAction {
                         closeAction()
                     }

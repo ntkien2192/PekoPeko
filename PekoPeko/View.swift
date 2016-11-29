@@ -30,4 +30,17 @@ class View: SpringView {
             layer.borderColor = borderColor.cgColor
         }
     }
+    
+    func hide() {
+        let animation = "fadeOut"
+        self.animation = animation
+        self.animate()
+    }
+    
+    func show() {
+        let animation = "fadeInUp"
+        self.animation = animation
+        self.animate()
+    }
+    
 }

@@ -61,4 +61,24 @@ class Textfield: SpringTextField {
             rightViewMode = UITextFieldViewMode.always
         }
     }
+    
+    func isEmpty() -> Bool {
+        if let text = self.text {
+            return text.isEmpty
+        } else {
+            return true
+        }
+    }
+    
+    func isContain(numBerOfCharacters: Int) -> Bool {
+        if self.isEmpty() {
+            return false
+        } else {
+            if (self.text ?? "").length >= numBerOfCharacters {
+                return true
+            } else {
+                return false
+            }
+        }
+    }
 }

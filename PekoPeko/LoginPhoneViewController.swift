@@ -312,6 +312,7 @@ extension LoginPhoneViewController: UITextFieldDelegate {
         viewPhoneNumber.layer.borderWidth = 0.5
         viewPassword.layer.borderWidth = 0.5
     }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         submit()
         return true

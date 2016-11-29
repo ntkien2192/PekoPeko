@@ -43,6 +43,7 @@ enum UserFields: String {
     
     case CurrentPassword = "current_password"
     case NewPassword = "new_password"
+    
 }
 
 class User: Mappable {

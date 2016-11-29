@@ -18,14 +18,27 @@ class Label: SpringLabel {
             layer.masksToBounds = cornerRadius > 0.0
         }
     }
+    
     @IBInspectable var borderWidth: CGFloat = 0.0 {
         didSet {
             layer.borderWidth = borderWidth
         }
     }
+    
     @IBInspectable var borderColor: UIColor = UIColor.clear {
         didSet {
             layer.borderColor = borderColor.cgColor
+        }
+    }
+    
+    func showError(_ message: String?, animation: Bool) {
+        if let message = message {
+            self.text = message
+            if animation {
+                self.animation = "shake"
+                self.duration = 0.5
+                self.animate()
+            }
         }
     }
 }

@@ -185,11 +185,14 @@
 		E49ACD421DE6DD6300EEA4BA /* PayStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49ACD411DE6DD6300EEA4BA /* PayStore.swift */; };
 		E49ACD441DE6F3C200EEA4BA /* PayMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49ACD431DE6F3C200EEA4BA /* PayMethod.swift */; };
 		E49D5A8F1DB1C62A001E19DD /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49D5A8E1DB1C62A001E19DD /* Point.swift */; };
+		E4A2C3A01DED57E500583C13 /* LoginUsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A2C39F1DED57E500583C13 /* LoginUsernameViewController.swift */; };
+		E4A2C3A41DED730700583C13 /* AuthenticationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A2C3A31DED730700583C13 /* AuthenticationResponse.swift */; };
 		E4CC4A671DAF3991003B8385 /* DiscountCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CC4A651DAF3991003B8385 /* DiscountCardTableViewCell.swift */; };
 		E4CC4A681DAF3991003B8385 /* DiscountCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4CC4A661DAF3991003B8385 /* DiscountCardTableViewCell.xib */; };
 		E4D0C8E71DEBCFA900AF5CEF /* AuthenticationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D0C8E61DEBCFA900AF5CEF /* AuthenticationRouter.swift */; };
 		E4D0C8EB1DEBCFFE00AF5CEF /* AuthenticationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D0C8EA1DEBCFFE00AF5CEF /* AuthenticationRequest.swift */; };
 		E4D378E11DEC1C8F0035EFB7 /* SlideImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D378E01DEC1C8F0035EFB7 /* SlideImage.swift */; };
+		E4D378E51DEC3AB00035EFB7 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D378E41DEC3AB00035EFB7 /* RegisterViewController.swift */; };
 		E4D40D161DE5583400FC3274 /* PayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D40D151DE5583400FC3274 /* PayViewController.swift */; };
 		E4E0414C1DB74576001E0226 /* MyCardRewardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E0414A1DB74576001E0226 /* MyCardRewardTableViewCell.swift */; };
 		E4E0414D1DB74576001E0226 /* MyCardRewardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4E0414B1DB74576001E0226 /* MyCardRewardTableViewCell.xib */; };
@@ -441,11 +444,14 @@
 		E49ACD411DE6DD6300EEA4BA /* PayStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayStore.swift; sourceTree = "<group>"; };
 		E49ACD431DE6F3C200EEA4BA /* PayMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayMethod.swift; sourceTree = "<group>"; };
 		E49D5A8E1DB1C62A001E19DD /* Point.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
+		E4A2C39F1DED57E500583C13 /* LoginUsernameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginUsernameViewController.swift; sourceTree = "<group>"; };
+		E4A2C3A31DED730700583C13 /* AuthenticationResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationResponse.swift; sourceTree = "<group>"; };
 		E4CC4A651DAF3991003B8385 /* DiscountCardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountCardTableViewCell.swift; sourceTree = "<group>"; };
 		E4CC4A661DAF3991003B8385 /* DiscountCardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiscountCardTableViewCell.xib; sourceTree = "<group>"; };
 		E4D0C8E61DEBCFA900AF5CEF /* AuthenticationRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationRouter.swift; sourceTree = "<group>"; };
 		E4D0C8EA1DEBCFFE00AF5CEF /* AuthenticationRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationRequest.swift; sourceTree = "<group>"; };
 		E4D378E01DEC1C8F0035EFB7 /* SlideImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideImage.swift; sourceTree = "<group>"; };
+		E4D378E41DEC3AB00035EFB7 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		E4D40D151DE5583400FC3274 /* PayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayViewController.swift; sourceTree = "<group>"; };
 		E4E0414A1DB74576001E0226 /* MyCardRewardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCardRewardTableViewCell.swift; sourceTree = "<group>"; };
 		E4E0414B1DB74576001E0226 /* MyCardRewardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCardRewardTableViewCell.xib; sourceTree = "<group>"; };
@@ -825,6 +831,7 @@
 		E43D2C801DA7F6A90019B2DD /* LoginViewController */ = {
 			isa = PBXGroup;
 			children = (
+				E4D378E31DEC3AA20035EFB7 /* New */,
 				E43D2C811DA7F6C40019B2DD /* LoginViewController.swift */,
 				E43D2C831DA80DAE0019B2DD /* LoginPhoneViewController.swift */,
 				E42187AD1DB8713400EFC98C /* SocialConfirmViewController.swift */,
@@ -1151,8 +1158,8 @@
 		E49404CF1DA6AE7900918C75 /* Stores */ = {
 			isa = PBXGroup;
 			children = (
-				E4D0C8E41DEBCF8400AF5CEF /* Authentication */,
 				E49347101DE8114000057659 /* ApiBase.swift */,
+				E4D0C8E41DEBCF8400AF5CEF /* Authentication */,
 				E49347051DE7DBAC00057659 /* Search */,
 				E424228D1DA8A10900F7D6FC /* Router.swift */,
 				E470CF641DAC99BA00434909 /* UserStore.swift */,
@@ -1307,6 +1314,7 @@
 			isa = PBXGroup;
 			children = (
 				E4D0C8EA1DEBCFFE00AF5CEF /* AuthenticationRequest.swift */,
+				E4A2C3A31DED730700583C13 /* AuthenticationResponse.swift */,
 			);
 			name = Authentication;
 			sourceTree = "<group>";
@@ -1317,6 +1325,15 @@
 				E4D378E01DEC1C8F0035EFB7 /* SlideImage.swift */,
 			);
 			name = SlideImage;
+			sourceTree = "<group>";
+		};
+		E4D378E31DEC3AA20035EFB7 /* New */ = {
+			isa = PBXGroup;
+			children = (
+				E4D378E41DEC3AB00035EFB7 /* RegisterViewController.swift */,
+				E4A2C39F1DED57E500583C13 /* LoginUsernameViewController.swift */,
+			);
+			name = New;
 			sourceTree = "<group>";
 		};
 		E4E0414E1DB75032001E0226 /* ShopMenuCollectionViewCell */ = {
@@ -1756,6 +1773,7 @@
 				E42422941DA8A64D00F7D6FC /* ServerResponseError.swift in Sources */,
 				E476B0171DA8FB74007B1D62 /* Label.swift in Sources */,
 				E42B6ADF1DAB37F20091746F /* Location.swift in Sources */,
+				E4D378E51DEC3AB00035EFB7 /* RegisterViewController.swift in Sources */,
 				E4129A3F1DACE25600F78C79 /* CardResponse.swift in Sources */,
 				E476B0211DA929AF007B1D62 /* CAPSPageMenu.swift in Sources */,
 				E4F6017F1DBB1640006309A5 /* Pagination.swift in Sources */,
@@ -1811,6 +1829,7 @@
 				E451FFF11DA813B700B5A756 /* View.swift in Sources */,
 				E46CD5831DB4B1E8001F37AF /* ShopStore.swift in Sources */,
 				E451FFF51DA813DA00B5A756 /* Button.swift in Sources */,
+				E4A2C3A41DED730700583C13 /* AuthenticationResponse.swift in Sources */,
 				E4F6017D1DBB15F6006309A5 /* Discover.swift in Sources */,
 				E4054E741DE6C4DD00652F68 /* PayTypeViewController.swift in Sources */,
 				E47CB7DC1DB4C71A0078279F /* ShopDetailViewController.swift in Sources */,
@@ -1843,6 +1862,7 @@
 				E4CC4A671DAF3991003B8385 /* DiscountCardTableViewCell.swift in Sources */,
 				E41DC0A71DB4D9CC00411F55 /* ShopAddressTableViewCell.swift in Sources */,
 				E46894E81DB697060004B322 /* SMSegmentAppearance.swift in Sources */,
+				E4A2C3A01DED57E500583C13 /* LoginUsernameViewController.swift in Sources */,
 				E4D0C8EB1DEBCFFE00AF5CEF /* AuthenticationRequest.swift in Sources */,
 				E45746DB1DB27F1200021604 /* Reward.swift in Sources */,
 				E4364F171DBCA33C00EFCF41 /* MyDealViewController.swift in Sources */,

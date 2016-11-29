@@ -21,6 +21,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var viewButton: View!
     @IBOutlet weak var buttonRegister: Button!
     @IBOutlet weak var buttonLogin: Button!
+    @IBOutlet weak var buttonFaceBook: View!
+    @IBOutlet weak var buttonGoogle: View!
     
     
     let imageSlideData = [UIImage(named: "AppBackground1"), UIImage(named: "AppBackground2"), UIImage(named: "AppBackground3"), UIImage(named: "AppBackground4")]
@@ -37,13 +39,7 @@ class LoginViewController: UIViewController {
         
         imageView.setImage(data: imageSlideData as! [UIImage])
         
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        viewAnimation()
-        
+        viewAnimation(animation: "fadeInUp")
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -53,115 +49,35 @@ class LoginViewController: UIViewController {
     }
     
     func viewConfig() {
+        viewAnimation(animation: "fadeOut")
         UIApplication.shared.statusBarStyle = .default
     }
     
-    func viewAnimation() {
-        viewButton.isHidden = false
-        viewButton.animation = "fadeInUp"
+    func viewAnimation(animation: String) {
+        viewButton.animation = animation
         viewButton.duration = 0.5
         viewButton.animate()
         
-//        buttonPhone.isHidden = false
-//        buttonPhone.animation = "fadeInUp"
-//        buttonPhone.duration = 0.5
-//        buttonPhone.animate()
+        buttonRegister.animation = animation
+        buttonRegister.duration = 0.5
+        buttonRegister.delay = 0.1
+        buttonRegister.animate()
+
+        buttonLogin.animation = animation
+        buttonLogin.duration = 0.5
+        buttonLogin.delay = 0.2
+        buttonLogin.animate()
+        
+        buttonFaceBook.animation = animation
+        buttonFaceBook.duration = 0.5
+        buttonFaceBook.delay = 0.3
+        buttonFaceBook.animate()
+        
+        buttonGoogle.animation = animation
+        buttonGoogle.duration = 0.5
+        buttonGoogle.delay = 0.3
+        buttonGoogle.animate()
     }
-//    
-//    @IBAction func buttonLoginTapped(_ sender: AnyObject) {
-//        AuthenticationStore().saveLoginTypePhone(true)
-//        
-//        let loginPhoneViewController = UIStoryboard(name: LoginPhoneViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: LoginPhoneViewController.identify) as! LoginPhoneViewController
-//        if let navigationController = navigationController {
-//            navigationController.show(loginPhoneViewController, sender: nil)
-//        }
-//    }
-//    
-//    @IBAction func buttonFacebookSigninClicked(sender: AnyObject) {
-//        
-//        AuthenticationStore().saveLoginTypePhone(false)
-//        
-//        let login = FBSDKLoginManager()
-//        login.logOut()
-//        weak var _self = self
-//        
-//        login.logIn(withReadPermissions: ["public_profile", "email"], from: self) { (loginResult, error) -> Void in
-//            if let _self = _self {
-//                guard error == nil else {
-//                    print("Process error")
-//                    return
-//                }
-//                
-//                if let loginResult = loginResult {
-//                    if loginResult.isCancelled {
-//                        print("Cancelled")
-//                    } else {
-//                        _self.isLoginSocial = true
-//                        
-//                        let token = FBSDKAccessToken.current().tokenString
-//                        
-//                        let loginParameter = LoginParameter(socialCredential: token ?? "", location: _self.userLocation ?? Location(latitude: 0.0, longitude: 0.0))
-//                        AuthenticationStore.loginSocial(loginParameter, completionHandler: { (loginResponse, error) in
-//                            
-//                            _self.isLoginSocial = false
-//                            _self.loginActivity.stopAnimating()
-//                            
-//                            
-//                            guard error == nil else {
-//                                if let error = error as? ServerResponseError, let data = error.data,
-//                                    let reason: String = data[NSLocalizedFailureReasonErrorKey] as? String {
-//                                    
-//                                    let messageView = MessageView(frame: _self.view.bounds)
-//                                    messageView.message = reason
-//                                    messageView.setButtonClose("Đóng", action: {
-//                                        if !AuthenticationStore().isLogin {
-//                                            HomeTabbarController.sharedInstance.logOut()
-//                                        }
-//                                    })
-//                                    _self.addFullView(view: messageView)
-//                                }
-//                                return
-//                            }
-//                            
-//                            if let loginResponse = loginResponse, let step = loginResponse.step {
-//                                if step == .input {
-//                                    let socialPhoneViewController = UIStoryboard(name: SocialConfirmViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: SocialConfirmViewController.identify) as! SocialConfirmViewController
-//                                    if let token = token{
-//                                        socialPhoneViewController.socialCredential = token
-//                                    }
-//                                    if let navigationController = _self.navigationController {
-//                                        navigationController.show(socialPhoneViewController, sender: nil)
-//                                    }
-//                                }
-//                                
-//                                if step == .verify {
-//                                    let confirmCodeViewController = UIStoryboard(name: ConfirmCodeViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: ConfirmCodeViewController.identify) as! ConfirmCodeViewController
-//                                        confirmCodeViewController.loginType = "social"
-//                                    if let navigationController = _self.navigationController {
-//                                        navigationController.show(confirmCodeViewController, sender: nil)
-//                                    }
-//                                }
-//                                
-//                                if step == .ready {
-//                                    AuthenticationStore().saveLoginValue(true)
-//                                    if let navigationController = _self.navigationController {
-//                                        navigationController.dismiss(animated: true, completion: nil)
-//                                    }
-//                                }
-//                                
-//                                if step == .update {
-//                                    let confirmCodeViewController = UIStoryboard(name: UserUpdateInfoViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: UserUpdateInfoViewController.identify)
-//                                    if let navigationController = _self.navigationController {
-//                                        navigationController.show(confirmCodeViewController, sender: nil)
-//                                    }
-//                                }
-//                            }
-//                        })
-//                    }
-//                }
-//            }
-//        }
-//    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -171,18 +87,12 @@ class LoginViewController: UIViewController {
     //MARK: ACTION
     
     @IBAction func buttonRegisterTapped(_ sender: Any) {
-    
+        let registerViewController = UIStoryboard(name: RegisterViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: RegisterViewController.storyboardID)
+        navigationController?.show(registerViewController, sender: nil)
     }
     
     @IBAction func buttonLoginTapped(_ sender: Any) {
-    
+        let loginUsernameViewController = UIStoryboard(name: LoginUsernameViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: LoginUsernameViewController.storyboardID)
+        navigationController?.show(loginUsernameViewController, sender: nil)
     }
 }
-
-//extension LoginViewController: CLLocationManagerDelegate {
-//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-//        self.locationManager.stopUpdatingLocation()
-//        let location = locations[0]
-//        userLocation = Location(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-//    }
-//}
