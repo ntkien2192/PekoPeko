@@ -150,10 +150,22 @@ class PromoViewController: BaseViewController {
 
 extension PromoViewController: ShareViewDelegate {
     func prompCodeTapped(promoCode: String?) {
-        UIPasteboard.general.string = promoCode
-        let messageView = MessageView(frame: view.bounds)
-        messageView.message = "Đã sao chép mã vào bộ nhớ"
-        addFullView(view: messageView)
+        
+        let text = "Tưng bừng ăn uống với vô vàn đồ ăn ngon cùng mình nhé. Nhập mã \(NSString(format: "%@", (promoCode ?? ""))) là có luôn vô vàn phiếu giảm giá đấy nha."
+        
+        let textToShare = [ text ]
+        let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view
+        
+        if let topController = AppDelegate.topController() {
+            topController.present(activityViewController, animated: true, completion: nil)
+        }
+        
+        
+//        UIPasteboard.general.string = promoCode
+//        let messageView = MessageView(frame: view.bounds)
+//        messageView.message = "Đã sao chép mã vào bộ nhớ"
+//        addFullView(view: messageView)
     }
     
     func facebookTapped(promoCode: String?) {

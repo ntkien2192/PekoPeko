@@ -25,13 +25,15 @@ class DealTableHeaderViewCell: UICollectionViewCell {
     @IBOutlet weak var viewLike: View!
     @IBOutlet weak var labelLike: UILabel!
     @IBOutlet weak var imageViewLike: UIImageView!
+    @IBOutlet weak var imageViewShopAvatar: ImageView!
+    @IBOutlet weak var labelShopName: UILabel!
     
     var isLiked: Bool = false {
         didSet {
             if isLiked {
-                imageViewLike.image = UIImage(named: "IconLiked")
+                imageViewLike.image = UIImage(named: "IconHeightWF")
             } else {
-                imageViewLike.image = UIImage(named: "IconLike")
+                imageViewLike.image = UIImage(named: "IconHeartW")
                 
             }
         }
@@ -40,6 +42,31 @@ class DealTableHeaderViewCell: UICollectionViewCell {
     var discover: Discover? {
         didSet {
             if let discover = discover {
+                
+                if let shop = discover.shop {
+                    if let avatarUrl = shop.avatarUrl {
+                        weak var _self = self
+                        DispatchQueue.main.async {
+                            if let _self = _self {
+                                _self.imageViewShopAvatar.contentMode = .scaleAspectFill
+                                _self.imageViewShopAvatar.clipsToBounds = false
+                                _self.imageViewShopAvatar.layer.masksToBounds = true
+                                
+                                let cache = Shared.imageCache
+                                let URL = NSURL(string: avatarUrl)!
+                                let fetcher = NetworkFetcher<UIImage>(URL: URL as URL)
+                                _ = cache.fetch(fetcher: fetcher).onSuccess({ (image) in
+                                    DispatchQueue.main.async {
+                                        _self.imageViewShopAvatar.image = image
+                                    }
+                                })
+                            }
+                        }
+                    }
+                    
+                    labelShopName.text = shop.fullName
+                }
+                
                 
                 if let coverImage = discover.coverImage {
                     weak var _self = self
@@ -88,19 +115,19 @@ class DealTableHeaderViewCell: UICollectionViewCell {
                             formatter.currencySymbol = ""
                             
                             let attributedText = NSMutableAttributedString()
-                            let attribute1 = [NSFontAttributeName: UIFont.getBoldFont(28), NSForegroundColorAttributeName: UIColor.colorOrange]
+                            let attribute1 = [NSFontAttributeName: UIFont.getBoldFont(28), NSForegroundColorAttributeName: UIColor.white]
                             let variety1 = NSAttributedString(string: "\(NSString(format: "%@", formatter.string(from: NSNumber(value: newPrice))!))", attributes: attribute1)
                             attributedText.append(variety1)
                             
-                            let attribute2 = [NSFontAttributeName: UIFont.getFont(15), NSForegroundColorAttributeName: UIColor.colorOrange]
+                            let attribute2 = [NSFontAttributeName: UIFont.getFont(15), NSForegroundColorAttributeName: UIColor.white]
                             let variety2 = NSAttributedString(string: "VND", attributes: attribute2)
                             attributedText.append(variety2)
                             
-                            let attribute3 = [NSFontAttributeName: UIFont.getBoldFont(15), NSForegroundColorAttributeName: UIColor.gray]
+                            let attribute3 = [NSFontAttributeName: UIFont.getBoldFont(15), NSForegroundColorAttributeName: UIColor.white]
                             let variety3 = NSAttributedString(string: "   \(NSString(format: "%@", formatter.string(from: NSNumber(value: priceOld))!))", attributes: attribute3)
                             attributedText.append(variety3)
                             
-                            let attribute4 = [NSFontAttributeName: UIFont.getBoldFont(8), NSForegroundColorAttributeName: UIColor.gray]
+                            let attribute4 = [NSFontAttributeName: UIFont.getBoldFont(8), NSForegroundColorAttributeName: UIColor.white]
                             let variety4 = NSAttributedString(string: "VND", attributes: attribute4)
                             attributedText.append(variety4)
                             
