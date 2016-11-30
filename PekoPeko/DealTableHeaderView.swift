@@ -135,7 +135,7 @@ extension DealTableHeaderView: DealTableHeaderViewCellDelegate {
 
 extension DealTableHeaderView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return bounds.size
+        return CGSize(width: bounds.size.width, height: bounds.size.height - 30)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

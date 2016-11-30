@@ -37,7 +37,7 @@ class DiscoverListViewController: BaseViewController {
         didSet {
             if hotDeals.count != 0 {
                 let width = view.bounds.width
-                tableHeader = DealTableHeaderView(frame: CGRect(x: 0, y: 0, width: width, height: width * 2.0 / 3.0))
+                tableHeader = DealTableHeaderView(frame: CGRect(x: 0, y: 0, width: width, height: (width * 2.0 / 3.0 + 30.0)))
                 tableHeader?.delegate = self
                 if let tableHeader = tableHeader {
                     tableHeader.deals = hotDeals

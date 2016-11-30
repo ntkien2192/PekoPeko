@@ -37,7 +37,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconShopNameBackground" translatesAutoresizingMaskIntoConstraints="NO" id="DA4-db-y3n">
-                        <rect key="frame" x="40" y="24" width="252" height="31"/>
+                        <rect key="frame" x="30" y="23.5" width="262" height="32"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="DA4-db-y3n" secondAttribute="height" multiplier="540:66" id="se9-zp-DXk"/>
                         </constraints>
@@ -133,13 +133,14 @@
                 <constraint firstAttribute="trailing" secondItem="r3i-4N-sz2" secondAttribute="trailing" constant="8" id="5PE-Gc-bkp"/>
                 <constraint firstItem="DA4-db-y3n" firstAttribute="centerY" secondItem="dhW-Wt-GkM" secondAttribute="centerY" id="AfT-h3-Bsp"/>
                 <constraint firstAttribute="trailing" secondItem="DA4-db-y3n" secondAttribute="trailing" constant="8" id="Atb-9S-uR2"/>
+                <constraint firstItem="1DC-OW-AVo" firstAttribute="centerY" secondItem="r3i-4N-sz2" secondAttribute="centerY" multiplier="1.06" id="BlU-JS-Tmp"/>
                 <constraint firstItem="8xR-bV-KIe" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="CY2-EB-sBO"/>
                 <constraint firstItem="1DC-OW-AVo" firstAttribute="top" secondItem="OAR-Lv-bgx" secondAttribute="bottom" constant="3.5" id="G88-FE-HdV"/>
                 <constraint firstItem="lwp-Mp-GFI" firstAttribute="centerY" secondItem="DA4-db-y3n" secondAttribute="centerY" id="J8m-f3-vFU"/>
                 <constraint firstAttribute="trailing" secondItem="KbA-dm-gOR" secondAttribute="trailing" id="JzZ-M7-h5B"/>
                 <constraint firstAttribute="bottom" secondItem="8xR-bV-KIe" secondAttribute="bottom" id="KRz-ZT-nen"/>
                 <constraint firstItem="DA4-db-y3n" firstAttribute="trailing" secondItem="lwp-Mp-GFI" secondAttribute="trailing" constant="10" id="L8a-j5-9b5"/>
-                <constraint firstItem="DA4-db-y3n" firstAttribute="leading" secondItem="dhW-Wt-GkM" secondAttribute="trailing" constant="-30" id="N3R-kE-aBk"/>
+                <constraint firstItem="DA4-db-y3n" firstAttribute="leading" secondItem="dhW-Wt-GkM" secondAttribute="trailing" constant="-40" id="N3R-kE-aBk"/>
                 <constraint firstItem="nMa-hj-qk5" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="Oau-ce-MoU"/>
                 <constraint firstItem="r3i-4N-sz2" firstAttribute="top" secondItem="nMa-hj-qk5" secondAttribute="top" constant="-20" id="QHC-VH-dYj"/>
                 <constraint firstItem="OAR-Lv-bgx" firstAttribute="top" secondItem="r3i-4N-sz2" secondAttribute="top" constant="26" id="SEb-UI-Dc1"/>

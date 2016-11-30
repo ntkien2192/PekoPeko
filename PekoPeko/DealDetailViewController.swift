@@ -69,6 +69,7 @@ class DealDetailViewController: BaseViewController {
     }
     
     var successHandle: ((Discover?) -> Void)?
+    var isEdited = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -141,14 +142,6 @@ class DealDetailViewController: BaseViewController {
                     }
                 }
             })
-        }
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        if let successHandle = successHandle {
-            successHandle(discover)
         }
     }
     

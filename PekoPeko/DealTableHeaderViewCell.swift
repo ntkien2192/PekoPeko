@@ -92,6 +92,8 @@ class DealTableHeaderViewCell: UICollectionViewCell {
                 
                 labelLike.text = "\((discover.totalLikes ?? 0))"
                 
+                
+                
                 if let priceOld = discover.priceOld {
                     var newPrice: Float = 0.0
                     
