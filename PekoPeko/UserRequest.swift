@@ -1,8 +1,8 @@
 //
-//  AuthenticationRequest.swift
+//  UserRequest.swift
 //  PekoPeko
 //
-//  Created by Nguyễn Trung Kiên on 28/11/2016.
+//  Created by Nguyễn Trung Kiên on 30/11/2016.
 //  Copyright © 2016 hungrybear. All rights reserved.
 //
 
@@ -10,16 +10,11 @@ import UIKit
 import ObjectMapper
 
 
-enum AuthenticationRequestFields: String {
+enum UserRequestFields: String {
     case username = "username"
-    case password = "password"
-    case fullName = "fullName"
-    case email = "email"
-    case account = "account"
-    case accessToken = "accessToken"
 }
 
-struct AuthenticationRequest: Mappable {
+struct UserRequest: Mappable {
     var username: String?
     var password: String?
     var fullName: String?

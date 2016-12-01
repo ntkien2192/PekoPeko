@@ -384,6 +384,7 @@
                         <segue destination="HYw-no-8bn" kind="relationship" relationship="viewControllers" id="RHe-lJ-Hqd"/>
                         <segue destination="FUF-YL-0YZ" kind="relationship" relationship="viewControllers" id="EmM-bf-kom"/>
                         <segue destination="pIj-Qk-oUI" kind="relationship" relationship="viewControllers" id="3P0-dZ-wdC"/>
+                        <segue destination="D8k-0I-lD8" kind="relationship" relationship="viewControllers" id="Q98-cV-odx"/>
                         <segue destination="YRu-KX-N7j" kind="relationship" relationship="viewControllers" id="6a7-X4-HZ7"/>
                     </connections>
                 </tabBarController>
@@ -444,7 +445,7 @@
         <scene sceneID="Ori-fr-Wwr">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FUF-YL-0YZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="ButtonCard" selectedImage="ButtonCardTapped" id="fvI-5g-KOC">
+                    <tabBarItem key="tabBarItem" title="" image="IconHomeCard" selectedImage="IconHomeCardSelected" id="fvI-5g-KOC">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -472,7 +473,7 @@
         <scene sceneID="uYf-ks-0AL">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YRu-KX-N7j" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="ButtonPromoCode" selectedImage="ButtonPromoCodeTapped" id="plu-Yf-NI7"/>
+                    <tabBarItem key="tabBarItem" title="" image="IconHomePromoCode" selectedImage="IconHomePromoCodeSelected" id="plu-Yf-NI7"/>
                     <toolbarItems/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="384" height="667"/>
@@ -491,11 +492,49 @@
             </objects>
             <point key="canvasLocation" x="2107.1999999999998" y="273.91304347826087"/>
         </scene>
+        <!--Profile View Controller-->
+        <scene sceneID="eCh-x2-ejZ">
+            <objects>
+                <viewController id="pso-fm-ED6" customClass="ProfileViewController" customModule="PekoPeko" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fjD-bJ-ihA"/>
+                        <viewControllerLayoutGuide type="bottom" id="QIh-NX-3sD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Kbv-LY-olu">
+                        <rect key="frame" x="0.0" y="0.0" width="384" height="618"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WNm-vc-zHp">
+                                <rect key="frame" x="0.0" y="0.0" width="384" height="618"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="pso-fm-ED6" id="Z2p-kW-to6"/>
+                                    <outlet property="delegate" destination="pso-fm-ED6" id="XTx-dO-Tvz"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="WNm-vc-zHp" firstAttribute="top" secondItem="Kbv-LY-olu" secondAttribute="top" id="6Fk-uK-DYm"/>
+                            <constraint firstItem="QIh-NX-3sD" firstAttribute="top" secondItem="WNm-vc-zHp" secondAttribute="bottom" id="8wE-Mk-8Yc"/>
+                            <constraint firstItem="WNm-vc-zHp" firstAttribute="leading" secondItem="Kbv-LY-olu" secondAttribute="leading" id="BZK-y7-W2s"/>
+                            <constraint firstAttribute="trailing" secondItem="WNm-vc-zHp" secondAttribute="trailing" id="HVi-5M-oeQ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="443-Bt-OTy"/>
+                    <connections>
+                        <outlet property="tableView" destination="WNm-vc-zHp" id="YOX-db-BEN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sGR-0f-ETH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2860.8000000000002" y="1062.8185907046477"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="GCH-Nd-HVS">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pIj-Qk-oUI" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="ButtonQRScan" selectedImage="ButtonQRScanTapped" id="Tyd-Nr-vDn"/>
+                    <tabBarItem key="tabBarItem" title="" image="IconHomeCamera" selectedImage="IconHomeCameraSelected" id="Tyd-Nr-vDn"/>
                     <toolbarItems/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="384" height="667"/>
@@ -1194,7 +1233,7 @@
         <scene sceneID="G6k-Zf-DUe">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HYw-no-8bn" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="ButtonHome" selectedImage="ButtonHomeTapped" id="Wye-S9-DqB"/>
+                    <tabBarItem key="tabBarItem" title="" image="IconHomeNewFeed" selectedImage="IconHomeNewFeedSelected" id="Wye-S9-DqB"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Gcv-YG-MNr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -1211,17 +1250,38 @@
             </objects>
             <point key="canvasLocation" x="-329" y="274"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="FaO-5U-lz3">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="D8k-0I-lD8" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="IconHomeProfile" selectedImage="IconHomeProfileSelected" id="ldk-Vu-yb9"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="AOL-KQ-ydn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="pso-fm-ED6" kind="relationship" relationship="rootViewController" id="UMt-Ps-39Y"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C4Y-tK-nyO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2861" y="274"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="ButtonCard" width="25" height="25"/>
-        <image name="ButtonCardTapped" width="27" height="27"/>
         <image name="ButtonGift" width="500" height="197"/>
-        <image name="ButtonHome" width="25" height="25"/>
-        <image name="ButtonHomeTapped" width="27" height="27"/>
-        <image name="ButtonPromoCode" width="25" height="25"/>
-        <image name="ButtonPromoCodeTapped" width="27" height="27"/>
-        <image name="ButtonQRScan" width="25" height="25"/>
-        <image name="ButtonQRScanTapped" width="27" height="27"/>
+        <image name="IconHomeCamera" width="25" height="25"/>
+        <image name="IconHomeCameraSelected" width="25" height="25"/>
+        <image name="IconHomeCard" width="25" height="25"/>
+        <image name="IconHomeCardSelected" width="25" height="25"/>
+        <image name="IconHomeNewFeed" width="25" height="25"/>
+        <image name="IconHomeNewFeedSelected" width="25" height="25"/>
+        <image name="IconHomeProfile" width="25" height="25"/>
+        <image name="IconHomeProfileSelected" width="25" height="25"/>
+        <image name="IconHomePromoCode" width="25" height="25"/>
+        <image name="IconHomePromoCodeSelected" width="25" height="25"/>
         <image name="IconKeyPass" width="44" height="44"/>
         <image name="IconLogoAppSplash" width="189" height="201"/>
         <image name="IconPhotoCamera" width="22" height="22"/>

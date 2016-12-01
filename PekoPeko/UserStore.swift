@@ -71,7 +71,7 @@ class UserStore {
     }
     
     class func getBaseUserInfo(completionHandler: @escaping (User?, Error?) -> Void) {
-        _ = Alamofire.request(Router.getBaseUserInfo()).responseUser({ (response) in
+        _ = Alamofire.request(Router.getBaseUserInfo()).responseUserInfo({ (response) in
             if let error = response.result.error {
                 completionHandler(nil, error)
                 return
@@ -134,7 +134,7 @@ class UserStore {
     }
     
     class func getPromoCodeInfo(completionHandler: @escaping (User?, Error?) -> Void) {
-        _ = Alamofire.request(Router.getPromoCodeData()).responseUser({ (response) in
+        _ = Alamofire.request(Router.getPromoCodeData()).responseUserInfo({ (response) in
             if let error = response.result.error {
                 completionHandler(nil, error)
                 return
@@ -147,10 +147,75 @@ class UserStore {
             completionHandler(response.result.value ?? nil, nil)
         })
     }
+    
+    
+    
+    // new
+    
+    class func getUserInfo(completionHandler: @escaping (UserResponse?, Error?) -> Void) {
+        _ = Alamofire.request(UserRouter.getUserInfo()).responseUser({ (response) in
+            if let error = response.result.error {
+                completionHandler(nil, error)
+                return
+            }
+            guard response.result.value != nil else {
+                // TODO: Create error here
+                completionHandler(nil, nil)
+                return
+            }
+            completionHandler(response.result.value ?? nil, nil)
+        })
+    }
+    
 }
 extension Alamofire.DataRequest {
     
-    func responseUser(_ completionHandler: @escaping (DataResponse<User?>) -> Void) -> Self {
+    func responseUser(_ completionHandler: @escaping (DataResponse<UserResponse?>) -> Void) -> Self {
+        let responseSerializer = DataResponseSerializer<UserResponse?> { request, response, data, error in
+            guard error == nil else {
+                return .failure(error!)
+            }
+            
+            guard let responseData = data else {
+                let error = ServerResponseError(data: nil, kind: .dataSerializationFailed)
+                return .failure(error)
+            }
+            
+            let JSONResponseSerializer = DataRequest.jsonResponseSerializer(options: .allowFragments)
+            let result = JSONResponseSerializer.serializeResponse(request, response, responseData, error)
+            
+            guard response?.statusCode == 200 else {
+                switch result {
+                case .success(let value):
+                    let json = SwiftyJSON.JSON(value)
+                    
+                    let failureReason = ErrorResponse(json: json).errorMessage()
+                    
+                    let errorData = [NSLocalizedFailureReasonErrorKey: failureReason]
+                    let error = ServerResponseError(data: errorData as [String : AnyObject], kind: .dataSerializationFailed)
+                    
+                    return .failure(error)
+                case .failure(let error):
+                    return .failure(error)
+                }
+            }
+            
+            switch result {
+            case .success(let value):
+                let jsonObject = SwiftyJSON.JSON(value)
+                
+                let response = UserResponse(json: jsonObject)
+                
+                return .success(response)
+                
+            case .failure(let error):
+                return .failure(error)
+            }
+        }
+        return response(responseSerializer: responseSerializer, completionHandler: completionHandler)
+    }
+    
+    func responseUserInfo(_ completionHandler: @escaping (DataResponse<User?>) -> Void) -> Self {
         let responseSerializer = DataResponseSerializer<User?> { request, response, data, error in
             guard error == nil else {
                 return .failure(error!)

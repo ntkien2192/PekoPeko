@@ -14,6 +14,8 @@ enum AuthenticationRouter: URLRequestConvertible {
     
     case register([String: AnyObject])
     case login([String: AnyObject])
+    case loginWithFacebook([String: AnyObject])
+    
     
     var method: HTTPMethod {
         switch self {
@@ -21,6 +23,8 @@ enum AuthenticationRouter: URLRequestConvertible {
             return .post
         case .login:
             return .post
+        case .loginWithFacebook:
+            return .get
         }
     }
     
@@ -30,6 +34,8 @@ enum AuthenticationRouter: URLRequestConvertible {
             return "sign_up"
         case .login:
             return "login"
+        case .loginWithFacebook:
+            return "auth/facebook/callback"
         }
     }
     
@@ -52,6 +58,9 @@ enum AuthenticationRouter: URLRequestConvertible {
             
         case .login(let parameters):
             urlRequest = try JSONEncoding.default.encode(urlRequest, with: parameters)
+            
+        case .loginWithFacebook(let parameters):
+            urlRequest = try URLEncoding.default.encode(urlRequest, with: parameters)
         }
         
         return urlRequest

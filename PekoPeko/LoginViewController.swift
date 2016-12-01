@@ -8,8 +8,7 @@
 
 import UIKit
 import FBSDKLoginKit
-import CoreLocation
-import NVActivityIndicatorView
+import MBProgressHUD
 
 class LoginViewController: UIViewController {
 
@@ -94,5 +93,73 @@ class LoginViewController: UIViewController {
     @IBAction func buttonLoginTapped(_ sender: Any) {
         let loginUsernameViewController = UIStoryboard(name: LoginUsernameViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: LoginUsernameViewController.storyboardID)
         navigationController?.show(loginUsernameViewController, sender: nil)
+    }
+    
+    @IBAction func buttonFackbookTapped(_ sender: Any) {
+        loginFacebook()
+    }
+    
+    @IBAction func buttonGoogleTapped(_ sender: Any) {
+        
+    }
+}
+
+extension LoginViewController {
+    func loginFacebook() {
+        let login = FBSDKLoginManager()
+        weak var _self = self
+        
+        login.logIn(withReadPermissions: ["public_profile", "email"], from: self) { (loginResult, error) -> Void in
+            if let _self = _self {
+                guard error == nil else {
+                    print("Process error")
+                    return
+                }
+                
+                if let loginResult = loginResult {
+                    if !loginResult.isCancelled {
+                        
+                        let accessToken = FBSDKAccessToken.current().tokenString
+                        _self.loginWithFacebook(accessToken: accessToken)
+                        
+                    }
+                }
+            }
+        }
+    }
+    
+    func loginWithFacebook(accessToken: String?) {
+        if let accessToken = accessToken {
+            let authenticationRequest = AuthenticationRequest(accessToken: accessToken)
+            
+            let loadingNotification = MBProgressHUD.showAdded(to: view, animated: true)
+            loadingNotification.mode = MBProgressHUDMode.indeterminate
+            
+            weak var _self = self
+            
+            AuthenticationStore.loginWithFacebook(authenticationRequest: authenticationRequest, completionHandler: { (response, error) in
+                if let _self = _self {
+                    
+                    loadingNotification.hide(animated: true)
+                    
+                    guard error == nil else {
+                        if let error = error as? ServerResponseError, let data = error.data {
+                            let messageView = MessageView(frame: _self.view.bounds)
+                            messageView.set(content: data[NSLocalizedFailureReasonErrorKey] as! String?, buttonTitle: nil, action: { })
+                            _self.addFullView(view: messageView)
+                        }
+                        return
+                    }
+                    
+                    if response != nil {
+                        _self.loginSuccess()
+                    }
+                }
+            })
+        }
+    }
+    
+    func loginSuccess() {
+        
     }
 }

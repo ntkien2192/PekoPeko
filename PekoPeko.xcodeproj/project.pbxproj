@@ -189,6 +189,12 @@
 		E49D5A8F1DB1C62A001E19DD /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49D5A8E1DB1C62A001E19DD /* Point.swift */; };
 		E4A2C3A01DED57E500583C13 /* LoginUsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A2C39F1DED57E500583C13 /* LoginUsernameViewController.swift */; };
 		E4A2C3A41DED730700583C13 /* AuthenticationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A2C3A31DED730700583C13 /* AuthenticationResponse.swift */; };
+		E4B2C24D1DEED72A00FFBBA9 /* ProfileHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B2C24B1DEED72A00FFBBA9 /* ProfileHeaderTableViewCell.swift */; };
+		E4B2C24E1DEED72A00FFBBA9 /* ProfileHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4B2C24C1DEED72A00FFBBA9 /* ProfileHeaderTableViewCell.xib */; };
+		E4B2C2501DEEDE7300FFBBA9 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B2C24F1DEEDE7300FFBBA9 /* ProfileViewController.swift */; };
+		E4B2C2541DEEE0C600FFBBA9 /* UserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B2C2531DEEE0C600FFBBA9 /* UserRouter.swift */; };
+		E4B2C2581DEEE28800FFBBA9 /* UserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B2C2571DEEE28800FFBBA9 /* UserRequest.swift */; };
+		E4B2C25B1DEEE29600FFBBA9 /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B2C25A1DEEE29600FFBBA9 /* UserResponse.swift */; };
 		E4CC4A671DAF3991003B8385 /* DiscountCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CC4A651DAF3991003B8385 /* DiscountCardTableViewCell.swift */; };
 		E4CC4A681DAF3991003B8385 /* DiscountCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4CC4A661DAF3991003B8385 /* DiscountCardTableViewCell.xib */; };
 		E4D0C8E71DEBCFA900AF5CEF /* AuthenticationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D0C8E61DEBCFA900AF5CEF /* AuthenticationRouter.swift */; };
@@ -450,6 +456,12 @@
 		E49D5A8E1DB1C62A001E19DD /* Point.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
 		E4A2C39F1DED57E500583C13 /* LoginUsernameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginUsernameViewController.swift; sourceTree = "<group>"; };
 		E4A2C3A31DED730700583C13 /* AuthenticationResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationResponse.swift; sourceTree = "<group>"; };
+		E4B2C24B1DEED72A00FFBBA9 /* ProfileHeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		E4B2C24C1DEED72A00FFBBA9 /* ProfileHeaderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileHeaderTableViewCell.xib; sourceTree = "<group>"; };
+		E4B2C24F1DEEDE7300FFBBA9 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		E4B2C2531DEEE0C600FFBBA9 /* UserRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRouter.swift; sourceTree = "<group>"; };
+		E4B2C2571DEEE28800FFBBA9 /* UserRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRequest.swift; sourceTree = "<group>"; };
+		E4B2C25A1DEEE29600FFBBA9 /* UserResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
 		E4CC4A651DAF3991003B8385 /* DiscountCardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountCardTableViewCell.swift; sourceTree = "<group>"; };
 		E4CC4A661DAF3991003B8385 /* DiscountCardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiscountCardTableViewCell.xib; sourceTree = "<group>"; };
 		E4D0C8E61DEBCFA900AF5CEF /* AuthenticationRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationRouter.swift; sourceTree = "<group>"; };
@@ -1113,6 +1125,7 @@
 			isa = PBXGroup;
 			children = (
 				E46D3B441DEDB36200B4CD11 /* ErrorResponse */,
+				E4B2C2551DEEE26800FFBBA9 /* User */,
 				E4D0C8E81DEBCFE800AF5CEF /* Authentication */,
 				E49346FD1DE7DA6D00057659 /* Search */,
 				E49346FA1DE7DA2800057659 /* Base */,
@@ -1122,7 +1135,6 @@
 				E42422911DA8A47900F7D6FC /* Authentication.swift */,
 				E42B6ADE1DAB37F20091746F /* Location.swift */,
 				E42B6AE01DAB394B0091746F /* LoginParameter.swift */,
-				E42B6AE21DAB3BCE0091746F /* User.swift */,
 				E450F38B1DC1DD1700640A4A /* Rank.swift */,
 				E4129A3C1DACDC6400F78C79 /* Card.swift */,
 				E4129A3E1DACE25600F78C79 /* CardResponse.swift */,
@@ -1155,6 +1167,7 @@
 		E49404CE1DA6AE6B00918C75 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E4B2C2511DEEDE7A00FFBBA9 /* ProfileViewController */,
 				E4F601841DBB2BCA006309A5 /* PromoViewController */,
 				E4C33E7D1DBB0C2500F87862 /* DiscoverViewController */,
 				E4FF01FF1DB11BA600177F9F /* ScanQRCodeViewController */,
@@ -1173,10 +1186,10 @@
 			isa = PBXGroup;
 			children = (
 				E49347101DE8114000057659 /* ApiBase.swift */,
+				E4B2C2521DEEE09100FFBBA9 /* UserStore */,
 				E4D0C8E41DEBCF8400AF5CEF /* Authentication */,
 				E49347051DE7DBAC00057659 /* Search */,
 				E424228D1DA8A10900F7D6FC /* Router.swift */,
-				E470CF641DAC99BA00434909 /* UserStore.swift */,
 				E4129A401DACE41200F78C79 /* CardStore.swift */,
 				E41448581DB08FD2006C70EF /* RedeemStore.swift */,
 				E46CD5821DB4B1E8001F37AF /* ShopStore.swift */,
@@ -1242,6 +1255,7 @@
 		E49404D61DA6AEEA00918C75 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				E4B2C2481DEED6ED00FFBBA9 /* ProfileTableViewCell */,
 				E4D378DF1DEC1C770035EFB7 /* SlideImage */,
 				E493470B1DE7E1FC00057659 /* SearchView */,
 				E47C40511DE5D369003D96FA /* DealTableHeaderView */,
@@ -1274,6 +1288,42 @@
 				E49ACD431DE6F3C200EEA4BA /* PayMethod.swift */,
 			);
 			name = Pay;
+			sourceTree = "<group>";
+		};
+		E4B2C2481DEED6ED00FFBBA9 /* ProfileTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				E4B2C24B1DEED72A00FFBBA9 /* ProfileHeaderTableViewCell.swift */,
+				E4B2C24C1DEED72A00FFBBA9 /* ProfileHeaderTableViewCell.xib */,
+			);
+			name = ProfileTableViewCell;
+			sourceTree = "<group>";
+		};
+		E4B2C2511DEEDE7A00FFBBA9 /* ProfileViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E4B2C24F1DEEDE7300FFBBA9 /* ProfileViewController.swift */,
+			);
+			name = ProfileViewController;
+			sourceTree = "<group>";
+		};
+		E4B2C2521DEEE09100FFBBA9 /* UserStore */ = {
+			isa = PBXGroup;
+			children = (
+				E4B2C2531DEEE0C600FFBBA9 /* UserRouter.swift */,
+				E470CF641DAC99BA00434909 /* UserStore.swift */,
+			);
+			name = UserStore;
+			sourceTree = "<group>";
+		};
+		E4B2C2551DEEE26800FFBBA9 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				E42B6AE21DAB3BCE0091746F /* User.swift */,
+				E4B2C2571DEEE28800FFBBA9 /* UserRequest.swift */,
+				E4B2C25A1DEEE29600FFBBA9 /* UserResponse.swift */,
+			);
+			name = User;
 			sourceTree = "<group>";
 		};
 		E4C00C3E1DBCE62B00EE3CF4 /* DiscoverTableViewCell */ = {
@@ -1569,6 +1619,7 @@
 				E4246A021DAE101C00D0A074 /* UVF ProximaNova-Regular.ttf in Resources */,
 				E42187B71DB8A38B00EFC98C /* EmptyTableViewCell.xib in Resources */,
 				E493470F1DE7E21100057659 /* SearchView.xib in Resources */,
+				E4B2C24E1DEED72A00FFBBA9 /* ProfileHeaderTableViewCell.xib in Resources */,
 				E4364F1C1DBCA41000EFCF41 /* ShareView.xib in Resources */,
 				E4246A031DAE101C00D0A074 /* VNF.ProximaNova-Regular.ttf in Resources */,
 				E49404A91DA6AD1B00918C75 /* LaunchScreen.storyboard in Resources */,
@@ -1755,6 +1806,7 @@
 				E4F252421DC4429200D70228 /* MyDealTableViewCell.swift in Sources */,
 				E42469DD1DADE79100D0A074 /* CardRequest.swift in Sources */,
 				E4364F111DBC9ABB00EFCF41 /* DiscoverResponse.swift in Sources */,
+				E4B2C24D1DEED72A00FFBBA9 /* ProfileHeaderTableViewCell.swift in Sources */,
 				E4EC1D7F1DB5C32C005CECB6 /* ShopMenu2TableViewCell.swift in Sources */,
 				E42422971DA8C2A100F7D6FC /* DeviceConfig.swift in Sources */,
 				E42469E11DADF55800D0A074 /* MyCardTableViewCell.swift in Sources */,
@@ -1831,6 +1883,7 @@
 				E4364F151DBCA31E00EFCF41 /* DiscoverListViewController.swift in Sources */,
 				E451FFF31DA813C800B5A756 /* ScrollView.swift in Sources */,
 				E476B0391DA9445E007B1D62 /* ImageView.swift in Sources */,
+				E4B2C25B1DEEE29600FFBBA9 /* UserResponse.swift in Sources */,
 				E45746DF1DB27FB100021604 /* QRCodeContent.swift in Sources */,
 				E44CF9411DC89C4700F815A8 /* NewPasswordViewController.swift in Sources */,
 				E49ACD401DE6DD2B00EEA4BA /* PayResponse.swift in Sources */,
@@ -1875,6 +1928,7 @@
 				E4D378E11DEC1C8F0035EFB7 /* SlideImage.swift in Sources */,
 				E47E588C1DC0BD27001400E0 /* DealDescriptionTableViewCell.swift in Sources */,
 				E4D40D161DE5583400FC3274 /* PayViewController.swift in Sources */,
+				E4B2C2501DEEDE7300FFBBA9 /* ProfileViewController.swift in Sources */,
 				E4CC4A671DAF3991003B8385 /* DiscountCardTableViewCell.swift in Sources */,
 				E41DC0A71DB4D9CC00411F55 /* ShopAddressTableViewCell.swift in Sources */,
 				E46894E81DB697060004B322 /* SMSegmentAppearance.swift in Sources */,
@@ -1885,7 +1939,9 @@
 				E46CD5861DB4B25C001F37AF /* Shop.swift in Sources */,
 				E4E0414C1DB74576001E0226 /* MyCardRewardTableViewCell.swift in Sources */,
 				E41448571DB08EE2006C70EF /* RedeemRequest.swift in Sources */,
+				E4B2C2581DEEE28800FFBBA9 /* UserRequest.swift in Sources */,
 				E46894E91DB697060004B322 /* SMSegmentView.swift in Sources */,
+				E4B2C2541DEEE0C600FFBBA9 /* UserRouter.swift in Sources */,
 				E47E58861DC0B691001400E0 /* DealImageView.swift in Sources */,
 				E427F8EC1DAF91280012F3F5 /* SettingViewController.swift in Sources */,
 				E434E6011DAF480D00AFC400 /* PointCardTableViewCell.swift in Sources */,
