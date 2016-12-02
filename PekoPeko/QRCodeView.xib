@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -20,14 +23,20 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lqz-fL-VKA" customClass="View" customModule="PekoPeko" customModuleProvider="target">
+                    <rect key="frame" x="37.5" y="131.5" width="300" height="404"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ej4-7l-XIx">
+                            <rect key="frame" x="8" y="8" width="284" height="284"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="ej4-7l-XIx" secondAttribute="height" multiplier="1:1" id="fcX-5y-aQW"/>
                             </constraints>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uOQ-Un-oaM" customClass="Button" customModule="PekoPeko" customModuleProvider="target">
+                            <rect key="frame" x="8" y="356" width="284" height="40"/>
                             <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="1YK-IK-IcI"/>
+                            </constraints>
                             <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                             <state key="normal" title="Đóng">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -41,16 +50,27 @@
                                 <action selector="buttonCloseTapped:" destination="-1" eventType="touchUpInside" id="y3j-Wc-Vge"/>
                             </connections>
                         </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vui lòng đưa mã QR cho nhân viên nhà hàng để tiếp tục" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K8Z-dD-OqM">
+                            <rect key="frame" x="10" y="302" width="280" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="9Af-sy-XIS"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="ej4-7l-XIx" firstAttribute="leading" secondItem="Lqz-fL-VKA" secondAttribute="leading" constant="8" id="1VV-ND-aQx"/>
                         <constraint firstAttribute="trailing" secondItem="ej4-7l-XIx" secondAttribute="trailing" constant="8" id="Deg-nL-fkp"/>
                         <constraint firstAttribute="bottom" secondItem="uOQ-Un-oaM" secondAttribute="bottom" constant="8" id="GRh-JF-48C"/>
-                        <constraint firstItem="uOQ-Un-oaM" firstAttribute="top" secondItem="ej4-7l-XIx" secondAttribute="bottom" constant="8" id="NAO-SG-7et"/>
                         <constraint firstItem="uOQ-Un-oaM" firstAttribute="leading" secondItem="Lqz-fL-VKA" secondAttribute="leading" constant="8" id="PCx-L8-UXd"/>
+                        <constraint firstItem="K8Z-dD-OqM" firstAttribute="top" secondItem="ej4-7l-XIx" secondAttribute="bottom" constant="10" id="QRY-Gs-ovu"/>
                         <constraint firstItem="ej4-7l-XIx" firstAttribute="top" secondItem="Lqz-fL-VKA" secondAttribute="top" constant="8" id="RnT-L9-7yI"/>
-                        <constraint firstAttribute="width" secondItem="Lqz-fL-VKA" secondAttribute="height" multiplier="1:1" constant="-50" id="htr-7m-8Y7"/>
+                        <constraint firstAttribute="trailing" secondItem="K8Z-dD-OqM" secondAttribute="trailing" constant="10" id="aPv-7o-tsl"/>
+                        <constraint firstItem="K8Z-dD-OqM" firstAttribute="leading" secondItem="Lqz-fL-VKA" secondAttribute="leading" constant="10" id="fX4-aC-3km"/>
+                        <constraint firstItem="uOQ-Un-oaM" firstAttribute="top" secondItem="K8Z-dD-OqM" secondAttribute="bottom" constant="10" id="u9X-wS-1OF"/>
                         <constraint firstAttribute="trailing" secondItem="uOQ-Un-oaM" secondAttribute="trailing" constant="8" id="uK4-Eo-lx8"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>

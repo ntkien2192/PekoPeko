@@ -56,6 +56,8 @@ enum CardFields: String {
     // v210
     case VipCard = "vipcard"
     case TotalHP = "total_hp"
+    
+    case code = "code"
 }
 
 class Card: NSObject {
@@ -92,11 +94,16 @@ class Card: NSObject {
     var vipCards: [VipCard]?
     var totalHp: Int?
     
+    var canDiscount: Bool?
+    
+    var code: String?
+    
     init(shop: Shop) {
         self.shopID = shop.shopID
         self.shopName = shop.fullName
         self.addressList = shop.addresses
         self.shopAvatarUrl = shop.avatarUrl
+        self.canDiscount = shop.canDiscount
         
         if let address = shop.address {
             self.shopAddress = address.addressContent
@@ -157,6 +164,8 @@ class Card: NSObject {
                 }
             }
         }
+        
+        code = json[CardFields.code.rawValue].string
     }
     
     func isReward() -> Bool {

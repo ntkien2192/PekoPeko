@@ -23,6 +23,9 @@ class RedeemViewController: BaseViewController {
     @IBOutlet weak var labelTitle: UILabel!
     @IBOutlet weak var labelRedeemName: Label!
     @IBOutlet weak var buttonQRCode: UIButton!
+    @IBOutlet weak var viewQRCode: UIView!
+    @IBOutlet weak var imageViewQRCode: UIImageView!
+    @IBOutlet weak var viewQRCodeContent: UIView!
     
     @IBOutlet weak var textfieldCode1: Textfield!
     @IBOutlet weak var textfieldCode2: Textfield!
@@ -50,13 +53,30 @@ class RedeemViewController: BaseViewController {
         }
     }
     
-    var redeemType: RedeemType = .gift
-    
-    var qrContent: String? {
+    var shop: Shop? {
         didSet {
-            buttonQRCode.isHidden = false
+            if let shop = shop {
+                if shop.hasMerchantApp {
+                    buttonQRCode.isHidden = true
+                    imageViewQRCode.setQRCode(content: qrContent ?? "")
+                    UIView.animate(withDuration: 0.2, animations: { 
+                        self.viewQRCodeContent.alpha = 1
+                    })
+                } else {
+                    buttonQRCode.isHidden = false
+                    UIView.animate(withDuration: 0.2, animations: { 
+                       self.viewQRCode.alpha = 0.0
+                    }, completion: { _ in
+                        self.viewQRCode.isHidden = true
+                    })
+                }
+            }
         }
     }
+    
+    var redeemType: RedeemType = .gift
+    
+    var qrContent: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -104,12 +124,49 @@ class RedeemViewController: BaseViewController {
         }
         
         qrContent = QRCodeContent(userID: userID, targetID: targetID, scanType: scanType, cardID: cardID).toJSONString()
+        
+        if let cardID = cardID {
+            getShopMerchan(shopID: cardID)
+        }
     }
     
     @IBAction func buttonQRCodeTapped(_ sender: AnyObject) {
         let qrCodeView = QRCodeView(frame: view.bounds)
         qrCodeView.content = qrContent ?? ""
         addFullView(view: qrCodeView)
+    }
+    
+    func getShopMerchan(shopID: String) {
+        let loadingNotification = MBProgressHUD.showAdded(to: view, animated: true)
+        loadingNotification.mode = MBProgressHUDMode.indeterminate
+        
+        weak var _self = self
+        
+        ShopStore.checkShopMerchan(shopID: shopID, completionHandler: { (shop, error) in
+            if let _self = _self {
+                
+                loadingNotification.hide(animated: true)
+                
+                guard error == nil else {
+                    if let error = error as? ServerResponseError, let data = error.data {
+                        let messageView = MessageView(frame: _self.view.bounds)
+                        messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
+                        messageView.setButtonClose("Đóng", action: {
+                            if !AuthenticationStore().isLogin {
+                                HomeTabbarController.sharedInstance.logOut()
+                            }
+                        })
+                        _self.addFullView(view: messageView)
+                    }
+                    return
+                }
+                
+                if let shop = shop {
+                    _self.shop = shop
+                }
+            }
+        })
+        
     }
     
     func sentRedeem() {

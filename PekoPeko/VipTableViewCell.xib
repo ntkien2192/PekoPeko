@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -14,10 +17,11 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <frame key="frameInset" width="320" height="65"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="VipCellBackground" translatesAutoresizingMaskIntoConstraints="NO" id="gZi-GS-ANy" customClass="ImageView" customModule="PekoPeko" customModuleProvider="target">
+                        <rect key="frame" x="-1" y="8" width="322" height="57.5"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="gZi-GS-ANy" secondAttribute="height" multiplier="1800:333" priority="750" id="aY1-FI-E0A"/>
                         </constraints>
@@ -31,8 +35,10 @@
                         </userDefinedRuntimeAttributes>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Roi-Fq-vtO">
+                        <rect key="frame" x="67" y="18" width="202" height="45"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QFi-6F-JyY">
+                                <rect key="frame" x="0.0" y="3.5" width="80" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="QLd-0Y-7L9"/>
                                 </constraints>
@@ -41,6 +47,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Biy-uJ-gsy">
+                                <rect key="frame" x="122" y="14" width="24" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="dym-XU-CUG"/>
                                 </constraints>
@@ -49,6 +56,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconHoneyPot" translatesAutoresizingMaskIntoConstraints="NO" id="U15-5k-x1f">
+                                <rect key="frame" x="176" y="5.5" width="26" height="26"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="26" id="HjC-p7-scT"/>
                                     <constraint firstAttribute="height" constant="26" id="tbp-do-wBS"/>
@@ -65,13 +73,21 @@
                         </constraints>
                     </view>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DotLine" translatesAutoresizingMaskIntoConstraints="NO" id="oX2-sP-d7c">
+                        <rect key="frame" x="155" y="27.5" width="26" height="26"/>
                         <color key="tintColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="26" id="6nh-72-04t"/>
                             <constraint firstAttribute="width" constant="26" id="rXN-Fl-685"/>
                         </constraints>
                     </imageView>
+                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CẤP ĐỘ CAO NHẤT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="01T-Sb-pRQ">
+                        <rect key="frame" x="82" y="23" width="188" height="27.5"/>
+                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bTe-eE-bUq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="65.5"/>
                         <connections>
                             <action selector="buttonVipTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="mM6-A5-bUc"/>
                         </connections>
@@ -91,16 +107,21 @@
                     <constraint firstItem="gZi-GS-ANy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="-1" id="cCq-2r-uv4"/>
                     <constraint firstItem="oX2-sP-d7c" firstAttribute="centerY" secondItem="Roi-Fq-vtO" secondAttribute="centerY" id="fMO-3y-YFf"/>
                     <constraint firstItem="Biy-uJ-gsy" firstAttribute="centerY" secondItem="oX2-sP-d7c" secondAttribute="centerY" multiplier="1.1" id="hTM-E9-nvM"/>
+                    <constraint firstItem="01T-Sb-pRQ" firstAttribute="centerX" secondItem="gZi-GS-ANy" secondAttribute="centerX" multiplier="1.1" id="mMF-u7-t8v"/>
                     <constraint firstItem="Biy-uJ-gsy" firstAttribute="leading" secondItem="oX2-sP-d7c" secondAttribute="trailing" constant="8" id="n1j-lF-oPl"/>
                     <constraint firstItem="U15-5k-x1f" firstAttribute="centerY" secondItem="oX2-sP-d7c" secondAttribute="centerY" multiplier="0.9" id="n8y-Dn-t9b"/>
                     <constraint firstItem="bTe-eE-bUq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="n9U-hg-Mmx"/>
                     <constraint firstItem="oX2-sP-d7c" firstAttribute="leading" secondItem="QFi-6F-JyY" secondAttribute="trailing" constant="8" id="rT6-rA-Nxu"/>
                     <constraint firstItem="bTe-eE-bUq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="sjB-6n-Eky"/>
+                    <constraint firstItem="01T-Sb-pRQ" firstAttribute="centerY" secondItem="gZi-GS-ANy" secondAttribute="centerY" id="zd8-cC-asv"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="dotLine" destination="oX2-sP-d7c" id="sv9-52-QLi"/>
+                <outlet property="honeyPot" destination="U15-5k-x1f" id="BEp-Mv-wK6"/>
                 <outlet property="labelHPCurrent" destination="QFi-6F-JyY" id="oWg-ao-feO"/>
                 <outlet property="labelHPRequire" destination="Biy-uJ-gsy" id="gqT-ae-6tc"/>
+                <outlet property="labelMax" destination="01T-Sb-pRQ" id="Ahx-sD-Jq2"/>
             </connections>
             <point key="canvasLocation" x="19" y="31"/>
         </tableViewCell>

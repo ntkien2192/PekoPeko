@@ -166,6 +166,8 @@
 		E47E58881DC0B699001400E0 /* DealImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E47E58871DC0B699001400E0 /* DealImageView.xib */; };
 		E47E588C1DC0BD27001400E0 /* DealDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47E588A1DC0BD27001400E0 /* DealDescriptionTableViewCell.swift */; };
 		E47E588D1DC0BD27001400E0 /* DealDescriptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E47E588B1DC0BD27001400E0 /* DealDescriptionTableViewCell.xib */; };
+		E4837D511DF14EE8002B9878 /* IPOSCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4837D501DF14EE8002B9878 /* IPOSCodeView.swift */; };
+		E4837D531DF14EF0002B9878 /* IPOSCodeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4837D521DF14EF0002B9878 /* IPOSCodeView.xib */; };
 		E49346FF1DE7DA8000057659 /* SearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49346FE1DE7DA8000057659 /* SearchRequest.swift */; };
 		E49347021DE7DAA600057659 /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49347011DE7DAA600057659 /* SearchResponse.swift */; };
 		E49347041DE7DB2A00057659 /* SearchStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49347031DE7DB2A00057659 /* SearchStore.swift */; };
@@ -415,6 +417,8 @@
 		E47E58871DC0B699001400E0 /* DealImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DealImageView.xib; sourceTree = "<group>"; };
 		E47E588A1DC0BD27001400E0 /* DealDescriptionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealDescriptionTableViewCell.swift; sourceTree = "<group>"; };
 		E47E588B1DC0BD27001400E0 /* DealDescriptionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DealDescriptionTableViewCell.xib; sourceTree = "<group>"; };
+		E4837D501DF14EE8002B9878 /* IPOSCodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPOSCodeView.swift; sourceTree = "<group>"; };
+		E4837D521DF14EF0002B9878 /* IPOSCodeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IPOSCodeView.xib; sourceTree = "<group>"; };
 		E49346FE1DE7DA8000057659 /* SearchRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchRequest.swift; sourceTree = "<group>"; };
 		E49347011DE7DAA600057659 /* SearchResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
 		E49347031DE7DB2A00057659 /* SearchStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchStore.swift; sourceTree = "<group>"; };
@@ -997,6 +1001,15 @@
 			name = DealDescriptionTableViewCell;
 			sourceTree = "<group>";
 		};
+		E4837D4F1DF14EC9002B9878 /* IPOSCodeView */ = {
+			isa = PBXGroup;
+			children = (
+				E4837D501DF14EE8002B9878 /* IPOSCodeView.swift */,
+				E4837D521DF14EF0002B9878 /* IPOSCodeView.xib */,
+			);
+			name = IPOSCodeView;
+			sourceTree = "<group>";
+		};
 		E49346FA1DE7DA2800057659 /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -1219,6 +1232,7 @@
 		E49404D61DA6AEEA00918C75 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				E4837D4F1DF14EC9002B9878 /* IPOSCodeView */,
 				E493470B1DE7E1FC00057659 /* SearchView */,
 				E47C40511DE5D369003D96FA /* DealTableHeaderView */,
 				E4E44AC71DCC87E900BDB23C /* QRCodeView */,
@@ -1507,6 +1521,7 @@
 				E4EC1D8C1DB5C517005CECB6 /* ShopMenuShowMoreTableViewCell.xib in Resources */,
 				E42469FA1DAE101C00D0A074 /* ProximaNovaSoft-Bold.otf in Resources */,
 				E41DC0A81DB4D9CC00411F55 /* ShopAddressTableViewCell.xib in Resources */,
+				E4837D531DF14EF0002B9878 /* IPOSCodeView.xib in Resources */,
 				E42469FC1DAE101C00D0A074 /* ProximaNovaSoft-Medium.otf in Resources */,
 				E42469FE1DAE101C00D0A074 /* ProximaNovaSoft-Regular.otf in Resources */,
 				E4246A001DAE101C00D0A074 /* ProximaNovaSoft-Semibold.otf in Resources */,
@@ -1833,6 +1848,7 @@
 				E46894E81DB697060004B322 /* SMSegmentAppearance.swift in Sources */,
 				E4D0C8EB1DEBCFFE00AF5CEF /* AuthenticationRequest.swift in Sources */,
 				E45746DB1DB27F1200021604 /* Reward.swift in Sources */,
+				E4837D511DF14EE8002B9878 /* IPOSCodeView.swift in Sources */,
 				E4364F171DBCA33C00EFCF41 /* MyDealViewController.swift in Sources */,
 				E46CD5861DB4B25C001F37AF /* Shop.swift in Sources */,
 				E4E0414C1DB74576001E0226 /* MyCardRewardTableViewCell.swift in Sources */,

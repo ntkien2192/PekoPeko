@@ -9,6 +9,7 @@
 import UIKit
 import TSCurrencyTextField
 import Haneke
+import MBProgressHUD
 
 class AddPointViewController: BaseViewController {
 
@@ -21,6 +22,9 @@ class AddPointViewController: BaseViewController {
     @IBOutlet weak var labelAddress: UILabel!
     @IBOutlet weak var imageView: ImageView!
     @IBOutlet weak var buttonQRCode: UIButton!
+    @IBOutlet weak var viewQRCode: UIView!
+    @IBOutlet weak var imageViewQRCode: UIImageView!
+    @IBOutlet weak var viewQRCodeContent: UIView!
     
     @IBOutlet weak var constraintTop: NSLayoutConstraint!
     @IBOutlet weak var textfieldCode1: Textfield!
@@ -39,10 +43,32 @@ class AddPointViewController: BaseViewController {
     var qrCode: QRCodeContent?
     var address: Address?
     
+    var shop: Shop? {
+        didSet {
+            if let shop = shop {
+                if shop.hasMerchantApp {
+                    buttonQRCode.isHidden = true
+                    imageViewQRCode.setQRCode(content: qrContent ?? "")
+                    UIView.animate(withDuration: 0.2, animations: {
+                        self.viewQRCodeContent.alpha = 1
+                    })
+                } else {
+                    buttonQRCode.isHidden = false
+                    UIView.animate(withDuration: 0.2, animations: {
+                        self.viewQRCode.alpha = 0.0
+                    }, completion: { _ in
+                        self.viewQRCode.isHidden = true
+                    })
+                }
+            }
+        }
+    }
+    
     var isScan: Bool = false
     var isDiscount: Bool = false {
         didSet {
             constraintPinViewTop.constant = !isDiscount ? 20 : 90
+            buttonDiscount.isOn = isDiscount
         }
     }
     
@@ -93,6 +119,39 @@ class AddPointViewController: BaseViewController {
         
     }
     
+    func getShopMerchan(shopID: String) {
+        let loadingNotification = MBProgressHUD.showAdded(to: view, animated: true)
+        loadingNotification.mode = MBProgressHUDMode.indeterminate
+        
+        weak var _self = self
+        
+        ShopStore.checkShopMerchan(shopID: shopID, completionHandler: { (shop, error) in
+            if let _self = _self {
+                
+                loadingNotification.hide(animated: true)
+                
+                guard error == nil else {
+                    if let error = error as? ServerResponseError, let data = error.data {
+                        let messageView = MessageView(frame: _self.view.bounds)
+                        messageView.message = data[NSLocalizedFailureReasonErrorKey] as! String?
+                        messageView.setButtonClose("Đóng", action: {
+                            if !AuthenticationStore().isLogin {
+                                HomeTabbarController.sharedInstance.logOut()
+                            }
+                        })
+                        _self.addFullView(view: messageView)
+                    }
+                    return
+                }
+                
+                if let shop = shop {
+                    _self.shop = shop
+                }
+            }
+        })
+        
+    }
+    
     func loadRewardInfo() {
         let userID = AuthenticationStore().userID ?? ""
         let scanType = "getPoint"
@@ -119,6 +178,10 @@ class AddPointViewController: BaseViewController {
                     }
                 } else {
                     isDiscount = false
+                }
+            } else {
+                if let canDiscount = card.canDiscount {
+                    isDiscount = canDiscount
                 }
             }
             
@@ -152,6 +215,10 @@ class AddPointViewController: BaseViewController {
         }
         
         qrContent = QRCodeContent(userID: userID, scanType: scanType, cardID: cardID).toJSONString()
+        
+        if let cardID = cardID {
+            getShopMerchan(shopID: cardID)
+        }
     }
     
     func loadQRCode() {

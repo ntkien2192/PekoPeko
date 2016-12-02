@@ -32,6 +32,9 @@ enum ShopFields: String {
     case AvgPrice = "avg_price"
     case WorkTime = "opening_time"
     case Telephone = "phone"
+    
+    // merchan
+    case hasMerchantApp = "has_merchant_app"
 }
 
 class Shop: NSObject {
@@ -57,6 +60,8 @@ class Shop: NSObject {
     var workTime: WordTime?
     var telephone: String?
     
+    var hasMerchantApp = false
+    
     required init(json: JSON) {
         shopID = json[ShopFields.ShopID.rawValue].string
         fullName = json[ShopFields.FullName.rawValue].string
@@ -79,5 +84,7 @@ class Shop: NSObject {
         avgPrice = json[ShopFields.AvgPrice.rawValue].string
         workTime = WordTime(json: json[ShopFields.WorkTime.rawValue])
         telephone = json[ShopFields.Telephone.rawValue].string
+        
+        hasMerchantApp = json[ShopFields.hasMerchantApp.rawValue].boolValue
     }
 }

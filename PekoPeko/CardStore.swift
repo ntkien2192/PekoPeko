@@ -59,6 +59,24 @@ class CardStore {
         })
     }
     
+    class func getIPOSCode(cardID: String, location: Location, completionHandler: @escaping (Card?, Error?) -> Void) {
+        
+        let parameters = location.toJSON()
+        
+        _ = Alamofire.request(Router.getIPOSCode(cardID, parameters as [String : AnyObject])).responseGetCard({ (response) in
+            if let error = response.result.error {
+                completionHandler(nil, error)
+                return
+            }
+            guard response.result.value != nil else {
+                // TODO: Create error here
+                completionHandler(nil, nil)
+                return
+            }
+            completionHandler(response.result.value ?? nil, nil)
+        })
+    }
+
     class func getCardInfo(cardID: String, completionHandler: @escaping (Card?, Error?) -> Void) {
         _ = Alamofire.request(Router.getCardInfo(cardID)).responseGetCard({ (response) in
             if let error = response.result.error {

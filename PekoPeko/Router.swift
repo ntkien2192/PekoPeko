@@ -60,6 +60,10 @@ enum Router: URLRequestConvertible {
     case getHotDeal()
     case getPayData(String)
     
+    case checkShopMerchanApp(String)
+    
+    case getIPOSCode(String, [String: AnyObject])
+    
     var method: HTTPMethod {
         switch self {
         case .login:
@@ -168,6 +172,12 @@ enum Router: URLRequestConvertible {
             return .get
             
         case .getPayData:
+            return .get
+            
+        case .checkShopMerchanApp:
+            return .get
+            
+        case .getIPOSCode:
             return .get
         }
     }
@@ -281,6 +291,12 @@ enum Router: URLRequestConvertible {
             
         case .getPayData(let dealID):
             return "payment/deal/\(dealID)"
+            
+        case .checkShopMerchanApp(let shopID):
+            return "shop/\(shopID)/has-merchant-app"
+            
+        case .getIPOSCode(let shopID, _):
+            return "shop/\(shopID)/ipos/checkin"
         }
     }
     
@@ -393,6 +409,12 @@ enum Router: URLRequestConvertible {
             
         case .getPayData:
             return ApiVersion.V220.rawValue
+            
+        case .checkShopMerchanApp:
+            return ApiVersion.V220.rawValue
+        
+        case .getIPOSCode:
+            return ApiVersion.V200.rawValue
         }
     }
     
@@ -487,6 +509,9 @@ enum Router: URLRequestConvertible {
 
         case .renewPassword(let parameters):
             urlRequest = try JSONEncoding.default.encode(urlRequest, with: parameters)
+            
+        case .getIPOSCode(_, let parameters):
+            urlRequest = try URLEncoding.default.encode(urlRequest, with: parameters)
             
         default:
             break

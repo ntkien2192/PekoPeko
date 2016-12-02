@@ -9,11 +9,11 @@
 import UIKit
 
 enum ApiBase: String {
-    case baseURLString = "https://api.hungrybear.vn/"
-    case baseUploadFile = "https://files.hungrybear.vn/"
+//    case baseURLString = "https://api.hungrybear.vn/"
+//    case baseUploadFile = "https://files.hungrybear.vn/"
     
-    //    case baseURLString = "https://api.pekopeko.vn/"
-    //    case baseUploadFile = "https://files.pekopeko.vn/"
+        case baseURLString = "https://api.pekopeko.vn/"
+        case baseUploadFile = "https://files.pekopeko.vn/"
 }
 
 enum ApiVersion: String {

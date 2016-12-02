@@ -45,6 +45,21 @@ class ShopStore {
         })
     }
     
+    class func checkShopMerchan(shopID: String, completionHandler: @escaping (Shop?, Error?) -> Void) {
+        _ = Alamofire.request(Router.checkShopMerchanApp(shopID)).responseGetShop({ (response) in
+            if let error = response.result.error {
+                completionHandler(nil, error)
+                return
+            }
+            guard response.result.value != nil else {
+                // TODO: Create error here
+                completionHandler(nil, nil)
+                return
+            }
+            completionHandler(response.result.value ?? nil, nil)
+        })
+    }
+    
     class func getShopMenuItem(shopID: String, completionHandler: @escaping ([MenuItem]?, Error?) -> Void) {
         _ = Alamofire.request(Router.getShopMenuItem(shopID)).responseGetShopMenuItem({ (response) in
             if let error = response.result.error {

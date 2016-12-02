@@ -55,8 +55,10 @@ class CardDetailViewController: BaseViewController {
                     }
                 }
                 
-                if card.discount != nil {
-                    type.append(RowDisplayType.discount.rawValue)
+                if let discount = card.discount {
+                    if (discount.total ?? 0) > 0 {
+                        type.append(RowDisplayType.discount.rawValue)
+                    }
                 }
                 
                 if card.hpRate != nil {
@@ -369,13 +371,7 @@ extension CardDetailViewController: RewardTableViewCellDelegate, Reward10TableVi
     func buttonPointTapped(reward: Reward?) {
         if let addresses = addresses {
             if addresses.count == 1 {
-                let addPointViewController = UIStoryboard(name: AddPointViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: AddPointViewController.identify) as! AddPointViewController
-                addPointViewController.card = card
-                addPointViewController.address = addresses.first
-                
-                if let topController = AppDelegate.topController() {
-                    topController.present(addPointViewController, animated: true, completion: nil)
-                }
+                addPointAt(card: card, address: addresses.first)
             } else if addresses.count > 1 {
                 let cardAddressView = CardAddressView(frame: view.bounds)
                 cardAddressView.addresses = addresses
@@ -386,16 +382,33 @@ extension CardDetailViewController: RewardTableViewCellDelegate, Reward10TableVi
             getCardAddress()
         }
     }
+    
+    func addPointAt(card: Card?, address: Address?) {
+        if let card = card {
+            if card.isShopIpos ?? false {
+                
+                let iPOSCodeView = IPOSCodeView(frame: view.bounds)
+                iPOSCodeView.cardID = card.shopID ?? ""
+                addFullView(view: iPOSCodeView)
+                
+            } else {
+                let addPointViewController = UIStoryboard(name: AddPointViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: AddPointViewController.identify) as! AddPointViewController
+                addPointViewController.card = card
+                addPointViewController.address = address
+                if let topController = AppDelegate.topController() {
+                    topController.present(addPointViewController, animated: true, completion: nil)
+                }
+            }
+        }
+
+    }
+    
+    
 }
 
 extension CardDetailViewController: CardAddressViewDelegate {
     func addressTapped(address: Address?) {
-        let addPointViewController = UIStoryboard(name: AddPointViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: AddPointViewController.identify) as! AddPointViewController
-        addPointViewController.card = card
-        addPointViewController.address = address
-        if let topController = AppDelegate.topController() {
-            topController.present(addPointViewController, animated: true, completion: nil)
-        }
+        addPointAt(card: card, address: address)
     }
 }
 
