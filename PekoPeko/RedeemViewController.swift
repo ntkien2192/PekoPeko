@@ -123,7 +123,7 @@ class RedeemViewController: BaseViewController {
             labelRedeemName.text = "Sử dụng Deal"
         }
         
-        qrContent = QRCodeContent(userID: userID, targetID: targetID, scanType: scanType, cardID: cardID).toJSONString()
+        qrContent = QRCodeContent(userID: userID, targetID: targetID ?? "", scanType: scanType ?? "all", cardID: cardID ?? "").toJSONString()
         
         if let cardID = cardID {
             getShopMerchan(shopID: cardID)

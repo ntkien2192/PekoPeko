@@ -31,10 +31,10 @@ class QRCodeContent: NSObject, Mappable {
     var pointType: Int?
     var createdAt: Double?
     
-    var userID: String?
-    var targetID: String?
-    var cardID: String?
-    var scanType: String?
+    var userID = ""
+    var targetID = ""
+    var cardID = ""
+    var scanType = ""
     
     override init() {}
     
@@ -51,20 +51,20 @@ class QRCodeContent: NSObject, Mappable {
         self.scanType = "all"
     }
     
-    init(userID: String?, targetID: String?, scanType: String?) {
+    init(userID: String, targetID: String, scanType: String) {
         self.userID = userID
         self.targetID = targetID
         self.scanType = scanType
     }
     
-    init(userID: String?, targetID: String?, scanType: String?, cardID: String?) {
+    init(userID: String, targetID: String, scanType: String, cardID: String) {
         self.userID = userID
         self.targetID = targetID
         self.scanType = scanType
         self.cardID = cardID
     }
 
-    init(userID: String?, scanType: String?, cardID: String?) {
+    init(userID: String, scanType: String, cardID: String) {
         self.userID = userID
         self.scanType = scanType
         self.cardID = cardID

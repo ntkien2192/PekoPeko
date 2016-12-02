@@ -214,7 +214,7 @@ class AddPointViewController: BaseViewController {
             }
         }
         
-        qrContent = QRCodeContent(userID: userID, scanType: scanType, cardID: cardID).toJSONString()
+        qrContent = QRCodeContent(userID: userID, scanType: scanType, cardID: cardID ?? "").toJSONString()
         
         if let cardID = cardID {
             getShopMerchan(shopID: cardID)

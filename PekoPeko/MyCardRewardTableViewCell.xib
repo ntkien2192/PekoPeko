@@ -17,7 +17,7 @@
             <rect key="frame" x="0.0" y="0.0" width="374" height="251"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kbU-pg-SwP" id="8Z8-x7-xUI">
-                <rect key="frame" x="0.0" y="0.0" width="374" height="250.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="374" height="250"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GHy-zh-I6y" customClass="View" customModule="PekoPeko" customModuleProvider="target">
@@ -122,8 +122,8 @@
                                 <color key="textColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Fv-yH-Rli">
-                                <rect key="frame" x="0.0" y="12340" width="344" height="234.5"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Fv-yH-Rli">
+                                <rect key="frame" x="0.0" y="0.0" width="344" height="234.5"/>
                                 <connections>
                                     <action selector="buttonCellTapped:" destination="kbU-pg-SwP" eventType="touchUpInside" id="y3l-Ke-mJ9"/>
                                 </connections>
