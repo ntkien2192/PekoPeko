@@ -80,6 +80,7 @@ class UserUpdateInfoViewController: UIViewController {
     }
     
     func configView() {
+        
         if let top = DeviceConfig.getConstraintValue(d35: 20, d40: 50, d50: 50, d55: 50) {
             constraintTop.constant = top
         }
@@ -87,6 +88,10 @@ class UserUpdateInfoViewController: UIViewController {
     }
     
     @IBAction func buttonStartTapped(_ sender: AnyObject) {
+        uploadFullname()
+    }
+    
+    func login() {
         AuthenticationStore().saveLoginValue(true)
         if let navigationController = navigationController {
             navigationController.dismiss(animated: true, completion: nil)
@@ -176,8 +181,11 @@ class UserUpdateInfoViewController: UIViewController {
                                     let reason: String = data[NSLocalizedFailureReasonErrorKey] as? String {
                                     _self.showError(reason, animation: false)
                                 }
+                                
                                 return
                             }
+                            
+                            _self.uploadPromoCode()
                         }
                     })
                 }
@@ -188,7 +196,29 @@ class UserUpdateInfoViewController: UIViewController {
     func uploadPromoCode() {
         if let code = textfieldPromoCode.text {
             if !code.isEmpty {
+                let authenticationRequest = AuthenticationRequest(promoCode: code)
+                imageViewPromoCode.isHidden = true
+                activityUploadPromoCode.startAnimating()
                 
+                weak var _self = self
+                
+                AuthenticationStore.upPromoCode(authenticationRequest: authenticationRequest, completionHandler: { (success, error) in
+                    if let _self = _self {
+                        
+                        _self.imageViewPromoCode.isHidden = false
+                        _self.activityUploadPromoCode.stopAnimating()
+                        
+                        guard error == nil else {
+                            if let error = error as? ServerResponseError, let data = error.data,
+                                let reason: String = data[NSLocalizedFailureReasonErrorKey] as? String {
+                                _self.showError(reason, animation: false)
+                            }
+                            return
+                        }
+                        
+                        _self.login()
+                    }
+                })
             }
         }
     }
@@ -271,6 +301,7 @@ extension UserUpdateInfoViewController: UINavigationControllerDelegate, UIImageP
 
 extension UserUpdateInfoViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        
         switch textField.tag {
         case 0:
             viewInputName.layer.borderWidth = 2.0
@@ -302,29 +333,5 @@ extension UserUpdateInfoViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         viewInputName.layer.borderWidth = 0.5
         viewInputCode.layer.borderWidth = 0.5
-        
-        switch textField.tag {
-        case 0:
-            uploadFullname()
-            break
-        case 1:
-            uploadPromoCode()
-            break
-        default:
-            break
-        }
-    }
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        switch textField.tag {
-        case 0:
-            uploadFullname()
-            break
-        case 1:
-            uploadPromoCode()
-            break
-        default:
-            break
-        }
-        return true
     }
 }

@@ -56,7 +56,7 @@
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7JS-fx-1Bn" customClass="View" customModule="PekoPeko" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="345.5" width="375" height="241.5"/>
+                    <rect key="frame" x="0.0" y="406" width="375" height="181"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconFacebook" translatesAutoresizingMaskIntoConstraints="NO" id="227-xT-nDw">
                             <rect key="frame" x="15" y="12" width="36" height="36"/>
@@ -85,42 +85,15 @@
                                 <constraint firstAttribute="height" constant="0.5" id="KTE-75-Asd"/>
                             </constraints>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f3n-kl-7Ad">
-                            <rect key="frame" x="20" y="120.5" width="355" height="0.5"/>
-                            <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="0.5" id="NqW-Hd-SxZ"/>
-                            </constraints>
-                        </view>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconGooglePlus" translatesAutoresizingMaskIntoConstraints="NO" id="Y5g-Bi-SkN">
-                            <rect key="frame" x="15" y="72.5" width="36" height="36"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="36" id="eD3-Ur-HHc"/>
-                                <constraint firstAttribute="width" constant="36" id="vya-oa-Aua"/>
-                            </constraints>
-                        </imageView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SZ0-bV-klW">
-                            <rect key="frame" x="0.0" y="60.5" width="375" height="60"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="60" id="0hh-C6-zJt"/>
-                            </constraints>
-                            <inset key="titleEdgeInsets" minX="66" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            <state key="normal" title="Mời bạn bè qua Google Plus">
-                                <color key="titleColor" red="0.80076676607131958" green="0.21746534109115601" blue="0.18595138192176819" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </state>
-                            <connections>
-                                <action selector="buttonGoogleTapped:" destination="-1" eventType="touchUpInside" id="mcY-2X-5Ev"/>
-                            </connections>
-                        </button>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconMessage" translatesAutoresizingMaskIntoConstraints="NO" id="qHM-rv-RjN">
-                            <rect key="frame" x="15" y="133" width="36" height="36"/>
+                            <rect key="frame" x="15" y="72.5" width="36" height="36"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="36" id="fNZ-Na-UaX"/>
                                 <constraint firstAttribute="width" constant="36" id="qKe-E3-GSb"/>
                             </constraints>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Mo-Aq-Nhv">
-                            <rect key="frame" x="0.0" y="121" width="375" height="60"/>
+                            <rect key="frame" x="0.0" y="60.5" width="375" height="60"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="60" id="t01-Oo-vcw"/>
                             </constraints>
@@ -133,21 +106,21 @@
                             </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WxD-G8-Olc">
-                            <rect key="frame" x="20" y="181" width="355" height="0.5"/>
+                            <rect key="frame" x="20" y="120.5" width="355" height="0.5"/>
                             <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="0.5" id="k3P-UD-00W"/>
                             </constraints>
                         </view>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconSMS" translatesAutoresizingMaskIntoConstraints="NO" id="Yy5-8i-Ppx">
-                            <rect key="frame" x="15" y="193.5" width="36" height="36"/>
+                            <rect key="frame" x="15" y="133" width="36" height="36"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="36" id="KMY-9Y-438"/>
                                 <constraint firstAttribute="height" constant="36" id="b6X-bS-VDE"/>
                             </constraints>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qWe-WS-L7F">
-                            <rect key="frame" x="0.0" y="181.5" width="375" height="60"/>
+                            <rect key="frame" x="0.0" y="121" width="375" height="60"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="60" id="4ph-bZ-ERe"/>
                             </constraints>
@@ -165,32 +138,24 @@
                         <constraint firstItem="qWe-WS-L7F" firstAttribute="leading" secondItem="7JS-fx-1Bn" secondAttribute="leading" id="2PA-GU-oTr"/>
                         <constraint firstItem="qHM-rv-RjN" firstAttribute="leading" secondItem="7JS-fx-1Bn" secondAttribute="leading" constant="15" id="FAn-Ur-WwT"/>
                         <constraint firstItem="WxD-G8-Olc" firstAttribute="top" secondItem="1Mo-Aq-Nhv" secondAttribute="bottom" id="G0Y-Ym-Tmz"/>
-                        <constraint firstItem="Y5g-Bi-SkN" firstAttribute="top" secondItem="ICW-ew-ABN" secondAttribute="bottom" constant="12" id="IGJ-3Q-5Ig"/>
-                        <constraint firstItem="f3n-kl-7Ad" firstAttribute="leading" secondItem="7JS-fx-1Bn" secondAttribute="leading" constant="20" id="IbJ-7p-giu"/>
                         <constraint firstAttribute="bottom" secondItem="qWe-WS-L7F" secondAttribute="bottom" id="JTX-xe-8to"/>
-                        <constraint firstItem="qHM-rv-RjN" firstAttribute="top" secondItem="f3n-kl-7Ad" secondAttribute="bottom" constant="12" id="KWJ-d7-kVf"/>
-                        <constraint firstItem="SZ0-bV-klW" firstAttribute="leading" secondItem="7JS-fx-1Bn" secondAttribute="leading" id="Mb6-f1-35h"/>
                         <constraint firstAttribute="height" priority="250" constant="243" id="Nee-d9-etk"/>
-                        <constraint firstItem="SZ0-bV-klW" firstAttribute="top" secondItem="ICW-ew-ABN" secondAttribute="bottom" id="PcJ-R0-qjD"/>
-                        <constraint firstItem="1Mo-Aq-Nhv" firstAttribute="top" secondItem="f3n-kl-7Ad" secondAttribute="bottom" id="S4M-Ml-zei"/>
                         <constraint firstAttribute="trailing" secondItem="1Mo-Aq-Nhv" secondAttribute="trailing" id="TCa-NZ-orj"/>
                         <constraint firstAttribute="trailing" secondItem="WxD-G8-Olc" secondAttribute="trailing" id="TWi-1M-bz5"/>
                         <constraint firstItem="WxD-G8-Olc" firstAttribute="leading" secondItem="7JS-fx-1Bn" secondAttribute="leading" constant="20" id="VXL-WB-mD4"/>
                         <constraint firstItem="227-xT-nDw" firstAttribute="top" secondItem="7JS-fx-1Bn" secondAttribute="top" constant="12" id="XiV-a7-gtT"/>
                         <constraint firstItem="ICW-ew-ABN" firstAttribute="leading" secondItem="7JS-fx-1Bn" secondAttribute="leading" constant="20" id="XlH-h5-Yik"/>
                         <constraint firstItem="Yy5-8i-Ppx" firstAttribute="leading" secondItem="7JS-fx-1Bn" secondAttribute="leading" constant="15" id="YHE-ZV-SRV"/>
+                        <constraint firstItem="qHM-rv-RjN" firstAttribute="centerY" secondItem="1Mo-Aq-Nhv" secondAttribute="centerY" id="c85-A8-xLc"/>
                         <constraint firstItem="1Mo-Aq-Nhv" firstAttribute="leading" secondItem="7JS-fx-1Bn" secondAttribute="leading" id="cPJ-jZ-saj"/>
                         <constraint firstItem="qWe-WS-L7F" firstAttribute="top" secondItem="WxD-G8-Olc" secondAttribute="bottom" id="d8m-yn-COp"/>
                         <constraint firstItem="Yy5-8i-Ppx" firstAttribute="top" secondItem="WxD-G8-Olc" secondAttribute="bottom" constant="12" id="e2f-Ig-eE8"/>
                         <constraint firstAttribute="trailing" secondItem="qWe-WS-L7F" secondAttribute="trailing" id="fow-kR-vtg"/>
-                        <constraint firstAttribute="trailing" secondItem="SZ0-bV-klW" secondAttribute="trailing" id="jmc-Mw-jhS"/>
-                        <constraint firstItem="f3n-kl-7Ad" firstAttribute="top" secondItem="SZ0-bV-klW" secondAttribute="bottom" id="ktv-V0-cyN"/>
                         <constraint firstItem="227-xT-nDw" firstAttribute="leading" secondItem="7JS-fx-1Bn" secondAttribute="leading" constant="15" id="lSy-V4-Rfx"/>
                         <constraint firstAttribute="trailing" secondItem="ICW-ew-ABN" secondAttribute="trailing" id="qgZ-Dk-rDH"/>
                         <constraint firstItem="ICW-ew-ABN" firstAttribute="top" secondItem="jmj-sT-x35" secondAttribute="bottom" id="uQM-Vh-S8e"/>
                         <constraint firstAttribute="trailing" secondItem="jmj-sT-x35" secondAttribute="trailing" id="umd-ZV-jRB"/>
-                        <constraint firstItem="Y5g-Bi-SkN" firstAttribute="leading" secondItem="7JS-fx-1Bn" secondAttribute="leading" constant="15" id="w9G-4y-OK7"/>
-                        <constraint firstAttribute="trailing" secondItem="f3n-kl-7Ad" secondAttribute="trailing" id="xsS-of-MXc"/>
+                        <constraint firstItem="1Mo-Aq-Nhv" firstAttribute="top" secondItem="ICW-ew-ABN" secondAttribute="bottom" id="ybL-eb-0JV"/>
                         <constraint firstItem="jmj-sT-x35" firstAttribute="leading" secondItem="7JS-fx-1Bn" secondAttribute="leading" id="zBN-J5-ngk"/>
                         <constraint firstItem="jmj-sT-x35" firstAttribute="top" secondItem="7JS-fx-1Bn" secondAttribute="top" id="zZG-V9-vqu"/>
                     </constraints>
@@ -203,7 +168,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tLl-5V-e8G" customClass="Button" customModule="PekoPeko" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="265.5" width="375" height="60"/>
+                    <rect key="frame" x="0.0" y="326" width="375" height="60"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="aJd-qC-x4p"/>
@@ -249,7 +214,6 @@
     </objects>
     <resources>
         <image name="IconFacebook" width="44" height="44"/>
-        <image name="IconGooglePlus" width="44" height="44"/>
         <image name="IconMessage" width="44" height="44"/>
         <image name="IconSMS" width="44" height="44"/>
     </resources>

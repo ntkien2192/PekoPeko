@@ -74,6 +74,25 @@ class ShopStore {
             completionHandler(response.result.value ?? nil, nil)
         })
     }
+    
+    
+    class func getShopFollower(shopID: String, from: String, completionHandler: @escaping (UserResponse?, Error?) -> Void) {
+        
+        let parameters = ["from": from as AnyObject]
+        
+        _ = Alamofire.request(Router.getShopFollower(shopID, parameters)).responseGetShopFollower({ (response) in
+            if let error = response.result.error {
+                completionHandler(nil, error)
+                return
+            }
+            guard response.result.value != nil else {
+                // TODO: Create error here
+                completionHandler(nil, nil)
+                return
+            }
+            completionHandler(response.result.value ?? nil, nil)
+        })
+    }
 }
 extension Alamofire.DataRequest {
     func responseGetShop(_ completionHandler: @escaping (DataResponse<Shop?>) -> Void) -> Self {
@@ -182,6 +201,63 @@ extension Alamofire.DataRequest {
                 } else {
                     let menuItems = jsonObject["data"].arrayValue.map({ MenuItem(json: $0) })
                     return .success(menuItems)
+                }
+                
+            case .failure(let error):
+                return .failure(error)
+            }
+        }
+        return response(responseSerializer: responseSerializer, completionHandler: completionHandler)
+    }
+    
+    func responseGetShopFollower(_ completionHandler: @escaping (DataResponse<UserResponse?>) -> Void) -> Self {
+        let responseSerializer = DataResponseSerializer<UserResponse?> { request, response, data, error in
+            guard error == nil else {
+                return .failure(error!)
+            }
+            
+            guard let responseData = data else {
+                let error = ServerResponseError(data: nil, kind: .dataSerializationFailed)
+                return .failure(error)
+            }
+            
+            let JSONResponseSerializer = DataRequest.jsonResponseSerializer(options: .allowFragments)
+            let result = JSONResponseSerializer.serializeResponse(request, response, responseData, error)
+            
+            guard response?.statusCode == 200 else {
+                switch result {
+                case .success(let value):
+                    let json = SwiftyJSON.JSON(value)
+                    let failureReason = json["message"].stringValue
+                    let errorData = [NSLocalizedFailureReasonErrorKey: failureReason]
+                    let error = ServerResponseError(data: errorData as [String : AnyObject], kind: .dataSerializationFailed)
+                    
+                    return .failure(error)
+                case .failure(let error):
+                    return .failure(error)
+                }
+            }
+            
+            switch result {
+            case .success(let value):
+                let jsonObject = SwiftyJSON.JSON(value)
+                if jsonObject["code"].intValue != 1 {
+                    if  jsonObject["code"].intValue != -4 {
+                        
+                        if jsonObject["code"].intValue == -11 {
+                            AuthenticationStore().saveLoginValue(false)
+                        }
+                        
+                        let failureReason = jsonObject["message"].stringValue
+                        let errorData = [NSLocalizedFailureReasonErrorKey: failureReason]
+                        let error = ServerResponseError(data: errorData as [String : AnyObject], kind: .dataSerializationFailed)
+                        return .failure(error)
+                    } else {
+                        return .success(nil)
+                    }
+                } else {
+                    let userResponse = UserResponse(json: jsonObject)
+                    return .success(userResponse)
                 }
                 
             case .failure(let error):

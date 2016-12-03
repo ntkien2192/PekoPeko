@@ -12,6 +12,7 @@ import SwiftyJSON
 enum DealStep {
     case begin
     case canSave
+    case needPay
     case canUse
     case used
     case close
@@ -99,7 +100,11 @@ class Discover: NSObject {
                         return .canUse
                     }
                 } else {
-                    return .canSave
+                    if isPayRequire {
+                        return .needPay
+                    } else {
+                        return .canSave
+                    }
                 }
             } else if !isExpire {
                 if isSave {
@@ -109,7 +114,7 @@ class Discover: NSObject {
                         return .canUse
                     }
                 } else {
-                    return .canSave
+                    return .close
                 }
             } else {
                 return .close

@@ -11,7 +11,6 @@ import UIKit
 protocol ShareViewDelegate: class {
     func prompCodeTapped(promoCode: String?)
     func facebookTapped(promoCode: String?)
-    func googlePlusTapped(promoCode: String?)
     func mailTapped(promoCode: String?)
     func smsTapped(promoCode: String?)
 }
@@ -61,10 +60,6 @@ class ShareView: UIView {
     
     @IBAction func buttonFacebookTapped(_ sender: AnyObject) {
         delegate?.facebookTapped(promoCode: promoCode)
-    }
-    
-    @IBAction func buttonGoogleTapped(_ sender: AnyObject) {
-        delegate?.googlePlusTapped(promoCode: promoCode)
     }
     
     @IBAction func buttonMailTapped(_ sender: AnyObject) {

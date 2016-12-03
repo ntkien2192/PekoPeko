@@ -48,6 +48,7 @@ class HomeTabbarController: UITabBarController {
     
     func logOut() {
         let loginController = UIStoryboard(name: LoginViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: LoginViewController.identify)
+        
         if let topController = AppDelegate.topController() {
             topController.present(loginController, animated: false, completion: nil)
         }

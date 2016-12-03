@@ -44,6 +44,7 @@ class CardListViewController: BaseViewController {
         tableView.register(UINib(nibName: EmptyTableViewCell.identify, bundle: nil), forCellReuseIdentifier: EmptyTableViewCell.identify)
         tableView.register(UINib(nibName: CardTableViewCell.identify, bundle: nil), forCellReuseIdentifier: CardTableViewCell.identify)
         tableView.tableFooterView = UIView()
+        
         refreshControl = UIRefreshControl()
         if let refreshControl = refreshControl {
             refreshControl.addTarget(self, action: #selector(CardListViewController.reloadAllCard), for: .valueChanged)

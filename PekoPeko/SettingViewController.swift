@@ -180,10 +180,9 @@ class SettingViewController: BaseViewController {
         alertView.message = "Xác nhận đăng xuất?"
         alertView.setButtonSubmit("Đăng xuất", action: {
             AuthenticationStore().saveLoginValue(false)
-            let loginController = UIStoryboard(name: LoginViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: LoginViewController.identify)
-            
-            if let topController = AppDelegate.topController() {
-                topController.present(loginController, animated: true, completion: nil)
+            HomeTabbarController.sharedInstance.logOut()
+            if let navigationController = self.navigationController {
+                navigationController.popViewController(animated: true)
             }
         })
         addFullView(view: alertView)

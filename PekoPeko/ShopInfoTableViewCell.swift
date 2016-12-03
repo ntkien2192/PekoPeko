@@ -11,6 +11,7 @@ import Haneke
 
 protocol ShopInfoTableViewCellDelegate: class {
     func followTapped(shop: Shop?, isFollowing: Bool)
+    func followingTapped(shop: Shop?)
 }
 
 class ShopInfoTableViewCell: UITableViewCell {
@@ -93,4 +94,7 @@ class ShopInfoTableViewCell: UITableViewCell {
         delegate?.followTapped(shop: shop, isFollowing: isFollowing)
     }
     
+    @IBAction func buttonFollowingTapped(_ sender: Any) {
+        delegate?.followingTapped(shop: shop)
+    }
 }

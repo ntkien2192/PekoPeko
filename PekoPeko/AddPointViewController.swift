@@ -21,7 +21,6 @@ class AddPointViewController: BaseViewController {
     @IBOutlet weak var labelName: UILabel!
     @IBOutlet weak var labelAddress: UILabel!
     @IBOutlet weak var imageView: ImageView!
-    @IBOutlet weak var buttonQRCode: UIButton!
     @IBOutlet weak var viewQRCode: UIView!
     @IBOutlet weak var imageViewQRCode: UIImageView!
     @IBOutlet weak var viewQRCodeContent: UIView!
@@ -47,13 +46,11 @@ class AddPointViewController: BaseViewController {
         didSet {
             if let shop = shop {
                 if shop.hasMerchantApp {
-                    buttonQRCode.isHidden = true
                     imageViewQRCode.setQRCode(content: qrContent ?? "")
                     UIView.animate(withDuration: 0.2, animations: {
                         self.viewQRCodeContent.alpha = 1
                     })
                 } else {
-                    buttonQRCode.isHidden = false
                     UIView.animate(withDuration: 0.2, animations: {
                         self.viewQRCode.alpha = 0.0
                     }, completion: { _ in
@@ -72,11 +69,7 @@ class AddPointViewController: BaseViewController {
         }
     }
     
-    var qrContent: String? {
-        didSet {
-            buttonQRCode.isHidden = false
-        }
-    }
+    var qrContent: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()

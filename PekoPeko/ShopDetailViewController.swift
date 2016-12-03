@@ -335,6 +335,15 @@ extension ShopDetailViewController: ShopMenuShowMoreTableViewCellDelegate {
 }
 
 extension ShopDetailViewController: ShopInfoTableViewCellDelegate {
+    func followingTapped(shop: Shop?) {
+        if let shop = shop, let shopID = shop.shopID {
+            let shopFollowerViewController = UIStoryboard(name: ShopFollowerViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: ShopFollowerViewController.identify) as! ShopFollowerViewController
+            shopFollowerViewController.shopID = shopID
+            present(shopFollowerViewController, animated: true, completion: nil)
+        }
+    }
+    
+    
     func followTapped(shop: Shop?, isFollowing: Bool) {
         if let shop = shop, let shopID = shop.shopID {
             if isFollowing {

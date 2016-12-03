@@ -22,7 +22,6 @@ class RedeemViewController: BaseViewController {
     
     @IBOutlet weak var labelTitle: UILabel!
     @IBOutlet weak var labelRedeemName: Label!
-    @IBOutlet weak var buttonQRCode: UIButton!
     @IBOutlet weak var viewQRCode: UIView!
     @IBOutlet weak var imageViewQRCode: UIImageView!
     @IBOutlet weak var viewQRCodeContent: UIView!
@@ -57,13 +56,11 @@ class RedeemViewController: BaseViewController {
         didSet {
             if let shop = shop {
                 if shop.hasMerchantApp {
-                    buttonQRCode.isHidden = true
                     imageViewQRCode.setQRCode(content: qrContent ?? "")
                     UIView.animate(withDuration: 0.2, animations: { 
                         self.viewQRCodeContent.alpha = 1
                     })
                 } else {
-                    buttonQRCode.isHidden = false
                     UIView.animate(withDuration: 0.2, animations: { 
                        self.viewQRCode.alpha = 0.0
                     }, completion: { _ in

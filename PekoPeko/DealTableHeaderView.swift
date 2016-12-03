@@ -76,7 +76,7 @@ class DealTableHeaderView: UIView {
             
             pageControl.currentPage = cellIndex
             
-            collectionView.scrollToItem(at: IndexPath(item: cellIndex, section: 0), at: .left, animated: true)
+            collectionView.scrollToItem(at: IndexPath(item: cellIndex, section: 0), at: .right, animated: true)
         }
     }
     

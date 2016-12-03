@@ -22,9 +22,7 @@ class VoucherTableViewCell: UITableViewCell {
     @IBOutlet weak var viewContent: View!
     @IBOutlet weak var imageViewAvatar: ImageView!
     @IBOutlet weak var imageViewVoucherAvatar: ImageView!
-    @IBOutlet weak var labelDescription: UILabel!
     @IBOutlet weak var labelVoucherTitle: UILabel!
-    @IBOutlet weak var labelUser: UILabel!
     @IBOutlet weak var labelExtant: UILabel!
     @IBOutlet weak var labelShopName: UILabel!
     @IBOutlet weak var labelShopAddress: UILabel!
@@ -79,19 +77,7 @@ class VoucherTableViewCell: UITableViewCell {
         }
     }
     
-    var totalUses: Int = 0 {
-        didSet {
-            let attributedText = NSMutableAttributedString()
-            let attribute1 = [NSFontAttributeName: UIFont.getFont(14), NSForegroundColorAttributeName: UIColor.colorBrown]
-            let variety1 = NSAttributedString(string: "Đã sử dụng: ", attributes: attribute1)
-            attributedText.append(variety1)
-            let attribute2 = [NSFontAttributeName: UIFont.getBoldFont(14), NSForegroundColorAttributeName: UIColor.colorOrange]
-            let variety2 = NSAttributedString(string: "\(totalUses)", attributes: attribute2)
-            attributedText.append(variety2)
-            
-            labelUser.attributedText = attributedText
-        }
-    }
+    var totalUses: Int = 0
     
     var maxUses: Int = 0 {
         didSet {

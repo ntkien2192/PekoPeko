@@ -117,6 +117,10 @@ class DealTableViewCell: UITableViewCell {
                 buttonSave.setTitle("Đã hết hạn", for: .normal)
                 buttonSave.setTitleColor(UIColor.white, for: .normal)
                 buttonSave.backgroundColor = UIColor.darkGray
+            case .needPay:
+                buttonSave.setTitle("Mua ngay", for: .normal)
+                buttonSave.setTitleColor(UIColor.white, for: .normal)
+                buttonSave.backgroundColor = UIColor.colorBlue
             }
         }
     }

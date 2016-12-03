@@ -213,6 +213,7 @@ extension UIColor {
     @nonobjc static let colorRed = UIColor(hex: "#E01C23")
     @nonobjc static let colorYellow = UIColor(hex: "#FDD700")
     @nonobjc static let colorLightGray = UIColor(hex: "#E6E6E6")
+    @nonobjc static let colorBlue = UIColor(hex: "#3498db")
     
     class func RGB(_ red: CGFloat, green: CGFloat, blue: CGFloat) -> UIColor {
         return RGBA(red, green: green, blue: blue, alpha: 1.0)

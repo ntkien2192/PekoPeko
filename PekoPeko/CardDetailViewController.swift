@@ -400,10 +400,7 @@ extension CardDetailViewController: RewardTableViewCellDelegate, Reward10TableVi
                 }
             }
         }
-
     }
-    
-    
 }
 
 extension CardDetailViewController: CardAddressViewDelegate {

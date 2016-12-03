@@ -233,17 +233,12 @@ extension DealDetailViewController: DealControlTableViewCellDelegate {
             if discover.isPayRequire {
                 if !discover.isSave {
                     if !discover.isEnd {
-                        let alertView = AlertView(frame: view.bounds)
-                        alertView.message = "Deal này yêu cầu thanh toán trước"
-                        alertView.setButtonSubmit("Thanh Toán", action: {
-                            let payTypeViewController = UIStoryboard(name: PayTypeViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: PayTypeViewController.storyboardID) as! PayTypeViewController
-                            payTypeViewController.targetID = dealID
-                            payTypeViewController.delegate = self
-                            if let topController = AppDelegate.topController() {
-                                topController.present(payTypeViewController, animated: true, completion: nil)
-                            }
-                        })
-                        addFullView(view: alertView)
+                        let payTypeViewController = UIStoryboard(name: PayTypeViewController.storyboardName, bundle: nil).instantiateViewController(withIdentifier: PayTypeViewController.storyboardID) as! PayTypeViewController
+                        payTypeViewController.targetID = dealID
+                        payTypeViewController.delegate = self
+                        if let topController = AppDelegate.topController() {
+                            topController.present(payTypeViewController, animated: true, completion: nil)
+                        }
                     }
                 } else {
                     let messageView = MessageView(frame: view.bounds)

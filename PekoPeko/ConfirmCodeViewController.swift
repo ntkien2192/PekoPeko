@@ -87,10 +87,7 @@ class ConfirmCodeViewController: UIViewController {
     }
     
     func confirm() {
-        slideDownView()
-        hideConfirmField()
-        confirmActivity.startAnimating()
-        
+
         var code = ""
         
         let tfs = [textfieldCode1, textfieldCode2, textfieldCode3, textfieldCode4]
@@ -108,6 +105,11 @@ class ConfirmCodeViewController: UIViewController {
         
         if AuthenticationStore().hasPhoneNumber {
             if let phoneNumber = AuthenticationStore().phoneNumber {
+                
+                slideDownView()
+                hideConfirmField()
+                confirmActivity.startAnimating()
+                
                 let loginParameter = LoginParameter(phone: phoneNumber, code: code, type: loginType, location: userLocation ?? Location(latitude: 0.0, longitude: 0.0))
                 weak var _self = self
                 AuthenticationStore.confirm(loginParameter, completionHandler: { (loginResponse, error) in

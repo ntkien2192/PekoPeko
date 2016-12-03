@@ -9,6 +9,8 @@
 import UIKit
 import Spring
 import Haneke
+import FBSDKShareKit
+import MessageUI
 
 class PromoViewController: BaseViewController {
     
@@ -21,6 +23,8 @@ class PromoViewController: BaseViewController {
     @IBOutlet weak var labelInviteNumber: Label!
     @IBOutlet weak var constraintLogoHeight: NSLayoutConstraint!
     @IBOutlet weak var imageViewBear: SpringImageView!
+    
+    let buttonShare = FBSDKShareButton()
     
     var user: User? {
         didSet {
@@ -139,56 +143,98 @@ class PromoViewController: BaseViewController {
     }
     
     @IBAction func buttonInviteTapped(_ sender: AnyObject) {
-        let shareView = ShareView(frame: view.bounds)
         if let promoCode = promoCode {
+            let shareView = ShareView(frame: view.bounds)
             shareView.promoCode = promoCode
             shareView.delegate = self
+            addFullView(view: shareView)
         }
-        addFullView(view: shareView)
     }
 }
 
 extension PromoViewController: ShareViewDelegate {
     func prompCodeTapped(promoCode: String?) {
-        
-        let text = "Tưng bừng ăn uống với vô vàn đồ ăn ngon cùng mình nhé. Nhập mã \(NSString(format: "%@", (promoCode ?? ""))) là có luôn vô vàn phiếu giảm giá đấy nha."
-        
-        let textToShare = [ text ]
+        let textToShare = [ "Tưng bừng ăn uống với vô vàn đồ ăn ngon cùng mình nhé. Nhập mã \(NSString(format: "%@", (promoCode ?? ""))) là có luôn vô vàn phiếu giảm giá đấy nha. Truy cập https://pekopeko.vn để biết thêm chi tiết" ]
         let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = self.view
         
         if let topController = AppDelegate.topController() {
             topController.present(activityViewController, animated: true, completion: nil)
         }
-        
-        
-//        UIPasteboard.general.string = promoCode
-//        let messageView = MessageView(frame: view.bounds)
-//        messageView.message = "Đã sao chép mã vào bộ nhớ"
-//        addFullView(view: messageView)
     }
     
     func facebookTapped(promoCode: String?) {
-        let messageView = MessageView(frame: view.bounds)
-        messageView.message = "Chức năng này đang được phát triển"
-        addFullView(view: messageView)
+        if !(promoCode ?? "").isEmpty {
+            
+            let promoCode = NSString(format: "%@", (promoCode ?? ""))
+            
+            UIPasteboard.general.string = "Tưng bừng ăn uống với vô vàn đồ ăn ngon cùng mình nhé. Nhập mã \(promoCode) là có luôn vô vàn phiếu giảm giá đấy nha. Truy cập https://pekopeko.vn để biết thêm chi tiết"
+            
+            let content : FBSDKShareLinkContent = FBSDKShareLinkContent()
+            content.contentURL = URL(string: "https://links.pekopeko.vn/?promo_code=\(promoCode)")
+            content.contentTitle = "NHẬP MÃ \(promoCode) NGAY, NHẬN QUÀ LIỀN TAY"
+            content.contentDescription = "Ví quà tặng hàng đầu Việt Nam"
+            content.imageURL = URL(string: "https://files.pekopeko.vn/assets/general/iconpeko.png")
+            
+            buttonShare.shareContent = content
+            buttonShare.center = view.center
+            buttonShare.isHidden = true
+            view.addSubview(buttonShare)
+            view.sendSubview(toBack: buttonShare)
+            
+            buttonShare.sendActions(for: .touchUpInside)
+        }
     }
     
-    func googlePlusTapped(promoCode: String?) {
-        let messageView = MessageView(frame: view.bounds)
-        messageView.message = "Chức năng này đang được phát triển"
-        addFullView(view: messageView)
-    }
+    
     
     func mailTapped(promoCode: String?) {
-        let messageView = MessageView(frame: view.bounds)
-        messageView.message = "Chức năng này đang được phát triển"
-        addFullView(view: messageView)
+        if !(promoCode ?? "").isEmpty {
+            if MFMailComposeViewController.canSendMail() {
+                let mail = MFMailComposeViewController()
+                
+                mail.mailComposeDelegate = self
+                
+                let promoCode = NSString(format: "%@", (promoCode ?? ""))
+                
+                mail.setMessageBody("Tưng bừng ăn uống với vô vàn đồ ăn ngon cùng mình nhé. Nhập mã <a href=\"https://links.pekopeko.vn/?promo_code=\(promoCode)\">\(promoCode)</a> là có luôn vô vàn phiếu giảm giá đấy nha. Truy cập <a href=\"https://pekopeko.vn\">https://pekopeko.vn</a> để biết thêm chi tiết", isHTML: true)
+                
+                present(mail, animated: true)
+            } else {
+                let messageView = MessageView(frame: view.bounds)
+                messageView.message = "Chức năng này không thể sử dụng trên thiết bị của bạn"
+                addFullView(view: messageView)
+            }
+        }
+
     }
     
     func smsTapped(promoCode: String?) {
-        let messageView = MessageView(frame: view.bounds)
-        messageView.message = "Chức năng này đang được phát triển"
-        addFullView(view: messageView)
+        if !(promoCode ?? "").isEmpty{
+            if MFMessageComposeViewController.canSendText() {
+                let controller = MFMessageComposeViewController()
+                let promoCode = NSString(format: "%@", (promoCode ?? ""))
+                
+                controller.body = "Tưng bừng ăn uống với vô vàn đồ ăn ngon cùng mình nhé. Nhập mã \(promoCode) là có luôn vô vàn phiếu giảm giá đấy nha. Truy cập https://links.pekopeko.vn/?promo_code=\(promoCode) để đăng nhập nhé."
+                controller.messageComposeDelegate = self
+                present(controller, animated: true, completion: nil)
+            } else {
+                let messageView = MessageView(frame: view.bounds)
+                messageView.message = "Chức năng này không thể sử dụng trên thiết bị của bạn"
+                addFullView(view: messageView)
+            }
+        }
+    }
+}
+
+extension PromoViewController: MFMessageComposeViewControllerDelegate {
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension PromoViewController: MFMailComposeViewControllerDelegate {
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
     }
 }

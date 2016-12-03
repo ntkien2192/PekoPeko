@@ -44,27 +44,11 @@
                                         <color key="textColor" red="0.25490196079999999" green="0.1137254902" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i7I-iL-Mpn">
-                                        <rect key="frame" x="323" y="20" width="52" height="44"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="52" id="eiV-oe-3ZH"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="CODE">
-                                            <color key="titleColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="buttonQRCodeTapped:" destination="sGm-AU-wOO" eventType="touchUpInside" id="2P2-Tb-bfS"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.99265462159999995" green="0.84121900800000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="i7I-iL-Mpn" secondAttribute="trailing" id="039-jQ-1Ew"/>
                                     <constraint firstAttribute="trailing" secondItem="vDs-go-JnV" secondAttribute="trailing" constant="52" id="2GR-QC-pAR"/>
                                     <constraint firstItem="vDs-go-JnV" firstAttribute="centerY" secondItem="e1X-Nb-0Cj" secondAttribute="centerY" id="2bC-Md-i7g"/>
-                                    <constraint firstItem="i7I-iL-Mpn" firstAttribute="top" secondItem="ikW-qB-UQf" secondAttribute="top" constant="20" id="Im1-jc-hik"/>
-                                    <constraint firstAttribute="bottom" secondItem="i7I-iL-Mpn" secondAttribute="bottom" id="PgN-u3-P4z"/>
                                     <constraint firstAttribute="height" constant="64" id="U2F-le-Vni"/>
                                     <constraint firstAttribute="bottom" secondItem="e1X-Nb-0Cj" secondAttribute="bottom" id="VGh-Xr-X6c"/>
                                     <constraint firstItem="vDs-go-JnV" firstAttribute="leading" secondItem="e1X-Nb-0Cj" secondAttribute="trailing" constant="8" id="fgi-8x-i9b"/>
@@ -489,7 +473,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="buttonQRCode" destination="i7I-iL-Mpn" id="z8E-dc-sjY"/>
                         <outlet property="imageViewQRCode" destination="l5a-ZW-7wo" id="a7G-We-OBQ"/>
                         <outlet property="labelRedeemName" destination="9jA-ge-hCo" id="FwU-K9-ddG"/>
                         <outlet property="labelTitle" destination="vDs-go-JnV" id="oFW-uT-fka"/>
@@ -993,28 +976,12 @@
                                         <color key="textColor" red="0.25490196079999999" green="0.1137254902" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nKh-lU-6WV">
-                                        <rect key="frame" x="323" y="20" width="52" height="44"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="52" id="iO6-G7-fjr"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="CODE">
-                                            <color key="titleColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="buttonQRCodeTapped:" destination="6Hc-eY-ThA" eventType="touchUpInside" id="OdH-nr-MKj"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.99265462159999995" green="0.84121900800000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="Ea9-TD-PS6"/>
-                                    <constraint firstItem="nKh-lU-6WV" firstAttribute="top" secondItem="zBl-Pq-AQC" secondAttribute="top" constant="20" id="JdO-Vf-k2q"/>
                                     <constraint firstAttribute="bottom" secondItem="gpx-BD-JGn" secondAttribute="bottom" id="Qgd-Zu-xcm"/>
                                     <constraint firstItem="gpx-BD-JGn" firstAttribute="leading" secondItem="zBl-Pq-AQC" secondAttribute="leading" id="Qu6-rU-00j"/>
-                                    <constraint firstAttribute="bottom" secondItem="nKh-lU-6WV" secondAttribute="bottom" id="cBN-GO-aLV"/>
-                                    <constraint firstAttribute="trailing" secondItem="nKh-lU-6WV" secondAttribute="trailing" id="gBZ-T7-m3v"/>
                                     <constraint firstAttribute="trailing" secondItem="XTj-35-Xyr" secondAttribute="trailing" constant="52" id="hVj-pq-Zue"/>
                                     <constraint firstItem="XTj-35-Xyr" firstAttribute="centerY" secondItem="gpx-BD-JGn" secondAttribute="centerY" id="j02-Bf-NyD"/>
                                     <constraint firstItem="XTj-35-Xyr" firstAttribute="leading" secondItem="gpx-BD-JGn" secondAttribute="trailing" constant="8" id="tnH-5e-ldm"/>
@@ -1113,7 +1080,6 @@
                     </view>
                     <connections>
                         <outlet property="buttonDiscount" destination="FfZ-HF-oS1" id="V09-Pn-fZa"/>
-                        <outlet property="buttonQRCode" destination="nKh-lU-6WV" id="rj4-pd-9QU"/>
                         <outlet property="constraintPinViewTop" destination="bgZ-ZO-8FB" id="XJm-bp-hLk"/>
                         <outlet property="constraintTop" destination="9l8-nU-KfJ" id="Qzh-Ty-RjX"/>
                         <outlet property="imageView" destination="1Uj-Gm-bRn" id="RgK-AT-Y17"/>

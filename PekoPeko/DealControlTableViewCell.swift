@@ -76,6 +76,10 @@ class DealControlTableViewCell: UITableViewCell {
                 buttonSave.setTitle("Đã hết hạn", for: .normal)
                 buttonSave.setTitleColor(UIColor.white, for: .normal)
                 buttonSave.backgroundColor = UIColor.darkGray
+            case .needPay:
+                buttonSave.setTitle("Mua ngay", for: .normal)
+                buttonSave.setTitleColor(UIColor.white, for: .normal)
+                buttonSave.backgroundColor = UIColor.colorBlue
             }
         }
     }
@@ -168,6 +172,20 @@ class DealControlTableViewCell: UITableViewCell {
                 }
             })
         case .canSave:
+            weak var _self = self
+            delegate?.saveDiscoverTapped(discover: discover, completionHandler: { newDiscover in
+                if let _self = _self {
+                    
+                    if let newDiscover = newDiscover {
+                        _self.isSaved = newDiscover.updateSave()
+                        _self.labelUserSaved.animation = "zoomIn"
+                        _self.labelUserSaved.animate()
+                    }
+                    
+                    _self.discover = newDiscover
+                }
+            })
+        case .needPay:
             weak var _self = self
             delegate?.saveDiscoverTapped(discover: discover, completionHandler: { newDiscover in
                 if let _self = _self {

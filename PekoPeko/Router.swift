@@ -64,6 +64,10 @@ enum Router: URLRequestConvertible {
     
     case getIPOSCode(String, [String: AnyObject])
     
+    case getShopFollower(String, [String: AnyObject])
+    
+    case upPromoCode([String: AnyObject])
+    
     var method: HTTPMethod {
         switch self {
         case .login:
@@ -179,6 +183,12 @@ enum Router: URLRequestConvertible {
             
         case .getIPOSCode:
             return .get
+            
+        case .getShopFollower:
+            return .get
+            
+        case .upPromoCode:
+            return .put
         }
     }
     
@@ -297,6 +307,12 @@ enum Router: URLRequestConvertible {
             
         case .getIPOSCode(let shopID, _):
             return "shop/\(shopID)/ipos/checkin"
+            
+        case .getShopFollower(let shopID, _):
+            return "user/\(shopID)/followers"
+            
+        case .upPromoCode:
+            return "user/uses/promo-code"
         }
     }
     
@@ -415,6 +431,12 @@ enum Router: URLRequestConvertible {
         
         case .getIPOSCode:
             return ApiVersion.V200.rawValue
+            
+        case .getShopFollower:
+            return ApiVersion.V100.rawValue
+            
+        case .upPromoCode:
+            return ApiVersion.V210.rawValue
         }
     }
     
@@ -513,6 +535,11 @@ enum Router: URLRequestConvertible {
         case .getIPOSCode(_, let parameters):
             urlRequest = try URLEncoding.default.encode(urlRequest, with: parameters)
             
+        case .getShopFollower(_, let parameters):
+            urlRequest = try URLEncoding.default.encode(urlRequest, with: parameters)
+            
+        case .upPromoCode(let parameters):
+            urlRequest = try JSONEncoding.default.encode(urlRequest, with: parameters)
         default:
             break
         }
