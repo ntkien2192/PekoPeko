@@ -221,9 +221,7 @@ class MyDealTableViewCell: UITableViewCell {
                             let URL = NSURL(string: shopAvatarUrl)!
                             let fetcher = NetworkFetcher<UIImage>(URL: URL as URL)
                             _ = cache.fetch(fetcher: fetcher).onSuccess({ (image) in
-                                DispatchQueue.main.async {
-                                    _self.imageViewShopAvatar.image = image.resizeImage(targetSize: CGSize(width: 80, height: 80))
-                                }
+                                _self.imageViewShopAvatar.image = image.resizeImage(targetSize: CGSize(width: 80, height: 80))
                             })
                         }
                     }

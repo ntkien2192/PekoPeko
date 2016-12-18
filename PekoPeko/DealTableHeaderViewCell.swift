@@ -56,9 +56,7 @@ class DealTableHeaderViewCell: UICollectionViewCell {
                                 let URL = NSURL(string: avatarUrl)!
                                 let fetcher = NetworkFetcher<UIImage>(URL: URL as URL)
                                 _ = cache.fetch(fetcher: fetcher).onSuccess({ (image) in
-                                    DispatchQueue.main.async {
-                                        _self.imageViewShopAvatar.image = image
-                                    }
+                                    _self.imageViewShopAvatar.image = image
                                 })
                             }
                         }
@@ -80,9 +78,7 @@ class DealTableHeaderViewCell: UICollectionViewCell {
                             let URL = NSURL(string: coverImage)!
                             let fetcher = NetworkFetcher<UIImage>(URL: URL as URL)
                             _ = cache.fetch(fetcher: fetcher).onSuccess({ (image) in
-                                DispatchQueue.main.async {
-                                    _self.imageView.image = image
-                                }
+                                _self.imageView.image = image
                             })
                         }
                     }

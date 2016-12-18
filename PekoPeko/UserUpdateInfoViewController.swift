@@ -219,7 +219,11 @@ class UserUpdateInfoViewController: UIViewController {
                         _self.login()
                     }
                 })
+            } else {
+                login()
             }
+        } else {
+            login()
         }
     }
     

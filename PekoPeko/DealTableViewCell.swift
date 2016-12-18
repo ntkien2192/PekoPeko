@@ -192,42 +192,25 @@ class DealTableViewCell: UITableViewCell {
                     group1ImageView.imageUrls = images
                     
                     groupImageView.addSubview(group1ImageView)
-                    
-                    weak var _self = self
-                    DispatchQueue.main.async {
-                        if let _self = _self {
-                            group1ImageView.translatesAutoresizingMaskIntoConstraints = false
-                            _self.groupImageView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[view]-0-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": group1ImageView]))
-                            _self.groupImageView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[view]-0-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": group1ImageView]))
-                        }
-                    }
+                    group1ImageView.translatesAutoresizingMaskIntoConstraints = false
+                    groupImageView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[view]-0-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": group1ImageView]))
+                    groupImageView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[view]-0-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": group1ImageView]))
 
                     
                 } else if isMoreImage {
                     let groupMoreImageView = GroupMoreImageView(frame: groupImageView.bounds)
                     groupMoreImageView.imageUrls = images
                     groupImageView.addSubview(groupMoreImageView)
-                    
-                    weak var _self = self
-                    DispatchQueue.main.async {
-                        if let _self = _self {
-                            groupMoreImageView.translatesAutoresizingMaskIntoConstraints = false
-                            _self.groupImageView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[view]-0-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": groupMoreImageView]))
-                            _self.groupImageView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[view]-0-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": groupMoreImageView]))
-                        }
-                    }
+                    groupMoreImageView.translatesAutoresizingMaskIntoConstraints = false
+                    groupImageView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[view]-0-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": groupMoreImageView]))
+                    groupImageView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[view]-0-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": groupMoreImageView]))
                 } else {
                     let group3ImageView = Group3ImageView(frame: groupImageView.bounds)
                     group3ImageView.imageUrls = images
                     groupImageView.addSubview(group3ImageView)
-                    weak var _self = self
-                    DispatchQueue.main.async {
-                        if let _self = _self {
-                            group3ImageView.translatesAutoresizingMaskIntoConstraints = false
-                            _self.groupImageView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[view]-0-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": group3ImageView]))
-                            _self.groupImageView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[view]-0-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": group3ImageView]))
-                        }
-                    }
+                    group3ImageView.translatesAutoresizingMaskIntoConstraints = false
+                    groupImageView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[view]-0-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": group3ImageView]))
+                    groupImageView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[view]-0-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": group3ImageView]))
                 }
             }
         }
